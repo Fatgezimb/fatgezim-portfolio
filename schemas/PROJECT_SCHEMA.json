@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Portfolio Project",
+  "type": "object",
+  "required": [
+    "id",
+    "verifiedPublicName",
+    "summary",
+    "role",
+    "demoStory",
+    "uncertaintyFlags"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "verifiedPublicName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "problem": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "audience": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "role": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verifiedOutputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidenceLinks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "privacyNotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "demoStory": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "uncertaintyFlags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

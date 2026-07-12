@@ -1,0 +1,198 @@
+{
+  "owner": {
+    "displayName": "Fatgezim “Zim” Bela",
+    "headline": "VERIFY_IN_REPOSITORY",
+    "summary": "VERIFY_IN_REPOSITORY",
+    "roles": [],
+    "links": []
+  },
+  "projects": [
+    {
+      "id": "neuropath",
+      "verifiedPublicName": null,
+      "aliases": [
+        "NeuroPathLabs",
+        "NeuroPath LLC"
+      ],
+      "status": "verify",
+      "summary": "Behavioral-health learning and product ecosystem; exact public wording must be verified.",
+      "problem": null,
+      "audience": [
+        "ABA professionals",
+        "caregivers"
+      ],
+      "role": null,
+      "methods": [],
+      "verifiedOutputs": [
+        "training catalog",
+        "caregiver learning",
+        "certificate workflow",
+        "public verification"
+      ],
+      "evidenceLinks": [],
+      "privacyNotes": [
+        "Do not expose PHI or client information."
+      ],
+      "demoStory": [
+        "catalog",
+        "module",
+        "knowledge check",
+        "progress/certificate state"
+      ],
+      "uncertaintyFlags": [
+        "exact brand name",
+        "role wording",
+        "current URL",
+        "technology stack"
+      ]
+    },
+    {
+      "id": "beladata",
+      "verifiedPublicName": null,
+      "aliases": [
+        "BelaDataLabs",
+        "Bela Data Lab",
+        "Bela Data Lab Academy"
+      ],
+      "status": "verify",
+      "summary": "Data/product and learning-platform work; exact relationship to NeuroPath must be verified.",
+      "problem": null,
+      "audience": [],
+      "role": null,
+      "methods": [],
+      "verifiedOutputs": [
+        "learning catalog",
+        "caregiver library",
+        "certificate states"
+      ],
+      "evidenceLinks": [],
+      "privacyNotes": [],
+      "demoStory": [
+        "verified strongest workflow from repository"
+      ],
+      "uncertaintyFlags": [
+        "brand hierarchy",
+        "product scope",
+        "current URL",
+        "technology stack"
+      ]
+    },
+    {
+      "id": "rbt-pro-prep",
+      "verifiedPublicName": null,
+      "aliases": [
+        "RBT-Pro Prep",
+        "RBT Competency Prep",
+        "NeuroPathLabs RBT Competency Prep"
+      ],
+      "status": "verify",
+      "summary": "Unofficial RBT competency learning aid organized around 19 tasks.",
+      "problem": "Turn a complex competency checklist into a trackable learning journey.",
+      "audience": [
+        "RBT learners"
+      ],
+      "role": null,
+      "methods": [],
+      "verifiedOutputs": [
+        "19-task competency map",
+        "flashcards",
+        "practice questions",
+        "study guide",
+        "progress concepts"
+      ],
+      "evidenceLinks": [],
+      "privacyNotes": [
+        "No BACB endorsement; no proprietary test-bank copying; no PHI."
+      ],
+      "demoStory": [
+        "task map",
+        "flashcard",
+        "question",
+        "progress update"
+      ],
+      "uncertaintyFlags": [
+        "exact product name",
+        "current feature completion",
+        "current URL"
+      ]
+    },
+    {
+      "id": "rethink-automations",
+      "verifiedPublicName": "Rethink Automations",
+      "aliases": [],
+      "status": "active/local; verify",
+      "summary": "Local operator dashboard and browser automation workflow using Python and Playwright.",
+      "problem": "Make repetitive Rethink workflows reviewable, stateful, and safer to run.",
+      "audience": [
+        "internal operator"
+      ],
+      "role": null,
+      "methods": [
+        "Python",
+        "Playwright",
+        "Chrome CDP",
+        "local state",
+        "browser dashboard"
+      ],
+      "verifiedOutputs": [
+        "program queue",
+        "behavior workflow",
+        "prepare-run confirmation",
+        "run log"
+      ],
+      "evidenceLinks": [],
+      "privacyNotes": [
+        "Use sanitized demo data only."
+      ],
+      "demoStory": [
+        "select item",
+        "prepare run",
+        "confirm page",
+        "simulate run",
+        "show log"
+      ],
+      "uncertaintyFlags": [
+        "exact contribution wording",
+        "supported automation scope"
+      ]
+    },
+    {
+      "id": "caregiver-library",
+      "verifiedPublicName": null,
+      "aliases": [
+        "Bela Caregiver Library",
+        "Caregiver Academy"
+      ],
+      "status": "verify",
+      "summary": "Practical caregiver learning modules, scripts, checks, maps, trackers, and tools.",
+      "problem": "Translate behavioral concepts into warm, practical family routines.",
+      "audience": [
+        "caregivers"
+      ],
+      "role": null,
+      "methods": [],
+      "verifiedOutputs": [
+        "learning modules",
+        "video plan",
+        "routine maps",
+        "interactive tools",
+        "knowledge checks"
+      ],
+      "evidenceLinks": [],
+      "privacyNotes": [
+        "Educational; not individualized care; safety escalation boundaries."
+      ],
+      "demoStory": [
+        "select routine",
+        "open module",
+        "use tool",
+        "generate next-step plan"
+      ],
+      "uncertaintyFlags": [
+        "exact product name",
+        "current public status",
+        "current URL"
+      ]
+    }
+  ]
+}

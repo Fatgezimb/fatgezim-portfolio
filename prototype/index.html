@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Zim Bela — Neuro-Arcade Portfolio Concept</title>
+  <meta name="description" content="Interactive concept prototype for a phase-gated Codex résumé and portfolio rebuild." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Zim Bela portfolio concept home">
+      <span class="brand-mark" aria-hidden="true">ZB</span>
+      <span>
+        <strong>Zim Bela</strong>
+        <small>Portfolio concept prototype</small>
+      </span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#projects">Projects</a>
+      <a href="#depth">Motion</a>
+      <a href="#timeline">Experience</a>
+      <button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false">
+        Reduce motion
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero scene reveal" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Neuroscience · Medicine · Behavior · Data · Software</p>
+        <h1 id="hero-title">
+          Building systems where
+          <span>science becomes useful.</span>
+        </h1>
+        <p class="hero-lede">
+          A concept direction for Fatgezim “Zim” Bela’s résumé and project portfolio:
+          evidence first, then spatial design, interactive app models, and purposeful motion.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Enter project lab</a>
+          <a class="button secondary" href="#timeline">View career path</a>
+        </div>
+        <ul class="signal-list" aria-label="Core domains">
+          <li><span>01</span> Behavioral science</li>
+          <li><span>02</span> Data and automation</li>
+          <li><span>03</span> Medical and neuroscience training</li>
+          <li><span>04</span> Founder-built products</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual" aria-label="Abstract neural and data visualization">
+        <div class="neural-core" data-parallax>
+          <div class="core-orbit orbit-a"></div>
+          <div class="core-orbit orbit-b"></div>
+          <div class="core-orbit orbit-c"></div>
+          <div class="core-sphere">
+            <span class="pulse-dot dot-a"></span>
+            <span class="pulse-dot dot-b"></span>
+            <span class="pulse-dot dot-c"></span>
+            <span class="pulse-dot dot-d"></span>
+          </div>
+        </div>
+        <article class="identity-card depth-card">
+          <span class="card-kicker">PLAYER / FOUNDER / RESEARCHER</span>
+          <h2>Fatgezim “Zim” Bela</h2>
+          <p>Cross-disciplinary builder connecting human behavior, clinical learning, data, and software.</p>
+          <div class="identity-stats">
+            <div><strong>05</strong><span>featured systems</span></div>
+            <div><strong>∞</strong><span>learning loop</span></div>
+            <div><strong>01</strong><span>coherent story</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="phase-banner reveal" aria-labelledby="phase-title">
+      <div>
+        <p class="eyebrow">Codex phase gate</p>
+        <h2 id="phase-title">Structure first. Spectacle second.</h2>
+      </div>
+      <ol class="phase-steps">
+        <li class="active"><span>1</span><strong>Content + layout</strong><small>Build and review</small></li>
+        <li><span>2</span><strong>Visual + motion</strong><small>Only after approval</small></li>
+        <li><span>3</span><strong>QA + deploy</strong><small>Verify everything</small></li>
+      </ol>
+    </section>
+
+    <section id="projects" class="projects-section scene reveal" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Featured project lab</p>
+          <h2 id="projects-title">Hover, focus, or tap to run a miniature workflow.</h2>
+        </div>
+        <p>
+          These local mock models demonstrate the requested interaction pattern.
+          Production versions must be rebuilt from verified project screens and capabilities.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card" tabindex="0" data-project="neuropath">
+          <div class="project-copy">
+            <div class="project-meta"><span>Founder ecosystem</span><span>01</span></div>
+            <h3>NeuroPathLabs</h3>
+            <p>Behavioral-health learning and product systems designed to move knowledge into practical use.</p>
+            <ul class="tag-list"><li>ABA learning</li><li>Training</li><li>Products</li></ul>
+          </div>
+          <div class="demo-stage" aria-label="NeuroPathLabs miniature training workflow">
+            <div class="demo-frame active">
+              <div class="mini-topbar"><span>Training catalog</span><b>12 modules</b></div>
+              <div class="catalog-grid">
+                <span>Caregiver routines</span><span>Behavior foundations</span><span>Team training</span><span>Safety planning</span>
+              </div>
+            </div>
+            <div class="demo-frame">
+              <div class="mini-topbar"><span>Module 04</span><b>62%</b></div>
+              <div class="progress-line"><i style="width:62%"></i></div>
+              <div class="lesson-list"><span class="done">Introduction</span><span class="done">Concept map</span><span>Knowledge check</span></div>
+            </div>
+            <div class="demo-frame">
+              <p class="question-label">Knowledge check</p>
+              <strong>Which support comes before escalation?</strong>
+              <div class="option-grid"><span>Visual cue</span><span>Long lecture</span><span>Delay support</span></div>
+            </div>
+            <div class="demo-frame success-frame">
+              <span class="success-icon">✓</span>
+              <strong>Module complete</strong>
+              <small>Progress recorded · certificate path updated</small>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <button class="demo-play" type="button">Play demo</button>
+            <span>Catalog → module → check → progress</span>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" data-project="beladata">
+          <div class="project-copy">
+            <div class="project-meta"><span>Data + learning platform</span><span>02</span></div>
+            <h3>BelaDataLabs</h3>
+            <p>A product and data layer for turning structured knowledge into clear dashboards, learning paths, and decisions.</p>
+            <ul class="tag-list"><li>Data systems</li><li>Learning UX</li><li>Operations</li></ul>
+          </div>
+          <div class="demo-stage" aria-label="BelaDataLabs miniature data workflow">
+            <div class="demo-frame active">
+              <div class="mini-topbar"><span>Workspace</span><b>Live mock</b></div>
+              <div class="metric-row"><span><b>24</b> sources</span><span><b>08</b> flows</span><span><b>03</b> products</span></div>
+              <div class="bar-chart"><i style="height:30%"></i><i style="height:56%"></i><i style="height:42%"></i><i style="height:78%"></i><i style="height:64%"></i><i style="height:92%"></i></div>
+            </div>
+            <div class="demo-frame">
+              <div class="pipeline">
+                <span>Collect</span><i></i><span>Validate</span><i></i><span>Model</span><i></i><span>Explain</span>
+              </div>
+              <p class="mini-note">Use the actual verified workflow from the repository in production.</p>
+            </div>
+            <div class="demo-frame">
+              <div class="mini-topbar"><span>Decision view</span><b>Ready</b></div>
+              <div class="insight-card"><span>Signal</span><strong>Priority pathway identified</strong><small>Evidence and caveats remain visible.</small></div>
+            </div>
+            <div class="demo-frame success-frame">
+              <span class="success-icon">↗</span>
+              <strong>Insight published</strong>
+              <small>Traceable inputs · clear decision</small>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <button class="demo-play" type="button">Play demo</button>
+            <span>Collect → validate → model → explain</span>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" data-project="rbt">
+          <div class="project-copy">
+            <div class="project-meta"><span>Competency learning</span><span>03</span></div>
+            <h3>RBT-Pro Prep</h3>
+            <p>An unofficial learning product that turns 19 competency tasks into a visible, trackable study path.</p>
+            <ul class="tag-list"><li>19 tasks</li><li>Practice</li><li>Progress</li></ul>
+          </div>
+          <div class="demo-stage" aria-label="RBT-Pro Prep miniature competency workflow">
+            <div class="demo-frame active">
+              <div class="mini-topbar"><span>Competency map</span><b>12 / 19</b></div>
+              <div class="task-map">
+                <span class="done">1</span><span class="done">2</span><span class="done">3</span><span class="current">4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+            </div>
+            <div class="demo-frame flashcard">
+              <small>Task 04 · Flashcard</small>
+              <strong>What makes reinforcement effective?</strong>
+              <span>Tap to reveal</span>
+            </div>
+            <div class="demo-frame">
+              <p class="question-label">Practice question</p>
+              <strong>Which consequence increases future behavior?</strong>
+              <div class="option-grid"><span class="selected">Reinforcement</span><span>Extinction</span><span>Prompt</span></div>
+            </div>
+            <div class="demo-frame success-frame">
+              <div class="progress-ring"><span>68%</span></div>
+              <strong>Progress updated</strong>
+              <small>Unofficial study aid · not BACB endorsed</small>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <button class="demo-play" type="button">Play demo</button>
+            <span>Map → card → question → progress</span>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" data-project="rethink">
+          <div class="project-copy">
+            <div class="project-meta"><span>Browser automation</span><span>04</span></div>
+            <h3>Rethink Automations</h3>
+            <p>A stateful operator dashboard for reviewing, confirming, and monitoring repetitive browser workflows.</p>
+            <ul class="tag-list"><li>Python</li><li>Playwright</li><li>Run logs</li></ul>
+          </div>
+          <div class="demo-stage" aria-label="Rethink Automations miniature workflow">
+            <div class="demo-frame active">
+              <div class="mini-topbar"><span>Behavior queue</span><b>3 pending</b></div>
+              <div class="queue-list"><span><i></i>Communication request</span><span><i></i>Transition routine</span><span><i></i>Waiting plan</span></div>
+            </div>
+            <div class="demo-frame">
+              <div class="confirm-box">
+                <span class="warning-icon">!</span>
+                <strong>Confirm Rethink page</strong>
+                <small>Review scope before starting local automation.</small>
+                <button type="button">Page ready</button>
+              </div>
+            </div>
+            <div class="demo-frame">
+              <div class="mini-topbar"><span>Run log</span><b>Running</b></div>
+              <div class="log-lines"><span class="done">✓ Connected to Chrome</span><span class="done">✓ Loaded queued item</span><span class="running">● Applying supported Step 1 fields</span><span>○ Awaiting result</span></div>
+            </div>
+            <div class="demo-frame success-frame">
+              <span class="success-icon">✓</span>
+              <strong>Supported step complete</strong>
+              <small>Later steps remain manual until verified.</small>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <button class="demo-play" type="button">Play demo</button>
+            <span>Queue → confirm → run → log</span>
+          </div>
+        </article>
+
+        <article class="project-card project-card-wide" tabindex="0" data-project="caregiver">
+          <div class="project-copy">
+            <div class="project-meta"><span>Caregiver learning</span><span>05</span></div>
+            <h3>Bela Caregiver Library</h3>
+            <p>Warm, practical learning tools that translate behavior concepts into routines, scripts, maps, and next steps for families.</p>
+            <ul class="tag-list"><li>Plain language</li><li>Interactive tools</li><li>Safety boundaries</li></ul>
+          </div>
+          <div class="demo-stage" aria-label="Bela Caregiver Library miniature workflow">
+            <div class="demo-frame active">
+              <div class="mini-topbar"><span>Choose a routine</span><b>Library</b></div>
+              <div class="routine-grid"><span>Morning</span><span>Transitions</span><span>Communication</span><span>Bedtime</span></div>
+            </div>
+            <div class="demo-frame">
+              <p class="question-label">Routine map</p>
+              <div class="pipeline caregiver-pipeline"><span>Notice</span><i></i><span>Prompt</span><i></i><span>Reinforce</span><i></i><span>Repeat</span></div>
+            </div>
+            <div class="demo-frame">
+              <div class="plan-card">
+                <small>Tiny next step</small>
+                <strong>Use one visual cue before the transition.</strong>
+                <span>Keep the plan small enough to repeat tomorrow.</span>
+              </div>
+            </div>
+            <div class="demo-frame success-frame">
+              <span class="success-icon">♡</span>
+              <strong>Plan saved locally</strong>
+              <small>Educational support · not individualized care</small>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <button class="demo-play" type="button">Play demo</button>
+            <span>Routine → map → plan → safety note</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="depth" class="depth-section scene reveal" aria-labelledby="depth-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Scroll choreography</p>
+          <h2 id="depth-title">Pop into focus. Recede with context.</h2>
+        </div>
+        <p>
+          A bounded 3D scene can connect project work, research, and career history
+          without taking control away from the reader.
+        </p>
+      </div>
+
+      <div class="depth-stage" data-depth-stage>
+        <div class="depth-grid" aria-hidden="true"></div>
+        <article class="depth-layer layer-back">
+          <span>FOUNDATIONS</span>
+          <strong>Neuroscience · Chemistry · Behavior</strong>
+        </article>
+        <article class="depth-layer layer-mid">
+          <span>SYSTEMS</span>
+          <strong>Data · Software · Automation</strong>
+        </article>
+        <article class="depth-layer layer-front">
+          <span>APPLICATION</span>
+          <strong>Medicine · Learning · Founder Products</strong>
+          <small>Scroll progress controls depth; content remains readable.</small>
+        </article>
+        <div class="depth-axis" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="timeline" class="timeline-section scene reveal" aria-labelledby="timeline-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Career quest map</p>
+          <h2 id="timeline-title">A readable timeline with a spatial second layer.</h2>
+        </div>
+        <p>Exact roles, organizations, dates, and outcomes must come from verified résumé sources.</p>
+      </div>
+      <ol class="timeline">
+        <li>
+          <span class="timeline-year">FOUNDATION</span>
+          <div><h3>Neuroscience and data</h3><p>Build the scientific and technical base.</p></div>
+        </li>
+        <li>
+          <span class="timeline-year">APPLICATION</span>
+          <div><h3>Behavior and clinical systems</h3><p>Translate evidence into practical workflows.</p></div>
+        </li>
+        <li>
+          <span class="timeline-year">FOUNDER MODE</span>
+          <div><h3>Products and platforms</h3><p>Create tools that help people learn, decide, and act.</p></div>
+        </li>
+        <li>
+          <span class="timeline-year">CURRENT QUEST</span>
+          <div><h3>Medicine, research, and integrated systems</h3><p>Connect disciplines without flattening their differences.</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="contact-section scene reveal" aria-labelledby="contact-title">
+      <p class="eyebrow">Final scene</p>
+      <h2 id="contact-title">Make the next step obvious.</h2>
+      <p>Recruiters and collaborators should never have to hunt for the résumé, project evidence, or contact path.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#top">Return to start</a>
+        <a class="button secondary" href="../README_START_HERE.md">Open handoff README</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Concept prototype · July 2026</span>
+    <span>No production claims or private data.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

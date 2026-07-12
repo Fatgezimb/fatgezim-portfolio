@@ -1,0 +1,300 @@
+{
+  "name": "Codex Resume and Interactive Portfolio Handoff",
+  "owner": "Fatgezim “Zim” Bela",
+  "created": "2026-07-10",
+  "phaseGate": "APPROVE PHASE 1",
+  "fileCount": 58,
+  "totalBytes": 9332205,
+  "files": [
+    {
+      "path": ".agents/skills/portfolio-phase-gate/SKILL.md",
+      "bytes": 1791,
+      "sha256": "6fd7af7de59635cd789d39aa26c97517cbf51404397d716e61f3b13d539ecce4"
+    },
+    {
+      "path": ".agents/skills/portfolio-phase-gate/references/action-markers.md",
+      "bytes": 195,
+      "sha256": "555f023e82e4e61bc14b5b10cfd1c9dc9a253dec2d2b3d18f6465b8ff77d1fff"
+    },
+    {
+      "path": ".agents/skills/portfolio-phase-gate/references/approval-gates.md",
+      "bytes": 594,
+      "sha256": "336442c4b8914dc959f1e700f267787ead1921629693df67dd2b0389a7245050"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 3265,
+      "sha256": "7147ef9723ff97b13ae9d8e5af53ddb43158bf83eb621f1cffb7a64c5e51bbaa"
+    },
+    {
+      "path": "CODEX_MASTER_SUBMISSION.md",
+      "bytes": 24792,
+      "sha256": "1d91760902bad264b3322401abb416c5c4fdbf0a1ecdff9b99b87737f737db14"
+    },
+    {
+      "path": "INSTALLATION_AND_SUBMISSION.md",
+      "bytes": 1541,
+      "sha256": "37fd5a3f207f9ae539df3d9932926acc499d94b5c8217891b273e9dc353f37b5"
+    },
+    {
+      "path": "PACKAGE_QA.md",
+      "bytes": 1551,
+      "sha256": "a807dcc2d7362b0b06ec2b997aa74f9a738bb77a25a7b7a89af81360c329bd3d"
+    },
+    {
+      "path": "PLANS.md",
+      "bytes": 2343,
+      "sha256": "0798fbdfda09cd7d562cfad56b3be0af68a33d73c755e13d81ca1cc7f74f52a4"
+    },
+    {
+      "path": "README_START_HERE.md",
+      "bytes": 3243,
+      "sha256": "aabab06a4d6efecab6761ef22e036a79d37adbddea160600872d49970f788c24"
+    },
+    {
+      "path": "SUBMIT_THIS_TO_CODEX.md",
+      "bytes": 1783,
+      "sha256": "cb23305075cdcc452bb2bc4307090f060f54adb6d8d3e2500e19634d49ece5a6"
+    },
+    {
+      "path": "checklists/FINAL_QA_CHECKLIST.md",
+      "bytes": 1090,
+      "sha256": "81185e7ebcd2ea22ad56e202ad3f45ffeac00825aad97f052cd28a100a6ba206"
+    },
+    {
+      "path": "checklists/PHASE_1_REVIEW_CHECKLIST.md",
+      "bytes": 1133,
+      "sha256": "00208ab5b16357e6ef8f0953aaa1055e9463f7388667afe8b99c5bf92866d655"
+    },
+    {
+      "path": "checklists/PHASE_2_REVIEW_CHECKLIST.md",
+      "bytes": 1029,
+      "sha256": "8c883cf35a47a5966e7b6d888296328e6379c31be8237f991c6a161783a7aed3"
+    },
+    {
+      "path": "design/ACCESSIBILITY_AND_PERFORMANCE_RULES.md",
+      "bytes": 1525,
+      "sha256": "9ea5aaad2425bf1bc9a9f87a61ecf113d2d34cd3da954871cfca3b828f48e835"
+    },
+    {
+      "path": "design/DESIGN_SYSTEM_AND_MOTION_SPEC.md",
+      "bytes": 3641,
+      "sha256": "f66b7d9ed074fe153ba60652c7366742b2bbafd932b65e16e6d5ef8321a5d319"
+    },
+    {
+      "path": "design/INTERACTION_STORYBOARDS.md",
+      "bytes": 2271,
+      "sha256": "e184a57176bb9e81f10f8301866dca552dc2a413155b741f65d2c0f0e388cc46"
+    },
+    {
+      "path": "design/PLUGIN_ACTION_MARKERS.md",
+      "bytes": 2702,
+      "sha256": "c6b7c0403b7acdf8aa3573985e9207c64350e53456782c361b43817ab9491218"
+    },
+    {
+      "path": "phase-state.json",
+      "bytes": 338,
+      "sha256": "0de138fb87c4744f066d9180588f078190e5496d5e60fa721845d4a0baa13ff2"
+    },
+    {
+      "path": "project-briefs/CONTENT_FACT_CHECKLIST.md",
+      "bytes": 1564,
+      "sha256": "4853dfe4ec56373f63979e2033e360e90ce9068654b8f461bc348773b4c138bd"
+    },
+    {
+      "path": "project-briefs/FEATURED_PROJECTS.md",
+      "bytes": 5537,
+      "sha256": "03cfd5c0f889672284c98caccdf8c110a81dad9ef9d50f01f40b6ba6867397be"
+    },
+    {
+      "path": "project-briefs/PROJECT_SELECTION_MATRIX.md",
+      "bytes": 1878,
+      "sha256": "6081fc1367ce2f31d1cd07db2d601409b4e98bb592da2446d83a1b5e05f9798f"
+    },
+    {
+      "path": "project-briefs/portfolio-content.seed.json",
+      "bytes": 5120,
+      "sha256": "1531aa86d66c4a46e2fb866a2f3690080d08b741a3fb18147c5d7d6e3941d301"
+    },
+    {
+      "path": "prompts/00_MASTER_ORCHESTRATOR.md",
+      "bytes": 18501,
+      "sha256": "dabf744e35cbd39a4bd72730975b2dc54c420bb8701bf2d6e3760f4921fc989c"
+    },
+    {
+      "path": "prompts/01_PHASE_1_CONTENT_LAYOUT.md",
+      "bytes": 4302,
+      "sha256": "48ed8846a47a955e82929ec9075a31d5237064a1b7f29c443a6608b672abdc9e"
+    },
+    {
+      "path": "prompts/02_APPROVAL_REPLY_TEMPLATE.md",
+      "bytes": 771,
+      "sha256": "43cc673ef0e4fd263bac62ff961ad957d8982e4e4dfbbe3b41c48dc6ac6e916e"
+    },
+    {
+      "path": "prompts/03_PHASE_2_VISUAL_MOTION.md",
+      "bytes": 3014,
+      "sha256": "4b016a40a86b357ea2253a40b83221e6b6d9523bdc3c510fb21189fb9d37fe6a"
+    },
+    {
+      "path": "prompts/04_PHASE_3_QA_DEPLOY.md",
+      "bytes": 2152,
+      "sha256": "9723573d31ba8f9cb537b4102d129391dc83265b5a76ec4e19f5452fbd5499e6"
+    },
+    {
+      "path": "prototype/README.md",
+      "bytes": 685,
+      "sha256": "76b8798a4e499f6973e0997ae9316442e86f2d948252f7509bfa8df8257c1fbf"
+    },
+    {
+      "path": "prototype/index.html",
+      "bytes": 18017,
+      "sha256": "56f90a920000a27c6382729a4f77a3e5b7b66766f3432119abf92145837b9a4c"
+    },
+    {
+      "path": "prototype/script.js",
+      "bytes": 6203,
+      "sha256": "ba2f533f017f569c0c26d9c84bde496b72dc9ad6099099c4601711d4adc3ca7f"
+    },
+    {
+      "path": "prototype/styles.css",
+      "bytes": 28003,
+      "sha256": "5fe2c3d08fc64d75e7fe79bd5cc5a75543288ec9cc2080d667ba85e69ae2af83"
+    },
+    {
+      "path": "schemas/CONTENT_INVENTORY_TEMPLATE.json",
+      "bytes": 327,
+      "sha256": "57b7497144b561dfa3050bf8d84bd521ce31da1028695443d7609f2187bbce88"
+    },
+    {
+      "path": "schemas/PHASE_STATE_TEMPLATE.json",
+      "bytes": 338,
+      "sha256": "0de138fb87c4744f066d9180588f078190e5496d5e60fa721845d4a0baa13ff2"
+    },
+    {
+      "path": "schemas/PROJECT_SCHEMA.json",
+      "bytes": 1488,
+      "sha256": "6c09e491ee8a6ad5c006648f1d8ea986ce8b393151d0b7bbef6f2ce61f0b9b1f"
+    },
+    {
+      "path": "scripts/serve-prototype.sh",
+      "bytes": 111,
+      "sha256": "f6b6e82bc211d0799af069c59309fcd9fd659d85b8f6433edab95372b1c9a6de"
+    },
+    {
+      "path": "scripts/validate-pack.py",
+      "bytes": 1411,
+      "sha256": "3658d321f0838e875f5627fb935ec73845d74b0963f7b22f38481bce47ee7895"
+    },
+    {
+      "path": "sources/CODEX_SETUP_NOTES.md",
+      "bytes": 1432,
+      "sha256": "fa7964f12f7cafba31bfe445ed56d6ceb78d8453356714a34c3212ca9d1054f8"
+    },
+    {
+      "path": "sources/SOURCE_NOTES.md",
+      "bytes": 1006,
+      "sha256": "9803365b0a8b6e583d5524c025d4970990727d48cdd3882f802d3c6dcdb1daf3"
+    },
+    {
+      "path": "visuals/ALT_TEXT.md",
+      "bytes": 1350,
+      "sha256": "811f1eb3233f05e90f9a78ba6c03356d60adcc03a6a51dbf3aa6aaed1dc58672"
+    },
+    {
+      "path": "visuals/ASSET_USAGE_NOTES.md",
+      "bytes": 584,
+      "sha256": "1a0e74947b428910616f6064109058042f6f3d9483d717aef08bad0df507e539"
+    },
+    {
+      "path": "visuals/README.md",
+      "bytes": 1219,
+      "sha256": "38f776a307d2cd523d2af5cdd682eb80eb9ca0e91f5965fb2736555af3b7d0eb"
+    },
+    {
+      "path": "visuals/generated-concepts/concept-board-01.png",
+      "bytes": 1918185,
+      "sha256": "86fed315df256f2117029b40fc6b77e27eebe0a7fa7adca00f797e053ac8805b"
+    },
+    {
+      "path": "visuals/generated-concepts/concept-board-02.png",
+      "bytes": 2069697,
+      "sha256": "0fc7237fe5d1dbf85ac859b19d9d02b2fb66cfdb87bf592a1ce4c3a972eea90f"
+    },
+    {
+      "path": "visuals/index.html",
+      "bytes": 4019,
+      "sha256": "d38cf96d97047a64af61a4d8a43cbc9631e7761641efaf5655b18ad71816462e"
+    },
+    {
+      "path": "visuals/markups/01_desktop_content_layout.png",
+      "bytes": 165028,
+      "sha256": "2b51affede707cc622c54731866a07a4b24006ba4b219aedcb0cb49347a521c1"
+    },
+    {
+      "path": "visuals/markups/01_desktop_content_layout.svg",
+      "bytes": 9296,
+      "sha256": "939fe946f206d8f3118e88138bbb3591b9f5c3072b6de11b66efc622b5d8b845"
+    },
+    {
+      "path": "visuals/markups/02_project_hover_storyboard.png",
+      "bytes": 138838,
+      "sha256": "93cc3f647c814a1f3565eaae1c54845f95719e189e8eda5cfb74b4b2292430bb"
+    },
+    {
+      "path": "visuals/markups/02_project_hover_storyboard.svg",
+      "bytes": 9307,
+      "sha256": "6c0db065cc4d484d0ca8b53961d0505ab86512cf219eeb931b5eef6cf45cace2"
+    },
+    {
+      "path": "visuals/markups/03_scroll_3d_motion_map.png",
+      "bytes": 167125,
+      "sha256": "719da3607d8eae0cac0a4d03bd2ad42a990d29f8e8b1eb5c0ba88ab634833e3f"
+    },
+    {
+      "path": "visuals/markups/03_scroll_3d_motion_map.svg",
+      "bytes": 7491,
+      "sha256": "8c244010c7f9d3d38ed7331b96d942fb0fec10a0bfb3473709228446c2d97055"
+    },
+    {
+      "path": "visuals/markups/04_mobile_layout.png",
+      "bytes": 130085,
+      "sha256": "0d3664075be600dab0f314ede598482506573ff50dd5ddea2776e49550511aae"
+    },
+    {
+      "path": "visuals/markups/04_mobile_layout.svg",
+      "bytes": 9046,
+      "sha256": "1d9f69e5d36f2091de9212331bb80471d2c3b32cdbd292d4bc6e9f066af07820"
+    },
+    {
+      "path": "visuals/renders/01_ecosystem_hero_concept.png",
+      "bytes": 808111,
+      "sha256": "0a11a4e5e5ca73a764e61397896ea2d4424cb617d49818399d6e721b74992155"
+    },
+    {
+      "path": "visuals/renders/02_project_dashboard_concept.png",
+      "bytes": 734146,
+      "sha256": "cd19b3a954d2357ca5bf7789061596dc6a3254baeb7d0821384218db9e965724"
+    },
+    {
+      "path": "visuals/renders/03_hover_3d_preview_concept.png",
+      "bytes": 927074,
+      "sha256": "349c29903c234eb52d629bb1193bdb7c990555ba8b4897329d6eaa872df3cbbb"
+    },
+    {
+      "path": "visuals/renders/04_responsive_product_screens_concept.png",
+      "bytes": 753464,
+      "sha256": "e7d41607cb74a98c324dc557a2c777da1c2691bc9309a8eac48ad4f1ac3fcc81"
+    },
+    {
+      "path": "visuals/renders/05_motion_vocabulary_concept.png",
+      "bytes": 610516,
+      "sha256": "8997afea5ce2c0bb09fdab13a93f1dd7abc9753c3eb17fc1cd9feb455437f0d1"
+    },
+    {
+      "path": "visuals/renders/06_phase_gate_concept.png",
+      "bytes": 710937,
+      "sha256": "ade02037636fc02e30060d627ede2d505cc6a8b5e1ae30dc0074ffec2fb7edc4"
+    }
+  ]
+}
