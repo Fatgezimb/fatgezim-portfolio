@@ -4,14 +4,14 @@ Maintain a working copy of this plan and update `phase-state.json` as work progr
 
 ## Phase 0 — Repository audit and evidence
 
-- [ ] Read `AGENTS.md`, all prompt files, and project briefs.
-- [ ] Inventory framework, routes, components, data, assets, styles, tests, and deployment.
-- [ ] Inventory résumé content and identify conflicts.
-- [ ] Inventory all projects and supporting evidence.
-- [ ] Score projects using `project-briefs/PROJECT_SELECTION_MATRIX.md`.
-- [ ] Identify exact brand names and URLs.
-- [ ] Identify risks, missing data, and build constraints.
-- [ ] Create a reversible Git checkpoint when permitted.
+- [x] Read `AGENTS.md`, all prompt files, and project briefs.
+- [x] Inventory framework, routes, components, data, assets, styles, tests, and deployment.
+- [x] Inventory résumé content and identify conflicts.
+- [x] Inventory all projects and supporting evidence.
+- [x] Score projects using `project-briefs/PROJECT_SELECTION_MATRIX.md`.
+- [x] Identify exact brand names and URLs.
+- [x] Identify risks, missing data, and build constraints.
+- [x] Create a reversible Git checkpoint when permitted.
 
 ## Phase 1 — Content and static layout only
 

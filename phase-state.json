@@ -1,13 +1,18 @@
 {
   "project": "Fatgezim Zim Bela Resume Portfolio",
   "phase": 0,
-  "phaseName": "Not started",
+  "phaseName": "Phase 0 complete — ready for Phase 1",
   "phase1Approved": false,
   "approvalPhraseRequired": "APPROVE PHASE 1",
-  "lastUpdated": null,
-  "evidenceInventoryComplete": false,
+  "lastUpdated": "2026-07-12",
+  "evidenceInventoryComplete": true,
   "contentLayoutComplete": false,
   "visualMotionComplete": false,
   "qaComplete": false,
-  "notes": []
+  "notes": [
+    "Phase 0 repository, resume, project, public-link, conflict, and weighted-ranking audits are documented under docs/portfolio/.",
+    "Imported starter and handoff pack baseline checkpoint: 5cbacb0.",
+    "Phase 1 must use neutral placeholders for unresolved facts listed in docs/portfolio/conflicts-and-questions.md.",
+    "Phase 2 remains blocked until the owner sends the exact phrase APPROVE PHASE 1."
+  ]
 }
