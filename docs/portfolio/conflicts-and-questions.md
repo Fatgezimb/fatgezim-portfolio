@@ -1,120 +1,132 @@
 # Phase 0 Conflicts and Owner Decisions
 
-Status: Complete conflict log
+Status: Owner-reconciled; only true residual questions remain
 
 Audit date: July 12, 2026
 
-Phase 0 is not blocked by these questions. Phase 1 can proceed with neutral placeholders or omissions, but final Phase 1 approval should resolve the high-priority items below.
+Owner reconciliation date: July 13, 2026
 
-## High-priority owner confirmations
+Owner confirmation source: owner-provided confirmation received July 13, 2026 in the current Codex task; the local attachment is not copied into the repository.
 
-| # | Decision required | Evidence conflict | Safe Phase 1 default if unanswered |
-|---:|---|---|---|
-| 1 | Ross degree, current status, and expected completion | B26 says May 2027; R26 says May 2028. | Say only `Medical education, Ross University School of Medicine`; omit expected date. |
-| 2 | B.S. Neuroscience conferral year | Sources alternate between 2017 and 2018. | Show the degree without a year or omit pending confirmation. |
-| 3 | Exact current BCBA employer/title | R26 displays `Achievements` and a BCBA role, but the employer wording may be shortened. | Use `Board Certified Behavior Analyst` without naming the employer. |
-| 4 | Active BCBA and state-license details | Current résumé claims NC/VA/NY; primary registry details are incomplete. | Use BCBA only if registry/owner confirmation is supplied; omit state-license list. |
-| 5 | 1331 Recordz versus IronGlassByte | Both appear as January 2022–present data/software employers in different resumes. | Omit the organization until relationship/rename is explained. |
-| 6 | Connex title and dates | 2017–2022 Data Analyst–Behavior Technician versus 2019–2021 ABA Technician. | Use organization and ABA experience without dates/title in draft data; flag visibly in review report. |
-| 7 | ABC/Hi-Five relationship and dates | 2018, 2019, and stale `Present` end dates appear. | Use R26 wording provisionally: ABA Technician, 2017–2019. |
-| 8 | TMCI role | R23 lists Data Engineer, October 2022–January 2023; newer resumes omit it. | Omit until confirmed. |
-| 9 | Boston University program status | Public BU profile lists Master's in Anatomy & Neurobiology; resumes omit it. | Omit; do not imply completion. |
-| 10 | Exact professional headline | Sources emphasize data/blockchain, data/software, or BCBA/medicine. | Draft two factual options for owner review; publish neither as final until approved. |
-| 11 | Public contact choices | Newer and older emails differ; phone is present; legacy site has outdated social links. | Use LinkedIn and GitHub; keep email placeholder; omit phone. |
-| 12 | Safe downloadable resume | Current PDF needs factual cleanup; deployed PDF contains address data. | Provide print CSS and label PDF download `pending verified resume`. |
-| 13 | Exact founder/current company title | Project evidence supports co-building products, but current personal title is not explicit. | Use `Co-builder` or describe work without a title until owner confirms `Founder`/`Co-founder`/`Owner`. |
+The owner confirmation resolves the public treatment of the conflicts below. Earlier source disagreements remain recorded as an audit trail; they are not permission to reintroduce superseded wording. When the owner directed an omission, Phase 1 must omit the item rather than choosing the most favorable historical version.
 
-## Experience conflicts
+## Resolved résumé and experience decisions
 
-| Item | Conflicting sources | Required resolution |
+| # | Prior conflict or question | Owner-confirmed Phase 1 treatment |
+|---:|---|---|
+| 1 | Ross sources alternated between expected completion in 2027 and 2028 and did not use a consistent degree label. | Use `Doctor of Medicine Candidate, Ross University School of Medicine, expected 2028`. Where space is limited, use `Medical education, Ross University School of Medicine`. `Medical Student` is preferred in narrative copy. Zim is completing requirements leading into the clinical phase, including USMLE Step 1; do not imply that Step 1 has been passed or that the clinical phase has begun. Never use `MD` alone or imply that the degree has been earned. |
+| 2 | B.S. Neuroscience sources alternated between 2017 and 2018. | Use `B.S. in Neuroscience, George Mason University, 2018`. |
+| 3 | R26 named a possible current employer and exact month; B26 did not. | Publicly use `Board Certified Behavior Analyst` and state that Zim has worked as a BCBA since 2025. Do not publish a current employer, city, or exact start month until the role is finalized. |
+| 4 | BCBA and state-license wording lacked an approved public policy. | Publish `M.Ed.`, `BCBA`, and `Licensed Behavior Analyst in Virginia, North Carolina, and New York`. Never publish license, provider, certification, or certificate identification numbers, expiration dates, or other private credential identifiers. |
+| 5 | `1331 Recordz` and `IronGlassByte` appeared in the same date range and were previously treated as possible aliases. | They are not interchangeable and must not be assumed to be the same organization. Omit both organization names, associated titles, and disputed dates from the current public résumé. Data science and software engineering experience may be described without attaching it to either employer. |
+| 6 | Connex sources disagreed on dates and on `ABA Technician` versus a combined `Data Analyst–Behavior Technician` title. | Use only `Earlier applied behavior analysis experience at Connex Family Services` in the Phase 1 draft. Keep exact title and dates out of public copy until confirmed. |
+| 7 | ABC/Hi-Five sources used multiple names and end dates, including stale `Present`. | Use `ABA Technician, 2017–2019` provisionally. Never use `Present`. Keep the official employer name, the ABC/Hi-Five relationship, and precise end date unresolved. |
+| 8 | R23 used `TMCI`; newer résumés omitted the role. | Provisionally use `Data Engineer, The McVay Company, Inc., October 2022–January 2023`. Do not mention clients, agencies, security clearance, or specific government systems without separate evidence. |
+| 9 | A public Boston University profile existed without completion status. | Omit Boston University and the Anatomy & Neurobiology master's program. Do not imply that the degree was completed. |
+| 10 | Sources emphasized different professional identities. | Primary headline: `BCBA, Medical Student, Data Scientist, and Founder Building Technology for Behavioral Health`. Approved short version: `Behavioral Health Clinician, Medical Student, and Technology Founder`. |
+| 11 | Emails differed, a phone appeared in résumés, and the legacy site contained outdated social links. | Publish GitHub, LinkedIn, and the owner-approved public email `fatgezimbela1@gmail.com`. Do not publish a phone number or home/mailing address. Remove or replace outdated social-media links. |
+| 12 | Founder/co-founder wording and sole-authorship implications were unresolved. | Use `Founder and Co-builder` for the portfolio of companies and products. Use `Founder, NeuroPath LLC` for NeuroPath. For Bela Data Lab products jointly built with Meili Bela, use `Co-founder and Co-builder`; never imply sole ownership or sole authorship. |
+| 13 | Education and training labels varied across sources. | Use `M.Ed. in Special Education, George Mason University, 2020`; `Graduate Certificate in Applied Behavior Analysis, George Mason University, 2020`; `B.S. in Neuroscience, George Mason University, 2018`; and the Ross wording in decision 1. The ABA graduate certificate is education, not a separate professional license. |
+| 14 | Historical GWU, engineering-diploma, and QBS/safety items lacked exact or current support. | Omit the GWU full-stack program and engineering diploma until official names/status/dates are verified. Omit QBS and safety training unless current documentation is supplied. |
+| 15 | Historical research sources combined roles, labs, project names, performance claims, and award language. | Use `Research experience in computational neuroscience and neuroimaging at George Mason University` without turning all activities into one formal job title. Mention methods only when directly supported. Omit exact lab affiliations, project names, results, metrics, awards, publications, and performance improvements until artifacts are supplied. |
+| 16 | GMU chemistry, Mil-Tek, ICSM, and Commonwealth Laminating and Coating were historical candidates with incomplete or disputed details. | Omit GMU chemistry from the main portfolio pending verification. Omit Mil-Tek and Commonwealth Laminating and Coating from the modern résumé unless a later application needs comprehensive history. Omit ICSM until organization, role, and dates are confirmed; never publish supervisor names without permission. |
+| 17 | The old downloadable résumé contains address data and unresolved claims. | Do not link it. Until a newly generated, manually reviewed résumé is approved, display `Verified résumé download coming soon`. The future file must contain no street address or phone number and must exclude unresolved employers and research claims. |
+
+## Residual questions
+
+These are the only factual follow-ups still relevant to the current Phase 1 content. Items the owner explicitly ordered omitted are not Phase 1 blockers.
+
+1. What current BCBA employer, city/availability wording, exact title, and start month may be published later? Until answered, use only `Board Certified Behavior Analyst` and `since 2025`.
+2. What are the exact Connex title and dates? Until answered, use only the approved general experience statement.
+3. What is the official ABC/Hi-Five employer name, how were the organizations related, and what was the precise end date? Until answered, use `ABA Technician, 2017–2019` provisionally.
+4. What is the relationship between 1331 Recordz and IronGlassByte, and what titles/dates are correct? Both remain omitted.
+5. What supporting artifact establishes any specific computational-neuroscience project name, lab affiliation, result, award, poster, presentation, publication, or performance claim? Specific claims remain omitted.
+6. What repository, model, dataset, and contribution evidence supports Spinal Fracture Detection? It may appear only as clearly labeled experimental or archived work after evidence review.
+7. What repository, team, purpose, and contribution evidence supports Project Cleo? It remains omitted.
+8. What specific contribution did Zim make to ABA Teaching Strategies Training? Meili Bela remains credited as creator; no Zim contribution is stated until documented.
+9. Has the new sanitized résumé received manual owner approval? The download control remains inactive until it has.
+
+## Experience publication matrix
+
+| Experience | Audit trail | Approved public treatment |
 |---|---|---|
-| Current BCBA role | R26 adds April 2025–present; B26 lacks it. | Confirm full employer, exact title, start date, and whether location should be public. |
-| Connex Family Services | R22/R23: Data Analyst–Behavior Technician, May 2017–January 2022. R26/B26: ABA Technician, August 2019–January 2021. | Choose the accurate role segmentation and dates. |
-| ABC Behavior / Hi-Five | D19: May 2017–October 2018. R26/B26: May 2017–August 2019. Legacy site: `Present`. | Confirm official employer naming and end date. |
-| GMU research | Broad 2014–2017 `Researcher` versus specific Spring 2017 CN3/Krasnow Research Assistant. | Confirm whether multiple roles are being combined. |
-| GMU chemistry | D19 lists a chemistry teaching/research role, later sources omit it. | Confirm title/dates and whether it belongs in the modern portfolio. |
-| Mil-Tek | Historical sources disagree on title scope/end date; later resumes omit it. | Confirm before inclusion. |
-| ICSM Medical Center | Historical internship only. | Confirm public organization name and exact role. Do not publish supervisor names. |
-| Commonwealth Laminating and Coating | Historical supply-chain internship only. | Confirm employer/title/dates if retained. |
+| Current BCBA work | R26 added April 2025–present; B26 lacked it; employer wording was uncertain. | `Board Certified Behavior Analyst` and `since 2025`; omit employer, city, and exact month. |
+| Data science and software engineering | R26/B26 used 1331 Recordz; R22/R23 used IronGlassByte for overlapping dates. | Describe the broader experience without either organization, title, or disputed dates. |
+| The McVay Company, Inc. | R23 used TMCI and newer résumés omitted it. | `Data Engineer, The McVay Company, Inc., October 2022–January 2023` provisionally; no client/government-system claims. |
+| Connex Family Services | Sources disagree on title and dates. | `Earlier applied behavior analysis experience at Connex Family Services`; no dates or exact title. |
+| ABC / Hi-Five | Historical sources disagree on legal/public name and end date. | `ABA Technician, 2017–2019` provisionally; no `Present`. |
+| George Mason University research | Sources combine broad research dates with a narrower neuroscience activity. | `Research experience in computational neuroscience and neuroimaging at George Mason University`; do not present the combined history as one formal role. |
+| GMU chemistry | Historical source only. | Omit from the main portfolio pending title/date evidence. |
+| Mil-Tek | Historical sources disagree on title scope and end date. | Omit from the modern résumé and portfolio unless comprehensive history is later required. |
+| ICSM Medical Center | Historical source only. | Omit pending official organization, role, and date verification; never publish a supervisor name. |
+| Commonwealth Laminating and Coating | Historical source only. | Omit unless relevant to a later application and verified first. |
 
-## Education and credential conflicts
+## Education and credential publication matrix
 
-| Item | Evidence | Decision |
+| Item | Owner-confirmed public wording | Boundary |
 |---|---|---|
-| M.Ed. | Current resumes and official GMU publication support Special Education, 2020. | Confirm preferred format: `M.Ed. in Special Education, 2020`. |
-| ABA graduate certificate | Historical resumes and public profile support 2019–2020; current resume omits it. | Confirm inclusion and exact credential wording. |
-| B.S. Neuroscience | Degree title is stable; year is not. | Resolve 2017 versus 2018. |
-| Ross medical education | 2027 versus 2028 expected completion. | Confirm exact degree and current enrollment. |
-| BU Anatomy & Neurobiology | Public program profile exists; status unknown. | State completed/transferred/withdrawn/current, or omit. |
-| GWU full-stack program | Historical only. | Confirm official certificate name/date if included. |
-| Engineering diploma | Historical only. | Confirm official school/diploma wording if included. |
-| QBS/safety training | Historical, no current validity. | Omit unless active evidence is supplied. |
+| M.Ed. | `M.Ed. in Special Education, George Mason University, 2020` | Approved. |
+| ABA graduate certificate | `Graduate Certificate in Applied Behavior Analysis, George Mason University, 2020` | Education/training, not a professional license. |
+| B.S. | `B.S. in Neuroscience, George Mason University, 2018` | Supersedes the 2017 date in R26. |
+| Medical education | `Doctor of Medicine Candidate, Ross University School of Medicine, expected 2028` | Prefer `Medical Student` in narrative copy; never imply the degree is complete. |
+| BCBA | `BCBA` / `Board Certified Behavior Analyst` | Public role may say `since 2025`; no certification number or expiration data. |
+| State licenses | `Licensed Behavior Analyst in Virginia, North Carolina, and New York` | No license numbers, provider identifiers, expiration dates, or other private identifiers. |
+| Boston University | Omit | Never imply completion. |
+| GWU full-stack program | Omit | Reconsider only with official program name, completion status, and date. |
+| Engineering diploma | Omit | Reconsider only with verified school, credential name, and date. |
+| QBS/safety training | Omit | Reconsider only if current and documented. |
 
-## Research, award, and publication questions
+## Research, award, and publication treatment
 
-Do not publish the following until the owner supplies supporting artifacts:
+Approved public wording is limited to research experience in computational neuroscience and neuroimaging at George Mason University. Methods may be mentioned only when directly supported by source material.
 
-1. The exact lab/project name and dates for computational neuroscience work.
-2. Code, poster, abstract, program, or institutional page for the neuron-reconstruction project.
-3. Evidence for the `weeks to hours` workflow claim.
-4. Exact name, issuer, and date of the claimed outstanding research poster award.
-5. Exact scholarship and Dean's List records.
-6. Repository/data/model evidence for Spinal Fracture Detection.
-7. Repository/team/contribution evidence for Project Cleo.
-8. Any publication, DOI, presentation, dataset, or research finding proposed for the site.
+Continue to omit until supporting artifacts are supplied:
 
-Until then:
+1. The neuron-reconstruction project name, exact lab affiliation, workflow, results, and claimed `weeks to hours` improvement.
+2. Any research-poster award, including title, issuer, event, or date.
+3. Scholarships and Dean's List claims.
+4. Spinal Fracture Detection as a completed or validated project.
+5. Project Cleo.
+6. Any publication, formal presentation, dataset, DOI, research finding, or peer-reviewed result.
 
-- use no performance metrics,
-- call the work `research experience` rather than a publication,
-- state methods only when supported,
-- omit awards and results.
+No performance metrics, generated results, or clinical efficacy implications may be introduced.
 
-## Brand and project-name resolutions
+## Resolved brand and project names
 
-| Pack wording | Evidence-backed resolution | Remaining confirmation |
+| Prior pack wording | Owner-confirmed public treatment |
+|---|---|
+| NeuroPathLabs / NeuroPath LLC | Legal entity: `NeuroPath LLC`. Public-facing label: `NeuroPath`. Domain: `neuropathlabs.com`. Use `NeuroPathLabs` only for the domain or an established digital handle, not as the legal entity name. |
+| BelaDataLabs / Bela Data Lab | Use `Bela Data Lab` as the primary company- and product-facing brand. Retire `BelaDataLabs` from ordinary copy except where an unchanged domain, repository, account name, or technical identifier requires it. |
+| Bela Caregiver Library / Caregiver Academy | Full name: `Bela Data Lab Caregiver Academy`. Short navigation/card name: `Caregiver Academy`. `Bela Caregiver Library` is only an earlier internal/development name. |
+| RBT-Pro Prep / RBT Competency Prep | Use only `RBT Practice Hub` publicly. Old aliases may appear only in a private development-history case study. |
+| NeuroPath training/certificate system | Treat as archived or historical product-development work, not the current public launch product. |
+
+## Confirmed project roles and boundaries
+
+| Project | Owner-confirmed role | Required boundary |
 |---|---|---|
-| NeuroPathLabs / NeuroPath LLC | Legal entity: `NeuroPath LLC`; current company label: `NeuroPath`; domain: `neuropathlabs.com`. | Confirm preferred display label in the personal portfolio. |
-| BelaDataLabs / Bela Data Lab Academy | Product brand: `Bela Data Lab`; current caregiver product: `Bela Data Lab Caregiver Academy`. | Confirm whether `BelaDataLabs` should be retired entirely. |
-| RBT-Pro Prep / RBT Competency Prep | Current public product: `RBT Practice Hub`. | Confirm that old names should not appear as aliases publicly. |
-| Bela Caregiver Library / Caregiver Academy | Current public product: `Bela Data Lab Caregiver Academy`. | Confirm preferred short label for navigation/cards. |
-| NeuroPath training/certificate system | Archived, not the current public launch surface. | Use only as historical/archived work if relevant. |
+| NeuroPath | `Founder, NeuroPath LLC` | Public brand is `NeuroPath`; do not substitute the domain handle for the legal entity. |
+| Bela Behavior Data Lab | `Co-founder and Co-builder` | Credit both Meili Bela and Fatgezim “Zim” Bela. |
+| Bela Data Lab Caregiver Academy | `Co-founder, Product Builder, and BCBA Contributor` | Do not imply that Zim independently created all clinical or educational content. |
+| RBT Practice Hub | `Founder and Product Builder` | Do not use the retired public aliases. |
+| StepSpark | `Creator and Product Builder` | Keep medical-learning claims evidence-bounded. |
+| Role Atlas | `Creator and Product Builder` | Describe only supported workflows and status. |
+| Rethink Automations | `Creator and Developer` | Describe as a local workflow-automation project. Never show real client information, PHI, authenticated screens, or private operational data. |
+| NeuroPath Insight and PracticeOS | `Private product concept and internal prototype` | Use synthetic demonstrations, label simulated data, and never imply active customers or real clinical outcomes. |
+| ABA Teaching Strategies Training | Meili Bela is the creator. | Do not claim Zim ownership or contribution until the specific contribution is documented. |
 
-## Project role questions
+## Privacy and omission decisions
 
-- Bela Behavior Data Lab explicitly credits Meili Bela and Fatgezim “Zim” Bela as builders. Confirm the preferred individual role label.
-- Caregiver Academy, RBT Practice Hub, StepSpark, Role Atlas, and other repositories show Zim's ownership/authorship, but most do not state a formal role title.
-- Rethink Automations is strongly associated with Zim but lacks an explicit contribution statement.
-- NeuroPath Insight and PracticeOS are private/internal and require carefully bounded, synthetic portfolio treatment.
-- ABA Teaching Strategies Training explicitly credits Meili Bela as creator. Do not present it as Zim-owned work without a verified supporting contribution.
+These decisions are final for Phase 1 and do not need additional confirmation:
 
-## Privacy decisions already made
+- Publish only the approved public email, GitHub, and LinkedIn contact paths.
+- Never publish a phone number or home/mailing/street address.
+- Never publish PHI, client information, therapy records, private exports, authenticated clinical-platform screenshots, or real Rethink data.
+- Never publish license, provider, certification, or certificate identification numbers or expiration details.
+- Never use fabricated project metrics, generated concept metrics, or unverified awards, publications, results, and performance claims.
+- Clearly distinguish completed work, active products, archived work, internal prototypes, and future concepts.
+- When a fact remains unresolved, omit it rather than selecting the most impressive historical version.
 
-These do not need additional confirmation:
+## Audit-trail note
 
-- Never publish any personal street address found in older resumes.
-- Never publish PHI, client names, therapy records, private operational exports, or authenticated screenshots.
-- Never publish private license/provider/certification identifiers.
-- Never use real Rethink data in screenshots or demos.
-- Never use generated concept metrics as project facts.
-- Keep phone off the public site unless the owner explicitly opts in.
-
-## Requested owner response format
-
-The owner can resolve these incrementally during Phase 1. A concise response can use:
-
-```text
-CONFIRM RESUME FACTS:
-1. Ross degree/status/date:
-2. B.S. conferral year:
-3. Current BCBA employer/title/date:
-4. Credentials/licenses to publish:
-5. 1331 Recordz vs IronGlassByte:
-6. Connex dates/title:
-7. ABC/Hi-Five dates/name:
-8. TMCI:
-9. BU program status:
-10. Preferred headline:
-11. Public email/phone choices:
-12. Preferred company/founder title:
-```
+The underlying source disagreements remain documented in the Phase 0 source register and résumé extracts. The July 13 owner confirmation governs public wording. A future change must add new evidence or a new explicit owner decision; it should not silently restore a superseded résumé value.

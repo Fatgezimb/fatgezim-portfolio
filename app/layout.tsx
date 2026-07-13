@@ -13,8 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Starter Project",
-  description: "A clean starting point for building your site.",
+  title: {
+    default: "Fatgezim “Zim” Bela",
+    template: "%s | Fatgezim “Zim” Bela",
+  },
+  description:
+    "Behavioral health clinician, medical student, data scientist, and founder building practical technology.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

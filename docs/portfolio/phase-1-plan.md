@@ -1,6 +1,8 @@
 # Actionable Phase 1 Plan
 
-Status: Ready to begin after Phase 0
+Status: Completed July 13, 2026 — awaiting owner approval
+
+Completion evidence: `docs/portfolio/phase-1-report.md`
 
 Phase 1 scope: Content, information architecture, copy, and static responsive layout only.
 

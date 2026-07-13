@@ -15,16 +15,16 @@ Maintain a working copy of this plan and update `phase-state.json` as work progr
 
 ## Phase 1 — Content and static layout only
 
-- [ ] Create structured résumé/project data.
-- [ ] Write factual, concise copy.
-- [ ] Select the strongest featured projects.
-- [ ] Define section order and user journeys.
-- [ ] Build semantic static components.
-- [ ] Build responsive desktop and mobile layouts.
-- [ ] Add static placeholders for future visual and motion elements.
-- [ ] Produce screenshots and an owner review report.
-- [ ] Run Phase 1 checks.
-- [ ] Stop for owner approval.
+- [x] Create structured résumé/project data.
+- [x] Write factual, concise copy.
+- [x] Select the strongest featured projects.
+- [x] Define section order and user journeys.
+- [x] Build semantic static components.
+- [x] Build responsive desktop and mobile layouts.
+- [x] Add static placeholders for future visual and motion elements.
+- [x] Produce screenshots and an owner review report.
+- [x] Run Phase 1 checks.
+- [x] Stop for owner approval.
 
 ### Phase 1 hard stop
 
