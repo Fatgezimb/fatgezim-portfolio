@@ -1,0 +1,333 @@
+.section {
+  isolation: isolate;
+}
+
+.founderLayout {
+  display: grid;
+  grid-template-columns: minmax(20rem, 1.08fr) minmax(0, 0.92fr);
+  gap: clamp(1.2rem, 4vw, 2.6rem);
+  align-items: start;
+}
+
+.ecosystemMap {
+  position: relative;
+  min-height: 32rem;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(66, 102, 116, 0.66);
+  border-radius: 50% 1.2rem 50% 1.2rem / 8% 1.2rem 8% 1.2rem;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(117, 228, 211, 0.13), transparent 9rem),
+    radial-gradient(circle at 20% 20%, rgba(116, 199, 245, 0.07), transparent 16rem),
+    linear-gradient(rgba(117, 228, 211, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(117, 228, 211, 0.03) 1px, transparent 1px),
+    rgba(7, 17, 24, 0.88);
+  background-size: auto, auto, 32px 32px, 32px 32px, auto;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.035),
+    0 28px 68px rgba(0, 0, 0, 0.25);
+}
+
+.ecosystemMap figcaption {
+  position: absolute;
+  z-index: 3;
+  top: 1.1rem;
+  left: 1.2rem;
+  color: var(--text-muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.ecosystemConnections {
+  position: absolute;
+  z-index: 0;
+  inset: 3rem 0 0;
+  width: 100%;
+  height: calc(100% - 3rem);
+  pointer-events: none;
+}
+
+.ecosystemConnections path {
+  fill: none;
+  stroke: rgba(117, 228, 211, 0.38);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  stroke-width: 1.4;
+}
+
+.ecosystemConnections circle {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 9px rgba(117, 228, 211, 0.88));
+}
+
+.section[data-reveal-state="visible"] .ecosystemConnections path {
+  animation: map-trace 880ms var(--ease-out) 160ms both;
+}
+
+.ecosystemNode {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  min-width: 10rem;
+  min-height: 5.3rem;
+  align-content: center;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(117, 228, 211, 0.38);
+  border-radius: 0.8rem;
+  background: rgba(8, 20, 27, 0.95);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.04),
+    0 18px 34px rgba(0, 0, 0, 0.28);
+}
+
+.ecosystemNode span {
+  margin-bottom: 0.3rem;
+  color: var(--accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.61rem;
+  letter-spacing: 0.09em;
+}
+
+.ecosystemNode strong {
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+
+.primaryNode {
+  top: 50%;
+  left: 50%;
+  border-color: rgba(117, 228, 211, 0.7);
+  background:
+    radial-gradient(circle at 50% 30%, rgba(117, 228, 211, 0.12), transparent 5rem),
+    rgba(8, 20, 27, 0.98);
+  transform: translate(-50%, -50%);
+}
+
+.satelliteNode:nth-of-type(2) {
+  top: 16%;
+  left: 6%;
+}
+
+.satelliteNode:nth-of-type(3) {
+  top: 16%;
+  right: 6%;
+}
+
+.ecosystemBoundary {
+  position: absolute;
+  z-index: 1;
+  bottom: 1.35rem;
+  left: 50%;
+  padding: 0.38rem 0.68rem;
+  border: 1px solid rgba(165, 138, 250, 0.27);
+  border-radius: 999px;
+  color: var(--violet);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
+.relationshipIndex {
+  min-width: 0;
+}
+
+.indexLabel {
+  margin-bottom: 0.85rem;
+  color: var(--accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.69rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.relationshipList {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.relationshipCard {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  gap: 0.9rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(66, 102, 116, 0.62);
+  border-radius: 0.4rem 1rem 1rem;
+  background: linear-gradient(145deg, rgba(16, 36, 47, 0.9), rgba(7, 17, 24, 0.96));
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.relationshipIndexNumber {
+  display: grid;
+  width: 2.1rem;
+  height: 2.1rem;
+  place-items: center;
+  border: 1px solid rgba(117, 228, 211, 0.3);
+  border-radius: 50%;
+  color: var(--accent-strong);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.62rem;
+}
+
+.relationshipCard h3 {
+  margin-bottom: 0.4rem;
+}
+
+.relationshipCard p {
+  margin-bottom: 0;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+}
+
+.relationshipCard dl {
+  margin: 1rem 0 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(66, 102, 116, 0.44);
+}
+
+.relationshipCard dt {
+  color: var(--text-muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.relationshipCard dd {
+  margin: 0.3rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+
+.creditNote {
+  max-width: var(--reading-width);
+  margin: 1.2rem 0 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(246, 200, 120, 0.2);
+  border-left: 3px solid var(--warm);
+  border-radius: 0 0.7rem 0.7rem 0;
+  background: rgba(246, 200, 120, 0.05);
+  color: var(--text-soft);
+  font-size: 0.84rem;
+}
+
+@keyframes map-trace {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 980px) {
+  .founderLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .ecosystemMap {
+    min-height: 28rem;
+  }
+
+  .relationshipList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .relationshipCard {
+    grid-template-columns: 1fr;
+    height: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .relationshipList {
+    grid-template-columns: 1fr;
+  }
+
+  .relationshipCard {
+    grid-template-columns: 2.2rem minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .ecosystemMap {
+    min-height: 24rem;
+    border-radius: 1rem 0.35rem 1rem 1rem;
+  }
+
+  .ecosystemNode {
+    min-width: 7.8rem;
+    max-width: 9.2rem;
+    min-height: 4.6rem;
+    padding: 0.7rem;
+  }
+
+  .ecosystemNode strong {
+    font-size: 0.74rem;
+  }
+
+  .satelliteNode:nth-of-type(2) {
+    top: 18%;
+    left: 3%;
+  }
+
+  .satelliteNode:nth-of-type(3) {
+    top: 18%;
+    right: 3%;
+  }
+
+  .relationshipCard {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecosystemConnections path {
+    animation: none !important;
+    stroke-dashoffset: 0;
+  }
+}
+
+@media print {
+  .ecosystemMap {
+    display: none;
+  }
+
+  .founderLayout {
+    display: block;
+  }
+
+  .relationshipList {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .relationshipCard {
+    display: block;
+    break-inside: avoid;
+    border-color: #777;
+    background: transparent;
+    box-shadow: none;
+    color: #000;
+  }
+
+  .relationshipIndexNumber {
+    display: none;
+  }
+
+  .indexLabel,
+  .relationshipCard p,
+  .relationshipCard dt,
+  .relationshipCard dd,
+  .creditNote {
+    color: #111;
+  }
+}

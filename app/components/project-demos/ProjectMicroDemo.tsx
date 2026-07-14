@@ -4,12 +4,25 @@ import {
   useCallback,
   useEffect,
   useId,
+  useReducer,
   useRef,
   useState,
   useSyncExternalStore,
+  type CSSProperties,
+  type KeyboardEvent,
 } from "react";
 import { PointerTilt } from "../motion";
-
+import { ArchitectureLens } from "./ArchitectureLens";
+import { MiniProductSurface } from "./MiniProductSurface";
+import styles from "./ProjectMicroDemo.module.css";
+import {
+  createProjectDemoState,
+  projectDemoReducer,
+  type ProjectDemoPauseReason,
+  type ProjectDemoPlaybackOrigin,
+  type ProjectDemoState,
+  type ProjectDemoView,
+} from "./stateMachine";
 import {
   getProjectStoryboard,
   type FeaturedProjectId,
@@ -19,7 +32,11 @@ import {
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 const ACTIVE_PREVIEW_EVENT = "portfolio:project-preview-start";
 
-type PlaybackOrigin = "control" | "focus" | "hover" | "touch" | null;
+type DemoStyle = CSSProperties & {
+  "--demo-accent": string;
+  "--demo-secondary": string;
+  "--demo-glow": string;
+};
 
 export type ProjectMicroDemoProps = {
   projectId: FeaturedProjectId;
@@ -40,7 +57,8 @@ function getReducedMotionSnapshot() {
 }
 
 function getReducedMotionServerSnapshot() {
-  // Start conservatively so hydration never initiates automatic motion.
+  // Hydrate conservatively so automatic playback cannot begin before the
+  // visitor's preference is known.
   return true;
 }
 
@@ -52,8 +70,43 @@ function usePrefersReducedMotion() {
   );
 }
 
-function readyMessage(storyboard: ProjectStoryboard) {
-  return `Ready. Frame 1 of ${storyboard.frames.length}: ${storyboard.frames[0].title}.`;
+const pauseReasonCopy: Record<Exclude<ProjectDemoPauseReason, null>, string> = {
+  architecture: "the Architecture Lens opened",
+  "focus-left": "keyboard focus left the preview",
+  hidden: "the page became hidden",
+  manual: "a manual control was used",
+  offscreen: "the preview moved off screen",
+  "other-preview": "another project preview started",
+  "pointer-left": "the pointer left the preview",
+  "reduced-motion": "reduced motion was enabled",
+};
+
+function statusMessage(
+  storyboard: ProjectStoryboard,
+  state: ProjectDemoState,
+  isVisible: boolean,
+  notice: string | null,
+) {
+  if (notice) return notice;
+
+  if (state.view === "architecture") {
+    return `Architecture Lens open for ${storyboard.title}. The semantic system map contains ${storyboard.architecture.nodes.length} nodes.`;
+  }
+
+  const frame = storyboard.frames[state.frameIndex];
+  const position = `Frame ${state.frameIndex + 1} of ${storyboard.frames.length}: ${frame.title}.`;
+
+  if (!isVisible && state.playback !== "playing") {
+    return `Preview is off screen. ${position}`;
+  }
+
+  if (state.playback === "playing") return `Playing. ${position}`;
+  if (state.playback === "complete") return `Preview complete. ${position}`;
+  if (state.playback === "paused" && state.pauseReason) {
+    return `Paused because ${pauseReasonCopy[state.pauseReason]}. ${position}`;
+  }
+
+  return `Ready. ${position}`;
 }
 
 type ProjectMicroDemoPlayerProps = Required<
@@ -70,36 +123,53 @@ function ProjectMicroDemoPlayer({
   storyboard,
 }: ProjectMicroDemoPlayerProps) {
   const rootRef = useRef<HTMLElement>(null);
+  const demoTabRef = useRef<HTMLButtonElement>(null);
+  const architectureTabRef = useRef<HTMLButtonElement>(null);
   const autoplayTimerRef = useRef<number | null>(null);
-  const frameIndexRef = useRef(0);
-  const hasCompletedRef = useRef(false);
-  const isPlayingRef = useRef(false);
+  const stateRef = useRef(createProjectDemoState());
   const isVisibleRef = useRef(true);
-  const playbackOriginRef = useRef<PlaybackOrigin>(null);
   const hoveredRef = useRef(false);
   const focusedRef = useRef(false);
+  const reducedMotionRef = useRef(true);
 
   const prefersReducedMotion = usePrefersReducedMotion();
-  const reducedMotionRef = useRef(prefersReducedMotion);
-
-  const [frameIndex, setFrameIndex] = useState(0);
-  const [hasCompleted, setHasCompleted] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [statusMessage, setStatusMessage] = useState(() =>
-    readyMessage(storyboard),
+  const [state, dispatch] = useReducer(
+    projectDemoReducer,
+    undefined,
+    createProjectDemoState,
   );
+  const [isVisible, setIsVisible] = useState(true);
+  const [notice, setNotice] = useState<string | null>(null);
+
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
+
+  useEffect(() => {
+    reducedMotionRef.current = prefersReducedMotion;
+  }, [prefersReducedMotion]);
 
   const titleId = useId();
   const playerId = useId();
   const stageId = useId();
   const privacyId = useId();
   const statusId = useId();
+  const demoTabId = useId();
+  const architectureTabId = useId();
+  const demoPanelId = useId();
+  const architecturePanelId = useId();
 
   const frameCount = storyboard.frames.length;
-  const currentFrame = storyboard.frames[frameIndex];
+  const currentFrame = storyboard.frames[state.frameIndex];
   const safeAutoplayDelay = Math.max(250, autoplayDelayMs);
   const safeFrameDuration = Math.max(500, frameDurationMs);
+  const isPlaying = state.playback === "playing";
+
+  const demoStyle: DemoStyle = {
+    "--demo-accent": storyboard.theme.accent,
+    "--demo-secondary": storyboard.theme.secondary,
+    "--demo-glow": storyboard.theme.glow,
+  };
 
   const clearAutoplayTimer = useCallback(() => {
     if (autoplayTimerRef.current !== null) {
@@ -109,55 +179,55 @@ function ProjectMicroDemoPlayer({
   }, []);
 
   const pausePlayback = useCallback(
-    (message: string) => {
+    (reason: Exclude<ProjectDemoPauseReason, null>) => {
       clearAutoplayTimer();
-
-      if (!isPlayingRef.current) {
-        return;
-      }
-
-      isPlayingRef.current = false;
-      playbackOriginRef.current = null;
-      setIsPlaying(false);
-      setStatusMessage(message);
+      dispatch({ type: "pause", reason });
+      setNotice(null);
     },
     [clearAutoplayTimer],
   );
 
+  const announceActivePreview = useCallback(() => {
+    window.dispatchEvent(
+      new CustomEvent(ACTIVE_PREVIEW_EVENT, {
+        detail: { playerId },
+      }),
+    );
+  }, [playerId]);
+
   const startPlayback = useCallback(
-    (origin: Exclude<PlaybackOrigin, null>, restart = false) => {
+    (
+      origin: Exclude<ProjectDemoPlaybackOrigin, null>,
+      restart = false,
+    ) => {
       clearAutoplayTimer();
 
       if (!isVisibleRef.current) {
-        setStatusMessage(
-          "Preview is off screen. Bring it into view before playing.",
-        );
+        setNotice("Preview is off screen. Bring it into view before playing.");
         return;
       }
 
-      window.dispatchEvent(
-        new CustomEvent(ACTIVE_PREVIEW_EVENT, {
-          detail: { playerId },
-        }),
-      );
+      announceActivePreview();
+      setNotice(null);
+      dispatch({ type: "play", frameCount, origin, restart });
+    },
+    [announceActivePreview, clearAutoplayTimer, frameCount],
+  );
 
-      let nextFrameIndex = frameIndexRef.current;
-      if (restart || hasCompletedRef.current) {
-        nextFrameIndex = 0;
-        frameIndexRef.current = 0;
-        setFrameIndex(0);
+  const replay = useCallback(
+    (origin: Exclude<ProjectDemoPlaybackOrigin, null>) => {
+      clearAutoplayTimer();
+
+      if (!isVisibleRef.current) {
+        setNotice("Preview is off screen. Bring it into view before replaying.");
+        return;
       }
 
-      hasCompletedRef.current = false;
-      setHasCompleted(false);
-      playbackOriginRef.current = origin;
-      isPlayingRef.current = true;
-      setIsPlaying(true);
-      setStatusMessage(
-        `Playing. Frame ${nextFrameIndex + 1} of ${frameCount}: ${storyboard.frames[nextFrameIndex].title}.`,
-      );
+      announceActivePreview();
+      setNotice(null);
+      dispatch({ type: "replay", frameCount, origin });
     },
-    [clearAutoplayTimer, frameCount, playerId, storyboard.frames],
+    [announceActivePreview, clearAutoplayTimer, frameCount],
   );
 
   const scheduleAutoplay = useCallback(
@@ -167,14 +237,14 @@ function ProjectMicroDemoPlayer({
       if (
         reducedMotionRef.current ||
         !isVisibleRef.current ||
-        isPlayingRef.current
+        stateRef.current.playback === "playing" ||
+        stateRef.current.view !== "demo"
       ) {
         return;
       }
 
       autoplayTimerRef.current = window.setTimeout(() => {
         autoplayTimerRef.current = null;
-
         const triggerIsActive =
           origin === "hover" ? hoveredRef.current : focusedRef.current;
 
@@ -182,7 +252,8 @@ function ProjectMicroDemoPlayer({
           triggerIsActive &&
           !reducedMotionRef.current &&
           isVisibleRef.current &&
-          !isPlayingRef.current
+          stateRef.current.playback !== "playing" &&
+          stateRef.current.view === "demo"
         ) {
           startPlayback(origin);
         }
@@ -196,11 +267,14 @@ function ProjectMicroDemoPlayer({
       const activePlayerId = (event as CustomEvent<{ playerId?: string }>).detail
         ?.playerId;
 
-      if (activePlayerId === playerId || !isPlayingRef.current) return;
+      if (
+        activePlayerId === playerId ||
+        stateRef.current.playback !== "playing"
+      ) {
+        return;
+      }
 
-      pausePlayback(
-        `Paused on frame ${frameIndexRef.current + 1} because another preview started.`,
-      );
+      pausePlayback("other-preview");
     };
 
     window.addEventListener(ACTIVE_PREVIEW_EVENT, pauseWhenAnotherPreviewStarts);
@@ -212,310 +286,359 @@ function ProjectMicroDemoPlayer({
   }, [pausePlayback, playerId]);
 
   useEffect(() => {
-    reducedMotionRef.current = prefersReducedMotion;
-
-    if (!prefersReducedMotion) {
-      return;
-    }
+    if (!prefersReducedMotion) return;
 
     clearAutoplayTimer();
-    const origin = playbackOriginRef.current;
+    const origin = stateRef.current.playbackOrigin;
     if (origin === "hover" || origin === "focus") {
-      pausePlayback(
-        `Paused on frame ${frameIndexRef.current + 1} because reduced motion is enabled.`,
-      );
+      pausePlayback("reduced-motion");
     }
   }, [clearAutoplayTimer, pausePlayback, prefersReducedMotion]);
 
   useEffect(() => {
-    if (!isPlaying) {
-      return;
-    }
+    if (!isPlaying || state.view !== "demo") return;
 
     const timer = window.setTimeout(() => {
-      const activeFrameIndex = frameIndexRef.current;
-
-      if (activeFrameIndex < frameCount - 1) {
-        const nextFrameIndex = activeFrameIndex + 1;
-        frameIndexRef.current = nextFrameIndex;
-        setFrameIndex(nextFrameIndex);
-        setStatusMessage(
-          `Playing. Frame ${nextFrameIndex + 1} of ${frameCount}: ${storyboard.frames[nextFrameIndex].title}.`,
-        );
-        return;
-      }
-
-      isPlayingRef.current = false;
-      hasCompletedRef.current = true;
-      playbackOriginRef.current = null;
-      setIsPlaying(false);
-      setHasCompleted(true);
-      setStatusMessage(
-        `Preview complete. Frame ${frameCount} of ${frameCount}: ${storyboard.frames[frameCount - 1].title}.`,
-      );
+      dispatch({ type: "tick", frameCount });
     }, safeFrameDuration);
 
     return () => window.clearTimeout(timer);
-  }, [frameCount, frameIndex, isPlaying, safeFrameDuration, storyboard.frames]);
+  }, [frameCount, isPlaying, safeFrameDuration, state.frameIndex, state.view]);
 
   useEffect(() => {
     const root = rootRef.current;
-    if (!root || typeof IntersectionObserver === "undefined") {
-      return;
-    }
+    if (!root || typeof IntersectionObserver === "undefined") return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const nextIsVisible = Boolean(
-          entry?.isIntersecting && entry.intersectionRatio >= 0.15,
-        );
+    const observer = new IntersectionObserver(([entry]) => {
+      // `isIntersecting` works for both compact cards and tall sticky stages;
+      // a fixed intersection ratio can be unreachable for oversized sections.
+      const nextIsVisible = Boolean(entry?.isIntersecting);
+      isVisibleRef.current = nextIsVisible;
+      setIsVisible(nextIsVisible);
 
-        isVisibleRef.current = nextIsVisible;
-        setIsVisible(nextIsVisible);
-
-        if (!nextIsVisible) {
-          clearAutoplayTimer();
-          pausePlayback(
-            `Paused off screen on frame ${frameIndexRef.current + 1} of ${frameCount}.`,
-          );
-        }
-      },
-      { threshold: [0, 0.15] },
-    );
+      if (!nextIsVisible) pausePlayback("offscreen");
+    });
 
     observer.observe(root);
     return () => observer.disconnect();
-  }, [clearAutoplayTimer, frameCount, pausePlayback]);
+  }, [pausePlayback]);
 
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (!document.hidden) {
-        return;
-      }
-
-      clearAutoplayTimer();
-      pausePlayback(
-        `Paused while the page is hidden on frame ${frameIndexRef.current + 1} of ${frameCount}.`,
-      );
+      if (document.hidden) pausePlayback("hidden");
     };
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
     return () =>
       document.removeEventListener("visibilitychange", handleVisibilityChange);
-  }, [clearAutoplayTimer, frameCount, pausePlayback]);
+  }, [pausePlayback]);
 
   useEffect(() => clearAutoplayTimer, [clearAutoplayTimer]);
 
-  const pauseFromControl = () => {
-    pausePlayback(
-      `Paused on frame ${frameIndexRef.current + 1} of ${frameCount}: ${storyboard.frames[frameIndexRef.current].title}.`,
-    );
-  };
-
-  const toggleFromStage = () => {
-    if (isPlayingRef.current) {
-      pauseFromControl();
-      return;
+  function toggleFromStage(origin: "control" | "touch") {
+    if (stateRef.current.playback === "playing") {
+      pausePlayback("manual");
+    } else {
+      startPlayback(origin);
     }
+  }
 
-    startPlayback("touch");
-  };
+  function selectView(view: ProjectDemoView) {
+    clearAutoplayTimer();
+    setNotice(null);
+    dispatch({ type: "set-view", view });
+  }
+
+  function handleTabKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
+    let nextView: ProjectDemoView | null = null;
+    if (event.key === "ArrowLeft" || event.key === "Home") nextView = "demo";
+    if (event.key === "ArrowRight" || event.key === "End") {
+      nextView = "architecture";
+    }
+    if (!nextView) return;
+
+    event.preventDefault();
+    selectView(nextView);
+    if (nextView === "demo") demoTabRef.current?.focus();
+    else architectureTabRef.current?.focus();
+  }
+
+  const liveStatus = statusMessage(storyboard, state, isVisible, notice);
 
   return (
     <section
-      className={["project-demo", className].filter(Boolean).join(" ")}
-      data-complete={hasCompleted ? "true" : "false"}
+      aria-labelledby={titleId}
+      className={[styles.root, className].filter(Boolean).join(" ")}
+      data-complete={state.playback === "complete" ? "true" : "false"}
       data-motion={prefersReducedMotion ? "reduced" : "allowed"}
       data-playing={isPlaying ? "true" : "false"}
       data-project-id={storyboard.projectId}
+      data-theme={storyboard.theme.label}
+      data-view={state.view}
       data-visible={isVisible ? "true" : "false"}
       ref={rootRef}
+      style={demoStyle}
     >
-      <header className="project-demo__header">
-        <div className="project-demo__heading">
-          <p className="project-demo__poster-label">{storyboard.posterLabel}</p>
+      <header className={styles.header}>
+        <div className={styles.heading}>
+          <p className={styles.posterLabel}>{storyboard.posterLabel}</p>
           <h4 id={titleId}>{storyboard.title}</h4>
         </div>
-        <span className="project-demo__mode" aria-hidden="true">
-          {isPlaying ? "Playing" : "Interactive preview"}
-        </span>
+        <div className={styles.modeReadout} aria-label="Preview status">
+          <span aria-hidden="true" />
+          {isPlaying ? "Signal running" : state.view === "architecture" ? "System map" : "Interactive preview"}
+        </div>
       </header>
 
-      <PointerTilt className="project-demo__tilt" maxTilt={3}>
-        <div
-          aria-describedby={`${privacyId} ${statusId}`}
-          aria-labelledby={titleId}
-          className="project-demo__stage"
-          id={stageId}
-        onBlur={(event) => {
-          if (
-            event.relatedTarget instanceof Node &&
-            event.currentTarget.contains(event.relatedTarget)
-          ) {
-            return;
-          }
-
-          focusedRef.current = false;
-          clearAutoplayTimer();
-
-          const origin = playbackOriginRef.current;
-          if (
-            (origin === "focus" || origin === "hover") &&
-            !hoveredRef.current &&
-            !focusedRef.current
-          ) {
-            pausePlayback(
-              `Paused on frame ${frameIndexRef.current + 1} after focus left the preview.`,
-            );
-          }
-        }}
-        onFocus={() => {
-          focusedRef.current = true;
-          scheduleAutoplay("focus");
-        }}
-        onKeyDown={(event) => {
-          if (event.key !== "Enter" && event.key !== " ") {
-            return;
-          }
-
-          event.preventDefault();
-          if (isPlayingRef.current) {
-            pauseFromControl();
-          } else {
-            startPlayback("control");
-          }
-        }}
-        onPointerEnter={(event) => {
-          if (event.pointerType !== "mouse") {
-            return;
-          }
-
-          hoveredRef.current = true;
-          scheduleAutoplay("hover");
-        }}
-        onPointerLeave={(event) => {
-          if (event.pointerType !== "mouse") {
-            return;
-          }
-
-          hoveredRef.current = false;
-          clearAutoplayTimer();
-
-          const origin = playbackOriginRef.current;
-          if (
-            (origin === "focus" || origin === "hover") &&
-            !focusedRef.current &&
-            !hoveredRef.current
-          ) {
-            pausePlayback(
-              `Paused on frame ${frameIndexRef.current + 1} after the pointer left the preview.`,
-            );
-          }
-        }}
-        onPointerUp={(event) => {
-          if (event.pointerType === "touch") {
-            toggleFromStage();
-          }
-        }}
-          role="region"
-          tabIndex={0}
-        >
-          <div
-            className="project-demo__frame"
-            data-frame-state={currentFrame.state}
-            key={currentFrame.id}
-          >
-            <div className="project-demo__frame-heading">
-              <p className="project-demo__eyebrow">{currentFrame.eyebrow}</p>
-              <p className="project-demo__step">
-                {String(frameIndex + 1).padStart(2, "0")} /{" "}
-                {String(frameCount).padStart(2, "0")}
-              </p>
-            </div>
-            <h5>{currentFrame.title}</h5>
-            <p className="project-demo__frame-body">{currentFrame.body}</p>
-            <dl className="project-demo__details">
-              {currentFrame.details.map((detail) => (
-                <div className="project-demo__detail" key={detail.label}>
-                  <dt>{detail.label}</dt>
-                  <dd>{detail.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <ol className="project-demo__timeline" aria-label="Preview frames">
-            {storyboard.frames.map((frame, index) => (
-              <li
-                aria-current={index === frameIndex ? "step" : undefined}
-                className={
-                  index === frameIndex
-                    ? "project-demo__timeline-item project-demo__timeline-item--active"
-                    : "project-demo__timeline-item"
-                }
-                data-complete={index < frameIndex ? "true" : "false"}
-                key={frame.id}
-              >
-                <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                <span>{frame.eyebrow}</span>
-              </li>
-            ))}
-          </ol>
-
-          <progress
-            aria-label={`Preview position: frame ${frameIndex + 1} of ${frameCount}`}
-            className="project-demo__progress"
-            max={frameCount}
-            value={frameIndex + 1}
-          />
-        </div>
-      </PointerTilt>
-
-      <div className="project-demo__controls" aria-label="Preview controls">
+      <div className={styles.tabs} role="tablist" aria-label="Project preview view">
         <button
-          aria-controls={stageId}
-          className="project-demo__control project-demo__control--play"
-          disabled={isPlaying}
-          onClick={() => startPlayback("control")}
+          aria-controls={demoPanelId}
+          aria-selected={state.view === "demo"}
+          id={demoTabId}
+          onClick={() => selectView("demo")}
+          onKeyDown={handleTabKeyDown}
+          ref={demoTabRef}
+          role="tab"
+          tabIndex={state.view === "demo" ? 0 : -1}
           type="button"
         >
-          Play
+          <span>01</span> Demo
         </button>
         <button
-          aria-controls={stageId}
-          className="project-demo__control project-demo__control--pause"
-          disabled={!isPlaying}
-          onClick={pauseFromControl}
+          aria-controls={architecturePanelId}
+          aria-selected={state.view === "architecture"}
+          id={architectureTabId}
+          onClick={() => selectView("architecture")}
+          onKeyDown={handleTabKeyDown}
+          ref={architectureTabRef}
+          role="tab"
+          tabIndex={state.view === "architecture" ? 0 : -1}
           type="button"
         >
-          Pause
-        </button>
-        <button
-          aria-controls={stageId}
-          className="project-demo__control project-demo__control--replay"
-          onClick={() => startPlayback("control", true)}
-          type="button"
-        >
-          Replay
+          <span>02</span> Architecture
         </button>
       </div>
 
-      <p className="project-demo__privacy" id={privacyId}>
-        {storyboard.privacyLabel}
-      </p>
+      <PointerTilt
+        className={styles.tilt}
+        disabled={state.view === "architecture"}
+        maxTilt={2.6}
+      >
+        {state.view === "demo" ? (
+          <div
+            aria-describedby={`${privacyId} ${statusId}`}
+            aria-labelledby={demoTabId}
+            className={styles.demoPanel}
+            id={demoPanelId}
+            role="tabpanel"
+          >
+            <div
+              aria-label={`${storyboard.title} preview. Press Enter or Space to play or pause.`}
+              aria-pressed={state.playback === "playing"}
+              className={styles.stage}
+              id={stageId}
+              onBlur={(event) => {
+                if (
+                  event.relatedTarget instanceof Node &&
+                  event.currentTarget.contains(event.relatedTarget)
+                ) {
+                  return;
+                }
+
+                focusedRef.current = false;
+                clearAutoplayTimer();
+                const origin = stateRef.current.playbackOrigin;
+                if (
+                  (origin === "focus" || origin === "hover") &&
+                  !hoveredRef.current
+                ) {
+                  pausePlayback("focus-left");
+                }
+              }}
+              onFocus={() => {
+                focusedRef.current = true;
+                scheduleAutoplay("focus");
+              }}
+              onKeyDown={(event) => {
+                if (event.key !== "Enter" && event.key !== " ") return;
+                event.preventDefault();
+                toggleFromStage("control");
+              }}
+              onPointerEnter={(event) => {
+                if (event.pointerType !== "mouse") return;
+                hoveredRef.current = true;
+                scheduleAutoplay("hover");
+              }}
+              onPointerLeave={(event) => {
+                if (event.pointerType !== "mouse") return;
+                hoveredRef.current = false;
+                clearAutoplayTimer();
+                const origin = stateRef.current.playbackOrigin;
+                if (
+                  (origin === "focus" || origin === "hover") &&
+                  !focusedRef.current
+                ) {
+                  pausePlayback("pointer-left");
+                }
+              }}
+              onPointerUp={(event) => {
+                if (event.pointerType === "touch") toggleFromStage("touch");
+              }}
+              role="button"
+              tabIndex={0}
+            >
+              <div className={styles.productViewport} key={currentFrame.id}>
+                <MiniProductSurface data={currentFrame.demo} />
+              </div>
+
+              <aside className={styles.frameNarrative}>
+                <div className={styles.frameHeading}>
+                  <p className={styles.eyebrow}>{currentFrame.eyebrow}</p>
+                  <p className={styles.step}>
+                    {String(state.frameIndex + 1).padStart(2, "0")} /{" "}
+                    {String(frameCount).padStart(2, "0")}
+                  </p>
+                </div>
+                <h5>{currentFrame.title}</h5>
+                <p className={styles.frameBody}>{currentFrame.body}</p>
+                <dl className={styles.details}>
+                  {currentFrame.details.map((detail) => (
+                    <div className={styles.detail} key={detail.label}>
+                      <dt>{detail.label}</dt>
+                      <dd>{detail.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </aside>
+            </div>
+
+            <ol className={styles.timeline} aria-label="Preview frames">
+              {storyboard.frames.map((frame, index) => (
+                <li
+                  aria-current={index === state.frameIndex ? "step" : undefined}
+                  data-active={index === state.frameIndex ? "true" : "false"}
+                  data-complete={index < state.frameIndex ? "true" : "false"}
+                  key={frame.id}
+                >
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span>{frame.eyebrow}</span>
+                </li>
+              ))}
+            </ol>
+
+            <progress
+              aria-label={`Preview position: frame ${state.frameIndex + 1} of ${frameCount}`}
+              className={styles.progress}
+              max={frameCount}
+              value={state.frameIndex + 1}
+            />
+          </div>
+        ) : (
+          <div
+            aria-labelledby={architectureTabId}
+            className={styles.architecturePanel}
+            id={architecturePanelId}
+            role="tabpanel"
+          >
+            <ArchitectureLens architecture={storyboard.architecture} />
+          </div>
+        )}
+      </PointerTilt>
+
+      <div className={styles.controls} aria-label="Preview controls">
+        <button
+          aria-controls={stageId}
+          disabled={state.view !== "demo" || state.frameIndex === 0}
+          onClick={() => {
+            setNotice(null);
+            dispatch({ type: "previous", frameCount });
+          }}
+          type="button"
+        >
+          <span aria-hidden="true">←</span> Previous
+        </button>
+        <button
+          aria-controls={stageId}
+          className={styles.primaryControl}
+          disabled={state.view !== "demo" || isPlaying}
+          onClick={() => startPlayback("control")}
+          type="button"
+        >
+          <span aria-hidden="true">▶</span> Play
+        </button>
+        <button
+          aria-controls={stageId}
+          disabled={state.view !== "demo" || !isPlaying}
+          onClick={() => pausePlayback("manual")}
+          type="button"
+        >
+          <span aria-hidden="true">Ⅱ</span> Pause
+        </button>
+        <button
+          aria-controls={stageId}
+          disabled={state.view !== "demo"}
+          onClick={() => replay("control")}
+          type="button"
+        >
+          <span aria-hidden="true">↻</span> Replay
+        </button>
+        <button
+          aria-controls={stageId}
+          disabled={state.view !== "demo" || state.frameIndex >= frameCount - 1}
+          onClick={() => {
+            setNotice(null);
+            dispatch({ type: "next", frameCount });
+          }}
+          type="button"
+        >
+          Next <span aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <div className={styles.boundaries}>
+        <p className={styles.statusLabel}>
+          <span>Status</span>
+          {storyboard.statusLabel}
+        </p>
+        <p className={styles.dataLabel}>
+          <span>Demo data</span>
+          {storyboard.dataLabel}
+        </p>
+        <p className={styles.privacy} id={privacyId}>
+          <span>Privacy</span>
+          {storyboard.privacyLabel}
+        </p>
+      </div>
+
+      <footer className={styles.footer}>
+        <p>{storyboard.authorshipLabel}</p>
+        <div className={styles.evidenceLinks} aria-label="Project evidence">
+          {storyboard.evidenceLinks.length > 0 ? (
+            storyboard.evidenceLinks.map((link) => (
+              <a href={link.href} key={link.href} rel="noreferrer" target="_blank">
+                {link.label} <span aria-hidden="true">↗</span>
+              </a>
+            ))
+          ) : (
+            <span>Private/local evidence · no public project link</span>
+          )}
+        </div>
+      </footer>
+
       {prefersReducedMotion ? (
-        <p className="project-demo__motion-note">
-          Reduced motion is on. Use the controls to start this preview.
+        <p className={styles.motionNote}>
+          Reduced motion is on. Hover and focus autoplay are disabled; use the
+          explicit controls to inspect the static frames.
         </p>
       ) : null}
       <p
         aria-atomic="true"
         aria-live="polite"
-        className="project-demo__status"
+        className={styles.liveStatus}
         id={statusId}
         role="status"
       >
-        {statusMessage}
+        {liveStatus}
       </p>
     </section>
   );

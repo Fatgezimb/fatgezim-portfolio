@@ -13,8 +13,11 @@ export function About() {
       <div className="about-layout">
         <p className="about-statement">{siteContent.about.paragraphs[1]}</p>
         <div className="domain-grid">
-          {profileDomains.map((domain) => (
+          {profileDomains.map((domain, index) => (
             <article className="domain-card" key={domain.title}>
+              <span className="domain-card__index" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <h3>{domain.title}</h3>
               <p>{domain.description}</p>
             </article>

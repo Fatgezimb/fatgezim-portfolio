@@ -43,15 +43,15 @@ Do not implement Phase 2 work until the owner sends:
 
 ## Phase 2 — Visual system, imagery, motion, and project demos
 
-- [ ] Create or refine original assets.
-- [ ] Establish final color, typography, elevation, and depth system.
-- [ ] Implement purposeful scroll reveals and exits.
-- [ ] Implement project-card micro-demos.
-- [ ] Prepare a sanitized `NeuroPath Rethink Automation Center` beta-site showcase for the Rethink Automations card using synthetic queue data only.
-- [ ] Add an explicit project-detail note that the Rethink beta is NeuroPath-adjacent/local and not a deployed public NeuroPath product.
-- [ ] Add 3D tilt and limited depth scenes.
-- [ ] Add focus, hover, tap, and reduced-motion variants.
-- [ ] Test performance and accessibility continuously.
+- [x] Create or refine original assets.
+- [x] Establish final color, typography, elevation, and depth system.
+- [x] Implement purposeful scroll reveals and exits.
+- [x] Implement project-card micro-demos.
+- [x] Prepare a sanitized `NeuroPath Rethink Automation Center` beta-site showcase for the Rethink Automations card using synthetic queue data only.
+- [x] Add an explicit project-detail note that the Rethink beta is NeuroPath-adjacent/local and not a deployed public NeuroPath product.
+- [x] Add 3D tilt and limited depth scenes.
+- [x] Add focus, hover, tap, and reduced-motion variants.
+- [x] Test performance and accessibility continuously.
 
 ## Phase 3 — QA, optimization, and deployment
 

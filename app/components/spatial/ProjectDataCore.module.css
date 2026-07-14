@@ -1,0 +1,75 @@
+.core {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--core-accent, #75e4d3) 13%, transparent), transparent 32%),
+    linear-gradient(145deg, rgba(5, 11, 17, 0.2), rgba(5, 11, 17, 0.78));
+  pointer-events: none;
+}
+
+.core::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5, 11, 17, 0.7), transparent 24%, transparent 76%, rgba(5, 11, 17, 0.7)),
+    linear-gradient(to bottom, transparent 45%, rgba(5, 11, 17, 0.62));
+  content: "";
+  pointer-events: none;
+}
+
+.scene {
+  z-index: 1;
+}
+
+.fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.fallback svg {
+  width: min(76%, 32rem);
+  height: min(76%, 32rem);
+  overflow: visible;
+}
+
+.fallbackOrbit,
+.fallbackLink {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.fallbackOrbit {
+  stroke: color-mix(in srgb, var(--core-accent, #75e4d3) 36%, transparent);
+  stroke-width: 1;
+}
+
+.fallbackLink {
+  stroke: color-mix(in srgb, var(--core-secondary, #74c7f5) 24%, transparent);
+  stroke-width: 1.2;
+}
+
+.fallbackCore {
+  fill: color-mix(in srgb, var(--core-center, #f6c878) 72%, transparent);
+  stroke: var(--core-center, #f6c878);
+  stroke-width: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .core::after {
+    background: linear-gradient(to bottom, transparent 35%, rgba(5, 11, 17, 0.7));
+  }
+}
+
+@media print {
+  .core {
+    background: rgba(5, 11, 17, 0.18);
+  }
+}

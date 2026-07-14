@@ -1,16 +1,5 @@
-import { navigationItems, siteContent } from "@/app/content/site";
-
-function NavigationLinks() {
-  return (
-    <ul className="nav-list">
-      {navigationItems.map((item) => (
-        <li key={item.href}>
-          <a href={item.href}>{item.label}</a>
-        </li>
-      ))}
-    </ul>
-  );
-}
+import { siteContent } from "@/app/content/site";
+import { CommandCenterNavigation } from "./navigation";
 
 export function SiteHeader() {
   return (
@@ -26,16 +15,7 @@ export function SiteHeader() {
           </span>
         </a>
 
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <NavigationLinks />
-        </nav>
-
-        <details className="mobile-nav">
-          <summary>Menu</summary>
-          <nav aria-label="Mobile navigation">
-            <NavigationLinks />
-          </nav>
-        </details>
+        <CommandCenterNavigation />
       </div>
     </header>
   );

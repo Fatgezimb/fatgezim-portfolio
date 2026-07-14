@@ -1,7 +1,6 @@
 import { currentFocus, publicationPolicy } from "@/app/content/resume";
 import { siteContent } from "@/app/content/site";
-import { HeroSignalMap } from "./HeroSignalMap";
-import { PointerTilt } from "./motion";
+import { NeuralIdentityField } from "./spatial";
 
 export function Hero() {
   const { hero } = siteContent;
@@ -9,52 +8,56 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="hero section-shell"
+      className="hero"
       data-reveal="fade"
       data-reveal-exit="recede"
       id="top"
     >
-      <div className="hero__copy">
-        <p className="eyebrow">{hero.eyebrow}</p>
-        <h1 id="hero-title">{hero.displayName}</h1>
-        <p className="hero__headline">{hero.headline}</p>
-        <p className="hero__summary">{hero.summary}</p>
+      <div className="hero__content section-shell">
+        <div className="hero__copy">
+          <p className="eyebrow">
+            <span aria-hidden="true">Signal identity / </span>
+            {hero.eyebrow}
+          </p>
+          <h1 id="hero-title">{hero.displayName}</h1>
+          <p className="hero__headline">{hero.headline}</p>
+          <p className="hero__summary">{hero.summary}</p>
 
-        <div className="hero__actions" aria-label="Primary actions">
-          <a className="button button--primary" href={hero.primaryAction.href}>
-            {hero.primaryAction.label}
-          </a>
-          {/* Vinext currently hydrates next/link with a duplicate React instance in dev. */}
-          <a className="button button--secondary" href="/resume">
-            View print résumé
-          </a>
-          <a className="text-link" href={hero.contactAction.href}>
-            {hero.contactAction.label}
-          </a>
+          <div className="hero__actions" aria-label="Primary actions">
+            <a className="button button--primary" href={hero.primaryAction.href}>
+              {hero.primaryAction.label}
+            </a>
+            {/* Vinext currently hydrates next/link with a duplicate React instance in dev. */}
+            <a className="button button--secondary" href="/resume">
+              View print résumé
+            </a>
+            <a className="text-link" href={hero.contactAction.href}>
+              {hero.contactAction.label}
+            </a>
+          </div>
+
+          <p className="resume-status" role="status">
+            <span aria-hidden="true">●</span> {publicationPolicy.resumeDownloadLabel}
+          </p>
         </div>
 
-        <p className="resume-status" role="status">
-          <span aria-hidden="true">●</span> {publicationPolicy.resumeDownloadLabel}
-        </p>
+        <aside className="hero__profile hero__instrumentation" aria-label="Current profile summary">
+          <div className="panel-label">
+            <span>Identity telemetry</span>
+            <span>Verified focus</span>
+          </div>
+          <ul className="profile-facts">
+            {currentFocus.map((item, index) => (
+              <li key={item}>
+                <span aria-hidden="true">0{index + 1}</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </aside>
       </div>
 
-      <aside className="hero__profile hero__profile--scene" aria-label="Current profile summary">
-        <div className="panel-label">
-          <span>Profile map</span>
-          <span>Live signal map</span>
-        </div>
-        <PointerTilt className="hero__signal-tilt" maxTilt={2.4}>
-          <HeroSignalMap />
-        </PointerTilt>
-        <ul className="profile-facts">
-          {currentFocus.map((item, index) => (
-            <li key={item}>
-              <span aria-hidden="true">0{index + 1}</span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </aside>
+      <NeuralIdentityField className="hero__field" />
     </section>
   );
 }

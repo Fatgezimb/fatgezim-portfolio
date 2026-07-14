@@ -1,0 +1,395 @@
+.section {
+  overflow-x: clip;
+  isolation: isolate;
+}
+
+.section::after {
+  position: absolute;
+  z-index: -1;
+  inset: 8% -12% auto 45%;
+  height: 74%;
+  background: linear-gradient(118deg, transparent, rgba(165, 138, 250, 0.045), transparent);
+  content: "";
+  transform: skewY(-8deg);
+  pointer-events: none;
+}
+
+.researchGrid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.researchCard {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.72fr) minmax(0, 1.28fr);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(110, 94, 176, 0.55);
+  border-radius: 1.45rem 0.4rem 1.45rem 1.45rem;
+  background:
+    radial-gradient(circle at 13% 45%, rgba(165, 138, 250, 0.11), transparent 23rem),
+    linear-gradient(150deg, rgba(16, 25, 42, 0.98), rgba(7, 14, 25, 0.98));
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.04),
+    0 34px 78px rgba(0, 0, 0, 0.31);
+}
+
+.researchCard::before {
+  position: absolute;
+  z-index: 2;
+  top: -1px;
+  right: 8%;
+  left: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--violet), var(--cyan), transparent);
+  content: "";
+  opacity: 0.68;
+  pointer-events: none;
+}
+
+.sliceStage {
+  position: relative;
+  min-height: 31rem;
+  overflow: hidden;
+  border-right: 1px solid rgba(110, 94, 176, 0.28);
+  perspective: 850px;
+  perspective-origin: 50% 38%;
+}
+
+.sliceStage::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(165, 138, 250, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(165, 138, 250, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  content: "";
+  mask-image: linear-gradient(to bottom, transparent, black 16%, black 80%, transparent);
+}
+
+.slice {
+  position: absolute;
+  top: 26%;
+  left: 12%;
+  width: 76%;
+  aspect-ratio: 1.46;
+  border: 1px solid rgba(165, 138, 250, 0.34);
+  border-radius: 0.55rem;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(116, 199, 245, 0.12), transparent 34%),
+    rgba(8, 17, 29, 0.78);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.34);
+  transform-style: preserve-3d;
+}
+
+.slice::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 10px,
+    rgba(116, 199, 245, 0.026) 11px
+  );
+  content: "";
+}
+
+.sliceRear {
+  opacity: 0.38;
+  transform: rotateX(63deg) rotateZ(-9deg) translate3d(0, -5.1rem, -5rem);
+}
+
+.sliceMiddle {
+  opacity: 0.62;
+  transform: rotateX(63deg) rotateZ(-9deg) translate3d(0, -2.5rem, -2.5rem);
+}
+
+.sliceFront {
+  transform: rotateX(63deg) rotateZ(-9deg);
+}
+
+.sliceFront svg {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.sliceFront circle {
+  fill: rgba(117, 228, 211, 0.16);
+  stroke: var(--accent);
+  stroke-width: 1.2;
+}
+
+.neuronBranch,
+.neuronBranchFine {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.neuronBranch {
+  stroke: var(--accent);
+  stroke-width: 2.2;
+}
+
+.neuronBranchFine {
+  stroke: var(--cyan);
+  stroke-width: 1.15;
+}
+
+.scanLine {
+  position: absolute;
+  z-index: 5;
+  top: 10%;
+  right: 8%;
+  left: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  box-shadow: 0 0 12px rgba(116, 199, 245, 0.65);
+  opacity: 0;
+}
+
+.researchCard[data-reveal-state="visible"] .sliceRear {
+  animation: assemble-rear 760ms var(--ease-settle) 100ms both;
+}
+
+.researchCard[data-reveal-state="visible"] .sliceMiddle {
+  animation: assemble-middle 760ms var(--ease-settle) 180ms both;
+}
+
+.researchCard[data-reveal-state="visible"] .sliceFront {
+  animation: assemble-front 760ms var(--ease-settle) 260ms both;
+}
+
+.researchCard[data-reveal-state="visible"] .scanLine {
+  animation: scan-pass 920ms var(--ease-out) 420ms both;
+}
+
+.researchContent {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-content: center;
+  padding: clamp(1.4rem, 4vw, 2.5rem);
+}
+
+.researchSummary p,
+.methodPanel p {
+  color: var(--text-soft);
+}
+
+.researchSummary h3 {
+  font-size: clamp(1.45rem, 3vw, 2.25rem);
+}
+
+.statusLabel,
+.institution {
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.statusLabel {
+  margin-bottom: 0.65rem;
+  color: var(--violet) !important;
+  font-size: 0.73rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.institution {
+  margin-bottom: 1.25rem;
+  color: var(--text-muted) !important;
+  font-size: 0.8rem;
+}
+
+.methodPanel {
+  padding: 1.15rem;
+  border: 1px solid rgba(165, 138, 250, 0.24);
+  border-radius: 0.85rem;
+  background: rgba(5, 11, 17, 0.42);
+}
+
+.methodPanel h4 {
+  color: var(--violet);
+}
+
+.methodList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.methodList li {
+  padding: 0.3rem 0.55rem;
+  border: 1px solid rgba(165, 138, 250, 0.28);
+  border-radius: 999px;
+  color: var(--text-soft);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.boundaryNote {
+  margin: 0;
+  padding: 0.95rem;
+  border-left: 2px solid var(--warm);
+  background: rgba(246, 200, 120, 0.055);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+@keyframes assemble-rear {
+  from {
+    opacity: 0;
+    transform: rotateX(72deg) rotateZ(-9deg) translate3d(0, -8rem, -8rem);
+  }
+
+  to {
+    opacity: 0.38;
+    transform: rotateX(63deg) rotateZ(-9deg) translate3d(0, -5.1rem, -5rem);
+  }
+}
+
+@keyframes assemble-middle {
+  from {
+    opacity: 0;
+    transform: rotateX(72deg) rotateZ(-9deg) translate3d(0, -5rem, -5rem);
+  }
+
+  to {
+    opacity: 0.62;
+    transform: rotateX(63deg) rotateZ(-9deg) translate3d(0, -2.5rem, -2.5rem);
+  }
+}
+
+@keyframes assemble-front {
+  from {
+    opacity: 0;
+    transform: rotateX(72deg) rotateZ(-9deg) translateY(2rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateX(63deg) rotateZ(-9deg);
+  }
+}
+
+@keyframes scan-pass {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  20% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(23rem);
+  }
+}
+
+@media (max-width: 1050px) {
+  .researchCard {
+    grid-template-columns: 1fr;
+  }
+
+  .sliceStage {
+    min-height: 20rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(110, 94, 176, 0.28);
+  }
+
+  .slice {
+    top: 17%;
+    left: 21%;
+    width: 58%;
+  }
+}
+
+@media (max-width: 740px) {
+  .researchContent {
+    grid-template-columns: 1fr;
+  }
+
+  .sliceStage {
+    min-height: 16rem;
+  }
+
+  .slice {
+    top: 17%;
+    left: 13%;
+    width: 74%;
+  }
+}
+
+@media (max-width: 460px) {
+  .researchCard {
+    border-radius: 1rem 0.35rem 1rem 1rem;
+  }
+
+  .sliceStage {
+    min-height: 13rem;
+  }
+
+  .researchContent {
+    padding: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slice,
+  .scanLine {
+    animation: none !important;
+  }
+
+  .scanLine {
+    display: none;
+  }
+}
+
+@media print {
+  .section::after,
+  .sliceStage,
+  .researchCard::before {
+    display: none;
+  }
+
+  .researchCard,
+  .researchContent {
+    display: block;
+  }
+
+  .researchCard {
+    break-inside: avoid;
+    border-color: #777;
+    background: transparent;
+    box-shadow: none;
+    color: #000;
+  }
+
+  .researchSummary,
+  .methodPanel {
+    padding: 1rem;
+  }
+
+  .methodPanel {
+    border-color: #777;
+    background: transparent;
+  }
+
+  .statusLabel,
+  .institution,
+  .researchSummary p,
+  .methodPanel p,
+  .methodList li,
+  .methodPanel h4 {
+    color: #111 !important;
+  }
+}

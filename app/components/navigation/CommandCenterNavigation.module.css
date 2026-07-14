@@ -1,0 +1,282 @@
+.controls {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+.navList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 0.45rem 0.58rem;
+  border-radius: 0.45rem;
+  color: var(--text-soft);
+  font-size: 0.74rem;
+  font-weight: 620;
+  text-decoration: none;
+  transition: color 160ms var(--ease-out), background 160ms var(--ease-out);
+}
+
+.navLink::after {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.28rem;
+  left: 0.55rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0.35);
+  transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out);
+}
+
+.navLink:hover,
+.navLink[aria-current="location"] {
+  background: rgba(117, 228, 211, 0.06);
+  color: var(--accent-strong);
+}
+
+.navLink[aria-current="location"]::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.commandButton,
+.mobileSummary {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  padding: 0.5rem 0.72rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.55rem;
+  background: rgba(13, 27, 36, 0.82);
+  color: var(--text-soft);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 680;
+  cursor: pointer;
+}
+
+.commandButton:hover,
+.mobileSummary:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.commandButton kbd {
+  padding: 0.08rem 0.28rem;
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
+  color: var(--text-muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.62rem;
+  font-weight: 550;
+}
+
+.mobileNav {
+  position: relative;
+  display: none;
+}
+
+.mobileSummary {
+  list-style-position: inside;
+}
+
+.mobilePanel {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  width: min(20rem, calc(100vw - 1.2rem));
+  padding: 0.55rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.8rem;
+  background: rgba(5, 11, 17, 0.96);
+  box-shadow: var(--shadow-high);
+  backdrop-filter: blur(22px);
+}
+
+.mobilePanel .navList {
+  display: grid;
+  justify-content: stretch;
+}
+
+.mobilePanel .navLink {
+  width: 100%;
+}
+
+.progressTrack {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(141, 162, 171, 0.1);
+  pointer-events: none;
+}
+
+.progressValue {
+  width: var(--page-progress, 0%);
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--cyan), var(--violet));
+  box-shadow: 0 0 16px rgba(117, 228, 211, 0.48);
+  transition: width 80ms linear;
+}
+
+.dialog {
+  width: min(38rem, calc(100vw - 1.5rem));
+  max-height: min(40rem, calc(100vh - 2rem));
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 1rem;
+  background: rgba(5, 11, 17, 0.97);
+  color: var(--text);
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.68);
+}
+
+.dialog::backdrop {
+  background: rgba(1, 4, 8, 0.78);
+  backdrop-filter: blur(8px);
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.dialogHeader p,
+.dialogHeader strong {
+  margin: 0;
+}
+
+.dialogHeader p {
+  color: var(--accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dialogHeader strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 1rem;
+}
+
+.closeButton {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-soft);
+  font: inherit;
+  cursor: pointer;
+}
+
+.search {
+  width: calc(100% - 2rem);
+  min-height: 48px;
+  margin: 1rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.65rem;
+  background: var(--page-raised);
+  color: var(--text);
+  font: inherit;
+}
+
+.commandList {
+  display: grid;
+  gap: 0.35rem;
+  max-height: 27rem;
+  margin: 0;
+  padding: 0 1rem 1rem;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.commandLink {
+  display: grid;
+  min-height: 52px;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 0.65rem;
+  color: var(--text-soft);
+  text-decoration: none;
+}
+
+.commandLink:hover,
+.commandLink:focus-visible {
+  border-color: var(--line-strong);
+  background: var(--panel);
+  color: var(--text);
+}
+
+.commandIndex,
+.commandHint {
+  color: var(--text-muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.65rem;
+}
+
+.empty {
+  padding: 1.5rem 1rem 2rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 1050px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileNav {
+    display: block;
+  }
+
+  .commandButton kbd {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navLink::after,
+  .progressValue {
+    transition: none;
+  }
+}
+
+@media print {
+  .controls,
+  .progressTrack,
+  .dialog {
+    display: none !important;
+  }
+}
