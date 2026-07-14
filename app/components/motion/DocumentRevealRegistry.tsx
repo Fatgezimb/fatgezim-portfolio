@@ -46,14 +46,25 @@ export function DocumentRevealRegistry({
     const observerThreshold = Number.isFinite(threshold)
       ? Math.min(1, Math.max(0, threshold))
       : 0.16;
+    const observerThresholds =
+      observerThreshold === 0 ? [0] : [0, observerThreshold];
 
     const observer = supportsObserver
       ? new IntersectionObserver(
           (entries) => {
             for (const entry of entries) {
               const element = entry.target as HTMLElement;
+              const rootHeight = entry.rootBounds?.height ?? window.innerHeight;
+              const thresholdCanBeReached =
+                entry.boundingClientRect.height * observerThreshold <= rootHeight;
+              const isAlreadyVisible = element.dataset.revealState === "visible";
 
-              if (entry.isIntersecting) {
+              if (
+                entry.isIntersecting &&
+                (isAlreadyVisible ||
+                  entry.intersectionRatio >= observerThreshold ||
+                  !thresholdCanBeReached)
+              ) {
                 setRevealState(element, "visible");
               } else if (entry.boundingClientRect.bottom <= 0) {
                 setRevealState(element, "after");
@@ -62,7 +73,7 @@ export function DocumentRevealRegistry({
               }
             }
           },
-          { rootMargin, threshold: observerThreshold },
+          { rootMargin, threshold: observerThresholds },
         )
       : null;
 
