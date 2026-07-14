@@ -85,11 +85,11 @@ Use **Role Atlas** instead of NeuroPath Insight if the owner prefers an entirely
 - Status: current prototype; Pages workflow exists, but a public deployment was not verified.
 - Boundary: not production medical content; do not imply NBME affiliation, medical review, or accuracy.
 
-### 5. Rethink Automations — 134
+### 5. Rethink Automations / NeuroPath Rethink Automation Center — 134
 
-- Evidence: `/Users/fatgezimbela/Documents/Rethink Automations - Zim /AGENTS.md`; `docs/UI_UX_AUDIT.md`.
+- Evidence: `/Users/fatgezimbela/Documents/Rethink Automations - Zim /AGENTS.md`; `docs/PROJECT_CHARTER.md`; `docs/UI_UX_AUDIT.md`.
 - Stack/output: Python local server, HTML/CSS/JS, Playwright, Chrome CDP, JSON state, queues, confirmation, imports/exports, and readable logs.
-- Status: active local tool; no public URL.
+- Status: active local beta; no public deployment. NeuroPath relationship is a placeholder: NeuroPath-adjacent local operations beta, not a deployed public NeuroPath product.
 - Boundary: Step 1 behavior automation is supported; later steps remain manual. Never show authenticated Rethink screens or local state.
 
 ### 6. Role Atlas — 133

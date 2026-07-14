@@ -3,7 +3,7 @@ import { SectionHeading } from "./SectionHeading";
 
 export function Experience() {
   return (
-    <section className="content-section section-shell" id="experience">
+    <section className="content-section section-shell" data-reveal="up" id="experience">
       <SectionHeading
         eyebrow="Experience / 03"
         title="Selected experience"

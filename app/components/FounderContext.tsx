@@ -5,7 +5,7 @@ export function FounderContext() {
   const { founderContext } = siteContent;
 
   return (
-    <section className="content-section section-shell" id="founder">
+    <section className="content-section section-shell" data-reveal="up" id="founder">
       <SectionHeading
         eyebrow="Founder context / 06"
         title={founderContext.heading}

@@ -3,7 +3,7 @@ import { SectionHeading } from "./SectionHeading";
 
 export function Skills() {
   return (
-    <section className="content-section section-shell" id="skills">
+    <section className="content-section section-shell" data-reveal="up" id="skills">
       <SectionHeading
         eyebrow="Capabilities / 04"
         title="Skills"

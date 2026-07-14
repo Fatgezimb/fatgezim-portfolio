@@ -1,0 +1,252 @@
+.scene {
+  position: relative;
+  isolation: isolate;
+  min-height: 25rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line, #29414d);
+  border-radius: var(--radius-lg, 1.2rem);
+  background:
+    radial-gradient(circle at 48% 38%, rgba(117, 228, 211, 0.13), transparent 24%),
+    linear-gradient(145deg, rgba(17, 36, 47, 0.98), rgba(7, 16, 22, 0.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 24px 80px rgba(0, 0, 0, 0.22);
+}
+
+.scene::before {
+  position: absolute;
+  z-index: 0;
+  inset: -25% -18% 10%;
+  background-image:
+    linear-gradient(rgba(117, 228, 211, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(117, 228, 211, 0.07) 1px, transparent 1px);
+  background-size: 42px 42px;
+  content: "";
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 94%);
+  transform: perspective(560px) rotateX(62deg) translateY(-11%);
+  transform-origin: center top;
+}
+
+.scene::after {
+  position: absolute;
+  z-index: 0;
+  inset: 14% 20% 27%;
+  border: 1px solid rgba(117, 228, 211, 0.16);
+  border-radius: 50%;
+  box-shadow:
+    0 0 54px rgba(117, 228, 211, 0.14),
+    inset 0 0 54px rgba(117, 228, 211, 0.08);
+  content: "";
+  animation: fieldPulse 6.4s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.scene[data-scene-motion="active"]::after {
+  animation-play-state: running;
+}
+
+.viewport {
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 5.8rem;
+}
+
+.lattice {
+  position: absolute;
+  inset: 2% -3% 0;
+  transform: perspective(980px) rotateX(8deg) rotateY(-5deg) translate3d(0, -1%, 0);
+  transform-origin: center;
+}
+
+.lattice svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.links path,
+.flows path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.links path {
+  stroke: rgba(117, 228, 211, 0.22);
+  stroke-width: 1.35;
+}
+
+.flows path {
+  stroke-width: 2;
+  stroke-dasharray: 5 34;
+  stroke-linecap: round;
+  animation: signalFlow 7.8s linear infinite;
+  animation-play-state: paused;
+}
+
+.scene[data-scene-motion="active"] .flows path,
+.scene[data-scene-motion="active"] .nodes > g {
+  animation-play-state: running;
+}
+
+.nodes > g {
+  color: var(--accent, #75e4d3);
+  animation: nodeBreathe 5.4s ease-in-out infinite;
+  animation-play-state: paused;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.nodes > g.cyan {
+  color: var(--accent, #75e4d3);
+}
+
+.nodes > g.warm {
+  color: var(--warm, #f6c878);
+}
+
+.nodes > g.core {
+  color: var(--accent-strong, #a5f3e7);
+}
+
+.nodeHalo {
+  fill: color-mix(in srgb, currentColor 9%, transparent);
+  stroke: color-mix(in srgb, currentColor 48%, transparent);
+  stroke-width: 1;
+}
+
+.nodeDot {
+  fill: currentColor;
+  stroke: rgba(7, 16, 22, 0.9);
+  stroke-width: 4;
+}
+
+.nodes text {
+  fill: var(--text-soft, #b7c7cc);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-anchor: middle;
+}
+
+.axis {
+  position: absolute;
+  top: 8%;
+  bottom: 15%;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(transparent, rgba(117, 228, 211, 0.22), transparent);
+}
+
+.readout {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: var(--text-muted, #82969f);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.12em;
+}
+
+.caption {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(117, 228, 211, 0.2);
+  border-radius: var(--radius-md, 0.8rem);
+  background: rgba(7, 16, 22, 0.88);
+  backdrop-filter: blur(10px);
+}
+
+.caption strong {
+  color: var(--text, #f1f5f4);
+  font-size: 0.86rem;
+}
+
+.caption span {
+  color: var(--text-soft, #b7c7cc);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+@keyframes signalFlow {
+  to {
+    stroke-dashoffset: -156;
+  }
+}
+
+@keyframes nodeBreathe {
+  0%,
+  100% {
+    opacity: 0.78;
+    scale: 0.96;
+  }
+
+  50% {
+    opacity: 1;
+    scale: 1.04;
+  }
+}
+
+@keyframes fieldPulse {
+  0%,
+  100% {
+    opacity: 0.42;
+    scale: 0.96;
+  }
+
+  50% {
+    opacity: 0.78;
+    scale: 1.03;
+  }
+}
+
+@media (max-width: 640px) {
+  .scene {
+    min-height: 21rem;
+  }
+
+  .viewport {
+    bottom: 7rem;
+  }
+
+  .lattice {
+    inset: 1% -15% 3%;
+  }
+
+  .caption span {
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene::after,
+  .flows path,
+  .nodes > g {
+    animation: none !important;
+  }
+
+  .lattice {
+    transform: none;
+  }
+}
+
+@media print {
+  .scene::after,
+  .flows path,
+  .nodes > g {
+    animation: none !important;
+  }
+
+  .scene {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+}

@@ -9,6 +9,7 @@ import { Research } from "./Research";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 import { Skills } from "./Skills";
+import { DocumentRevealRegistry } from "./motion";
 
 export function PortfolioPage() {
   return (
@@ -16,6 +17,7 @@ export function PortfolioPage() {
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
+      <DocumentRevealRegistry />
       <SiteHeader />
       <main id="main-content">
         <Hero />

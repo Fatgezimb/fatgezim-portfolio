@@ -6,7 +6,11 @@ export function Contact() {
   const { contact } = siteContent;
 
   return (
-    <section className="content-section section-shell contact-section" id="contact">
+    <section
+      className="content-section section-shell contact-section"
+      data-reveal="scale"
+      id="contact"
+    >
       <SectionHeading
         eyebrow="Connect / 08"
         title={contact.heading}

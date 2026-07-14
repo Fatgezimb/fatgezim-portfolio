@@ -160,6 +160,8 @@ Highest-evidence current candidates:
 8. PracticeOS, labeled `Private product concept and internal prototype`.
 9. Steward Control Room.
 
+Rethink Automations is now also tracked under the working project name `NeuroPath Rethink Automation Center` for beta-site stewardship. Public portfolio wording must keep the relationship conservative: NeuroPath-adjacent local operations beta, not a deployed public NeuroPath product.
+
 ### Confirmed brand names and status
 
 - Legal entity: `NeuroPath LLC`.

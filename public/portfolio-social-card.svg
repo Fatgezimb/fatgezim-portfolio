@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Fatgezim “Zim” Bela portfolio</title>
+  <desc id="description">An original abstract neural and data lattice surrounding Zim Bela’s multidisciplinary professional profile.</desc>
+  <defs>
+    <linearGradient id="background" x1="72" y1="24" x2="1128" y2="606" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071016"/>
+      <stop offset="0.55" stop-color="#091923"/>
+      <stop offset="1" stop-color="#10122A"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="210" y1="118" x2="1010" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#75E4D3"/>
+      <stop offset="0.55" stop-color="#74C7F5"/>
+      <stop offset="1" stop-color="#9D7CF8"/>
+    </linearGradient>
+    <radialGradient id="core" cx="0" cy="0" r="1" gradientTransform="translate(900 300) rotate(90) scale(210)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#75E4D3" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#75E4D3" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#75E4D3" stroke-opacity="0.055"/>
+    </pattern>
+    <filter id="soft-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="900" cy="300" r="210" fill="url(#core)"/>
+
+  <g fill="none" stroke="url(#signal)" stroke-linecap="round">
+    <path d="M760 113 842 175 956 146 1026 232 1102 265" stroke-opacity="0.52" stroke-width="2"/>
+    <path d="M717 260 818 221 905 300 1014 275 1100 352" stroke-opacity="0.74" stroke-width="2"/>
+    <path d="M730 441 814 378 918 409 1008 351 1085 469" stroke-opacity="0.48" stroke-width="2"/>
+    <path d="M842 175 818 221 905 300 814 378" stroke-opacity="0.42"/>
+    <path d="M956 146 905 300 918 409 1085 469" stroke-opacity="0.28"/>
+    <path d="M1014 275 1026 232 1102 265" stroke-opacity="0.42"/>
+  </g>
+
+  <g fill="#071016" stroke="url(#signal)" stroke-width="2">
+    <circle cx="760" cy="113" r="8"/>
+    <circle cx="842" cy="175" r="6"/>
+    <circle cx="956" cy="146" r="10"/>
+    <circle cx="1026" cy="232" r="6"/>
+    <circle cx="1102" cy="265" r="8"/>
+    <circle cx="717" cy="260" r="7"/>
+    <circle cx="818" cy="221" r="9"/>
+    <circle cx="905" cy="300" r="18" filter="url(#soft-glow)"/>
+    <circle cx="1014" cy="275" r="8"/>
+    <circle cx="1100" cy="352" r="6"/>
+    <circle cx="730" cy="441" r="7"/>
+    <circle cx="814" cy="378" r="10"/>
+    <circle cx="918" cy="409" r="7"/>
+    <circle cx="1008" cy="351" r="9"/>
+    <circle cx="1085" cy="469" r="8"/>
+  </g>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" letter-spacing="2.7" text-transform="uppercase">
+    <text x="72" y="82" fill="#75E4D3">BEHAVIORAL HEALTH · MEDICINE · DATA · PRODUCT</text>
+    <text x="72" y="558" fill="#92A8B2">VERIFIED WORK · PRIVACY-AWARE SYSTEMS · HUMAN-CENTERED TOOLS</text>
+  </g>
+
+  <text x="72" y="244" fill="#F1F5F4" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" letter-spacing="-4">Fatgezim “Zim” Bela</text>
+  <text x="72" y="318" fill="#B7C7CC" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="500">BCBA · Medical Student · Data Scientist · Founder</text>
+
+  <g transform="translate(72 380)">
+    <rect width="476" height="76" rx="18" fill="#0E1D26" stroke="#29414D"/>
+    <circle cx="39" cy="38" r="13" fill="#75E4D3" fill-opacity="0.14" stroke="#75E4D3"/>
+    <circle cx="39" cy="38" r="4" fill="#75E4D3"/>
+    <text x="68" y="33" fill="#F1F5F4" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Clinical practice × technical product building</text>
+    <text x="68" y="56" fill="#82969F" font-family="Arial, Helvetica, sans-serif" font-size="15">A multidisciplinary portfolio of verified work</text>
+  </g>
+</svg>

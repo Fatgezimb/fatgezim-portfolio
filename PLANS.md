@@ -34,12 +34,12 @@ Do not implement Phase 2 work until the owner sends:
 
 ## Owner review
 
-- [ ] Owner approves content.
-- [ ] Owner approves section order.
-- [ ] Owner approves project selection.
-- [ ] Owner approves desktop layout.
-- [ ] Owner approves mobile layout.
-- [ ] Owner resolves factual questions.
+- [x] Owner approves content.
+- [x] Owner approves section order.
+- [x] Owner approves project selection.
+- [x] Owner approves desktop layout.
+- [x] Owner approves mobile layout.
+- [x] Owner accepts that unresolved factual items remain omitted pending evidence.
 
 ## Phase 2 — Visual system, imagery, motion, and project demos
 
@@ -47,6 +47,8 @@ Do not implement Phase 2 work until the owner sends:
 - [ ] Establish final color, typography, elevation, and depth system.
 - [ ] Implement purposeful scroll reveals and exits.
 - [ ] Implement project-card micro-demos.
+- [ ] Prepare a sanitized `NeuroPath Rethink Automation Center` beta-site showcase for the Rethink Automations card using synthetic queue data only.
+- [ ] Add an explicit project-detail note that the Rethink beta is NeuroPath-adjacent/local and not a deployed public NeuroPath product.
 - [ ] Add 3D tilt and limited depth scenes.
 - [ ] Add focus, hover, tap, and reduced-motion variants.
 - [ ] Test performance and accessibility continuously.

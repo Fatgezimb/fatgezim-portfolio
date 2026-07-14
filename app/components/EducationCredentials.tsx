@@ -3,7 +3,7 @@ import { SectionHeading } from "./SectionHeading";
 
 export function EducationCredentials() {
   return (
-    <section className="content-section section-shell" id="education">
+    <section className="content-section section-shell" data-reveal="up" id="education">
       <SectionHeading
         eyebrow="Education / 07"
         title="Education & credentials"

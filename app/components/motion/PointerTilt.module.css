@@ -1,0 +1,30 @@
+.root {
+  transform: perspective(var(--tilt-perspective, 900px)) rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg));
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.root[data-tilt-active="true"] {
+  transition-duration: 110ms;
+  will-change: transform;
+}
+
+.root[data-tilt-enabled="false"] {
+  transform: none;
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .root {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@media print {
+  .root {
+    transform: none !important;
+    transition: none !important;
+  }
+}

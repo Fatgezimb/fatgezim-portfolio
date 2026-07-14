@@ -4,7 +4,7 @@ import { SectionHeading } from "./SectionHeading";
 
 export function About() {
   return (
-    <section className="content-section section-shell" id="about">
+    <section className="content-section section-shell" data-reveal="up" id="about">
       <SectionHeading
         eyebrow="Profile / 01"
         title={siteContent.about.heading}

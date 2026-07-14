@@ -1,13 +1,15 @@
-import type { ProjectRecord } from "@/app/content/projects";
 import {
   featuredProjects,
   projectSelectionNotes,
 } from "@/app/content/projects";
 import { siteContent } from "@/app/content/site";
 import { SectionHeading } from "./SectionHeading";
+import { ProjectMicroDemo } from "./project-demos";
+
+type FeaturedProject = (typeof featuredProjects)[number];
 
 type ProjectCardProps = {
-  project: ProjectRecord;
+  project: FeaturedProject;
   index: number;
 };
 
@@ -15,7 +17,10 @@ function ProjectCard({ project, index }: ProjectCardProps) {
   const projectName = project.verifiedPublicName ?? "Project under review";
 
   return (
-    <article className={`project-card${index === 0 ? " project-card--lead" : ""}`}>
+    <article
+      className={`project-card${index === 0 ? " project-card--lead" : ""}`}
+      data-reveal="scale"
+    >
       <header className="project-card__header">
         <div>
           <p className="project-index">Project / {String(index + 1).padStart(2, "0")}</p>
@@ -58,22 +63,8 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           )}
         </div>
 
-        <div className="project-placeholder" aria-label={`${projectName} static workflow outline`}>
-          <div className="panel-label">
-            <span>{siteContent.featuredWork.demoPlaceholderLabel}</span>
-            <span>Not interactive</span>
-          </div>
-          <ol className="workflow-list">
-            {project.demoStory.map((step, stepIndex) => (
-              <li key={step}>
-                <span aria-hidden="true">{String(stepIndex + 1).padStart(2, "0")}</span>
-                <p>{step.replace(/^Static placeholder:\s*/i, "")}</p>
-              </li>
-            ))}
-          </ol>
-          <p className="placeholder-note">
-            {siteContent.featuredWork.demoPlaceholderNote}
-          </p>
+        <div className="project-demo-shell">
+          <ProjectMicroDemo projectId={project.id} />
         </div>
       </div>
 
@@ -108,7 +99,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
 export function FeaturedProjects() {
   return (
-    <section className="content-section section-shell" id="projects">
+    <section className="content-section section-shell" data-reveal="up" id="projects">
       <SectionHeading
         eyebrow="Project lab / 02"
         title={siteContent.featuredWork.heading}

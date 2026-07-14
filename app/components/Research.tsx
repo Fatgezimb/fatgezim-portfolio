@@ -3,7 +3,7 @@ import { SectionHeading } from "./SectionHeading";
 
 export function Research() {
   return (
-    <section className="content-section section-shell" id="research">
+    <section className="content-section section-shell" data-reveal="scale" id="research">
       <SectionHeading
         eyebrow="Research / 05"
         title="Research & scientific work"

@@ -203,9 +203,9 @@ export const featuredProjects = [
     id: "rethink-automations",
     verifiedPublicName: "Rethink Automations",
     aliases: [],
-    status: "Active local workflow-automation project; no public deployment.",
+    status: "Active local beta workflow-automation project; no public deployment.",
     summary:
-      "A local operator dashboard that makes selected Rethink workflows reviewable through queued work, explicit confirmation, bounded browser automation, and readable diagnostics.",
+      "A local beta operator dashboard that makes selected Rethink workflows reviewable through queued work, explicit confirmation, bounded browser automation, and readable diagnostics.",
     problem:
       "Reduce repetitive browser-entry work while preserving human review, page confirmation, and accurate limits on what the automation supports.",
     audience: ["internal workflow operators", "behavioral-health operations teams"],
@@ -221,6 +221,7 @@ export const featuredProjects = [
       "local JSON state",
     ],
     verifiedOutputs: [
+      "private local beta review UI",
       "searchable custom-program queue",
       "behavior queue and six-step state model",
       "Import and Export Centers",
@@ -230,6 +231,7 @@ export const featuredProjects = [
     ],
     evidenceLinks: [],
     privacyNotes: [
+      "Show only a sanitized beta-site walkthrough or synthetic local demo in the portfolio.",
       "Portfolio materials must use a sanitized local replica with invented, non-clinical records.",
       "Never expose real client information, authenticated Rethink screens, private state files, operational exports, or PHI.",
       "Do not imply that the tool bypasses authentication, review, or final human control.",
@@ -241,6 +243,7 @@ export const featuredProjects = [
       "End on a readable local run log and the manual-work boundary.",
     ],
     uncertaintyFlags: [
+      "NeuroPath relationship is currently a placeholder: NeuroPath-adjacent local operations beta, not a deployed public NeuroPath product.",
       "Behavior automation currently supports Step 1 only; Steps 2–6 remain manual checklist state.",
       "Live selector behavior can change with the third-party Rethink interface.",
     ],
