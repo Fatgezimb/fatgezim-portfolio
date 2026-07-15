@@ -1,9 +1,6 @@
 # Fatgezim “Zim” Bela — Portfolio
 
-GitHub Pages workflow: ready in `.github/workflows/pages.yml`; the repository
-is currently private, so GitHub will not publish Pages on the current plan.
-Once the repository is made public or Pages access is upgraded, the site will
-be available at `https://fatgezimb.github.io/fatgezim-portfolio/`.
+Live GitHub Pages site: [fatgezimb.github.io/fatgezim-portfolio](https://fatgezimb.github.io/fatgezim-portfolio/)
 
 Featured scientific project: [NeuroStack Explorer](https://fatgezimb.github.io/neurostack-explorer/)
 
