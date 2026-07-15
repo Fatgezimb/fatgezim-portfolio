@@ -1,6 +1,10 @@
 # Fatgezim “Zim” Bela — Portfolio
 
-A technical portfolio and verified public résumé connecting behavioral health, medicine, data science, software, and founder-built products. The experience uses a light-first “neural command center” visual system, accessible miniature product demos, and progressively enhanced Three.js scenes.
+Live GitHub Pages site: [fatgezimb.github.io/fatgezim-portfolio](https://fatgezimb.github.io/fatgezim-portfolio/)
+
+Featured scientific project: [NeuroStack Explorer](https://fatgezimb.github.io/neurostack-explorer/)
+
+A technical portfolio and résumé connecting behavioral health, medicine, data science, software, and founder-built products. The experience uses a light-first “neural command center” visual system, accessible miniature product demos, and progressively enhanced Three.js scenes.
 
 ## Stack
 
@@ -25,9 +29,9 @@ Open [http://localhost:3000](http://localhost:3000). Useful routes are:
 
 - `/` — portfolio
 - `/#projects` — featured project lab
-- `/research` — evidence-backed research record
+- `/research` — research overview
 - `/research/george-mason-neuronal-reconstruction` — accessible poster project page
-- `/resume` — print-friendly public résumé
+- `/resume` — print-friendly résumé
 
 ## Verification
 
@@ -65,11 +69,11 @@ Every demo must remain understandable with autoplay paused and must keep its evi
 
 ## Research, media, and contact
 
-The research hub and George Mason project page pair the original poster with a readable HTML summary, documented workflow, source boundaries, and an accessible native-dialog viewer. The PDF is an archival artifact; its printed email address is not the current contact address.
+The research hub and George Mason project page pair the original poster with a readable HTML summary, documented workflow, and an accessible native-dialog viewer.
 
 Optimized public derivatives live in `public/media/`. The headshot preserves the supplied face and natural appearance. The soccer clip is a six-second H.264 MP4 with the source file's mathematically silent audio track removed; its poster and video bytes are assigned only when the feature approaches the viewport. The surrounding text remains usable without JavaScript.
 
-The contact form does not submit to a server. It creates an encoded `mailto:` draft for the visitor to review in their own email application. Do not replace it with a collection service without updating the privacy copy and obtaining owner approval.
+The contact form does not submit to a server. It uses an encoded `mailto:` handoff so the visitor can finish and send the message in their email application. The destination address is not displayed as visitor-facing contact copy.
 
 ## Themes, motion, and 3D
 
