@@ -95,13 +95,21 @@ export type NeuroPathInsightDemoState = {
   items: readonly string[];
 };
 
+export type NeuroStackExplorerDemoState = {
+  kind: "neurostack-explorer";
+  view: "provenance" | "rate" | "embedding" | "artifacts";
+  datasetLabel: string;
+  items: readonly string[];
+};
+
 export type ProjectDemoFrameData =
   | BehaviorDataLabDemoState
   | CaregiverAcademyDemoState
   | RbtPracticeDemoState
   | StepSparkDemoState
   | RethinkAutomationDemoState
-  | NeuroPathInsightDemoState;
+  | NeuroPathInsightDemoState
+  | NeuroStackExplorerDemoState;
 
 export type StoryboardFrame<TDemo extends ProjectDemoFrameData = ProjectDemoFrameData> = {
   id: string;
@@ -120,7 +128,6 @@ export type ProjectStoryboard<
   title: string;
   posterLabel: string;
   privacyLabel: string;
-  statusLabel: string;
   dataLabel: string;
   authorshipLabel: string;
   theme: ProjectTheme;
@@ -137,13 +144,42 @@ const architectureKinds = {
 } as const;
 
 export const projectStoryboards = {
+  "neurostack-explorer": {
+    projectId: "neurostack-explorer",
+    title: "Scientific software explorer",
+    posterLabel: "NWB → analysis → models → reproducible artifacts",
+    privacyLabel: "Compact public-derived artifact; no private records or public kernel.",
+    dataLabel: "Checksum-verified public NWB derivative",
+    authorshipLabel: "Created and documented by Fatgezim “Zim” Bela.",
+    theme: { label: "Neural cyan", accent: "#67e8f9", secondary: "#a78bfa", glow: "rgba(103, 232, 249, 0.24)" },
+    evidenceLinks: [{ label: "Open-source repository", href: "https://github.com/Fatgezimb/neurostack-explorer" }],
+    architecture: {
+      summary: "A pinned public NWB asset becomes validated, compact, browser-readable scientific artifacts.",
+      nodes: [
+        { id: "nwb", kind: architectureKinds.input, label: "Public NWB derivative", description: "Checksum-matched compact data from an immutable DANDI asset.", technologies: ["NWB", "DANDI"] },
+        { id: "analysis", kind: architectureKinds.process, label: "Analysis workspace", description: "Pynapple-linked views and bounded model artifacts expose the declared task.", technologies: ["Python", "Pynapple", "NeMoS"] },
+        { id: "figures", kind: architectureKinds.output, label: "Figures and notebook", description: "Charts, tables, and executed notebook outputs remain inspectable.", technologies: ["Plotly", "TypeScript"] },
+        { id: "boundary", kind: architectureKinds.boundary, label: "Privacy boundary", description: "No arbitrary uploads, private participant data, or public Python runtime.", technologies: [] },
+      ],
+      edges: [
+        { from: "nwb", to: "analysis", label: "validate and transform" },
+        { from: "analysis", to: "figures", label: "serialize artifacts" },
+        { from: "figures", to: "boundary", label: "label scope" },
+      ],
+    },
+    frames: [
+      { id: "provenance", eyebrow: "Provenance", title: "Start with the source", body: "The explorer keeps the dataset identity, checksum, and synthetic fallback status visible before a chart appears.", state: "input", details: [{ label: "Source", value: "Immutable public DANDI asset" }, { label: "Data", value: "8 units · 600 s session" }], demo: { kind: "neurostack-explorer", view: "provenance", datasetLabel: "DANDI 000582 · verified derivative", items: ["Source checksum matched", "CC BY 4.0 attribution recorded", "Synthetic fallback labeled separately"] } },
+      { id: "rate", eyebrow: "Linked view", title: "Trace a neural signal", body: "A compact rate trace and population readout make the analytical task legible without pretending to be a live research backend.", state: "processing", details: [{ label: "Window", value: "100 ms bins" }, { label: "View", value: "Selected unit + population" }], demo: { kind: "neurostack-explorer", view: "rate", datasetLabel: "t1c1 selected-unit trace", items: ["Selected unit", "Population rate", "Behavior interval"] } },
+      { id: "embedding", eyebrow: "Visualization", title: "See the feature space", body: "The explorer connects feature summaries to a visual population view, with readable labels and an accessible table alternative.", state: "complete", details: [{ label: "Features", value: "Position · speed · count" }, { label: "Output", value: "Bounded visual summary" }], demo: { kind: "neurostack-explorer", view: "embedding", datasetLabel: "Population feature view", items: ["Rate", "ISI variability", "Median interval"] } },
+      { id: "artifacts", eyebrow: "Reproducibility", title: "Leave an audit trail", body: "The complete repository includes schema-checked artifacts, an executed notebook, and the code that generated them.", state: "boundary", details: [{ label: "Artifacts", value: "JSON · PNG · notebook" }, { label: "Boundary", value: "No arbitrary code execution" }], demo: { kind: "neurostack-explorer", view: "artifacts", datasetLabel: "Checksummed release bundle", items: ["Model comparisons", "Executed notebook", "Validation report"] } },
+    ],
+  },
   "bela-behavior-data-lab": {
     projectId: "bela-behavior-data-lab",
-    title: "Browser-local operations review",
-    posterLabel: "Synthetic workbook → review → dashboard → report",
-    privacyLabel: "Synthetic demo · source rows stay in the browser",
-    statusLabel: "Active public product · paid operations subscription is not connected",
-    dataLabel: "Bundled synthetic appointment-shaped data only",
+    title: "Operations data workspace",
+    posterLabel: "Sample workbook → review → dashboard → report",
+    privacyLabel: "Sample data only; source files stay in the browser.",
+    dataLabel: "Bundled appointment-shaped sample",
     authorshipLabel: "Co-founded and co-built by Fatgezim “Zim” Bela and Meili Bela.",
     theme: {
       label: "Operations mint",
@@ -152,16 +188,16 @@ export const projectStoryboards = {
       glow: "rgba(45, 212, 191, 0.24)",
     },
     evidenceLinks: [
-      { label: "NeuroPath", href: "https://neuropathlabs.com/" },
+      { label: "Visit project", href: "https://neuropathlabs.com/" },
     ],
     architecture: {
       summary:
-        "A sanitized view of the verified browser-local path from appointment-shaped input to reviewable operations and report surfaces.",
+        "This workflow turns an appointment-shaped sample into reviewable operations and report views in the browser.",
       nodes: [
         {
           id: "workbook",
           kind: architectureKinds.input,
-          label: "Synthetic workbook",
+          label: "Sample workbook",
           description: "Bundled spreadsheet or CSV-shaped sample selected by the visitor.",
           technologies: ["SheetJS"],
         },
@@ -182,8 +218,8 @@ export const projectStoryboards = {
         {
           id: "privacy-boundary",
           kind: architectureKinds.boundary,
-          label: "Portfolio boundary",
-          description: "No real exports, appointment rows, client names, staff names, or PHI appear here.",
+          label: "Demo limit",
+          description: "The demo does not include real exports, appointment rows, names, or clinical data.",
           technologies: [],
         },
       ],
@@ -197,7 +233,7 @@ export const projectStoryboards = {
         {
           from: "operations-output",
           to: "privacy-boundary",
-          label: "stop at sanitized output",
+          label: "show sample output",
         },
       ],
     },
@@ -205,12 +241,12 @@ export const projectStoryboards = {
       {
         id: "sample-import",
         eyebrow: "Input",
-        title: "Synthetic workbook selected",
+        title: "Sample workbook selected",
         body:
           "A bundled sample represents an appointment export without using real client, staff, service, or billing records.",
         state: "input",
         details: [
-          { label: "Source", value: "Bundled synthetic workbook" },
+          { label: "Source", value: "Bundled sample workbook" },
           { label: "Processing", value: "Browser-local" },
         ],
         demo: {
@@ -228,7 +264,7 @@ export const projectStoryboards = {
           "The preview groups validation and follow-up states before the operator opens a dashboard or report view.",
         state: "review",
         details: [
-          { label: "Input", value: "Synthetic appointment rows" },
+          { label: "Input", value: "Sample appointment rows" },
           { label: "Output", value: "Reviewable issue categories" },
         ],
         demo: {
@@ -243,11 +279,11 @@ export const projectStoryboards = {
         eyebrow: "Workspace",
         title: "Operational views organize the session",
         body:
-          "Verified product surfaces include operations, people, money, action, and report views.",
+          "The product includes operations, people, money, action, and report views.",
         state: "processing",
         details: [
           { label: "Views", value: "Operations · People · Actions" },
-          { label: "Data", value: "Synthetic session only" },
+          { label: "Data", value: "Sample session only" },
         ],
         demo: {
           kind: "behavior-data-lab",
@@ -261,17 +297,17 @@ export const projectStoryboards = {
         eyebrow: "Output",
         title: "Report-ready, without uploading the source",
         body:
-          "The workflow ends on a PDF-ready output and a reminder that the portfolio preview contains no real operational data.",
+          "The workflow ends on a PDF-ready sample without using real operational data.",
         state: "boundary",
         details: [
-          { label: "Output", value: "Sanitized report-ready view" },
-          { label: "Boundary", value: "No real exports or PHI" },
+          { label: "Output", value: "Sample report-ready view" },
+          { label: "Limit", value: "No real exports or clinical data" },
         ],
         demo: {
           kind: "behavior-data-lab",
           view: "report",
-          fileLabel: "Sanitized review report",
-          items: ["Session summary", "Review notes", "Data boundary"],
+          fileLabel: "Sample review report",
+          items: ["Session summary", "Review notes", "Demo note"],
         },
       },
     ],
@@ -280,9 +316,8 @@ export const projectStoryboards = {
     projectId: "caregiver-academy",
     title: "Caregiver learning path",
     posterLabel: "Routine → guided lesson → knowledge check → printable tool",
-    privacyLabel: "Educational support · no child profile or individualized plan",
-    statusLabel: "Active public educational product",
-    dataLabel: "Generic learning scenario · no family or child data",
+    privacyLabel: "General education, not an individualized care plan.",
+    dataLabel: "Example learning scenario",
     authorshipLabel:
       "Zim: Co-founder, Product Builder, and BCBA Contributor; jointly built with Meili Bela.",
     theme: {
@@ -292,7 +327,7 @@ export const projectStoryboards = {
       glow: "rgba(52, 211, 153, 0.22)",
     },
     evidenceLinks: [
-      { label: "Bela Data Lab", href: "https://beladatalab.com/" },
+      { label: "Visit project", href: "https://beladatalab.com/" },
     ],
     architecture: {
       summary:
@@ -322,7 +357,7 @@ export const projectStoryboards = {
         {
           id: "care-boundary",
           kind: architectureKinds.boundary,
-          label: "Educational boundary",
+          label: "Educational limit",
           description: "The product is not individualized care, a behavior plan, crisis guidance, or a guaranteed outcome.",
           technologies: [],
         },
@@ -330,7 +365,7 @@ export const projectStoryboards = {
       edges: [
         { from: "routine-topic", to: "guided-learning", label: "open module" },
         { from: "guided-learning", to: "practical-tool", label: "complete check" },
-        { from: "practical-tool", to: "care-boundary", label: "retain scope" },
+        { from: "practical-tool", to: "care-boundary", label: "keep educational context" },
       ],
     },
     frames: [
@@ -393,11 +428,11 @@ export const projectStoryboards = {
         eyebrow: "Use",
         title: "Leave with a printable next step",
         body:
-          "The workflow closes with a practical tool and explicit boundaries around crisis guidance, treatment, and guaranteed outcomes.",
+          "The workflow closes with a practical tool for general education, not individualized care or crisis guidance.",
         state: "boundary",
         details: [
           { label: "Output", value: "Printable caregiver tool" },
-          { label: "Boundary", value: "Not individualized care" },
+          { label: "Limit", value: "Not individualized care" },
         ],
         demo: {
           kind: "caregiver-academy",
@@ -412,8 +447,7 @@ export const projectStoryboards = {
     projectId: "rbt-practice-hub",
     title: "Independent competency practice",
     posterLabel: "19-task map → flashcard → original question → local progress",
-    privacyLabel: "Independent learning resource · no BACB affiliation",
-    statusLabel: "Active public resource · deployed on GitHub Pages",
+    privacyLabel: "Independent study resource; not affiliated with the BACB.",
     dataLabel: "Original practice sample · local progress only",
     authorshipLabel: "Founded and built by Fatgezim “Zim” Bela.",
     theme: {
@@ -424,11 +458,11 @@ export const projectStoryboards = {
     },
     evidenceLinks: [
       {
-        label: "Open RBT Practice Hub",
+        label: "Visit project",
         href: "https://fatgezimb.github.io/rbt-practice-hub/",
       },
       {
-        label: "View source",
+        label: "View source code",
         href: "https://github.com/Fatgezimb/rbt-practice-hub",
       },
     ],
@@ -460,7 +494,7 @@ export const projectStoryboards = {
         {
           id: "independent-boundary",
           kind: architectureKinds.boundary,
-          label: "Independent-resource boundary",
+          label: "Independent resource",
           description: "The app is not an official BACB product, competency decision, credential, or endorsement.",
           technologies: [],
         },
@@ -468,7 +502,7 @@ export const projectStoryboards = {
       edges: [
         { from: "task-map", to: "original-practice", label: "select task" },
         { from: "original-practice", to: "local-history", label: "record review" },
-        { from: "local-history", to: "independent-boundary", label: "show disclaimer" },
+        { from: "local-history", to: "independent-boundary", label: "show learning context" },
       ],
     },
     frames: [
@@ -531,11 +565,11 @@ export const projectStoryboards = {
         eyebrow: "Progress",
         title: "Keep practice history in this browser",
         body:
-          "The final state shows browser-local review progress alongside the independent-resource and no-endorsement disclaimer.",
+          "The final state keeps practice history in the browser and identifies the app as an independent study resource.",
         state: "boundary",
         details: [
           { label: "Storage", value: "Browser localStorage" },
-          { label: "Boundary", value: "Practice readiness only" },
+          { label: "Limit", value: "Practice readiness only" },
         ],
         demo: {
           kind: "rbt-practice",
@@ -549,10 +583,9 @@ export const projectStoryboards = {
   stepspark: {
     projectId: "stepspark",
     title: "Source-aware instant recall",
-    posterLabel: "Visual prompt → answer reveal → review state → provenance",
-    privacyLabel: "Prototype content · medical review required before production use",
-    statusLabel: "Active frontend-local medical-learning prototype",
-    dataLabel: "Original placeholder visual · draft educational content",
+    posterLabel: "Visual prompt → answer → review → source details",
+    privacyLabel: "Independent prototype; not affiliated with the NBME.",
+    dataLabel: "Original demonstration content and visual",
     authorshipLabel: "Created and built by Fatgezim “Zim” Bela.",
     theme: {
       label: "Recall violet",
@@ -561,18 +594,18 @@ export const projectStoryboards = {
       glow: "rgba(167, 139, 250, 0.24)",
     },
     evidenceLinks: [
-      { label: "View source", href: "https://github.com/Fatgezimb/StepSpark" },
+      { label: "View source code", href: "https://github.com/Fatgezimb/StepSpark" },
     ],
     architecture: {
       summary:
-        "A frontend-local recall-card loop that keeps progressive disclosure, learner review state, and media provenance together.",
+        "The recall-card flow keeps prompts, explanations, learner review, and source details together.",
       nodes: [
         {
           id: "visual-card",
           kind: architectureKinds.input,
           label: "Source-aware visual card",
-          description: "A draft learning object starts with an original or appropriately licensed visual and prompt.",
-          technologies: ["provenance metadata"],
+          description: "An original visual and prompt begin the recall flow.",
+          technologies: ["source and license metadata"],
         },
         {
           id: "recall-engine",
@@ -584,40 +617,40 @@ export const projectStoryboards = {
         {
           id: "review-state",
           kind: architectureKinds.output,
-          label: "Local review state",
-          description: "The learner records a review signal on the current device.",
+          label: "Saved review state",
+          description: "The learner saves a review choice on the current device.",
           technologies: ["local persistence"],
         },
         {
           id: "medical-boundary",
           kind: architectureKinds.boundary,
-          label: "Medical-content boundary",
-          description: "Prototype material requires medical review and does not imply NBME affiliation or exam prediction.",
+          label: "Medical review",
+          description: "Content review is required before release; the prototype is not affiliated with the NBME.",
           technologies: ["source", "license", "review status"],
         },
       ],
       edges: [
         { from: "visual-card", to: "recall-engine", label: "open card" },
         { from: "recall-engine", to: "review-state", label: "record reflection" },
-        { from: "review-state", to: "medical-boundary", label: "retain provenance" },
+        { from: "review-state", to: "medical-boundary", label: "retain source details" },
       ],
     },
     frames: [
       {
         id: "visual-prompt",
         eyebrow: "Prompt",
-        title: "Open a source-aware recall card",
+        title: "Open a visual recall card",
         body:
-          "A draft visual and learner-facing prompt establish the cognitive task before the answer is revealed.",
+          "An original visual and prompt establish the recall task before the explanation appears.",
         state: "input",
         details: [
           { label: "Surface", value: "Instant Recall Card" },
-          { label: "Content", value: "Draft educational material" },
+          { label: "Content", value: "Original demonstration content" },
         ],
         demo: {
           kind: "stepspark",
           view: "prompt",
-          cardLabel: "Draft visual recall card",
+          cardLabel: "Visual recall card",
           reviewState: "Not yet rated",
         },
       },
@@ -626,7 +659,7 @@ export const projectStoryboards = {
         eyebrow: "Reveal",
         title: "Compare the prediction with the explanation",
         body:
-          "Progressive disclosure moves from prompt to answer and supporting rationale without claiming a production-reviewed question system.",
+          "Progressive disclosure moves from prompt to explanation at the learner’s pace.",
         state: "processing",
         details: [
           { label: "Flow", value: "Prompt · Prediction · Reveal" },
@@ -635,7 +668,7 @@ export const projectStoryboards = {
         demo: {
           kind: "stepspark",
           view: "reveal",
-          cardLabel: "Draft visual recall card",
+          cardLabel: "Visual recall card",
           reviewState: "Not yet rated",
         },
       },
@@ -647,31 +680,31 @@ export const projectStoryboards = {
           "A confidence or review-state choice helps organize another pass while keeping the result on the learner's device.",
         state: "review",
         details: [
-          { label: "Signal", value: "Confidence or review state" },
+          { label: "Review", value: "Confidence or review state" },
           { label: "Storage", value: "Local deck state" },
         ],
         demo: {
           kind: "stepspark",
           view: "review",
-          cardLabel: "Draft visual recall card",
+          cardLabel: "Visual recall card",
           reviewState: "Local review state saved",
         },
       },
       {
         id: "provenance",
-        eyebrow: "Trust",
-        title: "End on provenance and review status",
+        eyebrow: "Sources",
+        title: "Review source and content details",
         body:
-          "Source, license, provenance, use case, and medical-review requirements remain attached to the visual learning object.",
+          "Source, license, intended use, and review status stay attached to the learning card.",
         state: "boundary",
         details: [
-          { label: "Record", value: "Source · License · Provenance" },
-          { label: "Boundary", value: "Not production medical content" },
+          { label: "Record", value: "Source · License · Review status" },
+          { label: "Limit", value: "Prototype content" },
         ],
         demo: {
           kind: "stepspark",
           view: "provenance",
-          cardLabel: "Draft visual recall card",
+          cardLabel: "Visual recall card",
           reviewState: "Local review state saved",
         },
       },
@@ -679,11 +712,10 @@ export const projectStoryboards = {
   },
   "rethink-automations": {
     projectId: "rethink-automations",
-    title: "Reviewable local automation",
-    posterLabel: "Synthetic queue → confirmation → supported Step 1 → readable log",
-    privacyLabel: "Sanitized local replica · no authenticated screens or client data",
-    statusLabel: "Local beta · NeuroPath-adjacent, not a deployed public product",
-    dataLabel: "Invented non-clinical queue items only",
+    title: "Reviewable workflow automation",
+    posterLabel: "Example queue → page confirmation → automated Step 1 → run log",
+    privacyLabel: "Demonstration uses fictional, non-clinical workflow items.",
+    dataLabel: "Fictional workflow items",
     authorshipLabel: "Created and developed by Fatgezim “Zim” Bela.",
     theme: {
       label: "Automation cyan",
@@ -694,34 +726,34 @@ export const projectStoryboards = {
     evidenceLinks: [],
     architecture: {
       summary:
-        "A sanitized representation of the local operator path from queued work through confirmation, one supported automation step, and diagnostics.",
+        "The workflow moves queued work through page confirmation, Step 1 automation, and a clear run log.",
       nodes: [
         {
           id: "local-queue",
           kind: architectureKinds.input,
-          label: "Local synthetic queue",
-          description: "An invented program or behavior item is selected for review.",
+          label: "Example queue",
+          description: "A fictional workflow item is selected for review.",
           technologies: ["local JSON state"],
         },
         {
           id: "confirmed-run",
           kind: architectureKinds.process,
           label: "Confirmed Step 1 run",
-          description: "Prepare Run and correct-page confirmation gate the supported browser action.",
+          description: "The user confirms the page before Step 1 automation begins.",
           technologies: ["Python", "Playwright", "Chrome CDP"],
         },
         {
           id: "diagnostic-log",
           kind: architectureKinds.output,
           label: "Readable diagnostics",
-          description: "Timeline and raw-log surfaces preserve operator visibility into the staged run.",
+          description: "The timeline and run log show each completed action.",
           technologies: ["local web UI"],
         },
         {
           id: "automation-boundary",
           kind: architectureKinds.boundary,
-          label: "Human-review boundary",
-          description: "Steps 2–6 remain manual; the replica does not authenticate, submit, or expose private state.",
+          label: "Manual review",
+          description: "Steps 2–6 and final submission remain manual.",
           technologies: [],
         },
       ],
@@ -735,13 +767,13 @@ export const projectStoryboards = {
       {
         id: "synthetic-queue",
         eyebrow: "Queue",
-        title: "Select an invented workflow item",
+        title: "Select an example workflow item",
         body:
-          "The portfolio replica uses a generic practice item rather than a client, behavior record, or private operational payload.",
+          "The demo uses fictional, non-clinical workflow data.",
         state: "input",
         details: [
           { label: "Item", value: "Practice workflow A" },
-          { label: "Data", value: "Invented and non-clinical" },
+          { label: "Data", value: "Fictional and non-clinical" },
         ],
         demo: {
           kind: "rethink-automation",
@@ -755,7 +787,7 @@ export const projectStoryboards = {
         eyebrow: "Confirm",
         title: "Prepare the run before automation",
         body:
-          "A two-step confirmation makes the target page and supported scope visible before a local browser action can begin.",
+          "A two-step confirmation shows the target page and supported action before the automation can begin.",
         state: "review",
         details: [
           { label: "Control", value: "Prepare Run" },
@@ -771,9 +803,9 @@ export const projectStoryboards = {
       {
         id: "supported-step",
         eyebrow: "Stage",
-        title: "Show only the supported Step 1 workflow",
+        title: "Automate the supported Step 1 fields",
         body:
-          "The preview represents a bounded Step 1 operation and does not suggest that later manual steps are automated.",
+          "The preview automates Step 1 while leaving steps 2–6 and final review to the user.",
         state: "processing",
         details: [
           { label: "Automated", value: "Supported Step 1 fields" },
@@ -789,13 +821,13 @@ export const projectStoryboards = {
       {
         id: "readable-log",
         eyebrow: "Log",
-        title: "Finish with a readable local status",
+        title: "Review the run log",
         body:
-          "The sanitized run log records preparation, confirmation, the bounded step, and the remaining manual work.",
+          "The run log records preparation, confirmation, the supported step, and the remaining manual work.",
         state: "boundary",
         details: [
           { label: "Status", value: "Staged for human review" },
-          { label: "Boundary", value: "No hidden final submission" },
+          { label: "Limit", value: "Final submission remains manual" },
         ],
         demo: {
           kind: "rethink-automation",
@@ -813,12 +845,11 @@ export const projectStoryboards = {
   },
   "neuropath-insight": {
     projectId: "neuropath-insight",
-    title: "Synthetic reimbursement pipeline",
-    posterLabel: "Synthetic dataset → normalization → benchmark → model limits",
-    privacyLabel: "Private prototype · simulated portfolio values only",
-    statusLabel: "Private internal prototype · no public deployment or customer-use claim",
-    dataLabel: "Synthetic payer and rate-shaped records only",
-    authorshipLabel: "Shown as Zim's private product concept and internal prototype.",
+    title: "Reimbursement data pipeline",
+    posterLabel: "Simulated data → normalization → benchmark → model review",
+    privacyLabel: "Simulated data and exploratory model outputs.",
+    dataLabel: "Simulated reimbursement records",
+    authorshipLabel: "Created as a product concept and prototype by Fatgezim “Zim” Bela.",
     theme: {
       label: "Insight violet",
       accent: "#c084fc",
@@ -828,13 +859,13 @@ export const projectStoryboards = {
     evidenceLinks: [],
     architecture: {
       summary:
-        "A portfolio-safe representation of a private pipeline that normalizes Transparency in Coverage-shaped records for internal analytical review.",
+        "This prototype turns simulated Transparency in Coverage records into analysis datasets, benchmarks, and exploratory model views.",
       nodes: [
         {
           id: "synthetic-rates",
           kind: architectureKinds.input,
-          label: "Synthetic rate-shaped rows",
-          description: "The preview uses simulated fields instead of private contract or provider-level source records.",
+          label: "Simulated reimbursement records",
+          description: "The example uses simulated fields instead of contract or provider-level source records.",
           technologies: ["Transparency in Coverage data shape"],
         },
         {
@@ -848,34 +879,34 @@ export const projectStoryboards = {
           id: "review-views",
           kind: architectureKinds.output,
           label: "Benchmark and model views",
-          description: "Tables and charts expose synthetic benchmark and experimental model signals.",
+          description: "Tables and charts show simulated benchmarks and experimental model outputs.",
           technologies: ["React", "Recharts", "scikit-learn"],
         },
         {
           id: "model-boundary",
           kind: architectureKinds.boundary,
-          label: "Exploratory-model boundary",
-          description: "Outputs are not customer results, clinical guidance, or validated financial recommendations.",
+          label: "Model limits",
+          description: "Model outputs are exploratory and require validation before decision-making.",
           technologies: ["regression", "clustering", "outlier detection"],
         },
       ],
       edges: [
         { from: "synthetic-rates", to: "local-pipeline", label: "filter and normalize" },
         { from: "local-pipeline", to: "review-views", label: "write review outputs" },
-        { from: "review-views", to: "model-boundary", label: "label limitations" },
+        { from: "review-views", to: "model-boundary", label: "show limitations" },
       ],
     },
     frames: [
       {
         id: "synthetic-tic-input",
         eyebrow: "Input",
-        title: "Begin with a labeled synthetic sample",
+        title: "Start with a simulated sample",
         body:
-          "The portfolio storyboard represents Transparency in Coverage fields without exposing private contract documents or generated internal datasets.",
+          "The example represents Transparency in Coverage fields with simulated values.",
         state: "input",
         details: [
-          { label: "Source shape", value: "Synthetic payer and rate rows" },
-          { label: "Label", value: "Simulated portfolio data" },
+          { label: "Source shape", value: "Simulated payer and rate rows" },
+          { label: "Label", value: "Example data" },
         ],
         demo: {
           kind: "neuropath-insight",
@@ -887,55 +918,55 @@ export const projectStoryboards = {
       {
         id: "normalize",
         eyebrow: "Transform",
-        title: "Normalize records into local analytical outputs",
+        title: "Normalize records into analytical outputs",
         body:
-          "The ETL shape filters and normalizes records, then writes local DuckDB, CSV, and review JSON outputs.",
+          "The pipeline filters and normalizes records, then writes DuckDB, CSV, and JSON outputs.",
         state: "processing",
         details: [
           { label: "Pipeline", value: "Python · pandas · DuckDB" },
-          { label: "Output", value: "Local review datasets" },
+          { label: "Output", value: "Analysis datasets" },
         ],
         demo: {
           kind: "neuropath-insight",
           view: "normalize",
           datasetLabel: "simulated-rate-sample.csv",
-          items: ["Filter review records", "Normalize fields", "Write local outputs"],
+          items: ["Filter records", "Normalize fields", "Write outputs"],
         },
       },
       {
         id: "benchmark",
         eyebrow: "Interpret",
-        title: "Open a synthetic benchmark view",
+        title: "Open a sample benchmark view",
         body:
-          "Rate, payer, state, and provider dimensions become reviewable charts and tables without presenting a real recommendation.",
+          "Simulated rate, payer, state, and provider data become interactive charts and tables.",
         state: "review",
         details: [
-          { label: "View", value: "Synthetic benchmark" },
-          { label: "Purpose", value: "Internal exploration" },
+          { label: "View", value: "Sample benchmark" },
+          { label: "Purpose", value: "Exploratory analysis" },
         ],
         demo: {
           kind: "neuropath-insight",
           view: "benchmark",
-          datasetLabel: "Synthetic benchmark",
+          datasetLabel: "Sample benchmark",
           items: ["Payer view", "State view", "Provider view"],
         },
       },
       {
         id: "model-limits",
         eyebrow: "Limit",
-        title: "Keep experimental model limits visible",
+        title: "Review experimental model outputs",
         body:
-          "Exploratory regression, clustering, and outlier outputs are labeled as prototype signals—not customer results or validated financial guidance.",
+          "Regression, clustering, and outlier outputs are exploratory and require validation before use.",
         state: "boundary",
         details: [
           { label: "Methods", value: "Regression · Clustering · Outliers" },
-          { label: "Boundary", value: "Exploratory, not validated advice" },
+          { label: "Limit", value: "Exploratory; validation required" },
         ],
         demo: {
           kind: "neuropath-insight",
           view: "limitations",
           datasetLabel: "Experimental model review",
-          items: ["Regression signal", "Cluster signal", "Outlier signal"],
+          items: ["Regression output", "Cluster output", "Outlier output"],
         },
       },
     ],

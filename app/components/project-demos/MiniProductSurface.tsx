@@ -2,6 +2,7 @@ import type {
   BehaviorDataLabDemoState,
   CaregiverAcademyDemoState,
   NeuroPathInsightDemoState,
+  NeuroStackExplorerDemoState,
   ProjectDemoFrameData,
   RbtPracticeDemoState,
   RethinkAutomationDemoState,
@@ -32,6 +33,32 @@ function MiniWindow({ children, label, status }: MiniWindowProps) {
   );
 }
 
+function NeuroStackExplorerSurface({ data }: { data: NeuroStackExplorerDemoState }) {
+  const points = data.view === "rate" ? "8,78 42,58 76,69 110,38 144,52 178,29 212,44 246,22 280,36 314,18" : "8,70 42,48 76,62 110,34 144,52 178,28 212,44 246,24 280,38 314,20";
+  return (
+    <MiniWindow label="NeuroStack Explorer" status="Read-only artifact">
+      <nav className={styles.appNav} aria-label="Explorer views">
+        {(["Provenance", "Rate", "Embedding", "Artifacts"] as const).map((label) => (
+          <span className={label.toLowerCase() === data.view ? styles.appNavActive : undefined} key={label}>{label}</span>
+        ))}
+      </nav>
+      <div className={styles.dashboardCanvas}>
+        <p className={styles.miniEyebrow}>{data.datasetLabel}</p>
+        {data.view === "rate" || data.view === "embedding" ? (
+          <svg aria-label={data.view === "rate" ? "Stylized selected-unit neural rate trace" : "Stylized population feature map"} className={styles.trendChart} role="img" viewBox="0 0 322 94">
+            <polyline fill="none" points={points} stroke="currentColor" strokeWidth="3" />
+            {data.view === "embedding" ? <><circle cx="92" cy="50" r="6" /><circle cx="184" cy="34" r="6" /><circle cx="258" cy="62" r="6" /></> : null}
+          </svg>
+        ) : null}
+        <div className={styles.metricCards}>
+          {data.items.map((item, index) => <div key={item}><span>{item}</span><strong>{data.view === "rate" ? ["12.4 Hz", "8.1 Hz", "100 ms"][index] ?? "linked" : data.view === "provenance" ? ["matched", "recorded", "separate"][index] ?? "checked" : data.view === "embedding" ? ["rate", "ISI", "interval"][index] ?? "bounded" : "checked"}</strong></div>)}
+        </div>
+        <p className={styles.boundaryCallout}><strong>Scientific boundary</strong><span>Compact precomputed view; inspect the repository for the full artifact and methods.</span></p>
+      </div>
+    </MiniWindow>
+  );
+}
+
 function FileGlyph() {
   return (
     <svg aria-hidden="true" className={styles.fileGlyph} viewBox="0 0 44 52">
@@ -43,8 +70,8 @@ function FileGlyph() {
 
 function BehaviorDataLabSurface({ data }: { data: BehaviorDataLabDemoState }) {
   return (
-    <MiniWindow label="Bela Behavior Data Lab" status="Local session">
-      <nav className={styles.appNav} aria-label="Synthetic workspace views">
+    <MiniWindow label="Bela Behavior Data Lab" status="Sample session">
+      <nav className={styles.appNav} aria-label="Workspace views">
         {(["Import", "Review", "Operations", "Report"] as const).map(
           (label, index) => (
             <span
@@ -69,9 +96,9 @@ function BehaviorDataLabSurface({ data }: { data: BehaviorDataLabDemoState }) {
           <div className={styles.fileDrop}>
             <FileGlyph />
             <strong>{data.fileLabel}</strong>
-            <span>Bundled synthetic sample</span>
+            <span>Bundled sample</span>
           </div>
-          <div className={styles.sheetPreview} aria-label="Synthetic row preview">
+          <div className={styles.sheetPreview} aria-label="Sample row preview">
             <div className={styles.sheetHeader}>
               <span>Row</span>
               <span>Shape</span>
@@ -90,7 +117,7 @@ function BehaviorDataLabSurface({ data }: { data: BehaviorDataLabDemoState }) {
 
       {data.view === "validation" ? (
         <div className={styles.reviewPanel}>
-          <p className={styles.miniEyebrow}>Local import review</p>
+          <p className={styles.miniEyebrow}>Import review</p>
           <ul className={styles.checkList}>
             {data.items.map((item, index) => (
               <li key={item}>
@@ -115,7 +142,7 @@ function BehaviorDataLabSurface({ data }: { data: BehaviorDataLabDemoState }) {
             ))}
           </aside>
           <div className={styles.dashboardCanvas}>
-            <p className={styles.miniEyebrow}>Synthetic operations view</p>
+            <p className={styles.miniEyebrow}>Operations preview</p>
             <div className={styles.metricCards}>
               {(["Operations", "People", "Actions"] as const).map((label) => (
                 <div key={label}>
@@ -141,7 +168,7 @@ function BehaviorDataLabSurface({ data }: { data: BehaviorDataLabDemoState }) {
         <div className={styles.reportLayout}>
           <div className={styles.reportPage}>
             <header>
-              <span>Sanitized output</span>
+              <span>Sample output</span>
               <strong>{data.fileLabel}</strong>
             </header>
             {data.items.map((item) => (
@@ -153,8 +180,8 @@ function BehaviorDataLabSurface({ data }: { data: BehaviorDataLabDemoState }) {
             ))}
           </div>
           <p className={styles.boundaryCallout}>
-            <strong>No source upload</strong>
-            <span>No real exports, names, dates, or PHI.</span>
+            <strong>Sample data only</strong>
+            <span>No real exports, names, dates, or clinical data.</span>
           </p>
         </div>
       ) : null}
@@ -171,7 +198,7 @@ function CaregiverAcademySurface({ data }: { data: CaregiverAcademyDemoState }) 
           <p className={styles.miniEyebrow}>Learning path</p>
           <strong>{data.topic}</strong>
         </div>
-        <span className={styles.scopePill}>No child profile</span>
+        <span className={styles.scopePill}>General education</span>
       </div>
 
       {data.view === "routine" ? (
@@ -239,7 +266,7 @@ function CaregiverAcademySurface({ data }: { data: CaregiverAcademyDemoState }) 
             </ol>
           </div>
           <p className={styles.boundaryCallout}>
-            <strong>Educational boundary</strong>
+            <strong>For general education</strong>
             <span>Not individualized care, a behavior plan, or crisis guidance.</span>
           </p>
         </div>
@@ -290,7 +317,7 @@ function RbtPracticeSurface({ data }: { data: RbtPracticeDemoState }) {
           <strong>Which response best matches your independent review?</strong>
           <div className={styles.questionOptions}>
             <span><i>A</i> Revisit the task description</span>
-            <span className={styles.questionSelected}><i>B</i> Record a local practice answer</span>
+            <span className={styles.questionSelected}><i>B</i> Save a practice answer</span>
             <span><i>C</i> Open the explanation</span>
           </div>
           <small>Sample state only · no competence decision</small>
@@ -303,7 +330,7 @@ function RbtPracticeSurface({ data }: { data: RbtPracticeDemoState }) {
             {rbtTasks.map((task) => <i data-active={task === data.activeTask} key={task} />)}
           </div>
           <div>
-            <p className={styles.miniEyebrow}>Local practice history</p>
+            <p className={styles.miniEyebrow}>Practice history</p>
             <strong>Task {String(data.activeTask).padStart(2, "0")} marked for review</strong>
             <p>This browser-only state is a study aid, not an official readiness score.</p>
             <span className={styles.scopePill}>No BACB affiliation or endorsement</span>
@@ -326,7 +353,7 @@ function RecallVisual() {
         <circle cx="240" cy="119" r="8" />
         <path d="m96 86 27-16m18 3 20 21m25 2 27-14m-28 28 46 7M93 101l65 4" />
       </g>
-      <text x="160" y="166" textAnchor="middle">ORIGINAL PLACEHOLDER VISUAL</text>
+      <text x="160" y="166" textAnchor="middle">ORIGINAL DEMO VISUAL</text>
     </svg>
   );
 }
@@ -343,23 +370,23 @@ function StepSparkSurface({ data }: { data: StepSparkDemoState }) {
           {data.view === "prompt" ? (
             <>
               <p className={styles.miniEyebrow}>Prompt</p>
-              <strong>Inspect the visual before revealing the draft explanation.</strong>
+              <strong>Inspect the visual before revealing the explanation.</strong>
               <span className={styles.fakeAction}>Make a prediction</span>
             </>
           ) : null}
           {data.view === "reveal" ? (
             <>
               <p className={styles.miniEyebrow}>Answer revealed</p>
-              <strong>Compare the prediction with the draft rationale.</strong>
+              <strong>Compare your prediction with the explanation.</strong>
               <div className={styles.revealStack}>
-                <span>Prompt</span><span>Prediction</span><span>Draft explanation</span>
+                <span>Prompt</span><span>Prediction</span><span>Explanation</span>
               </div>
             </>
           ) : null}
           {data.view === "review" ? (
             <>
               <p className={styles.miniEyebrow}>Learner review</p>
-              <strong>Choose a device-local review state.</strong>
+              <strong>Save a review state on this device.</strong>
               <div className={styles.reviewChoices}>
                 <span className={styles.reviewSelected}>Review state selected</span>
                 <span>Stored on this device</span>
@@ -369,27 +396,26 @@ function StepSparkSurface({ data }: { data: StepSparkDemoState }) {
           ) : null}
           {data.view === "provenance" ? (
             <>
-              <p className={styles.miniEyebrow}>Provenance record</p>
+              <p className={styles.miniEyebrow}>Source details</p>
               <dl className={styles.provenanceList}>
-                <div><dt>Source</dt><dd>Original placeholder diagram</dd></div>
-                <div><dt>Use</dt><dd>Portfolio workflow demo</dd></div>
+                <div><dt>Source</dt><dd>Original demo visual</dd></div>
                 <div><dt>Review</dt><dd>Medical review required</dd></div>
               </dl>
             </>
           ) : null}
         </article>
       </div>
-      <p className={styles.educationNote}>Draft educational content · no NBME affiliation or exam prediction</p>
+      <p className={styles.educationNote}>Independent prototype · not affiliated with the NBME</p>
     </MiniWindow>
   );
 }
 
 function RethinkAutomationSurface({ data }: { data: RethinkAutomationDemoState }) {
   return (
-    <MiniWindow label="Rethink Automations" status="Sanitized local beta">
+    <MiniWindow label="Rethink Automations" status="Automation beta">
       <div className={styles.automationLayout}>
         <aside className={styles.queuePanel}>
-          <p className={styles.miniEyebrow}>Synthetic queue</p>
+          <p className={styles.miniEyebrow}>Example queue</p>
           {(["Practice workflow A", "Practice workflow B", "Practice workflow C"] as const).map(
             (item) => (
               <span className={item === data.queueItem ? styles.queueSelected : undefined} key={item}>
@@ -398,36 +424,36 @@ function RethinkAutomationSurface({ data }: { data: RethinkAutomationDemoState }
               </span>
             ),
           )}
-          <small>Invented · non-clinical</small>
+          <small>Fictional workflow items only</small>
         </aside>
         <div className={styles.automationCanvas}>
           {data.view === "queue" ? (
             <div className={styles.queueEmptyState}>
               <span aria-hidden="true">⌁</span>
-              <strong>Select a local mock item</strong>
-              <p>No client records or authenticated screens are used.</p>
+              <strong>Select an example item</strong>
+              <p>Choose an item to review the workflow.</p>
             </div>
           ) : null}
           {data.view === "confirmation" ? (
             <div className={styles.confirmationPanel}>
               <p className={styles.miniEyebrow}>Prepare run</p>
-              <strong>Confirm the correct page and supported scope</strong>
+              <strong>Confirm the page before automation begins</strong>
               <dl>
                 <div><dt>Target</dt><dd>{data.queueItem}</dd></div>
                 <div><dt>Scope</dt><dd>Supported Step 1 only</dd></div>
-                <div><dt>Final control</dt><dd>Human operator</dd></div>
+                <div><dt>Final review</dt><dd>Manual</dd></div>
               </dl>
               <span className={styles.fakeAction}>Awaiting confirmation</span>
             </div>
           ) : null}
           {data.view === "step-one" ? (
             <div className={styles.stepRailPanel}>
-              <p className={styles.miniEyebrow}>Six-step state model</p>
+              <p className={styles.miniEyebrow}>Six-step workflow</p>
               <ol className={styles.stepRail}>
                 {Array.from({ length: 6 }, (_, index) => index + 1).map((step) => (
                   <li data-state={step === 1 ? "supported" : "manual"} key={step}>
                     <span>{step}</span>
-                    <div><strong>Step {step}</strong><small>{step === 1 ? "Supported staged action" : "Manual checklist state"}</small></div>
+                    <div><strong>Step {step}</strong><small>{step === 1 ? "Automated in beta" : "Manual review"}</small></div>
                   </li>
                 ))}
               </ol>
@@ -435,7 +461,7 @@ function RethinkAutomationSurface({ data }: { data: RethinkAutomationDemoState }
           ) : null}
           {data.view === "log" ? (
             <div className={styles.runLog}>
-              <header><span aria-hidden="true">●</span><strong>Readable local run log</strong></header>
+              <header><span aria-hidden="true">●</span><strong>Run log</strong></header>
               <ol>
                 {data.log.map((entry, index) => (
                   <li key={entry}><span>{String(index + 1).padStart(2, "0")}</span>{entry}</li>
@@ -445,16 +471,16 @@ function RethinkAutomationSurface({ data }: { data: RethinkAutomationDemoState }
           ) : null}
         </div>
       </div>
-      <p className={styles.educationNote}>Steps 2–6 and final review remain manual · no hidden submission</p>
+      <p className={styles.educationNote}>Steps 2–6 and final submission remain manual.</p>
     </MiniWindow>
   );
 }
 
 function NeuroPathInsightSurface({ data }: { data: NeuroPathInsightDemoState }) {
   return (
-    <MiniWindow label="NeuroPath Insight" status="Private prototype">
+    <MiniWindow label="NeuroPath Insight" status="Data prototype">
       <div className={styles.insightHeader}>
-        <div><p className={styles.miniEyebrow}>Synthetic analytical session</p><strong>{data.datasetLabel}</strong></div>
+        <div><p className={styles.miniEyebrow}>Example analysis</p><strong>{data.datasetLabel}</strong></div>
         <span className={styles.scopePill}>Simulated values</span>
       </div>
 
@@ -463,7 +489,7 @@ function NeuroPathInsightSurface({ data }: { data: NeuroPathInsightDemoState }) 
           <div className={styles.datasetColumns}>
             {data.items.map((item) => <span key={item}>{item}</span>)}
           </div>
-          {(["Synthetic row A", "Synthetic row B", "Synthetic row C"] as const).map(
+          {(["Sample row A", "Sample row B", "Sample row C"] as const).map(
             (row) => (
               <div className={styles.datasetRow} key={row}>
                 <strong>{row}</strong><span>Sample</span><span>Sample</span><span>Simulated</span>
@@ -479,7 +505,7 @@ function NeuroPathInsightSurface({ data }: { data: NeuroPathInsightDemoState }) 
             <div key={item}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{item}</strong>
-              <small>{["Python + pandas", "DuckDB", "Local CSV + review JSON"][index]}</small>
+              <small>{["Python + pandas", "DuckDB", "CSV + JSON"][index]}</small>
             </div>
           ))}
         </div>
@@ -487,8 +513,8 @@ function NeuroPathInsightSurface({ data }: { data: NeuroPathInsightDemoState }) 
 
       {data.view === "benchmark" ? (
         <div className={styles.benchmarkPreview}>
-          <header><p className={styles.miniEyebrow}>Abstract benchmark layout</p><span>No real values</span></header>
-          <div className={styles.syntheticBars} aria-label="Decorative chart with no rate values">
+          <header><p className={styles.miniEyebrow}>Sample benchmark</p><span>Simulated values</span></header>
+          <div className={styles.syntheticBars} aria-label="Simulated benchmark chart">
             {data.items.map((item, index) => (
               <div key={item}>
                 <span>{item}</span>
@@ -506,12 +532,12 @@ function NeuroPathInsightSurface({ data }: { data: NeuroPathInsightDemoState }) 
             <article key={item}>
               <span aria-hidden="true">△</span>
               <strong>{item}</strong>
-              <small>Exploratory prototype signal</small>
+              <small>Exploratory output</small>
             </article>
           ))}
           <p className={styles.boundaryCallout}>
-            <strong>Not validated advice</strong>
-            <span>No customer results, clinical guidance, or financial recommendation.</span>
+            <strong>Exploratory analysis</strong>
+            <span>Simulated outputs for exploratory analysis; not validated recommendations.</span>
           </p>
         </div>
       ) : null}
@@ -533,5 +559,7 @@ export function MiniProductSurface({ data }: { data: ProjectDemoFrameData }) {
       return <RethinkAutomationSurface data={data} />;
     case "neuropath-insight":
       return <NeuroPathInsightSurface data={data} />;
+    case "neurostack-explorer":
+      return <NeuroStackExplorerSurface data={data} />;
   }
 }

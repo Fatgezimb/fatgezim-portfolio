@@ -10,6 +10,7 @@ export type ProjectRecord = {
   methods: readonly string[];
   verifiedOutputs: readonly string[];
   evidenceLinks: readonly string[];
+  publicScope: string;
   privacyNotes: readonly string[];
   demoStory: readonly string[];
   uncertaintyFlags: readonly string[];
@@ -17,15 +18,50 @@ export type ProjectRecord = {
 
 export const featuredProjects = [
   {
+    id: "neurostack-explorer",
+    verifiedPublicName: "NeuroStack Explorer",
+    aliases: ["NeuroStack"],
+    status: "Open-source scientific portfolio",
+    summary:
+      "An open-source neuroscience software explorer that turns a checksum-verified NWB dataset into readable, interactive views across data, models, and reproducible artifacts.",
+    problem:
+      "Make a real scientific software workflow inspectable without exposing a public notebook runtime or private research data.",
+    audience: ["scientific software teams", "neuroscience researchers", "technical hiring teams"],
+    role: "Creator and Scientific Software Developer",
+    methods: ["Python", "TypeScript", "Pynapple", "NeMoS", "Stan", "PyTorch", "Plotly"],
+    verifiedOutputs: [
+      "validated public NWB derivative and deterministic synthetic fallback",
+      "neural-data lab with raster, rate, tuning, and interval views",
+      "checksummed model, notebook, and visualization artifacts",
+      "accessible table and provenance alternatives for interactive figures",
+    ],
+    evidenceLinks: ["https://github.com/Fatgezimb/neurostack-explorer"],
+    publicScope:
+      "The portfolio preview uses a compact, precomputed scientific artifact. The full explorer and reproducibility record live in the linked repository.",
+    privacyNotes: [
+      "The browser receives compact public-derived or synthetic artifacts, not private participant records.",
+      "The site does not expose arbitrary notebook execution or source NWB uploads.",
+    ],
+    demoStory: [
+      "Start with the verified NWB-derived dataset and provenance label.",
+      "Compare a firing-rate trace with a population summary.",
+      "Inspect a model or 3D embedding-style view with its data boundary.",
+      "End at the open-source repository and reproducibility record.",
+    ],
+    uncertaintyFlags: [
+      "One public session and one frozen modeling task; results are demonstrations, not population claims.",
+      "The linked repository is the source for the complete scientific explorer.",
+    ],
+  },
+  {
     id: "bela-behavior-data-lab",
     verifiedPublicName: "Bela Behavior Data Lab",
     aliases: ["Bela Data Lab"],
-    status:
-      "Active public operational product with synthetic demos; its paid operational subscription is not connected.",
+    status: "Live operations product",
     summary:
       "A browser-local operations workspace that turns Rethink appointment exports into reviewable dashboards, follow-up views, and report-ready outputs.",
     problem:
-      "Help behavioral-health operators examine appointment data without sending protected source files to an application backend.",
+      "Help behavioral-health operators review appointment data locally in the browser.",
     audience: ["BCBAs", "clinical leaders", "ABA operations teams"],
     role: "Co-founder and Co-builder",
     methods: [
@@ -41,12 +77,14 @@ export const featuredProjects = [
     ],
     verifiedOutputs: [
       "Rethink AppointmentList import for spreadsheet and CSV files",
-      "synthetic lite and full-workspace demos",
+      "sample-data lite and full-workspace demos",
       "operations, people, money, action, and report views",
       "staff and client drill-downs",
       "PDF-ready report outputs",
     ],
     evidenceLinks: ["https://neuropathlabs.com/"],
+    publicScope:
+      "This preview uses sample appointment data.",
     privacyNotes: [
       "Use only the bundled synthetic or anonymized demo data in portfolio materials.",
       "Never expose real appointment rows, exports, client or staff names, service dates, notes, or generated reports.",
@@ -67,8 +105,7 @@ export const featuredProjects = [
     id: "caregiver-academy",
     verifiedPublicName: "Bela Data Lab Caregiver Academy",
     aliases: ["Caregiver Academy"],
-    status:
-      "Active public educational product with a public sales site and account-gated learning library.",
+    status: "Live learning platform",
     summary:
       "A caregiver-facing learning library that translates behavioral concepts into guided lessons, practical scenarios, knowledge checks, and printable tools.",
     problem:
@@ -89,9 +126,11 @@ export const featuredProjects = [
       "account-gated learning library",
       "guided modules and lessons",
       "scenario decisions and knowledge checks",
-      "private no-PHI check-ins and printable tools",
+      "private check-ins and printable tools",
     ],
     evidenceLinks: ["https://beladatalab.com/"],
+    publicScope:
+      "Educational support only—not individualized clinical advice, a behavior plan, or crisis guidance.",
     privacyNotes: [
       "Educational support only; not individualized clinical advice, a behavior plan, crisis guidance, or a guaranteed outcome.",
       "Do not collect or display child profiles, diagnoses, provider details, medical history, or other PHI.",
@@ -112,7 +151,7 @@ export const featuredProjects = [
     id: "rbt-practice-hub",
     verifiedPublicName: "RBT Practice Hub",
     aliases: [],
-    status: "Active public independent learning resource deployed on GitHub Pages.",
+    status: "Live study resource",
     summary:
       "A static study application that organizes practice across the 19 RBT Initial Competency Assessment tasks with original review materials and local progress tracking.",
     problem:
@@ -139,6 +178,8 @@ export const featuredProjects = [
       "https://fatgezimb.github.io/rbt-practice-hub/",
       "https://github.com/Fatgezimb/rbt-practice-hub",
     ],
+    publicScope:
+      "An independent study resource, not an official BACB product or assessment. Practice progress stays in the learner's browser.",
     privacyNotes: [
       "Independent educational resource; not an official BACB product, credential, assessment decision, or endorsement.",
       "Do not use BACB logos, copied test-bank wording, client information, or real assessment records.",
@@ -156,13 +197,12 @@ export const featuredProjects = [
     id: "stepspark",
     verifiedPublicName: "StepSpark",
     aliases: [],
-    status:
-      "Active frontend-local medical-learning prototype; its content is not production medical content.",
+    status: "Medical-learning prototype",
     summary:
       "A visual-learning prototype for rapid USMLE Step 1 recall, structured around source-aware cards, progressive disclosure, and learner-controlled review states.",
     problem:
-      "Explore how medical learners can move from a visual prompt to explanation and review while keeping content provenance and review requirements visible.",
-    audience: ["medical students", "medical educators", "future content reviewers"],
+      "Explore a visual prompt-to-explanation study flow with source details and learner-controlled review.",
+    audience: ["medical students", "medical educators"],
     role: "Creator and Product Builder",
     methods: [
       "React",
@@ -173,16 +213,18 @@ export const featuredProjects = [
       "Vitest",
       "Playwright",
       "accessibility testing",
-      "media provenance metadata",
+      "source and license metadata",
     ],
     verifiedOutputs: [
       "Instant Recall Card engine",
-      "source-owned design system and application shell",
+      "custom design system and application shell",
       "local deck and review-state persistence",
       "keyboard-driven study controls",
-      "visual source, license, provenance, and use-case records",
+      "visual source, license, intended-use, and review records",
     ],
     evidenceLinks: ["https://github.com/Fatgezimb/StepSpark"],
+    publicScope:
+      "Prototype content requires medical review before production use and is not affiliated with the NBME.",
     privacyNotes: [
       "Prototype content is educational and requires medical review before production use.",
       "Do not imply NBME affiliation, medical accuracy review, exam prediction, or improved learning outcomes.",
@@ -203,12 +245,12 @@ export const featuredProjects = [
     id: "rethink-automations",
     verifiedPublicName: "Rethink Automations",
     aliases: [],
-    status: "Active local beta workflow-automation project; no public deployment.",
+    status: "Workflow automation beta",
     summary:
-      "A local beta operator dashboard that makes selected Rethink workflows reviewable through queued work, explicit confirmation, bounded browser automation, and readable diagnostics.",
+      "A local beta dashboard that guides users through queued Rethink workflows with page confirmation, Step 1 browser automation, and clear run logs.",
     problem:
-      "Reduce repetitive browser-entry work while preserving human review, page confirmation, and accurate limits on what the automation supports.",
-    audience: ["internal workflow operators", "behavioral-health operations teams"],
+      "Reduce repetitive browser entry while keeping users in control of page confirmation and final review.",
+    audience: ["behavioral-health operations teams"],
     role: "Creator and Developer",
     methods: [
       "Python",
@@ -221,7 +263,7 @@ export const featuredProjects = [
       "local JSON state",
     ],
     verifiedOutputs: [
-      "private local beta review UI",
+      "local beta review interface",
       "searchable custom-program queue",
       "behavior queue and six-step state model",
       "Import and Export Centers",
@@ -230,6 +272,8 @@ export const featuredProjects = [
       "timeline, diagnostics, and raw run log",
     ],
     evidenceLinks: [],
+    publicScope:
+      "This preview uses fictional, non-clinical examples and demonstrates Step 1; steps 2–6 and final review remain manual.",
     privacyNotes: [
       "Show only a sanitized beta-site walkthrough or synthetic local demo in the portfolio.",
       "Portfolio materials must use a sanitized local replica with invented, non-clinical records.",
@@ -252,13 +296,13 @@ export const featuredProjects = [
     id: "neuropath-insight",
     verifiedPublicName: "NeuroPath Insight",
     aliases: [],
-    status: "Private internal prototype; intentionally not deployed as a public product.",
+    status: "Data analysis prototype",
     summary:
-      "A private reimbursement-intelligence prototype that combines Transparency in Coverage data processing, benchmarking views, and exploratory machine-learning outputs.",
+      "A reimbursement analysis prototype that combines Transparency in Coverage data processing, benchmark views, and exploratory machine-learning outputs.",
     problem:
-      "Explore how public reimbursement files can be normalized into interpretable benchmarks and reviewable analytical signals for internal decision support.",
+      "Turn public reimbursement files into readable benchmarks for internal analysis.",
     audience: ["internal NeuroPath reviewers", "behavioral-health operations researchers"],
-    role: "Private product concept and internal prototype",
+    role: "Creator and Prototype Developer",
     methods: [
       "Python",
       "pandas",
@@ -273,13 +317,15 @@ export const featuredProjects = [
     ],
     verifiedOutputs: [
       "payer-file ingestion and normalization pipeline",
-      "DuckDB, CSV, and private-review JSON outputs",
+      "DuckDB, CSV, and JSON analysis outputs",
       "rate, payer, state, and provider benchmark views",
       "CSV and PDF exports",
       "experimental opportunity and outlier model outputs",
-      "synthetic fallback dataset for private review",
+      "sample fallback dataset for analysis",
     ],
     evidenceLinks: [],
+    publicScope:
+      "This preview uses simulated data. Its model outputs are exploratory, not clinical guidance or financial recommendations.",
     privacyNotes: [
       "Use only synthetic data in portfolio representations and label every simulated value.",
       "Never publish private contract documents, provider-level source records, access details, or private generated datasets.",
