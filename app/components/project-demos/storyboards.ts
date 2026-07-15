@@ -129,6 +129,8 @@ export type ProjectStoryboard<
   posterLabel: string;
   privacyLabel: string;
   dataLabel: string;
+  /** Optional status text for storyboard records from earlier revisions. */
+  statusLabel?: string;
   authorshipLabel: string;
   theme: ProjectTheme;
   evidenceLinks: readonly ProjectEvidenceLink[];
