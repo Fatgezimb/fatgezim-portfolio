@@ -1,98 +1,121 @@
-# vinext-starter
+# Fatgezim “Zim” Bela — Portfolio
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+A technical portfolio and verified public résumé connecting behavioral health, medicine, data science, software, and founder-built products. The experience uses a light-first “neural command center” visual system, accessible miniature product demos, and progressively enhanced Three.js scenes.
 
-## Prerequisites
+## Stack
 
-- Node.js `>=22.13.0`
+- Next.js 16, React 19, and TypeScript
+- Vinext and Vite for the Cloudflare-compatible build
+- Direct Three.js with a shared, lazy-loaded scene runtime
+- CSS Modules plus global semantic design tokens
+- OpenAI Sites hosting through `.openai/hosting.json`
 
-## Quick Start
+No backend, database, authentication, analytics, private project data, or PHI is used by the portfolio.
+
+## Local development
+
+Requires Node.js 22.13 or newer.
 
 ```bash
 npm install
 npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). Useful routes are:
+
+- `/` — portfolio
+- `/#projects` — featured project lab
+- `/research` — evidence-backed research record
+- `/research/george-mason-neuronal-reconstruction` — accessible poster project page
+- `/resume` — print-friendly public résumé
+
+## Verification
+
+```bash
+npm run lint
+npm run typecheck
+npm test
 npm run build
 ```
 
-This starter does not use `wrangler.jsonc`.
+`npm test` performs a production build before running the rendered-HTML checks. The build may report a size notice for the isolated Three.js chunk; the engine is dynamically imported only when an eligible scene approaches the viewport.
 
-## Included Shape
+## Editing content
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+Verified copy and public facts live under `app/content/`:
 
-## Workspace Auth Headers
+- `site.ts` — navigation, hero, about, contact, and site metadata
+- `resume.ts` — identity, experience, education, credentials, and skills
+- `projects.ts` — verified project records, roles, evidence, and boundaries
+- `research.ts` — research experience and evidence limits
+- `evidence.ts` — public research-source ledger and verification status
 
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
+Preserve the evidence rules in `AGENTS.md`: do not add unsupported metrics, client details, PHI, private URLs, credential identifiers, or unverified research claims.
 
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
+## Editing project demos
 
-Treat the full name as optional and fall back to email when it is absent:
+The six sanitized product previews live in `app/components/project-demos/`.
 
-```tsx
-import { headers } from "next/headers";
+- `storyboards.ts` defines typed demo steps, themes, architecture nodes, evidence links, disclaimers, and synthetic-data labels.
+- `stateMachine.ts` owns deterministic playback and navigation behavior.
+- `MiniProductSurface.tsx` renders the truthful miniature interfaces.
+- `ArchitectureLens.tsx` renders input → processing → output → boundary diagrams.
 
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
+Every demo must remain understandable with autoplay paused and must keep its evidence, authorship, synthetic-data notice, and product limitations visible.
 
-  const displayName = fullName ?? email;
-  // ...
-}
+## Research, media, and contact
+
+The research hub and George Mason project page pair the original poster with a readable HTML summary, documented workflow, source boundaries, and an accessible native-dialog viewer. The PDF is an archival artifact; its printed email address is not the current contact address.
+
+Optimized public derivatives live in `public/media/`. The headshot preserves the supplied face and natural appearance. The soccer clip is a six-second H.264 MP4 with the source file's mathematically silent audio track removed; its poster and video bytes are assigned only when the feature approaches the viewport. The surrounding text remains usable without JavaScript.
+
+The contact form does not submit to a server. It creates an encoded `mailto:` draft for the visitor to review in their own email application. Do not replace it with a collection service without updating the privacy copy and obtaining owner approval.
+
+## Themes, motion, and 3D
+
+The default theme is light. The header toggle persists an optional dark theme in local storage. Semantic tokens for both appearances are defined in `app/globals.css`; component surfaces should consume those tokens instead of adding theme-specific color literals.
+
+Motion and WebGL are progressive enhancements:
+
+- `prefers-reduced-motion`, Save-Data, unsupported WebGL, and context loss receive static SVG/CSS fallbacks.
+- The canvas is decorative and hidden from assistive technology.
+- Normal page scrolling is never intercepted.
+- Scene controllers pause off-screen and dispose render resources on teardown.
+
+## Accessibility
+
+The site includes a focusable skip link, semantic landmarks and headings, visible focus styles, keyboard-operable demos, focus-managed command and poster dialogs, touch controls, reduced-motion states, stable deep links, and readable no-WebGL fallbacks. Essential content remains ordinary server-rendered HTML.
+
+## Deployment
+
+This repository is deployed with OpenAI Sites, not GitHub Pages. The Vinext build produces a worker entry point at `dist/server/index.js` and browser assets under `dist/client/`.
+
+Release flow:
+
+1. Run the complete verification suite and browser QA.
+2. Commit and push the exact validated source state.
+3. Build and package that same commit for Sites.
+4. Save a Sites version with the matching commit SHA.
+5. Deploy the saved version and smoke-test the production URL.
+
+Do not commit hosting credentials or change the site access policy as part of a routine release.
+
+## Project structure
+
+```text
+app/
+  components/
+    navigation/       active navigation, theme toggle, command palette
+    project-demos/    typed miniature product interfaces
+    research-ui/      evidence labels, workflow, page shell, poster viewer
+    spatial/          Three.js runtime and static fallbacks
+    supporting/       section-specific visual systems
+  content/            verified public portfolio data
+  research/           research hub and verified project route
+  resume/             print-friendly résumé route
+docs/portfolio/       evidence audits and phase reports
+public/               favicon, social card, and optimized public media
+tests/                rendered-HTML checks
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
-
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
-
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
-
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+The redesign audit trail and acceptance evidence are documented in `docs/portfolio/`.

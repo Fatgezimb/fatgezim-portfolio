@@ -1,5 +1,6 @@
 import { profileDomains } from "@/app/content/resume";
 import { siteContent } from "@/app/content/site";
+import { BeyondWork } from "./BeyondWork";
 import { SectionHeading } from "./SectionHeading";
 
 export function About() {
@@ -24,6 +25,7 @@ export function About() {
           ))}
         </div>
       </div>
+      <BeyondWork />
     </section>
   );
 }

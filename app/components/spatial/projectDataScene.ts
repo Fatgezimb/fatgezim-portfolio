@@ -52,6 +52,14 @@ export const defaultProjectDataCoreTheme: ProjectDataCoreTheme = {
   core: "#f6c878",
 };
 
+type SceneTheme = "dark" | "light";
+
+function readSceneTheme(): SceneTheme {
+  return typeof document !== "undefined" && document.documentElement.dataset.theme === "dark"
+    ? "dark"
+    : "light";
+}
+
 function stringHash(value: string) {
   let hash = 2166136261;
   for (let index = 0; index < value.length; index += 1) {
@@ -226,6 +234,8 @@ export const createProjectDataScene: SceneFactory<ProjectDataSceneConfig> = (
   let paused = true;
   let disposed = false;
   let currentProjectId = initialConfig.projectId;
+  let currentTheme = initialConfig.theme;
+  let sceneTheme = readSceneTheme();
   const pointerTarget = new THREE.Vector2();
   const pointerCurrent = new THREE.Vector2();
   const accentTarget = new THREE.Color(
@@ -237,6 +247,7 @@ export const createProjectDataScene: SceneFactory<ProjectDataSceneConfig> = (
   const coreTarget = new THREE.Color(
     safeHexColor(initialConfig.theme.core, defaultProjectDataCoreTheme.core),
   );
+  const lightThemeInk = new THREE.Color(0x10282b);
 
   const updateLinePositions = () => {
     for (let lineIndex = 0; lineIndex < lineCount; lineIndex += 1) {
@@ -258,9 +269,29 @@ export const createProjectDataScene: SceneFactory<ProjectDataSceneConfig> = (
   };
 
   const updateThemeTargets = (theme: ProjectDataCoreTheme) => {
+    currentTheme = theme;
     accentTarget.set(safeHexColor(theme.accent, defaultProjectDataCoreTheme.accent));
     secondaryTarget.set(safeHexColor(theme.secondary, defaultProjectDataCoreTheme.secondary));
     coreTarget.set(safeHexColor(theme.core, defaultProjectDataCoreTheme.core));
+
+    if (sceneTheme === "light") {
+      accentTarget.lerp(lightThemeInk, 0.44);
+      secondaryTarget.lerp(lightThemeInk, 0.44);
+      coreTarget.lerp(lightThemeInk, 0.38);
+    }
+  };
+
+  const applySceneTheme = (nextTheme: SceneTheme) => {
+    sceneTheme = nextTheme;
+    const isDark = nextTheme === "dark";
+
+    renderer.setClearColor(isDark ? 0x050b11 : 0xf4f8f6, 0);
+    pointMaterial.opacity = isDark ? 0.78 : 0.7;
+    lineMaterial.opacity = isDark ? 0.16 : 0.24;
+    shellMaterial.opacity = isDark ? 0.17 : 0.25;
+    centerMaterial.opacity = isDark ? 0.92 : 0.96;
+    orbitMaterial.opacity = isDark ? 0.15 : 0.22;
+    updateThemeTargets(currentTheme);
   };
 
   const lerpTheme = (material: { color: Color }, target: Color, amount: number) =>
@@ -268,6 +299,7 @@ export const createProjectDataScene: SceneFactory<ProjectDataSceneConfig> = (
 
   applyViewport(renderer, camera, viewport);
   updateLinePositions();
+  applySceneTheme(sceneTheme);
 
   return {
     resize(nextViewport) {
@@ -275,6 +307,8 @@ export const createProjectDataScene: SceneFactory<ProjectDataSceneConfig> = (
     },
     frame({ elapsedMs, deltaMs }) {
       if (paused || disposed) return;
+      const nextTheme = readSceneTheme();
+      if (nextTheme !== sceneTheme) applySceneTheme(nextTheme);
       const seconds = elapsedMs / 1000;
       const response = 1 - Math.exp(-Math.min(deltaMs, 50) * 0.006);
       const morphResponse = 1 - Math.exp(-Math.min(deltaMs, 50) * 0.0027);

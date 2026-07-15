@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PrintButton } from "@/app/components/PrintButton";
+import { SafeLink } from "@/app/components/SafeLink";
 import { featuredProjects } from "@/app/content/projects";
 import {
   credentials,
@@ -16,6 +17,14 @@ export const metadata: Metadata = {
   title: "Print Résumé",
   description:
     "Print-friendly résumé with owner-confirmed education, credentials, experience, skills, and contact information.",
+  alternates: { canonical: "/resume" },
+  openGraph: {
+    title: "Print Résumé | Fatgezim “Zim” Bela",
+    description:
+      "Print-friendly résumé with owner-confirmed education, credentials, experience, skills, and contact information.",
+    url: "/resume",
+    images: ["/og.png"],
+  },
 };
 
 export default function ResumePage() {
@@ -33,15 +42,19 @@ export default function ResumePage() {
       <article className="resume-document">
         <header className="resume-document__header">
           <div>
-            <p className="eyebrow">Verified public résumé · Phase 1 review</p>
+            <p className="eyebrow">Verified public résumé · Print view</p>
             <h1>{identity.name}</h1>
             <p className="resume-headline">{identity.headline}</p>
           </div>
           <address>
             {publicLinks.map((link) => (
-              <a href={link.href} key={link.href}>
+              <SafeLink
+                href={link.href}
+                key={link.href}
+                newTab={link.kind !== "email"}
+              >
                 {link.kind === "email" ? "fatgezimbela1@gmail.com" : link.label}
-              </a>
+              </SafeLink>
             ))}
           </address>
         </header>

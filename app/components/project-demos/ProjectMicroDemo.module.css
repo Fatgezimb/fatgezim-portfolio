@@ -1,4 +1,7 @@
 .root {
+  --demo-ink: color-mix(in srgb, var(--demo-accent) 32%, var(--text) 68%);
+  --demo-on-fill: #102522;
+
   display: grid;
   min-width: 0;
   height: 100%;
@@ -6,8 +9,12 @@
   overflow: hidden;
   background:
     radial-gradient(circle at 82% 5%, color-mix(in srgb, var(--demo-secondary) 10%, transparent), transparent 24rem),
-    linear-gradient(150deg, rgba(12, 27, 38, 0.88), rgba(3, 9, 15, 0.96));
+    linear-gradient(150deg, var(--surface-glass-strong), var(--surface-scrim));
   color: var(--text);
+}
+
+:global([data-theme="dark"]) .root {
+  --demo-ink: color-mix(in srgb, var(--demo-accent) 62%, var(--text) 38%);
 }
 
 .header {
@@ -121,7 +128,7 @@
 .tabs button[aria-selected="true"] {
   border-color: color-mix(in srgb, var(--demo-accent) 35%, var(--line));
   border-bottom-color: transparent;
-  background: rgba(5, 13, 20, 0.76);
+  background: var(--surface-glass-strong);
   color: var(--text);
 }
 
@@ -137,13 +144,13 @@
   border: 1px solid color-mix(in srgb, var(--demo-accent) 34%, var(--line));
   border-radius: 0 0.8rem 0.8rem 0.8rem;
   background:
-    linear-gradient(rgba(117, 228, 211, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(117, 228, 211, 0.025) 1px, transparent 1px),
-    #061019;
+    linear-gradient(color-mix(in srgb, var(--demo-accent) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--demo-accent) 5%, transparent) 1px, transparent 1px),
+    var(--panel);
   background-size: 28px 28px;
   box-shadow:
-    inset 0 1px rgba(255, 255, 255, 0.035),
-    0 20px 44px rgba(0, 0, 0, 0.22);
+    inset 0 1px var(--inset-highlight),
+    var(--shadow-low);
 }
 
 .stage {
@@ -183,7 +190,7 @@
 .frameNarrative {
   min-width: 0;
   padding: 0.9rem 1rem 1rem;
-  background: rgba(3, 9, 15, 0.72);
+  background: var(--surface-scrim-soft);
 }
 
 .frameHeading {
@@ -225,7 +232,7 @@
   padding: 0.5rem 0.58rem;
   border: 1px solid var(--line);
   border-radius: 0.4rem;
-  background: rgba(9, 22, 31, 0.72);
+  background: var(--surface-glass);
 }
 
 .detail dt {
@@ -286,13 +293,13 @@
   width: 100%;
   height: 0.2rem;
   border: 0;
-  background: rgba(141, 162, 171, 0.12);
+  background: color-mix(in srgb, var(--text-muted) 14%, transparent);
   color: var(--demo-accent);
   appearance: none;
 }
 
 .progress::-webkit-progress-bar {
-  background: rgba(141, 162, 171, 0.12);
+  background: color-mix(in srgb, var(--text-muted) 14%, transparent);
 }
 
 .progress::-webkit-progress-value,
@@ -317,7 +324,7 @@
   padding: 0.45rem 0.4rem;
   border: 1px solid var(--line-strong);
   border-radius: 0.5rem;
-  background: rgba(9, 24, 34, 0.82);
+  background: var(--surface-glass-strong);
   color: var(--text-soft);
   font: inherit;
   font-size: 0.66rem;
@@ -337,7 +344,7 @@
 
 .controls .primaryControl {
   border-color: var(--demo-accent);
-  background: color-mix(in srgb, var(--demo-accent) 16%, rgba(9, 24, 34, 0.9));
+  background: color-mix(in srgb, var(--demo-accent) 16%, var(--panel));
   color: var(--text);
 }
 
@@ -345,7 +352,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   border-block: 1px solid var(--line);
-  background: rgba(3, 9, 15, 0.5);
+  background: var(--surface-subtle);
 }
 
 .boundaries p {
@@ -427,10 +434,10 @@
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--demo-accent) 28%, var(--line));
   border-radius: 0.65rem;
-  background: #08131c;
+  background: var(--panel);
   box-shadow:
-    inset 0 1px rgba(255, 255, 255, 0.035),
-    0 16px 34px rgba(0, 0, 0, 0.25);
+    inset 0 1px var(--inset-highlight),
+    var(--shadow-low);
 }
 
 .miniWindowBar {
@@ -441,7 +448,7 @@
   gap: 0.7rem;
   padding: 0.45rem 0.65rem;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(90deg, rgba(18, 42, 54, 0.88), rgba(9, 22, 31, 0.9));
+  background: linear-gradient(90deg, var(--panel-bright), var(--panel-soft));
 }
 
 .miniWindowBar strong {
@@ -493,7 +500,7 @@
   gap: 0.25rem;
   padding: 0.35rem 0.55rem;
   border-bottom: 1px solid var(--line);
-  background: rgba(4, 12, 18, 0.82);
+  background: var(--surface-subtle);
 }
 
 .appNav span {
@@ -561,7 +568,7 @@
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 0.5rem;
-  background: rgba(3, 10, 16, 0.72);
+  background: var(--surface-glass);
 }
 
 .sheetHeader,
@@ -578,7 +585,7 @@
 
 .sheetHeader,
 .datasetColumns {
-  background: rgba(20, 45, 56, 0.82);
+  background: color-mix(in srgb, var(--demo-accent) 8%, var(--panel-bright));
   color: var(--demo-accent);
   font-family: var(--font-geist-mono), monospace;
   text-transform: uppercase;
@@ -631,7 +638,7 @@
   padding: 0.6rem;
   border: 1px solid var(--line);
   border-radius: 0.45rem;
-  background: rgba(10, 27, 38, 0.65);
+  background: var(--surface-glass);
 }
 
 .checkList li > span {
@@ -667,7 +674,7 @@
   gap: 0.2rem;
   padding: 0.6rem;
   border-right: 1px solid var(--line);
-  background: rgba(4, 12, 18, 0.75);
+  background: var(--surface-subtle);
 }
 
 .dashboardPreview > aside span {
@@ -697,7 +704,7 @@
   padding: 0.5rem;
   border: 1px solid var(--line);
   border-radius: 0.4rem;
-  background: rgba(11, 29, 39, 0.68);
+  background: var(--surface-glass);
 }
 
 .metricCards span,
@@ -723,7 +730,7 @@
 }
 
 .lineChart path {
-  stroke: rgba(141, 162, 171, 0.18);
+  stroke: color-mix(in srgb, var(--text-muted) 20%, transparent);
   stroke-width: 1;
 }
 
@@ -789,7 +796,7 @@
   padding: 0.7rem;
   border: 1px solid color-mix(in srgb, var(--warm) 38%, var(--line));
   border-radius: 0.5rem;
-  background: rgba(246, 200, 120, 0.06);
+  background: color-mix(in srgb, var(--warm) 7%, transparent);
 }
 
 .boundaryCallout strong,
@@ -818,7 +825,7 @@
   gap: 0.7rem;
   padding: 0.7rem;
   border-bottom: 1px solid var(--line);
-  background: rgba(4, 12, 18, 0.62);
+  background: var(--surface-subtle);
 }
 
 .caregiverMark {
@@ -867,7 +874,7 @@
   padding: 0.65rem;
   border: 1px solid var(--line);
   border-radius: 0.55rem;
-  background: rgba(12, 30, 40, 0.62);
+  background: var(--surface-glass);
   text-align: center;
 }
 
@@ -928,7 +935,7 @@
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--demo-accent) 30%, var(--line));
   border-radius: 0.6rem;
-  background: linear-gradient(145deg, color-mix(in srgb, var(--demo-accent) 10%, transparent), rgba(6, 16, 24, 0.9));
+  background: linear-gradient(145deg, color-mix(in srgb, var(--demo-accent) 10%, var(--panel)), var(--panel-soft));
 }
 
 .lessonCard strong {
@@ -1074,7 +1081,7 @@
 .flashcardBack {
   position: absolute;
   border: 1px solid var(--line);
-  background: rgba(19, 45, 58, 0.72);
+  background: var(--panel-bright);
   transform: rotate(-4deg) translate(-0.6rem, 0.35rem);
 }
 
@@ -1084,8 +1091,8 @@
   align-content: center;
   padding: 1.2rem;
   border: 1px solid var(--demo-accent);
-  background: linear-gradient(145deg, rgba(19, 45, 58, 0.98), rgba(7, 18, 26, 0.98));
-  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.28);
+  background: linear-gradient(145deg, var(--panel-bright), var(--panel));
+  box-shadow: var(--shadow-high);
   transform: rotate(1.5deg);
 }
 
@@ -1140,7 +1147,7 @@
   padding: 1rem;
   border: 1px solid var(--line);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(116, 199, 245, 0.1), rgba(4, 12, 18, 0.7));
+  background: radial-gradient(circle, color-mix(in srgb, var(--cyan) 11%, transparent), var(--surface-glass));
   aspect-ratio: 1;
 }
 
@@ -1178,7 +1185,7 @@
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 0.55rem;
-  background: rgba(5, 14, 21, 0.7);
+  background: var(--surface-glass);
 }
 
 .visualPanel {
@@ -1194,7 +1201,7 @@
   left: 0.45rem;
   padding: 0.3rem 0.4rem;
   border-radius: 0.3rem;
-  background: rgba(3, 9, 15, 0.82);
+  background: var(--surface-scrim);
   color: var(--text-muted);
   font-size: 0.5rem;
   text-align: center;
@@ -1211,7 +1218,7 @@
 }
 
 .recallVisual circle {
-  fill: rgba(4, 12, 18, 0.92);
+  fill: var(--panel);
   stroke: var(--demo-accent);
 }
 
@@ -1266,7 +1273,7 @@
 .revealStack span {
   padding: 0.4rem 0.5rem;
   border-left: 2px solid var(--demo-accent);
-  background: rgba(13, 33, 44, 0.66);
+  background: var(--surface-subtle);
   color: var(--text-soft);
   font-size: 0.55rem;
 }
@@ -1307,7 +1314,7 @@
   gap: 0.35rem;
   padding: 0.7rem;
   border-right: 1px solid var(--line);
-  background: rgba(4, 12, 18, 0.78);
+  background: var(--surface-subtle);
 }
 
 .queuePanel > span {
@@ -1430,7 +1437,7 @@
 
 .stepRail li[data-state="supported"] > span {
   background: var(--demo-accent);
-  color: #031013;
+  color: var(--demo-on-fill);
 }
 
 .stepRail strong,
@@ -1457,7 +1464,7 @@
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 0.4rem;
-  background: #030a0f;
+  background: var(--panel-soft);
 }
 
 .runLog li {
@@ -1465,7 +1472,7 @@
   grid-template-columns: 2rem minmax(0, 1fr);
   gap: 0.5rem;
   padding: 0.42rem 0.5rem;
-  border-bottom: 1px solid rgba(66, 102, 116, 0.4);
+  border-bottom: 1px solid color-mix(in srgb, var(--line-strong) 40%, transparent);
   color: var(--text-soft);
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.52rem;
@@ -1497,7 +1504,7 @@
   padding: 0.7rem;
   border: 1px solid var(--line);
   border-radius: 0.5rem;
-  background: rgba(12, 30, 40, 0.66);
+  background: var(--surface-glass);
 }
 
 .pipelinePreview div:not(:last-child)::after {
@@ -1581,7 +1588,7 @@
   padding: 0.65rem;
   border: 1px solid color-mix(in srgb, var(--warm) 28%, var(--line));
   border-radius: 0.45rem;
-  background: rgba(246, 200, 120, 0.045);
+  background: color-mix(in srgb, var(--warm) 6%, transparent);
 }
 
 .limitationsGrid article > span {
@@ -1660,7 +1667,7 @@
   height: 0.8rem;
   place-items: center;
   border-radius: 50%;
-  background: #061019;
+  background: var(--panel);
   color: var(--demo-accent);
   content: "→";
   font-size: 0.64rem;
@@ -1672,12 +1679,12 @@
   padding: 0.65rem;
   border: 1px solid var(--line);
   border-radius: 0.5rem;
-  background: rgba(9, 23, 32, 0.82);
+  background: var(--surface-glass-strong);
 }
 
 .architectureFlow > li[data-kind="boundary"] .architectureNode {
   border-color: color-mix(in srgb, var(--warm) 45%, var(--line));
-  background: rgba(246, 200, 120, 0.045);
+  background: color-mix(in srgb, var(--warm) 6%, var(--panel));
 }
 
 .architectureNode header {
@@ -1784,6 +1791,48 @@
   color: var(--demo-accent);
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.62rem;
+}
+
+/* Bright project colors remain expressive fills while text follows a
+   contrast-aware ink that works on both the light and dark surfaces. */
+.posterLabel,
+.eyebrow,
+.miniEyebrow,
+.tabs button span,
+.timeline li > span:first-child,
+.boundaries span,
+.evidenceLinks a,
+.miniStatus,
+.appNav .appNavActive,
+.sheetHeader,
+.datasetColumns,
+.checkList li > span,
+.dashboardPreview > aside .sideActive,
+.caregiverMark,
+.scopePill,
+.assessmentPill,
+.routineGrid article > span,
+.lessonRail li span,
+.cardIcon,
+.flashcard p,
+.fakeAction,
+.provenanceList dt,
+.queueEmptyState > span,
+.runLog header,
+.runLog li span,
+.pipelinePreview div:not(:last-child)::after,
+.pipelinePreview span,
+.architectureFlow > li:not(:last-child)::after,
+.architectureNode header span,
+.architectureNode header p,
+.edgeLedger li span {
+  color: var(--demo-ink);
+}
+
+.fileGlyph,
+.lineChart polyline,
+.recallVisual circle {
+  stroke: var(--demo-ink);
 }
 
 @media (min-width: 1320px) {

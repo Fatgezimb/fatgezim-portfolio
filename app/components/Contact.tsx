@@ -1,5 +1,7 @@
 import { publicationPolicy } from "@/app/content/resume";
 import { siteContent } from "@/app/content/site";
+import { PortfolioContactForm } from "./PortfolioContactForm";
+import { SafeLink } from "./SafeLink";
 import { SectionHeading } from "./SectionHeading";
 import styles from "./supporting/Contact.module.css";
 
@@ -33,13 +35,13 @@ export function Contact() {
         </svg>
 
         <div className={styles.contactLayout}>
+          <PortfolioContactForm />
           <address className={styles.contactLinks}>
             {contact.links.map((link, index) => (
-              <a
+              <SafeLink
                 href={link.href}
                 key={link.href}
-                rel={link.external ? "noreferrer" : undefined}
-                target={link.external ? "_blank" : undefined}
+                newTab={link.external}
               >
                 <span className={styles.linkIndex} aria-hidden="true">
                   {String(index + 1).padStart(2, "0")}
@@ -48,18 +50,17 @@ export function Contact() {
                 <span className={styles.linkArrow} aria-hidden="true">
                   {link.external ? "↗" : "→"}
                 </span>
-              </a>
+              </SafeLink>
             ))}
           </address>
           <aside className={styles.contactBoundary}>
             <span className={styles.boundarySignal} aria-hidden="true" />
-            <p className={styles.statusLabel}>Public contact boundary</p>
+            <p className={styles.statusLabel}>Privacy</p>
             <p>{publicationPolicy.privacyStatement}</p>
-            {/* Vinext currently hydrates next/link with a duplicate React instance in dev. */}
-            <a className={styles.resumeLink} href="/resume">
-              Review print résumé
-              <span aria-hidden="true">→</span>
-            </a>
+            <SafeLink className={styles.resumeLink} href="/resume" newTab>
+              View print résumé
+              <span aria-hidden="true">↗</span>
+            </SafeLink>
           </aside>
         </div>
       </div>

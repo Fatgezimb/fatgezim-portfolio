@@ -1,4 +1,10 @@
-import { researchItems, researchNote } from "@/app/content/research";
+import {
+  gmuNeuronalReconstruction,
+  researchAssets,
+  researchNote,
+} from "@/app/content/research";
+import { EvidenceStatus } from "./research-ui";
+import { SafeLink } from "./SafeLink";
 import { SectionHeading } from "./SectionHeading";
 import styles from "./supporting/Research.module.css";
 
@@ -14,54 +20,66 @@ export function Research() {
         title="Research & scientific work"
         description={researchNote}
       />
-      <div className={styles.researchGrid}>
-        {researchItems.map((item) => (
-          <article className={styles.researchCard} data-reveal="scale" key={item.id}>
-            <div className={styles.sliceStage} aria-hidden="true">
-              <div className={`${styles.slice} ${styles.sliceRear}`} />
-              <div className={`${styles.slice} ${styles.sliceMiddle}`} />
-              <div className={`${styles.slice} ${styles.sliceFront}`}>
-                <svg viewBox="0 0 320 220">
-                  <path
-                    className={styles.neuronBranch}
-                    d="M158 112 C128 91 113 59 83 51 M158 112 C119 122 93 151 59 155 M158 112 C184 77 220 67 249 41 M158 112 C198 123 226 151 268 157 M158 112 C164 142 155 172 177 194"
-                  />
-                  <path
-                    className={styles.neuronBranchFine}
-                    d="M83 51 L58 31 M83 51 L48 67 M59 155 L29 135 M59 155 L39 184 M249 41 L273 20 M249 41 L285 61 M268 157 L295 131 M268 157 L295 181"
-                  />
-                  <circle cx="158" cy="112" r="13" />
-                  <circle cx="83" cy="51" r="4" />
-                  <circle cx="59" cy="155" r="4" />
-                  <circle cx="249" cy="41" r="4" />
-                  <circle cx="268" cy="157" r="4" />
-                </svg>
-              </div>
-              <div className={styles.scanLine} />
-            </div>
 
-            <div className={styles.researchContent}>
-              <div className={styles.researchSummary}>
-                <p className={styles.statusLabel}>{item.status}</p>
-                <h3>{item.title}</h3>
-                <p className={styles.institution}>{item.institution}</p>
-                <p>{item.summary}</p>
-              </div>
-              <div className={styles.methodPanel}>
-                <h4>Supported methods</h4>
-                <ul className={styles.methodList}>
-                  {item.methods.map((method) => (
-                    <li key={method}>{method}</li>
-                  ))}
-                </ul>
-                <p className={styles.boundaryNote}>
-                  <strong>Evidence boundary:</strong> {item.evidenceBoundary}
-                </p>
-              </div>
+      <article className={styles.researchCard} data-reveal="scale">
+        <figure className={styles.posterStage}>
+          {/* Vinext serves committed public assets directly; next/image optimization is unavailable in this deployment path. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            alt="Preview of the Computational Neuroscience: Tracing Neurons from the Fruit Fly Larva research poster."
+            className={styles.posterImage}
+            height="1200"
+            loading="lazy"
+            src={researchAssets.posterPreview}
+            width="1600"
+          />
+          <figcaption>Original George Mason research poster</figcaption>
+        </figure>
+
+        <div className={styles.researchContent}>
+          <div className={styles.researchSummary}>
+            <EvidenceStatus>{gmuNeuronalReconstruction.verificationStatus}</EvidenceStatus>
+            <p className={styles.statusLabel}>{gmuNeuronalReconstruction.role}</p>
+            <h3>{gmuNeuronalReconstruction.title}</h3>
+            <p className={styles.institution}>
+              {gmuNeuronalReconstruction.institutionalUnit}
+              <br />
+              {gmuNeuronalReconstruction.institution}
+            </p>
+            <p>{gmuNeuronalReconstruction.summary}</p>
+            <p className={styles.authors}>
+              <strong>Co-authors:</strong>{" "}
+              {gmuNeuronalReconstruction.authors.join(", ")}
+            </p>
+          </div>
+
+          <div className={styles.methodPanel}>
+            <h4>Documented methods</h4>
+            <ul className={styles.methodList}>
+              {gmuNeuronalReconstruction.methods.map((method) => (
+                <li key={method}>{method}</li>
+              ))}
+            </ul>
+            <p className={styles.boundaryNote}>
+              {gmuNeuronalReconstruction.evidenceBoundary}
+            </p>
+            <p className={styles.boundaryNote}>
+              {gmuNeuronalReconstruction.archivalNote}
+            </p>
+            <div className={styles.researchActions}>
+              <SafeLink href="/research" newTab>
+                View research record
+              </SafeLink>
+              <SafeLink
+                href={`/research/${gmuNeuronalReconstruction.slug}`}
+                newTab
+              >
+                Explore the project
+              </SafeLink>
             </div>
-          </article>
-        ))}
-      </div>
+          </div>
+        </div>
+      </article>
     </section>
   );
 }

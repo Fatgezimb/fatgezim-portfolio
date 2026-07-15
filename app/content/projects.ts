@@ -53,7 +53,7 @@ export const featuredProjects = [
       "Do not describe the product as HIPAA-compliant or BAA-ready.",
     ],
     demoStory: [
-      "Static placeholder: select a synthetic appointment export.",
+      "Select a bundled synthetic appointment export.",
       "Preview local validation and normalization states.",
       "Open an operations summary and a safe follow-up view.",
       "End on a report-ready output and browser-local privacy note.",
@@ -98,7 +98,7 @@ export const featuredProjects = [
       "Do not imply that Zim independently created all clinical or educational content.",
     ],
     demoStory: [
-      "Static placeholder: choose a caregiver topic or routine.",
+      "Choose a broad caregiver topic or routine.",
       "Open a guided module and preview one educational scenario.",
       "Show a knowledge-check state and a printable next-step tool.",
       "End with the educational-scope and no-PHI boundaries.",
@@ -145,7 +145,7 @@ export const featuredProjects = [
       "Practice progress remains local to the learner's browser.",
     ],
     demoStory: [
-      "Static placeholder: open the 19-task competency map.",
+      "Open the 19-task competency map.",
       "Select a task and preview one original flashcard.",
       "Show one original practice-question state.",
       "End on a local progress update and independent-resource disclaimer.",
@@ -189,7 +189,7 @@ export const featuredProjects = [
       "Use only appropriately licensed, attributed, or original visual media.",
     ],
     demoStory: [
-      "Static placeholder: open a source-aware visual recall card.",
+      "Open a source-aware visual recall card.",
       "Move from prompt and prediction to the answer reveal.",
       "Show a confidence or review-state choice stored locally.",
       "End on the card's source, license, provenance, and review status.",
@@ -237,7 +237,7 @@ export const featuredProjects = [
       "Do not imply that the tool bypasses authentication, review, or final human control.",
     ],
     demoStory: [
-      "Static placeholder: select a synthetic queued program or behavior.",
+      "Select a synthetic queued program or behavior.",
       "Preview the Prepare Run and correct-page confirmation states.",
       "Show one supported staged automation step.",
       "End on a readable local run log and the manual-work boundary.",
@@ -286,7 +286,7 @@ export const featuredProjects = [
       "Do not imply that analytical outputs are clinical guidance, customer results, or validated financial recommendations.",
     ],
     demoStory: [
-      "Static placeholder: start with a clearly labeled synthetic public-data sample.",
+      "Start with a clearly labeled synthetic public-data sample.",
       "Show filtering and normalization into a local analytical table.",
       "Preview one benchmark and one experimental model output.",
       "End on method limitations, synthetic-data labeling, and private-review status.",
@@ -311,6 +311,6 @@ export const projectSelectionNotes = {
     "NeuroPath PracticeOS remains a private case-study reserve because it is PHI-capable and local-only.",
     "Computational neuroscience research remains research experience, not a featured project, until supporting artifacts are supplied.",
     "Archived training and certificate systems must not be presented as current public products.",
-    "All project preview areas remain static placeholders until the owner approves Phase 1.",
+    "All project previews use sanitized miniature replicas with visible evidence and privacy boundaries.",
   ],
 } as const;

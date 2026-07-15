@@ -1,0 +1,543 @@
+.page {
+  min-width: 0;
+}
+
+.hero,
+.section,
+.closingSection {
+  position: relative;
+  padding-top: clamp(5.5rem, 10vw, 8rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.hero {
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  inset: 8% -12% 0 38%;
+  background:
+    radial-gradient(circle at 48% 44%, var(--violet-wash), transparent 34%),
+    linear-gradient(120deg, transparent, var(--accent-glow), transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-bottom: 2.25rem;
+  color: var(--text-muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.74rem;
+}
+
+.breadcrumbs a {
+  color: var(--accent-strong);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  gap: clamp(2rem, 6vw, 5.5rem);
+  align-items: end;
+}
+
+.heroCopy {
+  max-width: 58rem;
+}
+
+.heroCopy h1 {
+  max-width: 17ch;
+  margin: 1.1rem 0 1.35rem;
+  font-size: clamp(2.65rem, 7vw, 6.25rem);
+  letter-spacing: -0.055em;
+  line-height: 0.94;
+}
+
+.detailHero .heroCopy h1 {
+  max-width: 19ch;
+  font-size: clamp(2.4rem, 6vw, 5.3rem);
+}
+
+.lede {
+  max-width: 48rem;
+  margin-bottom: 1.6rem;
+  color: var(--text-soft);
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+}
+
+.heroActions,
+.inlineActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.primaryLink,
+.secondaryLink,
+.textLink {
+  display: inline-flex;
+  min-height: 2.8rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  font-size: 0.86rem;
+  font-weight: 730;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.primaryLink {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.primaryLink:hover {
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
+  color: var(--on-accent);
+}
+
+.secondaryLink {
+  background: var(--panel);
+}
+
+.textLink {
+  min-height: 0;
+  padding-inline: 0;
+  border-color: transparent;
+  color: var(--accent-strong);
+}
+
+.heroPanel,
+.artifactCard,
+.researchCard,
+.summaryCard,
+.sourceCard,
+.outputCard,
+.futureCard {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, var(--surface-card-start), var(--surface-card-end));
+  box-shadow:
+    inset 0 1px var(--inset-highlight),
+    var(--shadow-low);
+}
+
+.heroPanel {
+  padding: 1.2rem;
+  border-radius: var(--radius-lg) var(--radius-sm) var(--radius-lg) var(--radius-lg);
+}
+
+.heroPanel > p:first-child,
+.sectionEyebrow,
+.cardEyebrow,
+.factLabel {
+  margin-bottom: 0.7rem;
+  color: var(--accent-strong);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 720;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.heroPanel dl,
+.factGrid {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.heroPanel dl > div,
+.factGrid > div {
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.heroPanel dt,
+.factGrid dt {
+  color: var(--text-muted);
+  font-size: 0.73rem;
+}
+
+.heroPanel dd,
+.factGrid dd {
+  margin: 0.18rem 0 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.sectionHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(18rem, 1.28fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: end;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.sectionHeader h2 {
+  max-width: 16ch;
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4.15rem);
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.sectionIntro {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.artifactCard {
+  display: grid;
+  grid-template-columns: minmax(19rem, 0.9fr) minmax(0, 1.1fr);
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-sm) var(--radius-lg) var(--radius-lg);
+}
+
+.posterPreview {
+  position: relative;
+  min-height: 26rem;
+  margin: 0;
+  overflow: hidden;
+  border-right: 1px solid var(--line);
+  background: var(--page-raised);
+}
+
+.posterPreview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.posterPreview::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--inset-highlight);
+  content: "";
+  pointer-events: none;
+}
+
+.artifactCopy {
+  display: grid;
+  gap: 1.1rem;
+  align-content: center;
+  padding: clamp(1.4rem, 4vw, 2.7rem);
+}
+
+.artifactCopy h2,
+.artifactCopy h3,
+.researchCard h2,
+.researchCard h3,
+.summaryCard h2,
+.sourceCard h2,
+.outputCard h2,
+.futureCard h2 {
+  margin-bottom: 0.65rem;
+  line-height: 1.08;
+}
+
+.artifactCopy h2,
+.artifactCopy h3 {
+  font-size: clamp(1.65rem, 3.5vw, 2.8rem);
+}
+
+.authors,
+.institution,
+.supportingText,
+.artifactCopy > p,
+.researchCard > p,
+.summaryCard > p,
+.sourceCard > p,
+.outputCard > p,
+.futureCard > p {
+  color: var(--text-soft);
+}
+
+.authors strong,
+.institution strong {
+  color: var(--text);
+}
+
+.methodList,
+.futureList,
+.sourceList,
+.plainList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.methodList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.methodList li {
+  padding: 0.28rem 0.52rem;
+  border: 1px solid color-mix(in srgb, var(--violet) 30%, var(--line));
+  border-radius: 999px;
+  color: var(--text-soft);
+  font-size: 0.72rem;
+}
+
+.cardGrid,
+.twoColumnGrid,
+.futureList,
+.sourceList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.researchCard,
+.summaryCard,
+.sourceCard,
+.outputCard,
+.futureCard {
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+  border-radius: var(--radius-md);
+}
+
+.researchCard h2,
+.summaryCard h2,
+.sourceCard h2,
+.outputCard h2,
+.futureCard h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.boundaryNote,
+.proposalNote {
+  margin: 1.15rem 0 0;
+  padding: 0.9rem 1rem;
+  border-left: 2px solid var(--warm);
+  background: color-mix(in srgb, var(--warm) 7%, transparent);
+  color: var(--text-soft);
+  font-size: 0.84rem;
+}
+
+.sourceCard h3,
+.futureCard h3 {
+  margin-bottom: 0.45rem;
+  font-size: 1.05rem;
+}
+
+.sourceCard ul,
+.plainList {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.sourceCard li,
+.plainList li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--text-soft);
+}
+
+.sourceCard li::before,
+.plainList li::before {
+  position: absolute;
+  top: 0.68em;
+  left: 0;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
+}
+
+.detailSectionStack {
+  display: grid;
+  gap: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.posterFeature {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.posterFrame {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: var(--shadow-low);
+}
+
+.posterFrame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.summaryContent {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.factGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-bottom: 1px solid var(--line);
+}
+
+.factGrid > div:nth-child(odd) {
+  padding-right: 1rem;
+}
+
+.factGrid > div:nth-child(even) {
+  padding-left: 1rem;
+  border-left: 1px solid var(--line);
+}
+
+.closingSection {
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.closingSection h2 {
+  max-width: 19ch;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+}
+
+.closingSection p {
+  max-width: 43rem;
+  margin-right: auto;
+  margin-left: auto;
+  color: var(--text-soft);
+}
+
+.closingSection .inlineActions {
+  justify-content: center;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .heroGrid,
+  .artifactCard,
+  .posterFeature {
+    grid-template-columns: 1fr;
+  }
+
+  .heroPanel {
+    max-width: 42rem;
+  }
+
+  .posterPreview {
+    min-height: 22rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .posterPreview img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero,
+  .section,
+  .closingSection {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .heroCopy h1,
+  .detailHero .heroCopy h1 {
+    font-size: clamp(2.35rem, 13vw, 4.2rem);
+  }
+
+  .sectionHeader,
+  .cardGrid,
+  .twoColumnGrid,
+  .futureList,
+  .sourceList {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeader {
+    align-items: start;
+  }
+
+  .posterPreview {
+    min-height: 16rem;
+  }
+
+  .factGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .factGrid > div:nth-child(odd),
+  .factGrid > div:nth-child(even) {
+    padding-right: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+@media print {
+  .hero,
+  .section,
+  .closingSection,
+  .detailSectionStack {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .hero::before,
+  .posterPreview,
+  .posterFrame,
+  .heroActions,
+  .inlineActions,
+  .breadcrumbs {
+    display: none;
+  }
+
+  .heroPanel,
+  .artifactCard,
+  .researchCard,
+  .summaryCard,
+  .sourceCard,
+  .outputCard,
+  .futureCard {
+    break-inside: avoid;
+    border-color: #777;
+    background: transparent;
+    box-shadow: none;
+  }
+}

@@ -75,7 +75,7 @@ export const profileDomains = [
 
 export const publicLinks: PublicLink[] = [
   {
-    label: "Email",
+    label: "fatgezimbela1@gmail.com",
     href: "mailto:fatgezimbela1@gmail.com",
     kind: "email",
   },
@@ -154,7 +154,7 @@ export const experience: ExperienceItem[] = [
     statusLabel: "Provisional public wording",
     evidence: ["Owner confirmation", "Historical résumé"],
     uncertaintyFlags: [
-      "Owner marked the title and dates as provisional for the Phase 1 draft.",
+      "Owner marked the title and dates as provisional for the public portfolio.",
     ],
   },
   {
@@ -290,7 +290,7 @@ export const credentials = [
 ] as const;
 
 export const publicationPolicy = {
-  resumeDownloadLabel: "Verified résumé download coming soon",
+  resumeDownloadLabel: "Print-ready résumé available",
   privacyStatement:
     "Public materials omit street addresses, phone numbers, credential identifiers, client information, PHI, and private operational data.",
 } as const;

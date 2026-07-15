@@ -6,6 +6,7 @@ import {
 } from "@/app/content/projects";
 import { siteContent } from "@/app/content/site";
 import { useEffect, useState } from "react";
+import { SafeLink } from "./SafeLink";
 import { SectionHeading } from "./SectionHeading";
 import { ProjectMicroDemo } from "./project-demos";
 import { ProjectDataCore } from "./spatial";
@@ -71,12 +72,12 @@ function ProjectCard({ active, project, index, onActivate }: ProjectCardProps) {
             {project.evidenceLinks.length ? (
               <div className="project-links" aria-label={`${projectName} links`}>
                 {project.evidenceLinks.map((href, linkIndex) => (
-                  <a href={href} key={href} rel="noreferrer" target="_blank">
+                  <SafeLink href={href} key={href} newTab>
                     {linkIndex === 0
                       ? "Open project evidence"
                       : `Evidence link ${linkIndex + 1}`}
                     <span aria-hidden="true"> ↗</span>
-                  </a>
+                  </SafeLink>
                 ))}
               </div>
             ) : (

@@ -8,7 +8,7 @@ export function SiteFooter() {
         <p>{siteContent.footer.copyright}</p>
       </div>
       <p>{siteContent.footer.privacyNote}</p>
-      <a href="#top">Return to signal origin ↑</a>
+      <a href="#top">Back to top ↑</a>
     </footer>
   );
 }

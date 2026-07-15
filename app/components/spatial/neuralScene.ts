@@ -8,6 +8,7 @@ export const neuralDomains = [
     label: "Neuroscience",
     description: "Neuroscience and computational research",
     color: "#74c7f5",
+    lightColor: "#0f6682",
     position: [-2.8, 1.25, -0.3],
   },
   {
@@ -15,6 +16,7 @@ export const neuralDomains = [
     label: "Medicine",
     description: "Clinical and medical learning",
     color: "#f6c878",
+    lightColor: "#8c5c0b",
     position: [2.65, 1.45, -0.55],
   },
   {
@@ -22,6 +24,7 @@ export const neuralDomains = [
     label: "Behavioral science",
     description: "Behavioral science and applied behavior analysis",
     color: "#75e4d3",
+    lightColor: "#087267",
     position: [3.05, -0.75, 0.1],
   },
   {
@@ -29,6 +32,7 @@ export const neuralDomains = [
     label: "Data",
     description: "Data science and data engineering",
     color: "#a58afa",
+    lightColor: "#6651a1",
     position: [-2.7, -1.35, 0.25],
   },
   {
@@ -36,6 +40,7 @@ export const neuralDomains = [
     label: "Software",
     description: "Software systems and automation",
     color: "#74c7f5",
+    lightColor: "#175f82",
     position: [0.6, -2.05, -0.7],
   },
   {
@@ -43,6 +48,7 @@ export const neuralDomains = [
     label: "Founder / product",
     description: "Founder leadership and product systems",
     color: "#f6c878",
+    lightColor: "#8c5c0b",
     position: [-0.2, 2.05, 0.35],
   },
 ] as const;
@@ -58,7 +64,8 @@ type NodeRuntime = {
   group: Group;
   wireMaterial: MeshBasicMaterial;
   coreMaterial: MeshBasicMaterial;
-  baseColor: Color;
+  darkColor: Color;
+  lightColor: Color;
 };
 
 type SignalRuntime = {
@@ -79,6 +86,14 @@ const edges = [
   [3, 5],
   [5, 4],
 ] as const;
+
+type SceneTheme = "dark" | "light";
+
+function readSceneTheme(): SceneTheme {
+  return typeof document !== "undefined" && document.documentElement.dataset.theme === "dark"
+    ? "dark"
+    : "light";
+}
 
 function seeded(index: number) {
   const value = Math.sin(index * 12.9898 + 78.233) * 43758.5453;
@@ -130,15 +145,16 @@ export const createNeuralScene: SceneFactory<NeuralSceneConfig> = (
     const group = new THREE.Group();
     group.position.set(domain.position[0], domain.position[1], domain.position[2]);
 
-    const baseColor = new THREE.Color(domain.color);
+    const darkColor = new THREE.Color(domain.color);
+    const lightColor = new THREE.Color(domain.lightColor);
     const wireMaterial = new THREE.MeshBasicMaterial({
-      color: baseColor,
+      color: lightColor,
       transparent: true,
       opacity: 0.72,
       wireframe: true,
     });
     const coreMaterial = new THREE.MeshBasicMaterial({
-      color: baseColor,
+      color: lightColor,
       transparent: true,
       opacity: 0.86,
     });
@@ -151,7 +167,8 @@ export const createNeuralScene: SceneFactory<NeuralSceneConfig> = (
       group,
       wireMaterial,
       coreMaterial,
-      baseColor,
+      darkColor,
+      lightColor,
     });
   });
 
@@ -240,6 +257,26 @@ export const createNeuralScene: SceneFactory<NeuralSceneConfig> = (
   const pointerCurrent = new THREE.Vector2();
   const lookTarget = new THREE.Vector3();
   const neutralColor = new THREE.Color(0x31515c);
+  const lightNeutralColor = new THREE.Color(0x78908c);
+  let sceneTheme = readSceneTheme();
+
+  const applySceneTheme = (nextTheme: SceneTheme) => {
+    sceneTheme = nextTheme;
+    const isDark = nextTheme === "dark";
+
+    renderer.setClearColor(isDark ? 0x050b11 : 0xf4f8f6, 0);
+    scene.fog?.color.set(isDark ? 0x050b11 : 0xf4f8f6);
+    lineMaterial.color.set(isDark ? 0x75e4d3 : 0x087267);
+    lineMaterial.opacity = isDark ? 0.22 : 0.3;
+    signalMaterial.color.set(isDark ? 0xa5f3e7 : 0x087267);
+    signalMaterial.opacity = isDark ? 0.9 : 0.76;
+    starMaterial.color.set(isDark ? 0x74c7f5 : 0x175f82);
+    starMaterial.opacity = isDark ? 0.42 : 0.27;
+    ringMaterial.color.set(isDark ? 0x75e4d3 : 0x087267);
+    ringMaterial.opacity = isDark ? 0.12 : 0.19;
+  };
+
+  applySceneTheme(sceneTheme);
 
   const updateSignals = (elapsedSeconds: number) => {
     signalRuntimes.forEach((signal, index) => {
@@ -260,6 +297,8 @@ export const createNeuralScene: SceneFactory<NeuralSceneConfig> = (
     },
     frame({ elapsedMs, deltaMs }) {
       if (paused || disposed) return;
+      const nextTheme = readSceneTheme();
+      if (nextTheme !== sceneTheme) applySceneTheme(nextTheme);
       const elapsedSeconds = elapsedMs / 1000;
       const response = 1 - Math.exp(-Math.min(deltaMs, 50) * 0.0065);
 
@@ -283,8 +322,10 @@ export const createNeuralScene: SceneFactory<NeuralSceneConfig> = (
         node.group.rotation.x = Math.sin(elapsedSeconds * 0.32 + index) * 0.12;
         node.wireMaterial.opacity += ((selected ? 0.82 : 0.18) - node.wireMaterial.opacity) * response;
         node.coreMaterial.opacity += ((selected ? 0.94 : 0.2) - node.coreMaterial.opacity) * response;
-        node.wireMaterial.color.lerp(selected ? node.baseColor : neutralColor, response);
-        node.coreMaterial.color.lerp(selected ? node.baseColor : neutralColor, response);
+        const activeColor = sceneTheme === "dark" ? node.darkColor : node.lightColor;
+        const inactiveColor = sceneTheme === "dark" ? neutralColor : lightNeutralColor;
+        node.wireMaterial.color.lerp(selected ? activeColor : inactiveColor, response);
+        node.coreMaterial.color.lerp(selected ? activeColor : inactiveColor, response);
       });
 
       updateSignals(elapsedSeconds);

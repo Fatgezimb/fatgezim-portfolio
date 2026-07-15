@@ -9,7 +9,7 @@ import { Research } from "./Research";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 import { Skills } from "./Skills";
-import { DocumentRevealRegistry } from "./motion";
+import { DocumentRevealRegistry, InitialHashAlignment } from "./motion";
 
 export function PortfolioPage() {
   return (
@@ -18,8 +18,9 @@ export function PortfolioPage() {
         Skip to main content
       </a>
       <DocumentRevealRegistry />
+      <InitialHashAlignment />
       <SiteHeader />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <About />
         <FeaturedProjects />

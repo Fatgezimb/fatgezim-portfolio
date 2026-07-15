@@ -36,14 +36,23 @@ function NeuralFieldFallback() {
           <path d="M220 240 L820 445 M210 475 L500 105 M500 105 L570 585" />
         </g>
         {([
-          [220, 240, "#74c7f5"],
-          [795, 230, "#f6c878"],
-          [820, 445, "#75e4d3"],
-          [210, 475, "#a58afa"],
-          [570, 585, "#74c7f5"],
-          [500, 105, "#f6c878"],
-        ] as const).map(([cx, cy, color]) => (
-          <g key={`${cx}-${cy}`} style={{ color }}>
+          [220, 240, "#0f6682", "#74c7f5"],
+          [795, 230, "#8c5c0b", "#f6c878"],
+          [820, 445, "#087267", "#75e4d3"],
+          [210, 475, "#6651a1", "#a58afa"],
+          [570, 585, "#175f82", "#74c7f5"],
+          [500, 105, "#8c5c0b", "#f6c878"],
+        ] as const).map(([cx, cy, lightColor, darkColor]) => (
+          <g
+            className={styles.fallbackNodeGroup}
+            key={`${cx}-${cy}`}
+            style={
+              {
+                "--domain-color-dark": darkColor,
+                "--domain-color-light": lightColor,
+              } as CSSProperties
+            }
+          >
             <circle className={styles.fallbackNode} cx={cx} cy={cy} r="20" />
             <circle cx={cx} cy={cy} fill="currentColor" r="5" />
           </g>
@@ -59,7 +68,8 @@ export function NeuralIdentityField({ className }: NeuralIdentityFieldProps) {
   const activeDefinition = neuralDomains.find((domain) => domain.id === activeDomain)!;
   const sceneConfig = useMemo(() => ({ activeDomain }), [activeDomain]);
   const statusStyle = {
-    "--active-domain-color": activeDefinition.color,
+    "--active-domain-color-dark": activeDefinition.color,
+    "--active-domain-color-light": activeDefinition.lightColor,
   } as CSSProperties;
 
   return (
@@ -89,7 +99,12 @@ export function NeuralIdentityField({ className }: NeuralIdentityFieldProps) {
               key={domain.id}
               onClick={() => setActiveDomain(domain.id)}
               onFocus={() => setActiveDomain(domain.id)}
-              style={{ "--domain-color": domain.color } as CSSProperties}
+              style={
+                {
+                  "--domain-color-dark": domain.color,
+                  "--domain-color-light": domain.lightColor,
+                } as CSSProperties
+              }
               type="button"
             >
               {domain.label}

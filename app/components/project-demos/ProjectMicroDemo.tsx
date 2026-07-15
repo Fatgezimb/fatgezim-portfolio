@@ -12,6 +12,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import { PointerTilt } from "../motion";
+import { SafeLink } from "../SafeLink";
 import { ArchitectureLens } from "./ArchitectureLens";
 import { MiniProductSurface } from "./MiniProductSurface";
 import styles from "./ProjectMicroDemo.module.css";
@@ -615,9 +616,9 @@ function ProjectMicroDemoPlayer({
         <div className={styles.evidenceLinks} aria-label="Project evidence">
           {storyboard.evidenceLinks.length > 0 ? (
             storyboard.evidenceLinks.map((link) => (
-              <a href={link.href} key={link.href} rel="noreferrer" target="_blank">
+              <SafeLink href={link.href} key={link.href} newTab>
                 {link.label} <span aria-hidden="true">↗</span>
-              </a>
+              </SafeLink>
             ))
           ) : (
             <span>Private/local evidence · no public project link</span>

@@ -1,43 +1,41 @@
 "use client";
 
 import { navigationItems } from "@/app/content/site";
+import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { SafeLink } from "../SafeLink";
 import styles from "./CommandCenterNavigation.module.css";
+import { ThemeToggle } from "./ThemeToggle";
 
 type CommandAction = {
   href: string;
   label: string;
   hint: string;
+  newTab?: boolean;
 };
 
-const commandActions: readonly CommandAction[] = [
-  ...navigationItems.map((item) => ({
-    href: item.href,
-    label: item.label,
-    hint: "Section",
-  })),
-  { href: "/resume", label: "Print résumé", hint: "Document" },
-];
-
 function NavigationLinks({
-  activeHref,
+  activeId,
+  newTab,
   onNavigate,
 }: {
-  activeHref: string;
+  activeId: string;
+  newTab: boolean;
   onNavigate?: () => void;
 }) {
   return (
     <ul className={styles.navList}>
       {navigationItems.map((item) => (
         <li key={item.href}>
-          <a
-            aria-current={activeHref === item.href ? "location" : undefined}
+          <SafeLink
+            aria-current={!newTab && activeId === item.id ? "location" : undefined}
             className={styles.navLink}
             href={item.href}
+            newTab={newTab}
             onClick={onNavigate}
           >
             {item.label}
-          </a>
+          </SafeLink>
         </li>
       ))}
     </ul>
@@ -45,7 +43,9 @@ function NavigationLinks({
 }
 
 export function CommandCenterNavigation() {
-  const [activeHref, setActiveHref] = useState("#top");
+  const pathname = usePathname();
+  const navigationLeavesPage = pathname !== "/";
+  const [activeId, setActiveId] = useState("top");
   const [dialogOpen, setDialogOpen] = useState(false);
   const [query, setQuery] = useState("");
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -64,14 +64,14 @@ export function CommandCenterNavigation() {
       progressRef.current?.style.setProperty("--page-progress", `${progress * 100}%`);
 
       const activationLine = window.innerHeight * 0.38;
-      let current = "#top";
+      let current = "top";
       for (const item of navigationItems) {
-        const section = document.querySelector<HTMLElement>(item.href);
+        const section = document.getElementById(item.id);
         if (section && section.getBoundingClientRect().top <= activationLine) {
-          current = item.href;
+          current = item.id;
         }
       }
-      setActiveHref(current);
+      setActiveId(current);
     };
 
     const scheduleUpdate = () => {
@@ -125,12 +125,31 @@ export function CommandCenterNavigation() {
   }, []);
 
   const filteredActions = useMemo(() => {
+    const commandActions: readonly CommandAction[] = [
+      ...navigationItems.map((item) => ({
+        href: item.href,
+        label: item.label,
+        hint: "Section",
+        newTab: navigationLeavesPage,
+      })),
+      ...(pathname === "/research"
+        ? []
+        : [
+            {
+              href: "/research",
+              label: "Research archive",
+              hint: "Page",
+              newTab: true,
+            },
+          ]),
+      { href: "/resume", label: "Print résumé", hint: "Document", newTab: true },
+    ];
     const normalizedQuery = query.trim().toLowerCase();
     if (!normalizedQuery) return commandActions;
     return commandActions.filter((action) =>
       `${action.label} ${action.hint}`.toLowerCase().includes(normalizedQuery),
     );
-  }, [query]);
+  }, [navigationLeavesPage, pathname, query]);
 
   const closeDialog = () => {
     setDialogOpen(false);
@@ -142,11 +161,13 @@ export function CommandCenterNavigation() {
     <>
       <div className={styles.controls}>
         <nav className={styles.desktopNav} aria-label="Primary navigation">
-          <NavigationLinks activeHref={activeHref} />
+          <NavigationLinks activeId={activeId} newTab={navigationLeavesPage} />
         </nav>
 
+        <ThemeToggle />
+
         <button
-          aria-label="Open command center"
+          aria-label="Open navigation search"
           aria-expanded={dialogOpen}
           aria-haspopup="dialog"
           className={styles.commandButton}
@@ -154,7 +175,7 @@ export function CommandCenterNavigation() {
           ref={commandButtonRef}
           type="button"
         >
-          <span>Command</span>
+          <span>Navigate</span>
           <kbd>⌘ K</kbd>
         </button>
 
@@ -162,7 +183,8 @@ export function CommandCenterNavigation() {
           <summary className={styles.mobileSummary}>Menu</summary>
           <nav className={styles.mobilePanel} aria-label="Mobile navigation">
             <NavigationLinks
-              activeHref={activeHref}
+              activeId={activeId}
+              newTab={navigationLeavesPage}
               onNavigate={() => {
                 if (mobileMenuRef.current) mobileMenuRef.current.open = false;
               }}
@@ -191,10 +213,10 @@ export function CommandCenterNavigation() {
         <header className={styles.dialogHeader}>
           <div>
             <p>Navigation system</p>
-            <strong id="command-center-title">Command center</strong>
+            <strong id="command-center-title">Navigate portfolio</strong>
           </div>
           <button
-            aria-label="Close command center"
+            aria-label="Close navigation search"
             className={styles.closeButton}
             onClick={closeDialog}
             type="button"
@@ -203,10 +225,10 @@ export function CommandCenterNavigation() {
           </button>
         </header>
         <input
-          aria-label="Filter destinations"
+          aria-label="Search destinations"
           className={styles.search}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Jump to a section or document…"
+          placeholder="Search sections or pages…"
           type="search"
           value={query}
         />
@@ -214,13 +236,18 @@ export function CommandCenterNavigation() {
           <ol className={styles.commandList}>
             {filteredActions.map((action, index) => (
               <li key={action.href}>
-                <a className={styles.commandLink} href={action.href} onClick={closeDialog}>
+                <SafeLink
+                  className={styles.commandLink}
+                  href={action.href}
+                  newTab={action.newTab}
+                  onClick={closeDialog}
+                >
                   <span className={styles.commandIndex} aria-hidden="true">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span>{action.label}</span>
                   <span className={styles.commandHint}>{action.hint}</span>
-                </a>
+                </SafeLink>
               </li>
             ))}
           </ol>

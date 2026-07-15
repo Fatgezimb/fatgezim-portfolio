@@ -1,5 +1,6 @@
 import { currentFocus, publicationPolicy } from "@/app/content/resume";
 import { siteContent } from "@/app/content/site";
+import { SafeLink } from "./SafeLink";
 import { NeuralIdentityField } from "./spatial";
 
 export function Hero() {
@@ -27,10 +28,9 @@ export function Hero() {
             <a className="button button--primary" href={hero.primaryAction.href}>
               {hero.primaryAction.label}
             </a>
-            {/* Vinext currently hydrates next/link with a duplicate React instance in dev. */}
-            <a className="button button--secondary" href="/resume">
+            <SafeLink className="button button--secondary" href="/resume" newTab>
               View print résumé
-            </a>
+            </SafeLink>
             <a className="text-link" href={hero.contactAction.href}>
               {hero.contactAction.label}
             </a>
@@ -46,6 +46,21 @@ export function Hero() {
             <span>Identity telemetry</span>
             <span>Verified focus</span>
           </div>
+          <figure className="hero__portrait">
+            <div className="hero__portrait-frame">
+              {/* The optimized static derivative is intentionally served directly by Vinext. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                alt="Fatgezim “Zim” Bela wearing a white coat"
+                decoding="async"
+                fetchPriority="high"
+                height="720"
+                src="/media/fatgezim-bela-headshot.jpg"
+                width="720"
+              />
+            </div>
+            <figcaption>BCBA · medical student · product builder</figcaption>
+          </figure>
           <ul className="profile-facts">
             {currentFocus.map((item, index) => (
               <li key={item}>

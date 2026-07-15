@@ -265,7 +265,18 @@ export function SceneCanvas<TConfig>({
       } catch {
         if (alive) setFallback("initialization-error");
       } finally {
+        const requestWasSuperseded = requestGeneration !== generation;
         initializing = false;
+        if (
+          requestWasSuperseded &&
+          alive &&
+          nearViewport &&
+          !controllerRef.current &&
+          !contextLost &&
+          !policyBlock()
+        ) {
+          void initialize();
+        }
       }
     };
 
@@ -329,6 +340,7 @@ export function SceneCanvas<TConfig>({
       contextLost = false;
       if (controllerRef.current) {
         resizeScene();
+        delete frame.dataset.fallbackReason;
         setState("active");
         syncActivity();
       } else {

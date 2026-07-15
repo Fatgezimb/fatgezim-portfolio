@@ -1,5 +1,6 @@
 export type NavigationItem = {
-  href: `#${string}`;
+  href: `/#${string}`;
+  id: string;
   label: string;
 };
 
@@ -22,12 +23,6 @@ export type SiteContent = {
     roles: readonly string[];
     primaryAction: NavigationItem;
     contactAction: NavigationItem;
-    resume: {
-      status: "pending-review";
-      label: string;
-      href: null;
-      note: string;
-    };
   };
   about: {
     heading: string;
@@ -37,8 +32,6 @@ export type SiteContent = {
   featuredWork: {
     heading: string;
     introduction: string;
-    demoPlaceholderLabel: string;
-    demoPlaceholderNote: string;
   };
   founderContext: {
     heading: string;
@@ -62,14 +55,14 @@ export type SiteContent = {
 };
 
 export const navigationItems = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Featured work" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#research", label: "Research" },
-  { href: "#founder", label: "Founder" },
-  { href: "#education", label: "Education" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", id: "about", label: "About" },
+  { href: "/#projects", id: "projects", label: "Featured work" },
+  { href: "/#experience", id: "experience", label: "Experience" },
+  { href: "/#skills", id: "skills", label: "Skills" },
+  { href: "/#research", id: "research", label: "Research" },
+  { href: "/#founder", id: "founder", label: "Founder" },
+  { href: "/#education", id: "education", label: "Education" },
+  { href: "/#contact", id: "contact", label: "Contact" },
 ] as const satisfies readonly NavigationItem[];
 
 export const siteMeta = {
@@ -106,15 +99,8 @@ export const siteContent = {
       "Founder, NeuroPath LLC",
       "Co-founder and Co-builder, Bela Data Lab products",
     ],
-    primaryAction: { href: "#projects", label: "View featured work" },
-    contactAction: { href: "#contact", label: "Contact" },
-    resume: {
-      status: "pending-review",
-      label: "Verified résumé download coming soon",
-      href: null,
-      note:
-        "The downloadable résumé will be enabled only after the confirmed content is rendered without an address or phone number and manually reviewed.",
-    },
+    primaryAction: { href: "/#projects", id: "projects", label: "View featured work" },
+    contactAction: { href: "/#contact", id: "contact", label: "Contact" },
   },
   about: {
     heading: "About",
@@ -134,9 +120,6 @@ export const siteContent = {
     heading: "Featured work",
     introduction:
       "Selected products and prototypes show how behavioral-health knowledge can become learning systems, operational tools, local-first analytics, and carefully bounded automation.",
-    demoPlaceholderLabel: "Future interactive preview",
-    demoPlaceholderNote:
-      "Phase 1 shows a static, sanitized workflow outline. Interactive project previews are deferred until the owner approves the content and layout.",
   },
   founderContext: {
     heading: "Founder and company context",
@@ -163,7 +146,7 @@ export const siteContent = {
   contact: {
     heading: "Contact",
     introduction:
-      "Connect about behavioral-health technology, clinical-product collaboration, medical learning, data systems, or software work.",
+      "I’m open to conversations about behavioral-health technology, clinical-product collaboration, medical learning, data systems, and software work.",
     links: [
       {
         href: "mailto:fatgezimbela1@gmail.com",
