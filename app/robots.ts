@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const origin = "https://fatgezim-portfolio.fmbela2018.chatgpt.site";
+const origin = "https://fatgezimb.github.io/fatgezim-portfolio";
 
 export default function robots(): MetadataRoute.Robots {
   return {

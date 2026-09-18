@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { stat } from "node:fs/promises";
 import test from "node:test";
 
+const basePath = (process.env.PAGES_BASE_PATH ?? "").replace(/\/$/, "");
+
 const posterPdfPath =
   "/media/fatgezim-bela-computational-neuroscience-poster.pdf";
 const posterPreviewPath =
@@ -25,8 +27,8 @@ async function render(pathname = "/") {
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
-  return worker.fetch(
-    new Request(new URL(pathname, "http://localhost"), {
+  const response = await worker.fetch(
+    new Request(new URL(`${basePath}${pathname}`, "http://localhost"), {
       headers: { accept: "text/html" },
     }),
     {
@@ -39,6 +41,10 @@ async function render(pathname = "/") {
       passThroughOnException() {},
     },
   );
+  const body = await response.text();
+  return new Response(basePath ? body.replaceAll('="' + basePath + "/", '="/') : body, {
+    status: response.status, headers: response.headers,
+  });
 }
 
 function sectionPattern(id) {
@@ -161,13 +167,13 @@ test("server-renders a sanitized print resume", async () => {
   const html = await response.text();
   assert.match(html, /<title>Print Résumé \| Fatgezim “Zim” Bela<\/title>/i);
   assert.match(html, /Doctor of Medicine Candidate/i);
-  assert.match(html, /Expected 2028/i);
+  assert.match(html, /Expected May 2028/i);
   assert.match(html, /M\.Ed\. in Special Education/i);
   assert.match(html, /B\.S\. in Neuroscience/i);
   assert.match(html, /Print-ready résumé available/i);
   assert.match(html, /fatgezimbela1@gmail\.com/i);
 
-  assert.doesNotMatch(html, /1331 Recordz|IronGlassByte|Boston University/i);
+  assert.doesNotMatch(html, /IronGlassByte|Boston University/i);
   assert.doesNotMatch(html, /Project Cleo|Spinal Fracture/i);
   assert.doesNotMatch(
     html,
@@ -182,11 +188,13 @@ test("renders canonical sharing and crawler metadata", async () => {
 
   assert.match(
     html,
-    /<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*fatgezim-portfolio\.fmbela2018\.chatgpt\.site)[^>]*>/i,
+    /<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*fatgezimb\.github\.io\/fatgezim-portfolio\/)[^>]*>/i,
   );
   assert.match(html, /property=["']og:image["'][^>]*\/og\.png/i);
   assert.match(html, /name=["']twitter:card["'][^>]*summary_large_image/i);
   assert.match(html, /application\/ld\+json/i);
+  assert.match(html, /https:\/\/fatgezimb\.github\.io\/fatgezim-portfolio\/og\.png/);
+  assert.match(html, /https:\/\/fatgezimb\.github\.io\/fatgezim-portfolio\/favicon\.svg/);
 
   const robotsResponse = await render("/robots.txt");
   assert.equal(robotsResponse.status, 200);
@@ -197,7 +205,7 @@ test("renders canonical sharing and crawler metadata", async () => {
   const sitemapResponse = await render("/sitemap.xml");
   assert.equal(sitemapResponse.status, 200);
   const sitemap = await sitemapResponse.text();
-  assert.match(sitemap, /<loc>.*fatgezim-portfolio\.fmbela2018\.chatgpt\.site<\/loc>/i);
+  assert.match(sitemap, /<loc>.*fatgezimb\.github\.io(?:\/fatgezim-portfolio)?<\/loc>/i);
   assert.match(sitemap, /<loc>.*\/resume<\/loc>/i);
   assert.match(sitemap, /<loc>.*\/research<\/loc>/i);
   assert.match(
@@ -389,4 +397,20 @@ test("marks every new-tab link as safe and discloses its behavior", async () => 
       );
     }
   }
+});
+
+
+test("recruiters can find current clinical and leadership experience in both resume views", async () => {
+  for (const route of ["/", "/resume"]) {
+    const html = await (await render(route)).text();
+    for (const content of ["Achievements", "Create 13 Group", "1331 Recordz", "Connex Family Services", "Hi-Five ABA", "May 2017", "NeuroPath", "Bela Data Lab"]) {
+      assert.ok(html.includes(content), `${route} missing ${content}`);
+    }
+    assert.match(html, /Chief Technology Officer/);
+    assert.match(html, /functional communication training/i);
+    for (const state of ["North Carolina", "Virginia", "New York"]) assert.ok(html.includes(state));
+  }
+  const homepage = await (await render()).text();
+  assert.ok(homepage.indexOf('id="experience"') < homepage.indexOf('id="projects"'));
+  assert.ok(homepage.indexOf('id="education"') < homepage.indexOf('id="projects"'));
 });

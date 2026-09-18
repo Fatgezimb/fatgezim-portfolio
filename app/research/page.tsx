@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-html-link-for-pages -- This Vinext app uses ordinary anchors to avoid its current next/link hydration conflict. */
+import { publicPath } from "@/app/lib/public-path";
 import type { Metadata } from "next";
 import { researchEvidence } from "@/app/content/evidence";
 import {
@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   title: "Research & Scientific Work",
   description:
     "Evidence-backed research by Fatgezim Zim Bela spanning computational neuroscience and owner-confirmed medical-education research proposals.",
-  alternates: { canonical: "/research" },
+  alternates: { canonical: "https://fatgezimb.github.io/fatgezim-portfolio/research" },
   openGraph: {
     title: "Research & Scientific Work | Fatgezim “Zim” Bela",
     description:
       "Computational-neuroscience research artifacts, documented methods, and carefully labeled medical-education research experience.",
-    url: "/research",
-    images: ["/og.png"],
+    url: "https://fatgezimb.github.io/fatgezim-portfolio/research",
+    images: ["https://fatgezimb.github.io/fatgezim-portfolio/og.png"],
   },
 };
 
@@ -30,7 +30,7 @@ export default function ResearchPage() {
     <ResearchPageShell className={styles.page}>
       <section className={`section-shell ${styles.hero}`}>
         <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
-          <a href="/">Portfolio</a>
+          <a href={publicPath("/")}>Portfolio</a>
           <span aria-hidden="true">/</span>
           <span aria-current="page">Research</span>
         </nav>

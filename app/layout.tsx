@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const siteUrl = new URL("https://fatgezim-portfolio.fmbela2018.chatgpt.site");
-const siteTitle = "Fatgezim “Zim” Bela | Behavioral Health, Medicine, Data, and Product";
+const siteUrl = new URL("https://fatgezimb.github.io/fatgezim-portfolio");
+const siteTitle = "Fatgezim “Zim” Bela | BCBA & Technology Leader";
 const siteDescription =
-  "The verified portfolio of Fatgezim “Zim” Bela, connecting behavioral health, medical education, data science, software, and founder-built technology.";
+  "Board Certified Behavior Analyst licensed in NC, VA, and NY. Hybrid clinical care, FCT, RBT supervision, and technology leadership at Create 13 Group, NeuroPath, and Bela Data Lab.";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,21 +45,21 @@ export const metadata: Metadata = {
   creator: "Fatgezim “Zim” Bela",
   publisher: "Fatgezim “Zim” Bela",
   category: "Portfolio",
-  alternates: { canonical: "/" },
+  alternates: { canonical: "https://fatgezimb.github.io/fatgezim-portfolio/" },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "https://fatgezimb.github.io/fatgezim-portfolio/favicon.svg",
+    shortcut: "https://fatgezimb.github.io/fatgezim-portfolio/favicon.svg",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "/",
+    url: "https://fatgezimb.github.io/fatgezim-portfolio/",
     siteName: "Fatgezim “Zim” Bela — Portfolio",
     title: siteTitle,
     description: siteDescription,
     images: [
       {
-        url: "/og.png",
+        url: "https://fatgezimb.github.io/fatgezim-portfolio/og.png",
         width: 1200,
         height: 630,
         alt: "Fatgezim Zim Bela portfolio — behavioral health, medicine, data, and product",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/og.png"],
+    images: ["https://fatgezimb.github.io/fatgezim-portfolio/og.png"],
   },
   robots: {
     index: true,

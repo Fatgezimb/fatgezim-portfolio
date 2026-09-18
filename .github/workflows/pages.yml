@@ -2,7 +2,7 @@ name: Deploy Fatgezim Portfolio to GitHub Pages
 
 on:
   push:
-    branches: [codex/neural-command-center-redesign]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -16,6 +16,8 @@ concurrency:
 
 jobs:
   deploy:
+    env:
+      PAGES_BASE_PATH: /fatgezim-portfolio
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -26,14 +28,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm install --no-audit --fund=false
+      - run: npm ci --no-audit --fund=false
       - run: npm run lint && npm run typecheck && npm test
-      - run: npm run build
-      - run: npm run start -- --port 4173 > /tmp/portfolio-server.log 2>&1 &
-      - run: npx --yes wait-on http://127.0.0.1:4173
       - run: node scripts/export-pages.mjs
         env:
-          PAGES_BASE_PATH: /fatgezim-portfolio
           PAGES_OUTPUT: pages-dist
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

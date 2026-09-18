@@ -475,6 +475,25 @@ ol {
   text-wrap: balance;
 }
 
+.hero__licenses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  list-style: none;
+}
+
+.hero__licenses li {
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0.28rem 0.75rem;
+  background: var(--panel-soft);
+  color: var(--text-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
 .hero__summary {
   max-width: 42rem;
   margin-bottom: 2rem;

@@ -76,6 +76,7 @@ export function PortfolioContactForm() {
             <option disabled value="">
               Select a topic
             </option>
+            <option>BCBA role or clinical opportunity</option>
             <option>Product or software work</option>
             <option>Behavioral-health technology</option>
             <option>Data or research collaboration</option>

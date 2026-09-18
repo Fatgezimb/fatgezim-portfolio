@@ -176,7 +176,7 @@ export function FeaturedProjects() {
       id="projects"
     >
       <SectionHeading
-        eyebrow="Project lab / 02"
+        eyebrow="Selected ventures"
         title={siteContent.featuredWork.heading}
         description={siteContent.featuredWork.introduction}
       />

@@ -7,12 +7,13 @@ const personSchema = {
   "@type": "Person",
   name: "Fatgezim Bela",
   alternateName: "Zim Bela",
-  url: "https://fatgezim-portfolio.fmbela2018.chatgpt.site",
+  url: "https://fatgezimb.github.io/fatgezim-portfolio",
   jobTitle: [
     "Board Certified Behavior Analyst",
     "Medical Student",
     "Data Scientist",
-    "Founder",
+    "Founder, NeuroPath LLC",
+    "Chief Technology Officer, Create 13 Group",
   ],
   sameAs: [
     "https://github.com/Fatgezimb",

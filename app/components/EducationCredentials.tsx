@@ -10,9 +10,9 @@ export function EducationCredentials() {
       id="education"
     >
       <SectionHeading
-        eyebrow="Education / 07"
+        eyebrow="Education & licensure"
         title="Education & credentials"
-        description="Confirmed degree, candidate-status, certificate, and professional credential wording. Private identifiers and expiration details are intentionally excluded."
+        description="A foundation in neuroscience and special education, strengthened by ongoing medical training."
       />
       <div className={styles.educationLayout}>
         <ol className={styles.educationList}>
@@ -38,7 +38,7 @@ export function EducationCredentials() {
             <span>Credential index</span>
             <span>{String(credentials.length).padStart(2, "0")}</span>
           </div>
-          <p className={styles.statusLabel}>Published without identifiers</p>
+          <p className={styles.statusLabel}>Professional qualifications</p>
           <h3 id="credential-heading">Credentials</h3>
           <ul className={styles.credentialList}>
             {credentials.map((credential, index) => (

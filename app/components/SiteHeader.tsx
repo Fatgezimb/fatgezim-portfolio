@@ -11,7 +11,7 @@ export function SiteHeader() {
           </span>
           <span>
             <strong>{siteContent.hero.shortName}</strong>
-            <small>Verified portfolio</small>
+            <small>M.Ed. · BCBA</small>
           </span>
         </a>
 

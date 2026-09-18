@@ -4,7 +4,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer section-shell">
       <div>
-        <p className="site-footer__signal">System / End of transmission</p>
+        <p className="site-footer__signal">Behavioral science. Meaningful change.</p>
         <p>{siteContent.footer.copyright}</p>
       </div>
       <p>{siteContent.footer.privacyNote}</p>

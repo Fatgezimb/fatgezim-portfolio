@@ -92,17 +92,21 @@ The site includes a focusable skip link, semantic landmarks and headings, visibl
 
 ## Deployment
 
-This repository is deployed with OpenAI Sites, not GitHub Pages. The Vinext build produces a worker entry point at `dist/server/index.js` and browser assets under `dist/client/`.
+The public resume is hosted on GitHub Pages at https://fatgezimb.github.io/fatgezim-portfolio/.
+Pushes to `main` run `.github/workflows/pages.yml`: locked dependency installation, lint, type checking, production build and rendered-HTML tests, validated static export, then Pages deployment.
 
-Release flow:
+For the same local build:
 
-1. Run the complete verification suite and browser QA.
-2. Commit and push the exact validated source state.
-3. Build and package that same commit for Sites.
-4. Save a Sites version with the matching commit SHA.
-5. Deploy the saved version and smoke-test the production URL.
+```bash
+PAGES_BASE_PATH=/fatgezim-portfolio npm test
+PAGES_BASE_PATH=/fatgezim-portfolio node scripts/export-pages.mjs
+```
 
-Do not commit hosting credentials or change the site access policy as part of a routine release.
+The generated `pages-dist/` directory contains four HTML routes, browser assets, fonts, public media, crawler files, and a 404 page. Serve it at `/fatgezim-portfolio/` when previewing. The base path is part of the build and client hydration data; native links and media paths use `publicPath()`.
+
+## September 2026 resume update
+
+The homepage leads with BCBA practice and licensure in North Carolina, Virginia, and New York. Experience and education appear before project demos. Current clinical roles, dates, and education follow the supplied 2026 resume; Create 13 Group CTO follows the owner's direct confirmation. NeuroPath and the jointly built Bela Data Lab work remain featured. The `/resume/` page includes the same current information and supports printing or saving as PDF.
 
 ## Project structure
 

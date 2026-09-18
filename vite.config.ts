@@ -10,6 +10,7 @@ const { d1, r2 } = hostingConfig;
 
 // macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
+const pagesBasePath = (process.env.PAGES_BASE_PATH ?? "").replace(/\/+$/, "");
 
 const localBindingConfig = {
   main: "./worker/index.ts",
@@ -49,6 +50,47 @@ export default defineConfig(async () => {
       : undefined,
     plugins: [
       vinext(),
+      {
+        name: "pages-font-base-path",
+        enforce: "post",
+        // Vinext 0.0.50's Google font transform embeds root-relative font URLs
+        // in JavaScript strings. Apply the base before SSR/hydration so font
+        // preloads and generated @font-face rules agree in every environment.
+        transform(code: string) {
+          if (!pagesBasePath || !code.includes("_selfHostedCSS")) return;
+          return {
+            code: code.replaceAll("url(/assets/_vinext_fonts/", `url(${pagesBasePath}/assets/_vinext_fonts/`),
+            map: null,
+          };
+        },
+      },
+      {
+        name: "pages-static-history",
+        enforce: "pre",
+        // Native anchor changes emit popstate too. A static Pages deployment
+        // has no RSC endpoint: preserve browser history/scroll behavior and
+        // load another document only when its path or query actually changes.
+        transform(code: string, id: string) {
+          if (!pagesBasePath || !id.endsWith("/vinext/dist/server/app-browser-entry.js")) return;
+          const original = /\tif \("scrollRestoration" in history\) history\.scrollRestoration = "manual";\n\twindow\.addEventListener\("popstate", \(event\) => \{[\s\S]*?\n\t\}\);/;
+          if (!original.test(code)) {
+            throw new Error("Review the Pages history adapter for this Vinext version.");
+          }
+          return {
+            code: code.replace(original, `
+  const pagesDocumentPath = window.location.pathname + window.location.search;
+  if ("scrollRestoration" in history) history.scrollRestoration = "auto";
+  window.addEventListener("popstate", () => {
+    if (window.location.pathname + window.location.search !== pagesDocumentPath) {
+      window.location.reload();
+      return;
+    }
+    commitClientNavigationState();
+  });`),
+            map: null,
+          };
+        },
+      },
       sites(),
       cloudflare({
         viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },

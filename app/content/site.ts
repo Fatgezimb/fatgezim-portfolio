@@ -56,97 +56,102 @@ export type SiteContent = {
 
 export const navigationItems = [
   { href: "/#about", id: "about", label: "About" },
-  { href: "/#projects", id: "projects", label: "Featured work" },
   { href: "/#experience", id: "experience", label: "Experience" },
+  { href: "/#education", id: "education", label: "Education" },
+  { href: "/#projects", id: "projects", label: "Featured work" },
   { href: "/#skills", id: "skills", label: "Skills" },
   { href: "/#research", id: "research", label: "Research" },
-  { href: "/#founder", id: "founder", label: "Founder" },
-  { href: "/#education", id: "education", label: "Education" },
+  { href: "/#founder", id: "founder", label: "Leadership" },
   { href: "/#contact", id: "contact", label: "Contact" },
 ] as const satisfies readonly NavigationItem[];
 
 export const siteMeta = {
-  title: "Fatgezim “Zim” Bela | BCBA, Medical Student, Data Scientist, and Founder",
+  title: "Fatgezim “Zim” Bela | BCBA · Licensed in NC, VA & NY",
   description:
-    "The verified portfolio of Fatgezim “Zim” Bela, connecting behavioral health, medical education, data science, software, and founder-built technology.",
+    "Meet Fatgezim “Zim” Bela, a BCBA licensed in North Carolina, Virginia, and New York. Clinical experience in language acquisition, FCT, RBT supervision, and hybrid care. CTO of Create 13 Group and founder of NeuroPath.",
   sectionOrder: [
     "about",
-    "projects",
     "experience",
+    "education",
+    "projects",
     "skills",
     "research",
     "founder",
-    "education",
     "contact",
   ],
 } as const;
 
 export const siteContent = {
   hero: {
-    eyebrow: "Behavioral health · medicine · data · product",
+    eyebrow: "Board Certified Behavior Analyst · NC / VA / NY",
     displayName: "Fatgezim “Zim” Bela",
     shortName: "Zim Bela",
     headline:
-      "BCBA, Medical Student, Data Scientist, and Founder Building Technology for Behavioral Health",
-    shortHeadline: "Behavioral Health Clinician, Medical Student, and Technology Founder",
-    roleLine: "BCBA · Medical Student · Data Scientist · Founder",
+      "I help people build skills for everyday life.",
+    shortHeadline: "BCBA, Medical Student & Technology Founder",
+    roleLine: "BCBA · Medical Student · CTO · Founder",
     summary:
-      "I connect behavioral-health practice, medical education, data science, and software development to build practical, privacy-aware tools for professionals, learners, and families.",
+      "I’m Zim, a BCBA focused on language acquisition, functional communication, and care across home, school, and telehealth. I also build technology that supports clinicians, caregivers, and learners.",
     roles: [
       "Board Certified Behavior Analyst",
       "Medical Student",
-      "Data Scientist",
+      "CTO, Create 13 Group",
       "Founder, NeuroPath LLC",
-      "Co-founder and Co-builder, Bela Data Lab products",
+      "Co-founder and Co-builder, Bela Data Lab",
     ],
-    primaryAction: { href: "/#projects", id: "projects", label: "View featured work" },
-    contactAction: { href: "/#contact", id: "contact", label: "Contact" },
+    primaryAction: { href: "/#experience", id: "experience", label: "Explore my experience" },
+    contactAction: { href: "/#contact", id: "contact", label: "Let’s connect" },
   },
   about: {
-    heading: "About",
+    heading: "Clinical care, informed by a broader perspective.",
     paragraphs: [
-      "My work sits at the intersection of applied behavior analysis, medical education, data, and software. I approach products as both a clinician and a builder: define the real workflow, make its limits visible, and keep the result understandable to the people who use it.",
-      "I founded NeuroPath LLC and co-build Bela Data Lab products with Meili Bela. Across public learning tools, browser-local analytics, and internal automation prototypes, the common focus is practical behavioral-health technology with clear educational and privacy boundaries.",
+      "I’m a Board Certified Behavior Analyst licensed in North Carolina, Virginia, and New York. At Achievements, I develop individualized programs, supervise RBTs, and partner with caregivers and interdisciplinary teams. My clinical focus is helping communication and play skills carry into everyday routines through culturally responsive, data-driven care.",
+      "My background in neuroscience, data science, and medical education shapes how I understand clinical problems. I’m also CTO of Create 13 Group, founder of NeuroPath LLC, and co-founder and co-builder of Bela Data Lab with Meili Bela. Together, these roles let me connect hands-on clinical experience with useful learning tools and technology.",
     ],
     domains: [
       "Behavioral science and ABA",
       "Medical education",
       "Data science and engineering",
       "Software and workflow automation",
-      "Founder and product leadership",
+      "Technology and founder leadership",
     ],
   },
   featuredWork: {
     heading: "Featured work",
     introduction:
-      "Selected products and prototypes show how behavioral-health knowledge can become learning systems, operational tools, local-first analytics, and carefully bounded automation.",
+      "Learning tools, analytics, and workflow projects shaped by experience in behavioral health, data science, and medical education.",
   },
   founderContext: {
-    heading: "Founder and company context",
+    heading: "Building beyond the clinic.",
     introduction:
-      "NeuroPath is the public-facing label for NeuroPath LLC. The company and its products bring behavioral science, healthcare, data, education, and human-centered software into one product ecosystem.",
+      "My technology and founder work extends the same interest in practical problem-solving: making information, learning, and everyday workflows easier to use.",
     relationships: [
       {
+        name: "Create 13 Group",
+        relationship: "Technology leadership",
+        role: "Chief Technology Officer",
+      },
+      {
         name: "NeuroPath",
-        relationship: "Public-facing company label for NeuroPath LLC",
+        relationship: "Behavioral-health technology and learning tools",
         role: "Founder, NeuroPath LLC",
       },
       {
         name: "Bela Data Lab",
-        relationship: "Product brand operated within the NeuroPath ecosystem",
+        relationship: "Learning and data products within NeuroPath",
         role: "Co-founder and Co-builder with Meili Bela",
       },
       {
         name: "Bela Data Lab Caregiver Academy",
-        relationship: "Current public caregiver-learning product",
+        relationship: "Caregiver learning and education",
         role: "Co-founder, Product Builder, and BCBA Contributor",
       },
     ],
   },
   contact: {
-    heading: "Contact",
+    heading: "Let’s talk about your clinical team.",
     introduction:
-      "I’m open to conversations about behavioral-health technology, clinical-product collaboration, medical learning, data systems, and software work.",
+      "I’m exploring BCBA roles where individualized care, thoughtful supervision, and caregiver collaboration matter. Connect with me about opportunities in North Carolina, Virginia, and New York, including hybrid and remote care.",
     links: [
       {
         href: "mailto:fatgezimbela1@gmail.com",
@@ -171,7 +176,7 @@ export const siteContent = {
   footer: {
     copyright: "© 2026 Fatgezim “Zim” Bela",
     privacyNote:
-      "Portfolio examples use public, synthetic, or sanitized material and do not contain client information or PHI.",
+      "Behavioral science. Thoughtful care. Practical technology.",
   },
   contentBoundaries: [
     "Do not publish a phone number, street address, license number, provider identifier, or certificate identifier.",

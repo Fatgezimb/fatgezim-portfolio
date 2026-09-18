@@ -23,12 +23,12 @@ export function PortfolioPage() {
       <main id="main-content" tabIndex={-1}>
         <Hero />
         <About />
-        <FeaturedProjects />
         <Experience />
+        <EducationCredentials />
+        <FeaturedProjects />
         <Skills />
         <Research />
         <FounderContext />
-        <EducationCredentials />
         <Contact />
       </main>
       <SiteFooter />

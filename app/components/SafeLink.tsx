@@ -1,3 +1,4 @@
+import { publicPath } from "@/app/lib/public-path";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 type SafeLinkProps = Omit<
@@ -12,6 +13,7 @@ export function SafeLink({ children, newTab = false, ...props }: SafeLinkProps) 
   return (
     <a
       {...props}
+      href={props.href ? publicPath(props.href) : undefined}
       rel={newTab ? "noopener noreferrer" : undefined}
       target={newTab ? "_blank" : undefined}
     >

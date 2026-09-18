@@ -16,7 +16,7 @@ export function Research() {
       id="research"
     >
       <SectionHeading
-        eyebrow="Research / 05"
+        eyebrow="Scientific foundation"
         title="Research & scientific work"
         description={researchNote}
       />

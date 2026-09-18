@@ -11,11 +11,11 @@ const demonstratedBy: Record<
     projects: ["Bela Data Lab Caregiver Academy", "RBT Practice Hub"],
   },
   "data-engineering": {
-    roles: ["Data Scientist and Software Product Builder", "Data Engineer"],
+    roles: ["Data Scientist", "Data Engineer"],
     projects: ["Bela Behavior Data Lab", "NeuroPath Insight"],
   },
   "software-product": {
-    roles: ["Founder, NeuroPath LLC", "Data Scientist and Software Product Builder"],
+    roles: ["Founder, NeuroPath LLC", "Data Scientist"],
     projects: ["StepSpark", "Rethink Automations", "Bela Behavior Data Lab"],
   },
   "research-methods": {
@@ -23,7 +23,7 @@ const demonstratedBy: Record<
     projects: ["Computational neuroscience and neuroimaging research"],
   },
   leadership: {
-    roles: ["Founder, NeuroPath LLC", "Co-founder and Co-builder, Bela Data Lab products"],
+    roles: ["CTO, Create 13 Group", "Founder, NeuroPath LLC", "Co-founder and Co-builder, Bela Data Lab"],
     projects: ["Bela Behavior Data Lab", "Bela Data Lab Caregiver Academy"],
   },
 };
@@ -36,13 +36,13 @@ export function Skills() {
       id="skills"
     >
       <SectionHeading
-        eyebrow="Capabilities / 04"
+        eyebrow="Clinical & technical capabilities"
         title="Skills"
-        description="Evidence-based domains are labeled by how they are used—not by unsupported percentages or self-scored meters."
+        description="Behavioral science, analytical thinking, and product development brought together in practice."
       />
       <figure className={styles.evidenceMap} aria-labelledby="skills-evidence-map-caption">
         <figcaption className={styles.mapCaption} id="skills-evidence-map-caption">
-          <span className={styles.mapCaptionTitle}>Evidence map</span>
+          <span className={styles.mapCaptionTitle}>Connected disciplines</span>
           <span>{String(skillGroups.length).padStart(2, "0")} capability groups</span>
         </figcaption>
 
@@ -56,8 +56,8 @@ export function Skills() {
         </svg>
 
         <div className={styles.mapHub} aria-hidden="true">
-          <span>Source</span>
-          <strong>Evidence notes</strong>
+          <span>Practice</span>
+          <strong>People & data</strong>
         </div>
 
         <div className={styles.skillsGrid}>
@@ -87,10 +87,7 @@ export function Skills() {
                   <dd>{demonstratedBy[group.id].projects.join(" · ")}</dd>
                 </div>
               </dl>
-              <footer className={styles.evidenceNote}>
-                <span aria-hidden="true">Evidence trace</span>
-                <p>{group.evidenceNote}</p>
-              </footer>
+
             </article>
           ))}
         </div>

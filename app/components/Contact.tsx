@@ -15,7 +15,7 @@ export function Contact() {
       id="contact"
     >
       <SectionHeading
-        eyebrow="Connect / 08"
+        eyebrow="Let’s connect"
         title={contact.heading}
         description={contact.introduction}
       />
@@ -55,7 +55,7 @@ export function Contact() {
           </address>
           <aside className={styles.contactBoundary}>
             <span className={styles.boundarySignal} aria-hidden="true" />
-            <p className={styles.statusLabel}>Privacy</p>
+            <p className={styles.statusLabel}>BCBA opportunities</p>
             <p>{publicationPolicy.privacyStatement}</p>
             <SafeLink className={styles.resumeLink} href="/resume" newTab>
               View print résumé

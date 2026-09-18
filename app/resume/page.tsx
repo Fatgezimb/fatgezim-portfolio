@@ -1,3 +1,4 @@
+import { publicPath } from "@/app/lib/public-path";
 import type { Metadata } from "next";
 import { PrintButton } from "@/app/components/PrintButton";
 import { SafeLink } from "@/app/components/SafeLink";
@@ -17,13 +18,13 @@ export const metadata: Metadata = {
   title: "Print Résumé",
   description:
     "Print-friendly résumé with owner-confirmed education, credentials, experience, skills, and contact information.",
-  alternates: { canonical: "/resume" },
+  alternates: { canonical: "https://fatgezimb.github.io/fatgezim-portfolio/resume" },
   openGraph: {
     title: "Print Résumé | Fatgezim “Zim” Bela",
     description:
       "Print-friendly résumé with owner-confirmed education, credentials, experience, skills, and contact information.",
-    url: "/resume",
-    images: ["/og.png"],
+    url: "https://fatgezimb.github.io/fatgezim-portfolio/resume",
+    images: ["https://fatgezimb.github.io/fatgezim-portfolio/og.png"],
   },
 };
 
@@ -31,9 +32,7 @@ export default function ResumePage() {
   return (
     <main className="resume-page">
       <div className="resume-toolbar" aria-label="Résumé actions">
-        {/* Vinext currently hydrates next/link with a duplicate React instance in dev. */}
-        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-        <a className="text-link" href="/">
+        <a className="text-link" href={publicPath("/")}>
           ← Back to portfolio
         </a>
         <PrintButton />
@@ -42,7 +41,7 @@ export default function ResumePage() {
       <article className="resume-document">
         <header className="resume-document__header">
           <div>
-            <p className="eyebrow">Verified public résumé · Print view</p>
+            <p className="eyebrow">Professional résumé · 2026</p>
             <h1>{identity.name}</h1>
             <p className="resume-headline">{identity.headline}</p>
           </div>
@@ -74,11 +73,11 @@ export default function ResumePage() {
                   {item.dates ? <p>{item.dates}</p> : null}
                 </header>
                 <p>{item.summary}</p>
-                <ul>
+                {item.highlights.length > 0 ? <ul>
                   {item.highlights.map((highlight) => (
                     <li key={highlight}>{highlight}</li>
                   ))}
-                </ul>
+                </ul> : null}
               </article>
             ))}
           </div>
@@ -158,9 +157,7 @@ export default function ResumePage() {
         <footer className="resume-document__footer">
           <strong>{publicationPolicy.resumeDownloadLabel}</strong>
           <p>
-            This print view contains no street address, phone number, private credential
-            identifier, client information, or unsupported research result. A fixed PDF
-            will be activated only after manual owner review.
+            Open to BCBA opportunities. Contact fatgezimbela1@gmail.com to connect.
           </p>
         </footer>
       </article>
