@@ -1,7 +1,7 @@
 {
   "project": "Fatgezim Zim Bela Resume Portfolio",
   "phase": 3,
-  "phaseName": "Interactive workspace released and verified",
+  "phaseName": "Connected visual chapters verified; publication in progress",
   "phase1Approved": true,
   "approvalPhraseRequired": "APPROVE PHASE 1",
   "lastUpdated": "2026-10-15",
@@ -31,9 +31,11 @@
     "October15 master rebuild: original five-object Three.js workbench, tour, domain stories, original SVG fallback, responsive narrative and professional resume overview implemented. Independent production-static checks pass direct canvas selection, keyboard/story orientation, repeatedcontext recovery, constrained-device/reduced-motion fallback and stable resource cleanup. Lint, typecheck,21tests, root/Pagesbuilds and export pass; finalapprepair, documentreview andpublicreleaseverification remain.",
     "Master rebuild final integration passes lint/typecheck, 21 tests, root/Pages builds/export, eight actual live-frame flows, 177 rendered link/anchor targets and all reviewed download hashes. NeuroStack repaired and live at69a08f4; RBT repaired and live. New PDF/DOCX candidates are visually verified, with exact-file owner review requested before replacement. Portfolio public deployment remains pending.",
     "Workspace release503c4ea passed Pages38793780004 and public verification. Owner then approved the exact refreshed PDF/DOCX candidates; approved bytes copied to both resume directories and approval hashes updated. Document publication verification is in progress.",
-    "Final release cf0a652 passed Pages38794622212. Public four-route/mobile/desktop reloads and metadata/resources pass. PDF/DOCX downloads and persistent header action at320/390/1440 exactly match the newly approved hashes and MIME types. Earlier503c4ea public checks cover all five objects, tours, keyboard/no-JS, seven samples, eight live-frame flows, six context recoveries and177 link/anchor/asset targets. No required work remains."
+    "Final release cf0a652 passed Pages38794622212. Public four-route/mobile/desktop reloads and metadata/resources pass. PDF/DOCX downloads and persistent header action at320/390/1440 exactly match the newly approved hashes and MIME types. Earlier503c4ea public checks cover all five objects, tours, keyboard/no-JS, seven samples, eight live-frame flows, six context recoveries and177 link/anchor/asset targets. No required work remains.",
+    "October 15 owner follow-up: lower-page visual quality and storytelling rejected; authorized connected visual chapters revision now active. Previous cf0a652 release remains the verified public checkpoint. Exact approved resume files stay unchanged. See docs/CHAPTERS_DESIGN.md.",
+    "Connected visual chapters: original research figures, seven-project workbench, editable data walkthrough, on-demand forty-ribbon material study and revised professional/personal chapters are complete. Final root/Pages builds, 21 tests, 55 layout samples, 28 axe scans, 18 workflows, eight live frames, five canvas hit tests, three studio recovery cycles and190 link targets pass. See docs/CHAPTERS_QA.md. Public release verification follows deployment."
   ],
-  "publicReleaseComplete": true,
+  "publicReleaseComplete": false,
   "deployedCommit": "cf0a652b6e19a98de8c75eecd8f0c68fea0be99b",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
   "resumeRefreshPublication": "published-and-verified",

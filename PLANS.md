@@ -99,3 +99,14 @@ PR 3 and Pages workflow 38782560193 published commit 6379b7cabdd3596c559a5bbf0c7
 Detailed execution and evidence: `docs/IMPLEMENTATION_STATUS.md`, `docs/WORKSPACE_QA.md`, `docs/PROJECT_INVENTORY.md` and `docs/LINK_AUDIT.md`.
 
 Workspace PR 4 / `503c4ea` / Pages `38793780004` and approved résumé PR 5 / `cf0a652` / Pages `38794622212` are released and publicly verified. All required work is complete; final evidence is in `docs/WORKSPACE_QA.md`.
+
+## October 15 owner revision — connected visual chapters
+
+- [x] Recompose the full narrative and replace generic lower sections.
+- [x] Use original research figures in an inspectable lightbox.
+- [x] Build a polished interactive form-and-light study.
+- [x] Integrate purposeful process, professional and personal storytelling.
+- [x] Critique actual desktop/mobile screenshots and refine each chapter.
+- [ ] Complete applicable accessibility, behavior, build and public-release checks.
+
+The owner explicitly requested this further redesign after the previous release. Existing Phase 1 authorization and all verified content remain in force.

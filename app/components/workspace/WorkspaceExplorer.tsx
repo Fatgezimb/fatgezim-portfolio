@@ -97,12 +97,15 @@ function WorkspacePoster() {
       </g>
       <g transform="translate(746 432)">
         <path d="M-79 0 9-36 89 7 0 43Z" fill="#f6f4ee" />
-        <path
-          d="M-45-14C-64-137 84-128 41-37S-65-102-45-14"
-          fill="none"
-          stroke="#8f7bbb"
-          strokeWidth="22"
-        />
+        {Array.from({ length: 12 }, (_, i) => (
+          <path
+            key={i}
+            d={`M${-60 + i * 3} ${-2 + i * 2} Q${-20 + i * 3} ${-120 + i * 2} ${59 + i * 3} ${-13 + i * 2}`}
+            fill="none"
+            stroke="#8f7bbb"
+            strokeWidth="3.6"
+          />
+        ))}
       </g>
     </svg>
   );

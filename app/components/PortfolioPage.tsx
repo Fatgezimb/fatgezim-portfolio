@@ -12,6 +12,7 @@ import {
   ResearchSection,
   SkillsSection,
 } from "./showcase/PortfolioSections";
+import { FormStudy } from "./chapters/FormStudy";
 import { BuildApproach } from "./workspace/BuildApproach";
 export function PortfolioPage() {
   return (
@@ -25,12 +26,13 @@ export function PortfolioPage() {
       <main id="main-content" tabIndex={-1}>
         <Hero />
         <AboutSection />
+        <ResearchSection />
         <FeaturedProjects />
         <BuildApproach />
-        <ResearchSection />
+        <FormStudy />
+        <FounderSection />
         <ExperienceSection />
         <SkillsSection />
-        <FounderSection />
         <EducationSection />
         <ContactSection />
       </main>

@@ -65,7 +65,7 @@ Preserve the evidence rules in `AGENTS.md`: do not add unsupported metrics, clie
 
 Seven previews live in `app/components/project-experiences/`. `TechnicalExperiences.tsx` implements NeuroStack, RBT and StepSpark; `OperationalExperiences.tsx` implements Data Lab, Caregiver, Rethink and Insight. Each CSS module preserves its product’s visual identity.
 
-`FeaturedProjects.tsx` owns keyboard-operable project tabs, stable project deep links, the shared window, and optional live frames. `app/content/project-showcase.ts` defines the full-site and live-preview URLs. Only offer a live frame after an ordinary browser verifies framing and navigation; always keep a new-tab escape. Source links identify themselves as source.
+`FeaturedProjects.tsx` owns keyboard-operable desktop tabs, a labeled native mobile selector, stable project deep links, the shared window, and optional live frames. `app/content/project-showcase.ts` defines the full-site and live-preview URLs. Only offer a live frame after an ordinary browser verifies framing and navigation; always keep a new-tab escape. Source links identify themselves as source.
 
 Keep the displayed scope, data provenance, co-builder attribution and meaningful controls intact. New scientific values must derive from verified artifacts. Operational sample values must remain explicitly fictional. See `docs/portfolio/redesign-project-evidence.md`.
 
@@ -85,7 +85,9 @@ The default theme is light; the header persists an optional dark theme. Shared t
 
 The renderer caps resolution at 1.5 DPR and quiet motion at 30 updates/second, batches neuron geometry, pauses offscreen/in hidden tabs, and disposes geometry, textures and the GL context. Initial reduced-motion, Save-Data, 2G and constrained-device settings use the flat explorer; visitors may explicitly try 3D. A fresh canvas supports recovery after context loss. All five stories and links are present without JavaScript. Scrolling remains native.
 
-`PortfolioPage.tsx` sequences the workspace, personal introduction, project explorer, build approach, creative study, research and professional background. Supporting sections live in `showcase/PortfolioSections.tsx`; the web résumé uses its own responsive screen design and preserves a formal print layout.
+`PortfolioPage.tsx` sequences the workspace, personal introduction, research lightbox, project explorer, editable data walkthrough, form study, professional background and contact. Supporting sections live in `showcase/PortfolioSections.tsx`; interactive chapters live in `chapters/`. The web résumé preserves its responsive screen design and formal print layout.
+
+`chapters/FormStudy.tsx` loads the separate scene near the viewport and keeps native controls, poster fallbacks and explicit activation available. `formScene.ts` renders only after a change; `ribbonGeometry.ts` is shared with the opening desk. The research lightbox uses two original embedded poster figures and a labeled lossless crop. Asset provenance and current revision checks are in `docs/CHAPTERS_ASSETS.md` and `docs/CHAPTERS_QA.md`.
 
 ## Accessibility
 
@@ -132,6 +134,7 @@ app/
     navigation/       active navigation, theme toggle, command palette
     project-experiences/ navigable technical and operational samples
     showcase/         editorial sections and product explorer
+    chapters/         research lightbox, applied skills and form/material study
     workspace/        original 3D scene, topic stories, tour, fallback and approach
     project-demos/    retained earlier preview components
     research-ui/      evidence labels, workflow, page shell, poster viewer

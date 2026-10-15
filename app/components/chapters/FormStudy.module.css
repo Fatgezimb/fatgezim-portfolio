@@ -1,0 +1,359 @@
+.section {
+  padding: 100px max(48px, calc((100% - 1360px) / 2));
+  background: #c8c9e5;
+  color: #252137;
+  position: relative;
+  overflow: clip;
+}
+.heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 48px;
+}
+.kicker {
+  font: 11px/1.5 var(--font-geist-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+  color: #51475f;
+}
+.heading h2 {
+  font: 550 clamp(50px, 6.8vw, 100px) / 0.98 var(--font-display);
+  letter-spacing: -0.065em;
+  margin: 0;
+}
+.heading em {
+  font-style: normal;
+  color: #6245a5;
+}
+.intro {
+  max-width: 340px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.intro p:last-child {
+  font-weight: 550;
+}
+.studio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 28px;
+  border-top: 1px solid #9390b5;
+  padding-top: 30px;
+}
+.scene {
+  position: relative;
+  min-width: 0;
+  height: 570px;
+  isolation: isolate;
+}
+.poster,
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.poster[hidden],
+.canvas[hidden] {
+  display: none;
+}
+.figureLabel,
+.figureNote {
+  position: absolute;
+  z-index: 1;
+  left: 8px;
+  font: 10px/1.5 var(--font-geist-mono);
+  color: #51475f;
+}
+.figureLabel {
+  top: 12px;
+}
+.figureNote {
+  bottom: 8px;
+}
+.activate {
+  position: absolute;
+  left: 50%;
+  bottom: 48px;
+  transform: translateX(-50%);
+  padding: 13px 20px;
+  width: max-content;
+  max-width: 90%;
+  border: 1px solid #696084;
+  background: #f4f1f9;
+  color: #252137;
+  border-radius: 30px;
+  font: 13px/1.4 var(--font-geist-sans);
+  cursor: pointer;
+  box-shadow: 0 12px 30px #25213720;
+}
+.controls {
+  padding: 16px 0 0 28px;
+  border-left: 1px solid #9390b5;
+  align-self: center;
+}
+.controlIntro > span {
+  font: 40px/1 var(--font-display);
+  color: #6245a5;
+}
+.controlIntro h3 {
+  font: 550 25px/1.12 var(--font-display);
+  letter-spacing: -0.035em;
+  margin: 20px 0 14px;
+}
+.controlIntro p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #51475f;
+  margin: 0 0 25px;
+}
+.controls fieldset {
+  padding: 0;
+  border: 0;
+  margin: 0 0 24px;
+}
+.controls legend {
+  font: 10px/1.5 var(--font-geist-mono);
+  margin-bottom: 11px;
+}
+.materials {
+  display: flex;
+  gap: 8px;
+}
+.materials button {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #51475f;
+  padding: 7px 5px;
+  border-radius: 5px;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  min-width: 63px;
+  min-height: 63px;
+  font: 10px/1.3 var(--font-geist-sans);
+  cursor: pointer;
+}
+.materials button[aria-pressed="true"] {
+  border-color: #625b80;
+  background: #e1e0f080;
+}
+.materials i {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 1px #25213725,
+    1px 3px 5px #25213720;
+}
+.materials i[data-material="porcelain"] {
+  background: #f5f2e9;
+}
+.materials i[data-material="aluminum"] {
+  background: linear-gradient(
+    120deg,
+    #788397,
+    #f6f8ff 40%,
+    #8593ab 65%,
+    #dce1f2
+  );
+}
+.materials i[data-material="iris"] {
+  background: #7661b1;
+}
+.materials button:disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+.slider {
+  display: block;
+  font: 11px/1.5 var(--font-geist-mono);
+  margin: 20px 0;
+}
+.slider > span {
+  display: flex;
+  justify-content: space-between;
+}
+.slider output {
+  color: #51475f;
+}
+.slider input {
+  display: block;
+  width: 100%;
+  margin: 8px 0 0;
+  accent-color: #6245a5;
+  min-height: 28px;
+  cursor: pointer;
+}
+.caption {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #51475f;
+  margin: 26px 0 15px;
+}
+.controls a {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #9390b5;
+  text-decoration: none;
+  font-size: 12px;
+}
+.section :focus-visible {
+  outline-color: #4b3188;
+}
+@media (min-width: 1600px) {
+  .scene {
+    height: 660px;
+  }
+}
+@media (max-width: 1000px) {
+  .section {
+    padding: 75px 28px;
+  }
+  .studio {
+    grid-template-columns: minmax(0, 1fr) 230px;
+    gap: 15px;
+  }
+  .controls {
+    padding-left: 20px;
+  }
+  .scene {
+    height: 510px;
+  }
+  .heading {
+    gap: 30px;
+  }
+  .heading h2 {
+    font-size: 65px;
+  }
+  .intro {
+    max-width: 300px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 700px) {
+  .section {
+    padding: 60px 18px;
+  }
+  .heading {
+    display: block;
+    margin-bottom: 26px;
+  }
+  .heading h2 {
+    font-size: 64px;
+  }
+  .intro {
+    margin: 25px 0 0;
+    max-width: 400px;
+    font-size: 14px;
+  }
+  .studio {
+    grid-template-columns: 1fr;
+    padding-top: 15px;
+    gap: 12px;
+  }
+  .scene {
+    height: 350px;
+    margin-inline: -18px;
+  }
+  .figureLabel,
+  .figureNote {
+    left: 20px;
+  }
+  .controls {
+    border: 0;
+    border-top: 1px solid #9390b5;
+    padding: 25px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+  }
+  .controlIntro {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    gap: 0 16px;
+  }
+  .controlIntro > span {
+    grid-row: 1/3;
+    font-size: 34px;
+  }
+  .controlIntro h3 {
+    margin: 0 0 8px;
+    font-size: 25px;
+  }
+  .controlIntro p {
+    grid-column: 2;
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  .controlIntro br {
+    display: none;
+  }
+  .controls fieldset {
+    grid-column: 1/-1;
+    margin: 0 0 6px;
+  }
+  .materials {
+    gap: 15px;
+  }
+  .materials button {
+    grid-auto-flow: column;
+    min-height: 44px;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+  }
+  .materials i {
+    width: 22px;
+    height: 22px;
+  }
+  .slider {
+    margin: 0;
+  }
+  .slider:last-of-type {
+    grid-column: 1/-1;
+  }
+  .caption {
+    margin: 5px 0;
+    align-self: center;
+  }
+  .controls a {
+    align-self: center;
+  }
+  .figureNote {
+    bottom: 10px;
+  }
+}
+:global(html[data-js="disabled"]) .activate,
+:global(html[data-js="disabled"]) .controls fieldset,
+:global(html[data-js="disabled"]) .slider,
+:global(html[data-js="disabled"]) .controlIntro p {
+  display: none;
+}
+
+.posterWrap {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.posterWrap[hidden] {
+  display: none;
+}
+
+@media (max-width: 380px) {
+  .scene {
+    height: 290px;
+  }
+  .controlIntro p {
+    font-size: 11px;
+  }
+  .controlIntro h3 {
+    font-size: 22px;
+  }
+}

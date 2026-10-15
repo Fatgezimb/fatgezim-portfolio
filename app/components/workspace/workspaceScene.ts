@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { createRibbonStrip } from "../chapters/ribbonGeometry";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import type { DomainId } from "@/app/content/workspace";
@@ -464,26 +465,17 @@ export function createWorkspaceScene(options: Options) {
   const plinth = box(design, [2.4, 0.24, 1.9], [0, 0.1, 0], paper, 0.09);
   plinth.rotation.y = 0.15;
   const folded = new THREE.Group();
-  folded.position.y = 0.35;
+  folded.position.y = 0.21;
   design.add(folded);
   const foldedMaterial = mat("#8c78c3", 0.34, 0.16);
-  const curve = new THREE.CatmullRomCurve3(
-    Array.from({ length: 65 }, (_, i) => {
-      const t = (i / 64) * Math.PI * 2;
-      return new THREE.Vector3(
-        Math.sin(t) * 0.73,
-        1.0 + Math.sin(t * 2) * 0.62,
-        Math.cos(t) * 0.45,
-      );
-    }),
-    true,
+  const strips = Array.from({ length: 28 }, (_, i) =>
+    createRibbonStrip(i, 28, 0.9),
   );
-  const ribbon = mesh(
-    new THREE.TubeGeometry(curve, 100, 0.18, 3, true),
-    foldedMaterial,
-    folded,
-  );
-  ribbon.rotation.y = 0.2;
+  const ribbonGeometry = mergeGeometries(strips);
+  strips.forEach((geometry) => geometry.dispose());
+  const ribbon = mesh(ribbonGeometry, foldedMaterial, folded);
+  ribbon.scale.setScalar(0.43);
+  ribbon.rotation.y = 0.15;
   const swatches = [mint, coral, brass];
   swatches.forEach((m, i) => {
     const s = box(

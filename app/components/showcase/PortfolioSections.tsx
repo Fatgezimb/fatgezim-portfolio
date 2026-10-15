@@ -1,120 +1,144 @@
-import {
-  credentials,
-  education,
-  experience,
-  skillGroups,
-} from "@/app/content/resume";
+import { credentials, education, experience } from "@/app/content/resume";
 import { siteContent } from "@/app/content/site";
 import { sitePath } from "@/app/content/paths";
-import {
-  gmuNeuronalReconstruction as research,
-  researchAssets,
-} from "@/app/content/research";
 import { SafeLink } from "../SafeLink";
 import { DeferredSoccerVideo } from "../DeferredSoccerVideo";
 import { PortfolioContactForm } from "../PortfolioContactForm";
 import { ResumeDownloads } from "../ResumeDownloads";
-import styles from "./Showcase.module.css";
+import { ResearchLightbox } from "../chapters/ResearchLightbox";
+import { SkillsAtWork } from "../chapters/SkillsAtWork";
+import styles from "../chapters/Chapters.module.css";
 
-function Heading({
-  label,
-  title,
-  description,
-}: {
-  label: string;
-  title: string;
-  description?: string;
-}) {
-  return (
-    <header className={styles.sectionTitle}>
-      <p className={styles.kicker}>{label}</p>
-      <div>
-        <h2>{title}</h2>
-        {description && <p>{description}</p>}
-      </div>
-    </header>
-  );
-}
 export function AboutSection() {
   return (
-    <section className={styles.section} id="about">
-      <Heading label="Meet Zim" title="Curiosity tends to spill over." />
-      <div className={styles.aboutGrid} data-reveal="up">
-        <figure className={styles.portrait}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt="Fatgezim “Zim” Bela wearing a white coat"
-            src={sitePath("/media/fatgezim-bela-headshot.jpg")}
-            width="720"
-            height="720"
-            loading="lazy"
-          />
-          <figcaption>Fatgezim “Zim” Bela</figcaption>
-        </figure>
-        <div className={styles.aboutCopy}>
-          <p>{siteContent.about.paragraphs[0]}</p>
-          <p>{siteContent.about.paragraphs[1]}</p>
-          <div className={styles.domainLinks}>
-            <a href="#experience">The experience behind the work ↗</a>
-            <a href="#education">Education &amp; credentials ↗</a>
-          </div>
+    <section className={styles.about} id="about">
+      <div className={styles.aboutTop}>
+        <p className={styles.kicker}>Meet the person at the desk</p>
+        <span>Scientist’s curiosity. Builder’s instincts.</span>
+      </div>
+      <div className={styles.aboutGrid}>
+        <div className={styles.portraitComposition} data-reveal="up">
+          <span className={styles.marginNote}>Always another question.</span>
+          <figure className={styles.portrait}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              alt="Fatgezim “Zim” Bela wearing a white coat"
+              src={sitePath("/media/fatgezim-bela-headshot.jpg")}
+              width="720"
+              height="720"
+              loading="lazy"
+            />
+            <figcaption>
+              <strong>Fatgezim “Zim” Bela</strong>
+              <span>Founder · engineer · lifelong student</span>
+            </figcaption>
+          </figure>
+          <span className={styles.portraitMark} aria-hidden="true">
+            ↗
+          </span>
+        </div>
+        <div className={styles.aboutCopy} data-reveal="up">
+          <h2>
+            A question rarely
+            <br />
+            stays in <em>one field.</em>
+          </h2>
+          <p>
+            I like the moment when a complicated problem starts to make sense.
+            Sometimes that means tracing a neuron. Sometimes it means untangling
+            an export or getting a stubborn interface to behave.
+          </p>
+          <p>
+            My work moves between software, data and behavioral science. I’m a
+            Founder and CTO, a BCBA and a medical student—and I’m most at home
+            connecting what I learn to something I can build.
+          </p>
+          <nav className={styles.storyRoutes} aria-label="Follow the story">
+            <a href="#research">
+              <span>How I investigate</span>Follow the science{" "}
+              <b aria-hidden="true">↓</b>
+            </a>
+            <a href="#projects">
+              <span>What I build</span>Try the products{" "}
+              <b aria-hidden="true">↓</b>
+            </a>
+            <a href="#design">
+              <span>What I explore</span>Enter the studio{" "}
+              <b aria-hidden="true">↓</b>
+            </a>
+          </nav>
         </div>
       </div>
     </section>
   );
 }
 export function ResearchSection() {
+  return <ResearchLightbox />;
+}
+export function FounderSection() {
   return (
-    <section className={styles.section} id="research">
-      <Heading
-        label="Research & scientific work"
-        title="From images to understanding."
-      />
-      <div className={styles.researchGrid} data-reveal="up">
-        <SafeLink
-          className={styles.posterLink}
-          href={researchAssets.posterPdf}
-          newTab
-          aria-label="Open the full computational neuroscience research poster"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt="Complete Computational Neuroscience: Tracing Neurons from the Fruit Fly Larva research poster"
-            src={researchAssets.posterPreview}
-            width="1600"
-            height="1200"
-            loading="lazy"
-          />
-          <span>
-            Inspect the original research poster <b aria-hidden="true">↗</b>
-          </span>
-        </SafeLink>
-        <div className={styles.researchCopy}>
-          <p className={styles.kicker}>George Mason University</p>
-          <h3>{research.title}</h3>
-          <p>{research.summary}</p>
-          <ol
-            className={styles.methodFlow}
-            aria-label="Documented research workflow"
-          >
-            <li>Process images</li>
-            <li>Stitch volumes</li>
-            <li>Trace neurons</li>
-            <li>Reconstruct</li>
-          </ol>
-          <p>Fiji/ImageJ · Vaa3D · NeuTube</p>
-          <SafeLink
-            className={styles.secondaryAction}
-            href={`/research/${research.slug}`}
-            newTab
-          >
-            Explore the research <span aria-hidden="true">↗</span>
-          </SafeLink>
-          <p className={styles.authors}>
-            Co-authors: {research.authors.join(", ")}
-            <br />
-            {research.institutionalUnit}
+    <section className={styles.founder} id="founder">
+      <header className={styles.professionalHeader}>
+        <div>
+          <p className={styles.kicker}>
+            The work, and the responsibility behind it
           </p>
+          <h2>Where I put it to work.</h2>
+        </div>
+        <p>
+          I work directly on architecture, interfaces, data and automation.
+          These are the organizations and collaborations where that work takes
+          shape.
+        </p>
+      </header>
+      <div className={styles.currentRoles}>
+        {experience
+          .filter((e) => ["create13-cto", "founder-practice"].includes(e.id))
+          .map((item, i) => (
+            <article
+              key={item.id}
+              className={styles.currentRole}
+              data-reveal="up"
+            >
+              <div className={styles.roleTop}>
+                <span className={styles.roleSymbol} aria-hidden="true">
+                  {i === 0 ? "C13" : "N"}
+                </span>
+                <p>{item.dates}</p>
+              </div>
+              <h3>{item.organization}</h3>
+              <p className={styles.roleTitle}>{item.title}</p>
+              <p>{item.summary}</p>
+              <details>
+                <summary>
+                  Inside the role <span aria-hidden="true">+</span>
+                </summary>
+                <ul>
+                  {item.highlights.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+              </details>
+            </article>
+          ))}
+      </div>
+      <div className={styles.collaboration}>
+        <div>
+          <p className={styles.kicker}>Built together</p>
+          <h3>Bela Data Lab</h3>
+          <p>Co-founder and Co-builder with Meili Bela</p>
+        </div>
+        <p>
+          Data and learning products, including Caregiver Academy, where I
+          contribute as co-founder, product builder and BCBA.
+        </p>
+        <div>
+          <a href="#project-bela-behavior-data-lab">
+            Explore the data workspace <span aria-hidden="true">↗</span>
+          </a>
+          <a href="#project-caregiver-academy">
+            Open Caregiver Academy <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </section>
@@ -122,133 +146,98 @@ export function ResearchSection() {
 }
 export function ExperienceSection() {
   return (
-    <section className={styles.section} id="experience">
-      <Heading
-        label="Experience"
-        title="The work behind the workspace."
-        description="Technology leadership and the experience that informs how I build."
-      />
-      <ol className={styles.careerList}>
-        {experience.map((item) => (
-          <li className={styles.careerItem} key={item.id} data-reveal="up">
-            <p className={styles.careerDate}>
-              {item.dates ?? "Software & data"}
-            </p>
-            <div>
-              <h3>{item.title}</h3>
-              {item.organization && (
-                <p className={styles.careerOrg}>{item.organization}</p>
-              )}
-              <p>{item.summary}</p>
-              {item.highlights.length > 0 && (
-                <details>
-                  <summary>Selected contributions</summary>
+    <section className={styles.experience} id="experience">
+      <div className={styles.minorHeading}>
+        <h2>Experience in practice.</h2>
+        <SafeLink href="/resume" newTab>
+          Read the full résumé ↗
+        </SafeLink>
+      </div>
+      <div className={styles.careerList}>
+        {experience
+          .filter((e) => !["create13-cto", "founder-practice"].includes(e.id))
+          .map((item) => (
+            <details className={styles.careerItem} key={item.id}>
+              <summary>
+                <span className={styles.careerDate}>
+                  {item.dates ?? "Software & data"}
+                </span>
+                <span>
+                  <strong>{item.title}</strong>
+                  {item.organization && <small>{item.organization}</small>}
+                </span>
+                <b aria-hidden="true">+</b>
+              </summary>
+              <div className={styles.careerBody}>
+                <p>{item.summary}</p>
+                {item.highlights.length > 0 && (
                   <ul>
-                    {item.highlights.map((text) => (
-                      <li key={text}>{text}</li>
+                    {item.highlights.map((t) => (
+                      <li key={t}>{t}</li>
                     ))}
                   </ul>
-                </details>
-              )}
-            </div>
-          </li>
-        ))}
-      </ol>
+                )}
+              </div>
+            </details>
+          ))}
+      </div>
     </section>
   );
 }
-const skillEvidence: Record<string, { href: string; label: string }> = {
-  "software-product": {
-    href: "#project-stepspark",
-    label: "Explore StepSpark",
-  },
-  "data-engineering": {
-    href: "#project-bela-behavior-data-lab",
-    label: "Explore Bela Behavior Data Lab",
-  },
-  leadership: { href: "#founder", label: "See ventures and roles" },
-  "research-methods": { href: "#research", label: "Inspect the research" },
-  "behavioral-science": {
-    href: "#project-caregiver-academy",
-    label: "Explore Caregiver Academy",
-  },
-};
 export function SkillsSection() {
-  return (
-    <section className={styles.section} id="skills">
-      <Heading label="Capabilities" title="Tools I put to work." />
-      <div className={styles.skillRows}>
-        {skillGroups.map((group) => (
-          <article className={styles.skillRow} key={group.id} data-reveal="up">
-            <h3>{group.title}</h3>
-            <ul>
-              {group.skills.map((skill) => (
-                <li key={skill}>{skill}</li>
-              ))}
-            </ul>
-            <a href={skillEvidence[group.id].href}>
-              {skillEvidence[group.id].label} ↗
-            </a>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-export function FounderSection() {
-  return (
-    <section className={styles.section} id="founder">
-      <Heading
-        label="Founder & builder"
-        title="Building with a longer view."
-        description="The organizations and collaborations where the work takes shape."
-      />
-      <div className={styles.ventureGrid}>
-        {siteContent.founderContext.relationships.map((item) => (
-          <article className={styles.venture} key={item.name} data-reveal="up">
-            <h3>{item.name}</h3>
-            <p>{item.relationship}</p>
-            <p className={styles.ventureRole}>{item.role}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
+  return <SkillsAtWork />;
 }
 export function EducationSection() {
   return (
-    <section className={styles.section} id="education">
-      <Heading label="Education" title="A cross-disciplinary foundation." />
-      <div className={styles.educationGrid}>
-        <ol className={styles.educationList}>
-          {education.map((item) => (
-            <li key={item.id}>
-              <div>
-                <h3>{item.credential}</h3>
-                <p>{item.institution}</p>
-                {item.status && <p>{item.status}</p>}
-              </div>
-              <time>{item.date}</time>
-            </li>
-          ))}
-        </ol>
-        <aside className={styles.credentials}>
-          <h3>Professional credentials</h3>
+    <section id="education" className={styles.education}>
+      <div className={styles.educationHeading}>
+        <p className={styles.kicker}>An ongoing education</p>
+        <h2>Still learning.</h2>
+        <p>
+          My studies span neuroscience, behavioral science and medicine. Medical
+          education keeps widening the questions.
+        </p>
+        <details className={styles.credentials}>
+          <summary>
+            Professional credentials <span aria-hidden="true">+</span>
+          </summary>
           <ul>
             {credentials.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </aside>
+        </details>
       </div>
-      <article
-        className={styles.personal}
-        aria-labelledby="beyond-work-title"
-        data-reveal="up"
-      >
+      <div className={styles.notebook} data-reveal="up">
+        <div className={styles.notebookTop}>
+          <span>FIELD NOTES</span>
+          <span>Learning / continuing</span>
+        </div>
+        <ol>
+          {[...education].reverse().map((item, i) => (
+            <li key={item.id}>
+              <span className={styles.year}>{item.date}</span>
+              <div>
+                <h3>{item.credential}</h3>
+                <p>{item.institution}</p>
+                {item.status && <p>{item.status}</p>}
+              </div>
+              <span className={styles.studyMark} aria-hidden="true">
+                {i === 3 ? "○" : "•"}
+              </span>
+            </li>
+          ))}
+        </ol>
+        <div className={styles.notebookFoot}>More to learn. More to make.</div>
+      </div>
+      <article className={styles.personal} aria-labelledby="beyond-work-title">
         <div>
-          <p className={styles.kicker}>Beyond the work</p>
-          <h3 id="beyond-work-title">A moment worth keeping.</h3>
+          <p className={styles.kicker}>Away from the desk</p>
+          <h3 id="beyond-work-title">
+            A different
+            <br />
+            kind of <em>focus.</em>
+          </h3>
           <p>
             The winning penalty for Vicious and Delicious, captured by Mason
             Intramurals on May 1, 2016.
@@ -265,7 +254,10 @@ export function EducationSection() {
         </div>
         <figure>
           <DeferredSoccerVideo />
-          <figcaption>Mason Intramurals · May 2016</figcaption>
+          <figcaption>
+            <span>MASON INTRAMURALS</span>
+            <span>01 MAY 2016</span>
+          </figcaption>
         </figure>
       </article>
     </section>
@@ -274,17 +266,23 @@ export function EducationSection() {
 export function ContactSection() {
   return (
     <section className={styles.contact} id="contact">
+      <div className={styles.contactTop}>
+        <p className={styles.kicker}>A place for the next idea</p>
+        <a href="#workspace">
+          Back to the desk <span aria-hidden="true">↑</span>
+        </a>
+      </div>
+      <h2>
+        What are you
+        <br />
+        <em>working on?</em>
+        <span aria-hidden="true">↗</span>
+      </h2>
       <div className={styles.contactGrid}>
         <div className={styles.contactIntro}>
-          <p className={styles.kicker}>Contact</p>
-          <h2>
-            Something complex
-            <br />
-            in mind?
-          </h2>
           <p>
-            Let’s talk about software, data, scientific tools, or a product that
-            needs thoughtful engineering.
+            Software, data, scientific tools, or a complicated workflow you’d
+            like to make simpler. I’d like to hear about it.
           </p>
           <address className={styles.socialLinks}>
             {siteContent.contact.links.map((link) => (
@@ -294,14 +292,19 @@ export function ContactSection() {
             ))}
           </address>
           <div className={styles.downloads}>
-            <p>THE FULL BACKGROUND</p>
+            <p>Take the full background with you.</p>
             <ResumeDownloads />
-            <SafeLink className={styles.secondaryAction} href="/resume" newTab>
+            <SafeLink href="/resume" newTab>
               View résumé ↗
             </SafeLink>
           </div>
         </div>
-        <PortfolioContactForm />
+        <div className={styles.letter}>
+          <span className={styles.letterMark} aria-hidden="true">
+            ZB
+          </span>
+          <PortfolioContactForm />
+        </div>
       </div>
     </section>
   );
