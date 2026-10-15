@@ -1,3 +1,4 @@
+import { sitePath } from "@/app/content/paths";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 type SafeLinkProps = Omit<
@@ -8,10 +9,11 @@ type SafeLinkProps = Omit<
   newTab?: boolean;
 };
 
-export function SafeLink({ children, newTab = false, ...props }: SafeLinkProps) {
+export function SafeLink({ children, href, newTab = false, ...props }: SafeLinkProps) {
   return (
     <a
       {...props}
+      href={href ? sitePath(href) : href}
       rel={newTab ? "noopener noreferrer" : undefined}
       target={newTab ? "_blank" : undefined}
     >

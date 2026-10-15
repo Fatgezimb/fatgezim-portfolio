@@ -1,10 +1,12 @@
 "use client";
 
+import { sitePath } from "@/app/content/paths";
+
 import { useEffect, useRef } from "react";
 import { SafeLink } from "./SafeLink";
 
-const VIDEO_SRC = "/media/fatgezim-bela-soccer-winning-penalty.mp4";
-const POSTER_SRC = "/media/fatgezim-bela-soccer-winning-penalty-poster.jpg";
+const VIDEO_SRC = sitePath("/media/fatgezim-bela-soccer-winning-penalty.mp4");
+const POSTER_SRC = sitePath("/media/fatgezim-bela-soccer-winning-penalty-poster.jpg");
 
 export function DeferredSoccerVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);

@@ -35,19 +35,20 @@ export type EducationItem = {
 export const identity = {
   name: 'Fatgezim “Zim” Bela',
   shortName: "Zim Bela",
+  email: "fatgezimbela1@gmail.com",
   headline:
-    "BCBA, Medical Student, Data Scientist, and Founder Building Technology for Behavioral Health",
+    "Founder and CTO · Software Engineering · Data and Scientific Systems",
   shortHeadline:
-    "Behavioral Health Clinician, Medical Student, and Technology Founder",
+    "Founder, CTO, and Hands-on Software Builder",
   summary:
-    "I build practical tools at the intersection of applied behavior analysis, medical education, data science, and software product development.",
+    "I lead technology and build software from workflow discovery through implementation and testing. My work spans typed web applications, Python and SQL data workflows, browser automation, and reproducible neuroscience software. A background in behavioral science and medical education helps me translate complex domain requirements into practical products.",
 } as const;
 
 export const currentFocus = [
-  "Board Certified Behavior Analyst since 2025",
-  "Doctor of Medicine Candidate, expected 2028",
-  "Founder, NeuroPath LLC",
-  "Data scientist and product builder",
+  "Founder and CTO, Create 13 Group",
+  "Founder and CTO, NeuroPath LLC",
+  "Software, data, and workflow automation",
+  "Scientific software and learning products",
 ] as const;
 
 export const profileDomains = [
@@ -88,6 +89,20 @@ export const publicLinks: PublicLink[] = [
 
 export const experience: ExperienceItem[] = [
   {
+    id: "create13-cto",
+    title: "Founder and Chief Technology Officer",
+    organization: "Create 13 Group",
+    dates: "2018 - Present",
+    summary: "Lead technology direction and hands-on software development, translating business requirements into product architecture and implementation priorities.",
+    highlights: [
+      "Own technical scoping, integration decisions, interface development, and release planning.",
+      "Work directly in the codebase while coordinating product requirements and iterative delivery.",
+    ],
+    statusLabel: "Current leadership",
+    evidence: ["Owner confirmation, October 15, 2026", "Supplied technical resume"],
+    uncertaintyFlags: [],
+  },
+  {
     id: "bcba-practice",
     title: "Board Certified Behavior Analyst",
     dates: "Since 2025",
@@ -106,14 +121,14 @@ export const experience: ExperienceItem[] = [
   },
   {
     id: "founder-practice",
-    title: "Founder",
+    title: "Founder and Chief Technology Officer",
     organization: "NeuroPath LLC",
+    dates: "2026 - Present",
     summary:
-      "Builds behavioral-health learning products and operational tools through NeuroPath.",
+      "Lead product architecture and engineering for behavioral-health learning and operational software; co-build Bela Data Lab products with Meili Bela.",
     highlights: [
-      "Founder and product strategy for NeuroPath",
-      "Co-founder and co-builder of Bela Data Lab products with Meili Bela",
-      "Responsible product design for behavioral-health contexts",
+      "Translate clinical and operational workflows into structured data, review states, and usable interfaces.",
+      "Build browser-local analytics, education tools, and workflow automation with explicit data boundaries.",
     ],
     statusLabel: "Current focus",
     evidence: ["Owner confirmation", "Current product repositories"],
@@ -166,9 +181,12 @@ export const experience: ExperienceItem[] = [
       "The exact Connex title and dates remain omitted pending verification.",
     ],
   },
-];
+].sort((a, b) => {
+  const order = ["create13-cto", "founder-practice", "data-product-practice", "tmci-data-engineer", "bcba-practice", "earlier-aba-practice"];
+  return order.indexOf(a.id) - order.indexOf(b.id);
+});
 
-export const skillGroups: SkillGroup[] = [
+export const skillGroups: SkillGroup[] = ([
   {
     id: "behavioral-science",
     title: "Behavioral science and ABA",
@@ -205,6 +223,10 @@ export const skillGroups: SkillGroup[] = [
     level: "Applied",
     skills: [
       "TypeScript and React",
+      "JavaScript and Next.js",
+      "Semantic HTML and CSS",
+      "Git and GitHub Actions",
+      "Vitest and Playwright",
       "Accessible interface design",
       "Testing and static deployment",
       "Local-first data handling",
@@ -243,7 +265,10 @@ export const skillGroups: SkillGroup[] = [
     ],
     evidenceNote: "Applied through NeuroPath and Bela Data Lab product development.",
   },
-];
+] satisfies SkillGroup[]).sort((a, b) => {
+  const order = ["software-product", "data-engineering", "leadership", "research-methods", "behavioral-science"];
+  return order.indexOf(a.id) - order.indexOf(b.id);
+});
 
 export const education: EducationItem[] = [
   {
@@ -268,7 +293,7 @@ export const education: EducationItem[] = [
     id: "gmu-neuroscience",
     credential: "B.S. in Neuroscience",
     institution: "George Mason University",
-    date: "2018",
+    date: "2017",
   },
 ];
 

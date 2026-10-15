@@ -1,5 +1,8 @@
 "use client";
 
+import { sitePath } from "@/app/content/paths";
+
+
 import { navigationItems } from "@/app/content/site";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -30,7 +33,7 @@ function NavigationLinks({
           <SafeLink
             aria-current={!newTab && activeId === item.id ? "location" : undefined}
             className={styles.navLink}
-            href={item.href}
+            href={sitePath(item.href)}
             newTab={newTab}
             onClick={onNavigate}
           >
@@ -238,7 +241,7 @@ export function CommandCenterNavigation() {
               <li key={action.href}>
                 <SafeLink
                   className={styles.commandLink}
-                  href={action.href}
+                  href={sitePath(action.href)}
                   newTab={action.newTab}
                   onClick={closeDialog}
                 >

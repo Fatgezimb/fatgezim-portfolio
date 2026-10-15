@@ -1,3 +1,5 @@
+import { identity, publicLinks } from "./resume";
+
 export type NavigationItem = {
   href: `/#${string}`;
   id: string;
@@ -65,9 +67,9 @@ export const navigationItems = [
 ] as const satisfies readonly NavigationItem[];
 
 export const siteMeta = {
-  title: "Fatgezim “Zim” Bela | BCBA, Medical Student, Data Scientist, and Founder",
+  title: "Fatgezim “Zim” Bela | Founder, CTO, Software and Data Systems",
   description:
-    "Portfolio of Fatgezim “Zim” Bela, connecting behavioral health, medicine, data science, software, and product development.",
+    "Hands-on technology leadership, software engineering, workflow automation, and scientific data systems by Fatgezim “Zim” Bela.",
   sectionOrder: [
     "about",
     "projects",
@@ -82,20 +84,17 @@ export const siteMeta = {
 
 export const siteContent = {
   hero: {
-    eyebrow: "Behavioral health · medicine · data · product",
-    displayName: "Fatgezim “Zim” Bela",
-    shortName: "Zim Bela",
-    headline:
-      "BCBA, Medical Student, Data Scientist, and Founder Building Technology for Behavioral Health",
-    shortHeadline: "Behavioral Health Clinician, Medical Student, and Technology Founder",
-    roleLine: "BCBA · Medical Student · Data Scientist · Founder",
-    summary:
-      "I connect behavioral-health practice, medical education, data science, and software development to build practical tools for professionals, learners, and families.",
+    eyebrow: "Software · data · automation · scientific computing",
+    displayName: identity.name,
+    shortName: identity.shortName,
+    headline: identity.headline,
+    shortHeadline: identity.shortHeadline,
+    roleLine: "Founder and CTO · Software and Data Systems",
+    summary: identity.summary,
     roles: [
-      "Board Certified Behavior Analyst",
-      "Medical Student",
-      "Data Scientist",
-      "Founder, NeuroPath LLC",
+      "Founder and CTO, Create 13 Group",
+      "Founder and CTO, NeuroPath LLC",
+      "Software and Data Systems Builder",
       "Co-founder and Co-builder, Bela Data Lab products",
     ],
     primaryAction: { href: "/#projects", id: "projects", label: "View featured work" },
@@ -104,8 +103,8 @@ export const siteContent = {
   about: {
     heading: "About",
     paragraphs: [
-      "My work sits at the intersection of applied behavior analysis, medical education, data, and software. I approach products as both a clinician and a builder: understand the workflow, design for the people using it, and make complex systems easier to navigate.",
-      "I founded NeuroPath LLC and co-build Bela Data Lab products with Meili Bela. Together, that work spans learning tools, browser-local analytics, and workflow automation for behavioral health.",
+      "I’m a founder and CTO who works directly on product architecture, interfaces, data workflows, and automation. I start with the people and decisions a system needs to support, then turn those requirements into software that can be inspected, tested, and improved.",
+      "I lead technology at Create 13 Group and NeuroPath LLC and co-build Bela Data Lab products with Meili Bela. My clinical background, medical education, and neuroscience research inform how I approach data, uncertainty, and complex workflows.",
     ],
     domains: [
       "Behavioral science and ABA",
@@ -118,17 +117,22 @@ export const siteContent = {
   featuredWork: {
     heading: "Featured work",
     introduction:
-      "Selected products and prototypes show how behavioral-health knowledge can become learning tools, operational software, local-first analytics, and workflow automation.",
+      "Scientific software, browser-local analytics, learning platforms, and automation—each with an inspectable workflow, a clear technical role, and an explicit product status.",
   },
   founderContext: {
     heading: "Building NeuroPath",
     introduction:
-      "I founded NeuroPath LLC to bring behavioral science, healthcare, data, education, and software into practical products.",
+      "As Founder and CTO of NeuroPath LLC, I bring behavioral science, healthcare, data, education, and software into practical products.",
     relationships: [
+      {
+        name: "Create 13 Group",
+        relationship: "Technology leadership and product engineering",
+        role: "Founder and CTO",
+      },
       {
         name: "NeuroPath",
         relationship: "Behavioral-health technology company",
-        role: "Founder, NeuroPath LLC",
+        role: "Founder and CTO, NeuroPath LLC",
       },
       {
         name: "Bela Data Lab",
@@ -145,21 +149,8 @@ export const siteContent = {
   contact: {
     heading: "Contact",
     introduction:
-      "I’m open to conversations about behavioral-health technology, clinical product development, medical education, data systems, and software engineering.",
-    links: [
-      {
-        href: "https://www.linkedin.com/in/fatgezimzimbela/",
-        label: "linkedin.com/in/fatgezimzimbela",
-        kind: "linkedin",
-        external: true,
-      },
-      {
-        href: "https://github.com/Fatgezimb",
-        label: "github.com/Fatgezimb",
-        kind: "github",
-        external: true,
-      },
-    ],
+      "Let’s discuss software engineering, data systems, scientific computing, technical leadership, or a product with a complex workflow to solve.",
+    links: publicLinks.map((link) => ({ ...link, kind: link.href.includes("linkedin") ? "linkedin" as const : "github" as const, external: true })),
   },
   footer: {
     copyright: "© 2026 Fatgezim “Zim” Bela",

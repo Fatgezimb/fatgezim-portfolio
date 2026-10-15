@@ -19,14 +19,14 @@ export function FounderContext() {
 
       <div className={styles.founderLayout}>
         <figure className={styles.ecosystemMap} aria-hidden="true">
-          <figcaption>Company relationship map</figcaption>
+          <figcaption>NeuroPath ecosystem</figcaption>
           <svg className={styles.ecosystemConnections} viewBox="0 0 700 500">
             <path d="M350 245 C250 208 198 145 118 111" pathLength="1" />
             <path d="M350 245 C454 208 512 145 588 111" pathLength="1" />
             <path d="M350 245 C350 333 350 376 350 432" pathLength="1" />
             <circle cx="350" cy="245" r="5" />
           </svg>
-          {founderContext.relationships.map((item, index) => (
+          {founderContext.relationships.filter((item) => item.name !== "Create 13 Group").map((item, index) => (
             <div
               className={`${styles.ecosystemNode} ${
                 index === 0 ? styles.primaryNode : styles.satelliteNode

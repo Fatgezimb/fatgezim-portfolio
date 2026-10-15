@@ -165,7 +165,7 @@ export const featuredProjects = [
       "React Router",
       "localStorage",
       "GitHub Actions",
-      "GitHub Pages",
+      "Vercel",
     ],
     verifiedOutputs: [
       "19-task competency map",
@@ -175,8 +175,7 @@ export const featuredProjects = [
       "browser-local practice-readiness and review history",
     ],
     evidenceLinks: [
-      "https://fatgezimb.github.io/rbt-practice-hub/",
-      "https://github.com/Fatgezimb/rbt-practice-hub",
+      "https://rbt-pro.vercel.app/",
     ],
     publicScope:
       "An independent study resource, not an official BACB product or assessment. Practice progress stays in the learner's browser.",

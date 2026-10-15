@@ -4,7 +4,7 @@ Live GitHub Pages site: [fatgezimb.github.io/fatgezim-portfolio](https://fatgezi
 
 Featured scientific project: [NeuroStack Explorer](https://fatgezimb.github.io/neurostack-explorer/)
 
-A technical portfolio and résumé connecting behavioral health, medicine, data science, software, and founder-built products. The experience uses a light-first “neural command center” visual system, accessible miniature product demos, and progressively enhanced Three.js scenes.
+A technical portfolio and résumé focused on hands-on Founder and CTO leadership, software engineering, data, automation, and scientific systems. The experience uses a light-first “neural command center” visual system, accessible miniature product demos, and progressively enhanced Three.js scenes.
 
 ## Stack
 
@@ -14,7 +14,7 @@ A technical portfolio and résumé connecting behavioral health, medicine, data 
 - CSS Modules plus global semantic design tokens
 - OpenAI Sites hosting through `.openai/hosting.json`
 
-No backend, database, authentication, analytics, private project data, or PHI is used by the portfolio.
+The portfolio is a static public experience. Product demonstrations use sanitized local samples; account and clinical data are handled only in their separate applications.
 
 ## Local development
 
@@ -90,19 +90,38 @@ Motion and WebGL are progressive enhancements:
 
 The site includes a focusable skip link, semantic landmarks and headings, visible focus styles, keyboard-operable demos, focus-managed command and poster dialogs, touch controls, reduced-motion states, stable deep links, and readable no-WebGL fallbacks. Essential content remains ordinary server-rendered HTML.
 
+## Resume artifacts
+
+The owner-reviewed, two-page PDF and editable DOCX are in `resume/` and copied byte-for-byte into `public/resume/`. `resume/approval.json` records the approved hashes; the rendered-route tests verify that the public download buttons point to those exact files.
+
+`app/content/resume-document.ts` selects document content from the same identity, role, education, skill and project records used by the site. Generate review candidates with the bundled Python runtime returned by the workspace dependency loader:
+
+```bash
+python scripts/generate-resume.py
+```
+
+The generator resolves bundled Node 24 to export TypeScript content, then creates both documents. Review the rendered pages and approve changed content before replacing public files and updating the approval record. Generation alone does not publish a download.
+
 ## Deployment
 
-This repository is deployed with OpenAI Sites, not GitHub Pages. The Vinext build produces a worker entry point at `dist/server/index.js` and browser assets under `dist/client/`.
+GitHub Pages is the public recruiting destination: [portfolio](https://fatgezimb.github.io/fatgezim-portfolio/) and [resume](https://fatgezimb.github.io/fatgezim-portfolio/resume/). The separate Sites configuration retains its existing audience.
 
-Release flow:
+The Pages workflow deploys the validated source from `main`. Root builds remain available for local development and the existing Worker configuration. The Pages build compiles the actual base path into framework assets, native navigation, dynamic chunks, fonts and media; the exporter preserves the framework's hydration output and validates local resources.
 
-1. Run the complete verification suite and browser QA.
-2. Commit and push the exact validated source state.
-3. Build and package that same commit for Sites.
-4. Save a Sites version with the matching commit SHA.
-5. Deploy the saved version and smoke-test the production URL.
+```bash
+npm run lint
+npm run typecheck
+npm test
+node --test tests/export-pages.test.mjs
+PAGES_BASE_PATH=/fatgezim-portfolio npm run build
+PAGES_BASE_PATH=/fatgezim-portfolio npm run start -- --port 4173
+# In a second terminal:
+PAGES_BASE_PATH=/fatgezim-portfolio node scripts/export-pages.mjs
+```
 
-Do not commit hosting credentials or change the site access policy as part of a routine release.
+The exporter includes all four route documents, hydration payloads, robots, sitemap, a truthful 404 page and `.nojekyll`. Preview the generated files under the actual `/fatgezim-portfolio` mount and verify interactions before release. The small Vinext font and static-history adapters are version-specific and covered by focused tests; review them when upgrading Vinext.
+
+Audit rendered targets with `python scripts/audit-links.py --base http://localhost:4173`. Current before/after link evidence, document validation and browser results are in `reports/`.
 
 ## Project structure
 

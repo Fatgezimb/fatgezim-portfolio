@@ -1,3 +1,4 @@
+import { sitePath } from "./paths";
 export type ResearchItem = {
   id: string;
   title: string;
@@ -23,9 +24,9 @@ export type ProposedResearchDirection = {
 };
 
 export const researchAssets = {
-  posterPdf: "/media/fatgezim-bela-computational-neuroscience-poster.pdf",
+  posterPdf: sitePath("/media/fatgezim-bela-computational-neuroscience-poster.pdf"),
   posterPreview:
-    "/media/fatgezim-bela-computational-neuroscience-poster-preview.jpg",
+    sitePath("/media/fatgezim-bela-computational-neuroscience-poster-preview.jpg"),
 } as const;
 
 export const gmuNeuronalReconstruction = {

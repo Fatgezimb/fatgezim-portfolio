@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import { stat } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import test from "node:test";
 
 const posterPdfPath =
@@ -184,7 +185,7 @@ test("renders canonical sharing and crawler metadata", async () => {
 
   assert.match(
     html,
-    /<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*fatgezim-portfolio\.fmbela2018\.chatgpt\.site)[^>]*>/i,
+    /<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*fatgezimb\.github\.io\/fatgezim-portfolio\/)[^>]*>/i,
   );
   assert.match(html, /property=["']og:image["'][^>]*\/og\.png/i);
   assert.match(html, /name=["']twitter:card["'][^>]*summary_large_image/i);
@@ -199,7 +200,7 @@ test("renders canonical sharing and crawler metadata", async () => {
   const sitemapResponse = await render("/sitemap.xml");
   assert.equal(sitemapResponse.status, 200);
   const sitemap = await sitemapResponse.text();
-  assert.match(sitemap, /<loc>.*fatgezim-portfolio\.fmbela2018\.chatgpt\.site<\/loc>/i);
+  assert.match(sitemap, /<loc>.*fatgezimb\.github\.io\/fatgezim-portfolio<\/loc>/i);
   assert.match(sitemap, /<loc>.*\/resume<\/loc>/i);
   assert.match(sitemap, /<loc>.*\/research<\/loc>/i);
   assert.match(
@@ -428,6 +429,41 @@ test("marks every new-tab link as safe and discloses its behavior", async () => 
         /opens in a new tab/i,
         `new-tab link should disclose its behavior: ${openingTag}`,
       );
+    }
+  }
+});
+
+
+test("technology resume preserves confirmed facts and working public project destinations", async () => {
+  const responses = await Promise.all([render(), render("/resume")]);
+  for (const response of responses) {
+    const html = await response.text();
+    assert.match(html, /Founder and (?:Chief Technology Officer|CTO)/);
+    assert.match(html, /Create 13 Group/);
+    assert.match(html, /2018 - Present/);
+    assert.match(html, /href=["']https:\/\/rbt-pro\.vercel\.app\/["']/);
+    assert.doesNotMatch(html, /href=["']https:\/\/fatgezimb\.github\.io\/rbt-practice-hub/);
+    assert.doesNotMatch(html, /href=["']https:\/\/github\.com\/Fatgezimb\/rbt-practice-hub/);
+  }
+  const html = await (await render("/resume")).text();
+  assert.match(html, /Clinical Assessment Portal/);
+  assert.match(html, /locally tested with synthetic records/);
+  assert.match(html, /USMLE Sprint/);
+  assert.match(html, /Account-gated learning application/);
+  assert.match(html, /B\.S\. in Neuroscience[\s\S]*?2017/);
+  assert.match(html, /Co-founder and Co-builder/);
+});
+
+test("public download buttons serve the exact owner-reviewed document bytes", async () => {
+  const approval = JSON.parse(await readFile(new URL("../resume/approval.json", import.meta.url), "utf8"));
+  for (const route of ["/", "/resume"]) {
+    const html = await (await render(route)).text();
+    for (const [name, digest] of Object.entries(approval.sha256)) {
+      assert.match(html, new RegExp(`href=["']/resume/${name.replaceAll(".", "\\.")}["']`));
+      const contents = await readFile(new URL(`../public/resume/${name}`, import.meta.url));
+      assert.equal(createHash("sha256").update(contents).digest("hex"), digest);
+      assert.ok(contents.length > 10_000);
+      assert.equal(contents.subarray(0, name.endsWith(".pdf") ? 4 : 2).toString(), name.endsWith(".pdf") ? "%PDF" : "PK");
     }
   }
 });

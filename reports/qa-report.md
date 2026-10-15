@@ -1,0 +1,55 @@
+# Resume and portfolio quality audit
+
+October 15, 2026. Release verification is in progress; local results below are completed checks.
+
+## Reconciliation
+
+The six-file supplied package was read alongside the existing approved portfolio and its newer remote history. Existing visual design, original portrait and video, seven product micro-demos, research routes, keyboard controls, light/dark themes and lazy spatial scenes are retained. The 31 starting modified files were preserved in a separate Git checkpoint before the reconciliation changes.
+
+The owner confirmed Founder and CTO for Create 13 Group and NeuroPath LLC, accepted 2018 for Create 13, approved the generated resume for public downloads, and then explicitly corrected the B.S. year to 2017. Joint Bela Data Lab credit remains intact. The clinical assessment implementation is described as private and locally tested; USMLE Sprint is distinguished from StepSpark and its account gate is recorded.
+
+The newer remote lockfile repair and Pages runtime fixes are carried forward. The public site uses GitHub Pages canonicals. The separate Sites audience is unchanged.
+
+## Automated source checks
+
+- ESLint: pass without warnings.
+- TypeScript no-emit check: pass.
+- Rendered route suite: 13 tests, pass. Includes semantic routes, navigation targets, research claims, media behavior, safe external links, technology resume content, and approved download hashes.
+- Static export and adapter suite: 6 tests, pass. Includes missing assets, srcset/deferred media/CSS URLs, path containment, exact hydration retention, font transformation, installed Vinext compatibility and native history behavior.
+- Root production build: pass.
+- Pages-base production build: pass. Separate target-specific browser/export verification follows below.
+- Existing RBT application build: TypeScript + Vite pass; no RBT source change required.
+
+Vinext reports unknown static route classification and the optional isolated Three.js chunk exceeds the bundler’s 500 kB notice threshold. These are build notices, not failures. Scenes remain lazy, pause off screen, and use reduced-motion/no-WebGL fallbacks.
+
+## Browser verification
+
+Bundled Playwright API with installed Google Chrome. The matching Playwright headless-shell binary was unavailable, so the installed browser was used without changing project dependencies.
+
+All four routes returned 200 with one h1, zero runtime/console errors and no horizontal overflow at 375, 768, 1440 and 1920 CSS pixels. All routes remain readable without JavaScript at 320 pixels. Keyboard verification covers skip-to-main, visible focus, mobile menu, navigation search, Escape/focus restoration and native navigation. All seven demos support touch playback, pause, next-frame controls and Architecture Lens; reduced motion initializes them paused. Theme state persists and restores correctly. Both spatial scenes pause off screen.
+
+Versioned screenshots are under `reports/screenshots/2026-10-15-*`. The representative layouts were visually inspected, including the mobile hero with downloads and the resume action toolbar.
+
+### Print and documents
+
+Browser printing the resume now produces two clean Letter pages, approximately 160 kB. The decorative body texture is disabled for print and the research heading stays with its content. The reviewed PDF and DOCX independently render as two pages with 10 pt body text. All four artifact page views were visually inspected. Eight hyperlink targets match in both formats. PDF text is selectable and body/heading fonts are embedded. Actual browser downloads match `resume/approval.json`.
+
+The 2017 correction was verified as the sole text change to the earlier reviewed files. Current hashes and detailed document validation are in `reports/resume-validation.json`.
+
+### Performance sampling
+
+Uncompressed local production responses: approximately 405 kB core JavaScript transferred with reduced motion, and approximately 725 kB additional Three.js transferred when the visible hero scene activates. Measured CLS was zero in both sampled modes. One startup long task was approximately 94–98 ms. Portrait body size is approximately 80 kB; the research poster remains deferred. These are local browser measurements, not field data, throttled mobile scores or a Lighthouse certification.
+
+## RBT verification
+
+The former Pages destination returns 404. The authoritative repository metadata and deployment configuration identify `https://rbt-pro.vercel.app/`. A real browser verified its dashboard, flashcard navigation, direct flashcard refresh, JavaScript/CSS assets, and a mobile practice question with correct-answer feedback and an incrementing progress counter. The mobile practice view fits 375 pixels with no console errors. The stale portfolio destination and inaccessible source button are repaired in both project cards and previews. No separate application redeployment was needed.
+
+## Link and release verification
+
+See `reports/link-audit.csv` and `reports/link-audit.md` for per-target source, before/after destination, response, redirects, anchor behavior, accessibility and verification limits.
+
+Pending: final exported-artifact browser checks, merged source release, GitHub Actions result and live artifact/hash checks. No live release is claimed by this in-progress report.
+
+## Limits and optional follow-up
+
+LinkedIn redirects an unauthenticated browser to its authwall; profile content cannot be independently checked through that gate. It is recorded as access-restricted rather than dead. Keyboard/semantic/browser checks do not constitute a manual screen-reader user study or formal accessibility conformance certification. Optional evidence questions are in `QUESTIONS_FOR_OWNER.md`.

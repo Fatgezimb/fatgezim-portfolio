@@ -1,7 +1,9 @@
+import { sitePath } from "@/app/content/paths";
 import { currentFocus } from "@/app/content/resume";
 import { siteContent } from "@/app/content/site";
 import { SafeLink } from "./SafeLink";
 import { NeuralIdentityField } from "./spatial";
+import { ResumeDownloads } from "./ResumeDownloads";
 
 export function Hero() {
   const { hero } = siteContent;
@@ -24,13 +26,14 @@ export function Hero() {
           <p className="hero__summary">{hero.summary}</p>
 
           <div className="hero__actions" aria-label="Primary actions">
-            <a className="button button--primary" href={hero.primaryAction.href}>
+            <a className="button button--primary" href={sitePath(hero.primaryAction.href)}>
               {hero.primaryAction.label}
             </a>
-            <SafeLink className="button button--secondary" href="/resume" newTab>
+            <SafeLink className="button button--secondary" href={sitePath("/resume")}  newTab>
               View résumé
             </SafeLink>
-            <a className="text-link" href={hero.contactAction.href}>
+            <ResumeDownloads />
+            <a className="text-link" href={sitePath(hero.contactAction.href)}>
               {hero.contactAction.label}
             </a>
           </div>
@@ -51,11 +54,11 @@ export function Hero() {
                 decoding="async"
                 fetchPriority="high"
                 height="720"
-                src="/media/fatgezim-bela-headshot.jpg"
+                src={sitePath("/media/fatgezim-bela-headshot.jpg")}
                 width="720"
               />
             </div>
-            <figcaption>BCBA · medical student · product builder</figcaption>
+            <figcaption>Founder and CTO · software and data systems</figcaption>
           </figure>
           <ul className="profile-facts">
             {currentFocus.map((item, index) => (

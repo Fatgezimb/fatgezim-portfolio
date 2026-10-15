@@ -15,7 +15,7 @@ const demonstratedBy: Record<
     projects: ["Bela Behavior Data Lab", "NeuroPath Insight"],
   },
   "software-product": {
-    roles: ["Founder, NeuroPath LLC", "Data Scientist and Software Product Builder"],
+    roles: ["Founder and CTO, NeuroPath LLC", "Data Scientist and Software Product Builder"],
     projects: ["StepSpark", "Rethink Automations", "Bela Behavior Data Lab"],
   },
   "research-methods": {
@@ -23,7 +23,7 @@ const demonstratedBy: Record<
     projects: ["Computational neuroscience and neuroimaging research"],
   },
   leadership: {
-    roles: ["Founder, NeuroPath LLC", "Co-founder and Co-builder, Bela Data Lab products"],
+    roles: ["Founder and CTO, Create 13 Group", "Founder and CTO, NeuroPath LLC", "Co-founder and Co-builder, Bela Data Lab products"],
     projects: ["Bela Behavior Data Lab", "Bela Data Lab Caregiver Academy"],
   },
 };

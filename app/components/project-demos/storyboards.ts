@@ -1,4 +1,4 @@
-import type { featuredProjects } from "@/app/content/projects";
+import { featuredProjects } from "@/app/content/projects";
 
 export type FeaturedProjectId = (typeof featuredProjects)[number]["id"];
 
@@ -461,11 +461,7 @@ export const projectStoryboards = {
     evidenceLinks: [
       {
         label: "Visit project",
-        href: "https://fatgezimb.github.io/rbt-practice-hub/",
-      },
-      {
-        label: "View source code",
-        href: "https://github.com/Fatgezimb/rbt-practice-hub",
+        href: "https://rbt-pro.vercel.app/",
       },
     ],
     architecture: {
@@ -978,5 +974,6 @@ export const projectStoryboards = {
 export function getProjectStoryboard(
   projectId: FeaturedProjectId,
 ): ProjectStoryboard {
-  return projectStoryboards[projectId];
+  const project = featuredProjects.find((item) => item.id === projectId)!;
+  return { ...projectStoryboards[projectId], evidenceLinks: project.evidenceLinks.map((href) => ({ href, label: href.includes("github.com") ? "View source code" : "Visit project" })) };
 }

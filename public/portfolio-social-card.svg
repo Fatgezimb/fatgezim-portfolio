@@ -60,18 +60,18 @@
   </g>
 
   <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" letter-spacing="2.7" text-transform="uppercase">
-    <text x="72" y="82" fill="#75E4D3">BEHAVIORAL HEALTH · MEDICINE · DATA · PRODUCT</text>
-    <text x="72" y="558" fill="#92A8B2">VERIFIED WORK · PRIVACY-AWARE SYSTEMS · HUMAN-CENTERED TOOLS</text>
+    <text x="72" y="82" fill="#75E4D3">SOFTWARE · DATA · AUTOMATION · SCIENTIFIC SYSTEMS</text>
+    <text x="72" y="558" fill="#92A8B2">PRODUCT ENGINEERING · REPRODUCIBLE DATA · WORKFLOW AUTOMATION</text>
   </g>
 
   <text x="72" y="244" fill="#F1F5F4" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" letter-spacing="-4">Fatgezim “Zim” Bela</text>
-  <text x="72" y="318" fill="#B7C7CC" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="500">BCBA · Medical Student · Data Scientist · Founder</text>
+  <text x="72" y="318" fill="#B7C7CC" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="500">Founder and CTO · Software and Data Systems</text>
 
   <g transform="translate(72 380)">
     <rect width="476" height="76" rx="18" fill="#0E1D26" stroke="#29414D"/>
     <circle cx="39" cy="38" r="13" fill="#75E4D3" fill-opacity="0.14" stroke="#75E4D3"/>
     <circle cx="39" cy="38" r="4" fill="#75E4D3"/>
-    <text x="68" y="33" fill="#F1F5F4" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Clinical practice × technical product building</text>
+    <text x="68" y="33" fill="#F1F5F4" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Technical leadership × hands-on engineering</text>
     <text x="68" y="56" fill="#82969F" font-family="Arial, Helvetica, sans-serif" font-size="15">A multidisciplinary portfolio of verified work</text>
   </g>
 </svg>

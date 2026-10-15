@@ -1,4 +1,5 @@
-/* eslint-disable @next/next/no-html-link-for-pages -- This Vinext app uses ordinary anchors to avoid its current next/link hydration conflict. */
+import { sitePath } from "@/app/content/paths";
+import { publication } from "@/app/content/publication";
 import type { Metadata } from "next";
 import {
   gmuNeuronalReconstruction,
@@ -19,15 +20,15 @@ export const metadata: Metadata = {
   description:
     "A George Mason University research poster on image processing, neuron tracing, and digital Class 4 neuronal reconstruction.",
   alternates: {
-    canonical: "/research/george-mason-neuronal-reconstruction",
+    canonical: `${publication.url}research/george-mason-neuronal-reconstruction`,
   },
   openGraph: {
     title:
       "Computational Neuroscience and Neuronal Reconstruction | Fatgezim “Zim” Bela",
     description:
       "Research poster, project overview, and a seven-stage Fiji/ImageJ, Vaa3D, and NeuTube reconstruction workflow.",
-    url: "/research/george-mason-neuronal-reconstruction",
-    images: ["/og.png"],
+    url: `${publication.url}research/george-mason-neuronal-reconstruction`,
+    images: [`${publication.url}og.png`],
   },
 };
 
@@ -38,9 +39,9 @@ export default function GeorgeMasonNeuronalReconstructionPage() {
         className={`section-shell ${styles.hero} ${styles.detailHero}`}
       >
         <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
-          <a href="/">Portfolio</a>
+          <a href={sitePath("/")} >Portfolio</a>
           <span aria-hidden="true">/</span>
-          <a href="/research">Research</a>
+          <a href={sitePath("/research")} >Research</a>
           <span aria-hidden="true">/</span>
           <span aria-current="page">Neuronal reconstruction</span>
         </nav>
@@ -184,10 +185,10 @@ export default function GeorgeMasonNeuronalReconstructionPage() {
           and proposed directions.
         </p>
         <div className={styles.inlineActions}>
-          <a className={styles.primaryLink} href="/research">
+          <a className={styles.primaryLink} href={sitePath("/research")} >
             Research overview
           </a>
-          <SafeLink className={styles.secondaryLink} href="/#contact" newTab>
+          <SafeLink className={styles.secondaryLink} href={sitePath("/#contact")}  newTab>
             Get in touch
           </SafeLink>
         </div>

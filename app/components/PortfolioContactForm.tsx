@@ -1,9 +1,10 @@
 "use client";
 
 import type { FormEvent } from "react";
+import { identity } from "@/app/content/resume";
 import styles from "./supporting/Contact.module.css";
 
-const CONTACT_EMAIL = "fatgezimbela1@gmail.com";
+const CONTACT_EMAIL = identity.email;
 
 function getTextField(formData: FormData, fieldName: string) {
   const value = formData.get(fieldName);

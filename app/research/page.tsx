@@ -1,4 +1,5 @@
-/* eslint-disable @next/next/no-html-link-for-pages -- This Vinext app uses ordinary anchors to avoid its current next/link hydration conflict. */
+import { sitePath } from "@/app/content/paths";
+import { publication } from "@/app/content/publication";
 import type { Metadata } from "next";
 import {
   gmuNeuronalReconstruction,
@@ -13,13 +14,13 @@ export const metadata: Metadata = {
   title: "Research & Scientific Work",
   description:
     "Fatgezim Zim Bela's computational-neuroscience research in image processing, neuron tracing, and digital reconstruction.",
-  alternates: { canonical: "/research" },
+  alternates: { canonical: `${publication.url}research` },
   openGraph: {
     title: "Research & Scientific Work | Fatgezim “Zim” Bela",
     description:
       "A George Mason University research project in image processing, neuron tracing, and digital reconstruction.",
-    url: "/research",
-    images: ["/og.png"],
+    url: `${publication.url}research`,
+    images: [`${publication.url}og.png`],
   },
 };
 
@@ -28,7 +29,7 @@ export default function ResearchPage() {
     <ResearchPageShell className={styles.page}>
       <section className={`section-shell ${styles.hero}`}>
         <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
-          <a href="/">Portfolio</a>
+          <a href={sitePath("/")} >Portfolio</a>
           <span aria-hidden="true">/</span>
           <span aria-current="page">Research</span>
         </nav>
@@ -204,7 +205,7 @@ export default function ResearchPage() {
           >
             Project details
           </SafeLink>
-          <SafeLink className={styles.secondaryLink} href="/#contact" newTab>
+          <SafeLink className={styles.secondaryLink} href={sitePath("/#contact")}  newTab>
             Get in touch
           </SafeLink>
         </div>

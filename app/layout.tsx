@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { publication } from "./content/publication";
+import { siteMeta } from "./content/site";
 
-const siteUrl = new URL("https://fatgezim-portfolio.fmbela2018.chatgpt.site");
-const siteTitle = "Fatgezim “Zim” Bela | Behavioral Health, Medicine, Data, and Product";
-const siteDescription =
-  "Portfolio of Fatgezim “Zim” Bela, connecting behavioral health, medicine, data science, software, and product development.";
+const siteUrl = new URL(publication.url);
+const siteTitle = siteMeta.title;
+const siteDescription = siteMeta.description;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,24 +46,24 @@ export const metadata: Metadata = {
   creator: "Fatgezim “Zim” Bela",
   publisher: "Fatgezim “Zim” Bela",
   category: "Portfolio",
-  alternates: { canonical: "/" },
+  alternates: { canonical: publication.url },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: `${publication.url}favicon.svg`,
+    shortcut: `${publication.url}favicon.svg`,
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "/",
+    url: publication.url,
     siteName: "Fatgezim “Zim” Bela — Portfolio",
     title: siteTitle,
     description: siteDescription,
     images: [
       {
-        url: "/og.png",
+        url: `${publication.url}og.png`,
         width: 1200,
         height: 630,
-        alt: "Fatgezim Zim Bela portfolio — behavioral health, medicine, data, and product",
+        alt: "Fatgezim Zim Bela — software, data, automation, and scientific systems",
       },
     ],
   },
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/og.png"],
+    images: [`${publication.url}og.png`],
   },
   robots: {
     index: true,
