@@ -52,6 +52,8 @@ export const projectPresentations: Record<
     intro: "Neural recordings you can actually inspect.",
     hint: "Switch views, select a unit, and inspect the data provenance.",
     scope: "Public NWB derivative · 20-second artifact sample",
+    live: "https://fatgezimb.github.io/neurostack-explorer/lab/",
+    full: "https://fatgezimb.github.io/neurostack-explorer/",
   },
   "rethink-automations": {
     short: "Rethink Automations",

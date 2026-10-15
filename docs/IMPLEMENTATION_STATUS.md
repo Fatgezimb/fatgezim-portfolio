@@ -8,12 +8,13 @@ Owner request: October 15, 2026. Adopt the supplied master package, preserve ver
 - [x] Preserve clean release checkpoint `731b147` and start `codex/interactive-workspace`.
 - [x] Inspect all packaged references and reconcile content.
 - [x] Research 8–10 actual creative experiences and record interaction observations.
-- [ ] Repair NeuroStack and verify its live scientific interactions.
+- [x] Repair NeuroStack and verify its live scientific interactions.
 - [x] Verify RBT canonical deployment and repair reproduced failures.
 - [x] Implement five original 3D objects, camera transitions, domain narratives, tour and purposeful 2D fallback.
 - [x] Reshape homepage story, case studies, navigation and creative sections.
 - [x] Redesign résumé route and generate refreshed PDF/DOCX from shared facts.
-- [ ] Review generated documents visually and obtain required publication review for changed download files.
+- [x] Render and visually review all final PDF/DOCX pages, facts, and ten matching links.
+- [ ] Obtain the requested exact-file publication review before replacing approved downloads.
 - [x] Test keyboard, mobile320, reduced motion, WebGL/context failure, performance, links and downloads on the exported artifact.
 - [ ] Critique real screenshots, finish details and publish authorized site/app changes.
 - [ ] Verify public release and record actual evidence.
@@ -41,3 +42,7 @@ Parent owns integration, scene implementation, résumé refresh, release and fin
 - Formal résumé refresh and new web overview are complete. Initial PDF/DOCX candidates each have two clean, inspected pages; final regeneration waits for the verified NeuroStack destination. Approved downloads remain available.
 
 Production static evidence: all four routes at 390/1440px load with correct fonts and base paths, zero errors or overflow, preserved reviewed downloads and two-page print. Fifty section/width samples pass reflow; 28 axe scans pass. All 21 repository tests pass. Independent 3D checks verify all five canvas objects, keyboard story alignment, repeated selection, six context recovery cycles and low-power/reduced-motion/network fallbacks. Neuron batching reduced draw calls from 189 to 91 per frame.
+
+NeuroStack is released as `69a08f4` (Pages run `38792732141`) after successful web and scientific CI. Fresh live desktop/mobile checks verify hydration, public-derived data and state persistence. The exact portfolio iframe sandbox also passes unit/population/aggregation/smoothing/model changes at 390/1440px. Canonical full-site and live-lab actions are integrated. Final document candidates are being regenerated with the verified link.
+
+Final review candidates are ready: PDF SHA-256 `aff5bc3dd53b49f44e449d48f7670ff58f9764eb8aae975a7169a35525c382f1`; DOCX SHA-256 `b255dfe4faea50a1184d5f29bb9e8f15fde877a006babf5002d0207a05549a94`. Both are two pages with ten matching links. The exact-file owner review was requested in this chat; existing approved bytes remain published until an answer.

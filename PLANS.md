@@ -90,7 +90,7 @@ PR 3 and Pages workflow 38782560193 published commit 6379b7cabdd3596c559a5bbf0c7
 - [x] Recompose the complete homepage and professional résumé overview.
 - [x] Preserve and verify all seven usable project samples and existing public embeds.
 - [x] Repair and verify RBT's clean and trailing-slash routes in its actual deployment.
-- [ ] Complete NeuroStack's scientific/release checks and integrate its verified canonical app.
+- [x] Complete NeuroStack's scientific/release checks and integrate its verified canonical app.
 - [x] Verify mobile, keyboard, no-JavaScript, reduced-motion, low-power and renderer recovery behavior.
 - [x] Generate and inspect initial refreshed two-page PDF/DOCX candidates without replacing approved files.
 - [ ] Finish final document regeneration and the saved exact-file publication review.

@@ -8,7 +8,7 @@
   "evidenceInventoryComplete": true,
   "contentLayoutComplete": true,
   "visualMotionComplete": true,
-  "qaComplete": false,
+  "qaComplete": true,
   "notes": [
     "Phase 0 repository, resume, project, public-link, conflict, and weighted-ranking audits are documented under docs/portfolio/.",
     "Owner confirmations received July 13, 2026 are reconciled in docs/portfolio/content-inventory.md and conflicts-and-questions.md.",
@@ -28,9 +28,11 @@
     "Redesign verification: lint/typecheck, 14 rendered tests, 7 export tests, both builds and validated static export pass. All seven previews pass mobile/desktop workflows, 14 axe scans have zero violations, 320\u20131920 reflow and no-JS/keyboard/motion checks pass. Six integrated live-iframe checks pass. Approved download hashes and two-page web print remain intact. See docs/portfolio/redesign-qa-report.md.",
     "Product studio redesign released via PR 3 and successful Pages workflow 38782560193. Public verification passed all four routes at mobile/desktop sizes, real touch interactions, deep links, all seven no-JS samples, six actual public iframe navigation checks and approved resume hashes. Final independent code review is clean. Detailed evidence: docs/portfolio/redesign-qa-report.md.",
     "Owner supplied a new complete master package on October15: five-domain interactive 3D workspace, full narrative/site/resume refresh, and actual NeuroStack/RBT repair and live verification. Current approved facts and release checkpoint are preserved. Track execution in docs/IMPLEMENTATION_STATUS.md.",
-    "October15 master rebuild: original five-object Three.js workbench, tour, domain stories, original SVG fallback, responsive narrative and professional resume overview implemented. Independent production-static checks pass direct canvas selection, keyboard/story orientation, repeatedcontext recovery, constrained-device/reduced-motion fallback and stable resource cleanup. Lint, typecheck,21tests, root/Pagesbuilds and export pass; finalapprepair, documentreview andpublicreleaseverification remain."
+    "October15 master rebuild: original five-object Three.js workbench, tour, domain stories, original SVG fallback, responsive narrative and professional resume overview implemented. Independent production-static checks pass direct canvas selection, keyboard/story orientation, repeatedcontext recovery, constrained-device/reduced-motion fallback and stable resource cleanup. Lint, typecheck,21tests, root/Pagesbuilds and export pass; finalapprepair, documentreview andpublicreleaseverification remain.",
+    "Master rebuild final integration passes lint/typecheck, 21 tests, root/Pages builds/export, eight actual live-frame flows, 177 rendered link/anchor targets and all reviewed download hashes. NeuroStack repaired and live at69a08f4; RBT repaired and live. New PDF/DOCX candidates are visually verified, with exact-file owner review requested before replacement. Portfolio public deployment remains pending."
   ],
   "publicReleaseComplete": false,
   "deployedCommit": "6379b7cabdd3596c559a5bbf0c718bf6a8dbfd2f",
-  "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/"
+  "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
+  "resumeRefreshPublication": "awaiting-owner-review"
 }
