@@ -1,5 +1,8 @@
 "use client";
 
+import { sitePath } from "@/app/content/paths";
+
+
 import { navigationItems } from "@/app/content/site";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -30,7 +33,7 @@ function NavigationLinks({
           <SafeLink
             aria-current={!newTab && activeId === item.id ? "location" : undefined}
             className={styles.navLink}
-            href={item.href}
+            href={sitePath(item.href)}
             newTab={newTab}
             onClick={onNavigate}
           >
@@ -137,12 +140,12 @@ export function CommandCenterNavigation() {
         : [
             {
               href: "/research",
-              label: "Research archive",
+              label: "Research",
               hint: "Page",
               newTab: true,
             },
           ]),
-      { href: "/resume", label: "Print résumé", hint: "Document", newTab: true },
+      { href: "/resume", label: "Résumé", hint: "Document", newTab: true },
     ];
     const normalizedQuery = query.trim().toLowerCase();
     if (!normalizedQuery) return commandActions;
@@ -212,8 +215,8 @@ export function CommandCenterNavigation() {
       >
         <header className={styles.dialogHeader}>
           <div>
-            <p>Navigation system</p>
-            <strong id="command-center-title">Navigate portfolio</strong>
+            <p>Quick navigation</p>
+            <strong id="command-center-title">Go to</strong>
           </div>
           <button
             aria-label="Close navigation search"
@@ -238,7 +241,7 @@ export function CommandCenterNavigation() {
               <li key={action.href}>
                 <SafeLink
                   className={styles.commandLink}
-                  href={action.href}
+                  href={sitePath(action.href)}
                   newTab={action.newTab}
                   onClick={closeDialog}
                 >

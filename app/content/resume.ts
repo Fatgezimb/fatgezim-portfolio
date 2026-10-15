@@ -1,7 +1,7 @@
 export type PublicLink = {
   label: string;
   href: string;
-  kind: "email" | "profile" | "site";
+  kind: "profile" | "site";
 };
 
 export type ExperienceItem = {
@@ -35,57 +35,53 @@ export type EducationItem = {
 export const identity = {
   name: 'Fatgezim “Zim” Bela',
   shortName: "Zim Bela",
+  email: "fatgezimbela1@gmail.com",
   headline:
-    "Board Certified Behavior Analyst | Licensed in North Carolina, Virginia & New York",
+    "Founder and CTO · Software Engineering · Data and Scientific Systems",
   shortHeadline:
-    "BCBA, Medical Student & Technology Founder",
+    "Founder, CTO, and Hands-on Software Builder",
   summary:
-    "I’m a BCBA focused on language acquisition, functional communication training, and culturally responsive care across home, school, and telehealth settings. I combine individualized programming, RBT supervision, and caregiver collaboration with a background in data science and medical education. I also serve as CTO of Create 13 Group, founded NeuroPath LLC, and co-build Bela Data Lab with Meili Bela.",
+    "I lead technology and build software from workflow discovery through implementation and testing. My work spans typed web applications, Python and SQL data workflows, browser automation, and reproducible neuroscience software. A background in behavioral science and medical education helps me translate complex domain requirements into practical products.",
 } as const;
 
 export const currentFocus = [
-  "BCBA · Licensed in NC, VA & NY",
-  "Home, school & telehealth care",
-  "CTO, Create 13 Group",
-  "Founder, NeuroPath LLC",
+  "Founder and CTO, Create 13 Group",
+  "Founder and CTO, NeuroPath LLC",
+  "Software, data, and workflow automation",
+  "Scientific software and learning products",
 ] as const;
 
 export const profileDomains = [
   {
-    title: "Clinical practice",
+    title: "Behavioral health",
     description:
-      "Functional communication, language acquisition, individualized behavior support, and RBT supervision.",
+      "Applied behavior analysis, caregiver collaboration, skill acquisition, and clinical workflow design.",
   },
   {
     title: "Medicine and research",
     description:
-      "Medical education at Ross University, with a foundation in neuroscience and neuroimaging research.",
+      "Current medical education grounded in earlier computational neuroscience and neuroimaging research experience.",
   },
   {
     title: "Data and software",
     description:
-      "Data analysis, workflow automation, and typed web products designed around real operational needs.",
+      "Data analysis, workflow automation, and web applications designed around real operational needs.",
   },
   {
-    title: "Technology leadership",
+    title: "Founder and product leadership",
     description:
-      "CTO of Create 13 Group, founder of NeuroPath LLC, and co-founder and co-builder of Bela Data Lab with Meili Bela.",
+      "Building NeuroPath and co-developing Bela Data Lab products with Meili Bela.",
   },
 ] as const;
 
 export const publicLinks: PublicLink[] = [
   {
-    label: "fatgezimbela1@gmail.com",
-    href: "mailto:fatgezimbela1@gmail.com",
-    kind: "email",
-  },
-  {
-    label: "LinkedIn",
+    label: "linkedin.com/in/fatgezimzimbela",
     href: "https://www.linkedin.com/in/fatgezimzimbela/",
     kind: "profile",
   },
   {
-    label: "GitHub",
+    label: "github.com/Fatgezimb",
     href: "https://github.com/Fatgezimb",
     kind: "profile",
   },
@@ -93,42 +89,46 @@ export const publicLinks: PublicLink[] = [
 
 export const experience: ExperienceItem[] = [
   {
-    id: "bcba-practice",
-    title: "Board Certified Behavior Analyst",
-    organization: "Achievements",
-    dates: "April 2025 – Present",
-    summary:
-      "Hybrid and remote BCBA practice in North Carolina, with a focus on communication, language acquisition, and care that fits family life.",
+    id: "create13-cto",
+    title: "Founder and Chief Technology Officer",
+    organization: "Create 13 Group",
+    dates: "2018 - Present",
+    summary: "Lead technology direction and hands-on software development, translating business requirements into product architecture and implementation priorities.",
     highlights: [
-      "Conduct comprehensive FBAs and develop individualized, data-driven BIPs emphasizing functional communication training (FCT) and language acquisition across home, school, and telehealth settings.",
-      "Deliver hybrid supervision for RBTs, modeling evidence-based ABA strategies including DTT, NET, and naturalistic FCT procedures to increase spontaneous manding and carrier phrase use.",
-      "Collaborate with caregivers and interdisciplinary teams to promote generalization of communication and play skills, adapting programming to family routines and cultural context.",
-      "Analyze session data to guide ongoing treatment modifications, ensuring interventions produce meaningful, socially valid behavior change and measurable language growth.",
+      "Own technical scoping, integration decisions, interface development, and release planning.",
+      "Work directly in the codebase while coordinating product requirements and iterative delivery.",
     ],
-    statusLabel: "Clinical practice · Hybrid / remote",
-    evidence: ["Fatgezim_Bela_Resume_2026.pdf"],
+    statusLabel: "Current leadership",
+    evidence: ["Owner confirmation, October 15, 2026", "Supplied technical resume"],
     uncertaintyFlags: [],
   },
   {
-    id: "create-13-cto",
-    title: "Chief Technology Officer",
-    organization: "Create 13 Group",
-    summary: "Technology leadership at Create 13 Group.",
-    highlights: [],
-    statusLabel: "Technology leadership",
-    evidence: ["Owner confirmation, September 2026"],
-    uncertaintyFlags: [],
+    id: "bcba-practice",
+    title: "Board Certified Behavior Analyst",
+    dates: "Since 2025",
+    summary:
+      "Behavior-analytic practice centered on assessment, individualized programming, skill development, caregiver collaboration, and team support.",
+    highlights: [
+      "Functional behavior assessment and behavior intervention planning",
+      "Skill-acquisition programming using evidence-based teaching approaches",
+      "Caregiver collaboration and RBT supervision",
+    ],
+    statusLabel: "Current practice",
+    evidence: ["Owner confirmation", "Current résumé"],
+    uncertaintyFlags: [
+      "Current employer, city, and exact start month intentionally omitted pending final public wording.",
+    ],
   },
   {
     id: "founder-practice",
-    title: "Founder",
+    title: "Founder and Chief Technology Officer",
     organization: "NeuroPath LLC",
+    dates: "2026 - Present",
     summary:
-      "Builds behavioral-health learning products and practical tools for clinicians, caregivers, and learners.",
+      "Lead product architecture and engineering for behavioral-health learning and operational software; co-build Bela Data Lab products with Meili Bela.",
     highlights: [
-      "Founder and product strategy for NeuroPath",
-      "Co-founder and co-builder of Bela Data Lab with Meili Bela",
-      "Clinical perspective on learning tools, analytics, and workflow design",
+      "Translate clinical and operational workflows into structured data, review states, and usable interfaces.",
+      "Build browser-local analytics, education tools, and workflow automation with explicit data boundaries.",
     ],
     statusLabel: "Current focus",
     evidence: ["Owner confirmation", "Current product repositories"],
@@ -136,67 +136,57 @@ export const experience: ExperienceItem[] = [
   },
   {
     id: "data-product-practice",
-    title: "Data Scientist",
-    organization: "1331 Recordz",
-    dates: "January 2022 – Present",
+    title: "Data Scientist and Software Product Builder",
     summary:
-      "Data analysis, predictive modeling, and visual reporting to support business decisions.",
+      "Applies data analysis, software engineering, and workflow design to learning, operations, and behavioral-health products.",
     highlights: [
-      "Collected, cleaned, and analyzed large datasets using Python, SQL, and statistical methods to uncover actionable insights and support data-driven decision making.",
-      "Developed predictive models and machine learning algorithms (e.g., regression, classification, clustering) to solve business problems and improve performance metrics.",
-      "Communicated complex data findings through visualizations (e.g., Tableau, Matplotlib, Seaborn) and clear reporting to both technical and non-technical stakeholders.",
+      "Python and SQL analysis workflows",
+      "Typed web application development and testing",
+      "Browser automation and local-first data workflows",
     ],
-    statusLabel: "Data science",
-    evidence: ["Fatgezim_Bela_Resume_2026.pdf"],
-    uncertaintyFlags: [],
+    statusLabel: "Current work",
+    evidence: ["Current project repositories", "Owner confirmation"],
+    uncertaintyFlags: [
+      "Unverified employer names and employment dates are intentionally omitted.",
+    ],
   },
   {
     id: "tmci-data-engineer",
     title: "Data Engineer",
     organization: "The McVay Company, Inc.",
-    dates: "October 2022 – January 2023",
+    dates: "October 2022 - January 2023",
     summary:
-      "Data engineering experience in a government-related environment.",
+      "Contributed to data-engineering workflows at The McVay Company, Inc.",
     highlights: [],
-    statusLabel: "Data engineering",
+    statusLabel: "Previous role",
     evidence: ["Owner confirmation", "Historical résumé"],
-    uncertaintyFlags: [],
+    uncertaintyFlags: [
+      "Owner marked the title and dates as provisional for the public portfolio.",
+    ],
   },
   {
-    id: "connex-aba-technician",
+    id: "earlier-aba-practice",
     title: "ABA Technician",
-    organization: "Connex Family Services",
-    dates: "August 2019 – January 2021",
+    dates: "2017 - 2019",
     summary:
-      "Direct ABA services delivered remotely and in Manassas, Virginia.",
+      "Applied behavior analysis experience supporting skill development and behavior-change programs.",
     highlights: [
-      "Conducted behavioral assessments and functional analyses under the supervision of a BCBA to identify the function of problem behaviors and inform intervention planning.",
-      "Designed and implemented skill acquisition programs targeting communication, daily living, and social skills, aligned with individualized treatment goals.",
-      "Collected, graphed, and analyzed data using ABA software to monitor client progress and guide clinical decision-making during supervision meetings.",
+      "Direct implementation of behavior-analytic programming",
+      "ABA experience with Connex Family Services",
     ],
-    statusLabel: "Clinical experience",
-    evidence: ["Fatgezim_Bela_Resume_2026.pdf"],
-    uncertaintyFlags: [],
-  },
-  {
-    id: "abc-aba-technician",
-    title: "ABA Technician",
-    organization: "ABC Behavior – Hi-Five ABA Therapy",
-    dates: "May 2017 – August 2019",
-    summary:
-      "Direct ABA services for clients ages 2–18 in Manassas, Virginia.",
-    highlights: [
-      "Implemented individualized behavior intervention plans using evidence-based ABA techniques (e.g., DTT, NET) to support clients with developmental and behavioral needs aged 2–18.",
-      "Collected and recorded accurate data on target behaviors and skill acquisition goals to inform treatment decisions and monitor progress.",
-      "Collaborated with BCBAs, caregivers, and interdisciplinary teams to ensure consistent implementation of strategies and promote generalization of skills across settings.",
+    statusLabel: "Previous role",
+    evidence: ["Owner confirmation", "Historical résumés"],
+    uncertaintyFlags: [
+      "Official employer naming, organization relationships, and precise end date remain omitted pending verification.",
+      "The exact Connex title and dates remain omitted pending verification.",
     ],
-    statusLabel: "Clinical experience",
-    evidence: ["Fatgezim_Bela_Resume_2026.pdf"],
-    uncertaintyFlags: [],
   },
-];
+].sort((a, b) => {
+  const order = ["create13-cto", "founder-practice", "data-product-practice", "tmci-data-engineer", "bcba-practice", "earlier-aba-practice"];
+  return order.indexOf(a.id) - order.indexOf(b.id);
+});
 
-export const skillGroups: SkillGroup[] = [
+export const skillGroups: SkillGroup[] = ([
   {
     id: "behavioral-science",
     title: "Behavioral science and ABA",
@@ -205,15 +195,12 @@ export const skillGroups: SkillGroup[] = [
       "Functional behavior assessment",
       "Behavior intervention planning",
       "Functional communication training",
-      "Language acquisition",
       "Discrete-trial and natural-environment teaching",
       "Skill-acquisition programming",
       "Caregiver collaboration",
       "RBT supervision",
-      "Hybrid and telehealth service delivery",
-      "Culturally responsive programming",
     ],
-    evidenceNote: "Applied across home, school, and telehealth settings.",
+    evidenceNote: "Used in current clinical practice and earlier ABA work.",
   },
   {
     id: "data-engineering",
@@ -225,11 +212,10 @@ export const skillGroups: SkillGroup[] = [
       "Statistical analysis",
       "Regression, classification, and clustering",
       "Data visualization",
-      "Tableau, Matplotlib, and Seaborn",
       "Workflow automation",
       "Operational reporting",
     ],
-    evidenceNote: "Analysis, modeling, and reporting at 1331 Recordz.",
+    evidenceNote: "Applied across data projects and active products.",
   },
   {
     id: "software-product",
@@ -237,14 +223,18 @@ export const skillGroups: SkillGroup[] = [
     level: "Applied",
     skills: [
       "TypeScript and React",
+      "JavaScript and Next.js",
+      "Semantic HTML and CSS",
+      "Git and GitHub Actions",
+      "Vitest and Playwright",
       "Accessible interface design",
       "Testing and static deployment",
       "Local-first data handling",
       "Browser automation",
       "Product workflow design",
-      "Privacy-aware prototyping",
+      "Responsible product prototyping",
     ],
-    evidenceNote: "Applied through NeuroPath and Bela Data Lab products.",
+    evidenceNote: "Applied across current product repositories and public applications.",
   },
   {
     id: "research-methods",
@@ -260,7 +250,7 @@ export const skillGroups: SkillGroup[] = [
       "Three-dimensional neuron reconstruction",
     ],
     evidenceNote:
-      "Research experience at George Mason University.",
+      "Experience from computational neuroscience and neuroimaging work at George Mason University.",
   },
   {
     id: "leadership",
@@ -268,29 +258,30 @@ export const skillGroups: SkillGroup[] = [
     level: "Applied",
     skills: [
       "Founder-led product development",
-      "Technology leadership",
       "Cross-domain problem framing",
       "Clinical and technical collaboration",
       "Product scoping",
-      "Interdisciplinary collaboration",
+      "Responsible product development",
     ],
-    evidenceNote: "Create 13 Group, NeuroPath, and Bela Data Lab.",
+    evidenceNote: "Applied through NeuroPath and Bela Data Lab product development.",
   },
-];
+] satisfies SkillGroup[]).sort((a, b) => {
+  const order = ["software-product", "data-engineering", "leadership", "research-methods", "behavioral-science"];
+  return order.indexOf(a.id) - order.indexOf(b.id);
+});
 
 export const education: EducationItem[] = [
   {
     id: "ross-md",
     credential: "Doctor of Medicine Candidate",
     institution: "Ross University School of Medicine",
-    date: "Expected May 2028",
-    status: "Current medical student",
+    date: "Expected 2028",
   },
   {
     id: "gmu-med",
     credential: "M.Ed. in Special Education",
     institution: "George Mason University",
-    date: "December 2020",
+    date: "2020",
   },
   {
     id: "gmu-aba-certificate",
@@ -302,7 +293,7 @@ export const education: EducationItem[] = [
     id: "gmu-neuroscience",
     credential: "B.S. in Neuroscience",
     institution: "George Mason University",
-    date: "May 2017",
+    date: "2017",
   },
 ];
 
@@ -313,9 +304,3 @@ export const credentials = [
   "Licensed Behavior Analyst - North Carolina",
   "Licensed Behavior Analyst - New York",
 ] as const;
-
-export const publicationPolicy = {
-  resumeDownloadLabel: "Print-ready résumé available",
-  privacyStatement:
-    "Open to BCBA opportunities in North Carolina, Virginia, and New York, including hybrid and remote care.",
-} as const;

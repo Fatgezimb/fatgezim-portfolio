@@ -1,29 +1,27 @@
 import type { Metadata } from "next";
 import { PortfolioPage } from "./components/PortfolioPage";
 import { siteMeta } from "./content/site";
+import { identity, publicLinks } from "./content/resume";
+import { publication } from "./content/publication";
 
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Fatgezim Bela",
-  alternateName: "Zim Bela",
-  url: "https://fatgezimb.github.io/fatgezim-portfolio",
+  name: identity.name,
+  alternateName: identity.shortName,
+  url: publication.url,
   jobTitle: [
-    "Board Certified Behavior Analyst",
-    "Medical Student",
-    "Data Scientist",
-    "Founder, NeuroPath LLC",
-    "Chief Technology Officer, Create 13 Group",
+    "Founder and Chief Technology Officer",
+    "Software and Data Systems Builder",
   ],
-  sameAs: [
-    "https://github.com/Fatgezimb",
-    "https://www.linkedin.com/in/fatgezimzimbela/",
-  ],
+  sameAs: publicLinks.map((link) => link.href),
   knowsAbout: [
     "Applied behavior analysis",
     "Medical education",
     "Data science",
     "Software development",
+    "Workflow automation",
+    "Scientific computing",
     "Behavioral health technology",
   ],
 };

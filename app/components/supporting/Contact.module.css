@@ -78,8 +78,7 @@
 }
 
 .formHeading h3,
-.formHeading p,
-.formEyebrow {
+.formHeading p {
   margin: 0;
 }
 
@@ -87,16 +86,8 @@
   font-size: clamp(1.5rem, 3vw, 2.15rem);
 }
 
-.formHeading p:not(.formEyebrow) {
+.formHeading p {
   color: var(--text-soft);
-}
-
-.formEyebrow {
-  color: var(--accent-strong);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 .formGrid {
@@ -147,14 +138,7 @@
   display: flex;
   gap: 1rem;
   align-items: center;
-  justify-content: space-between;
-}
-
-.formFooter p {
-  max-width: 34rem;
-  margin: 0;
-  color: var(--text-soft);
-  font-size: 0.76rem;
+  justify-content: flex-end;
 }
 
 .formFooter button {
@@ -166,18 +150,6 @@
   color: var(--page);
   font-weight: 760;
   cursor: pointer;
-}
-
-.emailFallback {
-  margin: 0;
-  color: var(--text-soft);
-  font-size: 0.82rem;
-}
-
-.emailFallback a {
-  color: var(--accent-strong);
-  font-weight: 700;
-  overflow-wrap: anywhere;
 }
 
 .contactLinks {
@@ -226,11 +198,6 @@
   overflow-wrap: anywhere;
 }
 
-.contactLinks a[href^="mailto:"] .linkLabel {
-  font-size: clamp(1rem, 1.55vw, 1.3rem);
-  letter-spacing: -0.02em;
-}
-
 .linkArrow {
   display: grid;
   width: 2rem;
@@ -250,7 +217,7 @@
   transform: translate(0.15rem, -0.15rem);
 }
 
-.contactBoundary {
+.resumeCard {
   position: relative;
   align-self: stretch;
   overflow: hidden;
@@ -263,7 +230,7 @@
   box-shadow: inset 0 1px var(--inset-highlight);
 }
 
-.contactBoundary::after {
+.resumeCard::after {
   position: absolute;
   right: -2rem;
   bottom: -2rem;
@@ -276,7 +243,7 @@
   pointer-events: none;
 }
 
-.boundarySignal {
+.cardAccent {
   display: block;
   width: 2.75rem;
   height: 2px;
@@ -285,7 +252,7 @@
   box-shadow: 0 0 10px color-mix(in srgb, var(--violet) 46%, transparent);
 }
 
-.statusLabel {
+.cardLabel {
   margin-bottom: 0.7rem;
   color: var(--violet);
   font-family: var(--font-geist-mono), monospace;
@@ -294,7 +261,7 @@
   text-transform: uppercase;
 }
 
-.contactBoundary > p:not(.statusLabel) {
+.resumeCard > p:not(.cardLabel) {
   color: var(--text-soft);
 }
 
@@ -375,6 +342,11 @@
     gap: 0.5rem;
     padding-inline: 0.3rem;
   }
+
+  .linkLabel {
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -400,10 +372,10 @@
 
   .convergenceField,
   .contactForm,
-  .boundarySignal,
+  .cardAccent,
   .linkIndex,
   .linkArrow,
-  .contactBoundary::after {
+  .resumeCard::after {
     display: none;
   }
 
@@ -413,9 +385,9 @@
   }
 
   .contactLinks a,
-  .contactBoundary,
-  .contactBoundary > p:not(.statusLabel),
-  .statusLabel,
+  .resumeCard,
+  .resumeCard > p:not(.cardLabel),
+  .cardLabel,
   .resumeLink {
     border-color: #777;
     background: transparent;

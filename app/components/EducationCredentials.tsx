@@ -10,9 +10,9 @@ export function EducationCredentials() {
       id="education"
     >
       <SectionHeading
-        eyebrow="Education & licensure"
+        eyebrow="Education / 07"
         title="Education & credentials"
-        description="A foundation in neuroscience and special education, strengthened by ongoing medical training."
+        description="Medical education, graduate training, neuroscience, and professional credentials."
       />
       <div className={styles.educationLayout}>
         <ol className={styles.educationList}>
@@ -38,7 +38,6 @@ export function EducationCredentials() {
             <span>Credential index</span>
             <span>{String(credentials.length).padStart(2, "0")}</span>
           </div>
-          <p className={styles.statusLabel}>Professional qualifications</p>
           <h3 id="credential-heading">Credentials</h3>
           <ul className={styles.credentialList}>
             {credentials.map((credential, index) => (

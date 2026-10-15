@@ -12,7 +12,7 @@ export function FounderContext() {
       id="founder"
     >
       <SectionHeading
-        eyebrow="Technology leadership"
+        eyebrow="Founder / 06"
         title={founderContext.heading}
         description={founderContext.introduction}
       />
@@ -37,11 +37,11 @@ export function FounderContext() {
               <strong>{item.name}</strong>
             </div>
           ))}
-          <div className={styles.ecosystemBoundary}>Product ecosystem</div>
+          <div className={styles.ecosystemBoundary}>NeuroPath ventures</div>
         </figure>
 
         <div className={styles.relationshipIndex}>
-          <p className={styles.indexLabel}>Organizations & roles</p>
+          <p className={styles.indexLabel}>Roles and ventures</p>
           <ol className={styles.relationshipList}>
             {founderContext.relationships.map((item, index) => (
               <li data-reveal="up" key={item.name}>
@@ -64,7 +64,7 @@ export function FounderContext() {
         </div>
       </div>
       <p className={styles.creditNote}>
-        Bela Data Lab products are co-created by Meili Bela and Fatgezim “Zim” Bela.
+        Bela Data Lab products are co-created with Meili Bela.
       </p>
     </section>
   );

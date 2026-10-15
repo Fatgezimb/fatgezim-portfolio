@@ -10,9 +10,9 @@ export function Experience() {
       id="experience"
     >
       <SectionHeading
-        eyebrow="Clinical practice & leadership"
+        eyebrow="Experience / 03"
         title="Selected experience"
-        description="Direct care, clinical supervision, data science, and technology leadership—grounded in a foundation of ABA practice since 2017."
+        description="Clinical, founder, data, software, and behavioral-health experience."
       />
       <div className={styles.timelineFrame}>
         <svg
@@ -50,7 +50,6 @@ export function Experience() {
                 <span className={styles.cardTrace} aria-hidden="true" />
                 <header className={styles.cardHeader}>
                   <div>
-                    <p className={styles.statusLabel}>{item.statusLabel}</p>
                     <h3>{item.title}</h3>
                     {item.organization ? (
                       <p className={styles.organization}>{item.organization}</p>
@@ -59,11 +58,13 @@ export function Experience() {
                   {item.dates ? <p className={styles.timelineDate}>{item.dates}</p> : null}
                 </header>
                 <p className={styles.summary}>{item.summary}</p>
-                {item.highlights.length > 0 ? <ul className={styles.highlights}>
-                  {item.highlights.map((highlight) => (
-                    <li key={highlight}>{highlight}</li>
-                  ))}
-                </ul> : null}
+                {item.highlights.length ? (
+                  <ul className={styles.highlights}>
+                    {item.highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
+                ) : null}
               </article>
             </li>
           ))}

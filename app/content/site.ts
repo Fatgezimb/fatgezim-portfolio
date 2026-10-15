@@ -1,3 +1,5 @@
+import { identity, publicLinks } from "./resume";
+
 export type NavigationItem = {
   href: `/#${string}`;
   id: string;
@@ -7,7 +9,7 @@ export type NavigationItem = {
 export type PublicLink = {
   href: string;
   label: string;
-  kind: "email" | "github" | "linkedin";
+  kind: "github" | "linkedin";
   external: boolean;
 };
 
@@ -49,134 +51,109 @@ export type SiteContent = {
   };
   footer: {
     copyright: string;
-    privacyNote: string;
   };
   contentBoundaries: readonly string[];
 };
 
 export const navigationItems = [
   { href: "/#about", id: "about", label: "About" },
-  { href: "/#experience", id: "experience", label: "Experience" },
-  { href: "/#education", id: "education", label: "Education" },
   { href: "/#projects", id: "projects", label: "Featured work" },
+  { href: "/#experience", id: "experience", label: "Experience" },
   { href: "/#skills", id: "skills", label: "Skills" },
   { href: "/#research", id: "research", label: "Research" },
-  { href: "/#founder", id: "founder", label: "Leadership" },
+  { href: "/#founder", id: "founder", label: "Founder" },
+  { href: "/#education", id: "education", label: "Education" },
   { href: "/#contact", id: "contact", label: "Contact" },
 ] as const satisfies readonly NavigationItem[];
 
 export const siteMeta = {
-  title: "Fatgezim “Zim” Bela | BCBA · Licensed in NC, VA & NY",
+  title: "Fatgezim “Zim” Bela | Founder, CTO, Software and Data Systems",
   description:
-    "Meet Fatgezim “Zim” Bela, a BCBA licensed in North Carolina, Virginia, and New York. Clinical experience in language acquisition, FCT, RBT supervision, and hybrid care. CTO of Create 13 Group and founder of NeuroPath.",
+    "Hands-on technology leadership, software engineering, workflow automation, and scientific data systems by Fatgezim “Zim” Bela.",
   sectionOrder: [
     "about",
-    "experience",
-    "education",
     "projects",
+    "experience",
     "skills",
     "research",
     "founder",
+    "education",
     "contact",
   ],
 } as const;
 
 export const siteContent = {
   hero: {
-    eyebrow: "Board Certified Behavior Analyst · NC / VA / NY",
-    displayName: "Fatgezim “Zim” Bela",
-    shortName: "Zim Bela",
-    headline:
-      "I help people build skills for everyday life.",
-    shortHeadline: "BCBA, Medical Student & Technology Founder",
-    roleLine: "BCBA · Medical Student · CTO · Founder",
-    summary:
-      "I’m Zim, a BCBA focused on language acquisition, functional communication, and care across home, school, and telehealth. I also build technology that supports clinicians, caregivers, and learners.",
+    eyebrow: "Software · data · automation · scientific computing",
+    displayName: identity.name,
+    shortName: identity.shortName,
+    headline: identity.headline,
+    shortHeadline: identity.shortHeadline,
+    roleLine: "Founder and CTO · Software and Data Systems",
+    summary: identity.summary,
     roles: [
-      "Board Certified Behavior Analyst",
-      "Medical Student",
-      "CTO, Create 13 Group",
-      "Founder, NeuroPath LLC",
-      "Co-founder and Co-builder, Bela Data Lab",
+      "Founder and CTO, Create 13 Group",
+      "Founder and CTO, NeuroPath LLC",
+      "Software and Data Systems Builder",
+      "Co-founder and Co-builder, Bela Data Lab products",
     ],
-    primaryAction: { href: "/#experience", id: "experience", label: "Explore my experience" },
-    contactAction: { href: "/#contact", id: "contact", label: "Let’s connect" },
+    primaryAction: { href: "/#projects", id: "projects", label: "View featured work" },
+    contactAction: { href: "/#contact", id: "contact", label: "Contact" },
   },
   about: {
-    heading: "Clinical care, informed by a broader perspective.",
+    heading: "About",
     paragraphs: [
-      "I’m a Board Certified Behavior Analyst licensed in North Carolina, Virginia, and New York. At Achievements, I develop individualized programs, supervise RBTs, and partner with caregivers and interdisciplinary teams. My clinical focus is helping communication and play skills carry into everyday routines through culturally responsive, data-driven care.",
-      "My background in neuroscience, data science, and medical education shapes how I understand clinical problems. I’m also CTO of Create 13 Group, founder of NeuroPath LLC, and co-founder and co-builder of Bela Data Lab with Meili Bela. Together, these roles let me connect hands-on clinical experience with useful learning tools and technology.",
+      "I’m a founder and CTO who works directly on product architecture, interfaces, data workflows, and automation. I start with the people and decisions a system needs to support, then turn those requirements into software that can be inspected, tested, and improved.",
+      "I lead technology at Create 13 Group and NeuroPath LLC and co-build Bela Data Lab products with Meili Bela. My clinical background, medical education, and neuroscience research inform how I approach data, uncertainty, and complex workflows.",
     ],
     domains: [
       "Behavioral science and ABA",
       "Medical education",
       "Data science and engineering",
       "Software and workflow automation",
-      "Technology and founder leadership",
+      "Founder and product leadership",
     ],
   },
   featuredWork: {
     heading: "Featured work",
     introduction:
-      "Learning tools, analytics, and workflow projects shaped by experience in behavioral health, data science, and medical education.",
+      "Scientific software, browser-local analytics, learning platforms, and automation—each with an inspectable workflow, a clear technical role, and an explicit product status.",
   },
   founderContext: {
-    heading: "Building beyond the clinic.",
+    heading: "Building NeuroPath",
     introduction:
-      "My technology and founder work extends the same interest in practical problem-solving: making information, learning, and everyday workflows easier to use.",
+      "As Founder and CTO of NeuroPath LLC, I bring behavioral science, healthcare, data, education, and software into practical products.",
     relationships: [
       {
         name: "Create 13 Group",
-        relationship: "Technology leadership",
-        role: "Chief Technology Officer",
+        relationship: "Technology leadership and product engineering",
+        role: "Founder and CTO",
       },
       {
         name: "NeuroPath",
-        relationship: "Behavioral-health technology and learning tools",
-        role: "Founder, NeuroPath LLC",
+        relationship: "Behavioral-health technology company",
+        role: "Founder and CTO, NeuroPath LLC",
       },
       {
         name: "Bela Data Lab",
-        relationship: "Learning and data products within NeuroPath",
+        relationship: "Data and learning products co-built with Meili Bela",
         role: "Co-founder and Co-builder with Meili Bela",
       },
       {
         name: "Bela Data Lab Caregiver Academy",
-        relationship: "Caregiver learning and education",
+        relationship: "Caregiver education platform",
         role: "Co-founder, Product Builder, and BCBA Contributor",
       },
     ],
   },
   contact: {
-    heading: "Let’s talk about your clinical team.",
+    heading: "Contact",
     introduction:
-      "I’m exploring BCBA roles where individualized care, thoughtful supervision, and caregiver collaboration matter. Connect with me about opportunities in North Carolina, Virginia, and New York, including hybrid and remote care.",
-    links: [
-      {
-        href: "mailto:fatgezimbela1@gmail.com",
-        label: "fatgezimbela1@gmail.com",
-        kind: "email",
-        external: false,
-      },
-      {
-        href: "https://www.linkedin.com/in/fatgezimzimbela/",
-        label: "LinkedIn",
-        kind: "linkedin",
-        external: true,
-      },
-      {
-        href: "https://github.com/Fatgezimb",
-        label: "GitHub",
-        kind: "github",
-        external: true,
-      },
-    ],
+      "Let’s discuss software engineering, data systems, scientific computing, technical leadership, or a product with a complex workflow to solve.",
+    links: publicLinks.map((link) => ({ ...link, kind: link.href.includes("linkedin") ? "linkedin" as const : "github" as const, external: true })),
   },
   footer: {
     copyright: "© 2026 Fatgezim “Zim” Bela",
-    privacyNote:
-      "Behavioral science. Thoughtful care. Practical technology.",
   },
   contentBoundaries: [
     "Do not publish a phone number, street address, license number, provider identifier, or certificate identifier.",

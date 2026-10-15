@@ -1,12 +1,12 @@
 "use client";
 
-import { publicPath } from "@/app/lib/public-path";
+import { sitePath } from "@/app/content/paths";
 
 import { useEffect, useRef } from "react";
 import { SafeLink } from "./SafeLink";
 
-const VIDEO_SRC = publicPath("/media/fatgezim-bela-soccer-winning-penalty.mp4");
-const POSTER_SRC = publicPath("/media/fatgezim-bela-soccer-winning-penalty-poster.jpg");
+const VIDEO_SRC = sitePath("/media/fatgezim-bela-soccer-winning-penalty.mp4");
+const POSTER_SRC = sitePath("/media/fatgezim-bela-soccer-winning-penalty-poster.jpg");
 
 export function DeferredSoccerVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -66,7 +66,7 @@ export function DeferredSoccerVideo() {
         {/* A real poster remains visible when client-side loading is unavailable. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          alt="Zim preparing to take the winning penalty in an archival Mason Intramurals post"
+          alt="Zim preparing to take the winning penalty in a Mason Intramurals post"
           decoding="async"
           height="720"
           loading="lazy"
@@ -75,7 +75,7 @@ export function DeferredSoccerVideo() {
         />
         <p>
           <SafeLink href={VIDEO_SRC} newTab>
-            Open the archival soccer clip
+            Play the soccer clip
           </SafeLink>
         </p>
       </noscript>

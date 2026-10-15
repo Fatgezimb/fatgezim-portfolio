@@ -11,11 +11,11 @@ const demonstratedBy: Record<
     projects: ["Bela Data Lab Caregiver Academy", "RBT Practice Hub"],
   },
   "data-engineering": {
-    roles: ["Data Scientist", "Data Engineer"],
+    roles: ["Data Scientist and Software Product Builder", "Data Engineer"],
     projects: ["Bela Behavior Data Lab", "NeuroPath Insight"],
   },
   "software-product": {
-    roles: ["Founder, NeuroPath LLC", "Data Scientist"],
+    roles: ["Founder and CTO, NeuroPath LLC", "Data Scientist and Software Product Builder"],
     projects: ["StepSpark", "Rethink Automations", "Bela Behavior Data Lab"],
   },
   "research-methods": {
@@ -23,7 +23,7 @@ const demonstratedBy: Record<
     projects: ["Computational neuroscience and neuroimaging research"],
   },
   leadership: {
-    roles: ["CTO, Create 13 Group", "Founder, NeuroPath LLC", "Co-founder and Co-builder, Bela Data Lab"],
+    roles: ["Founder and CTO, Create 13 Group", "Founder and CTO, NeuroPath LLC", "Co-founder and Co-builder, Bela Data Lab products"],
     projects: ["Bela Behavior Data Lab", "Bela Data Lab Caregiver Academy"],
   },
 };
@@ -36,13 +36,13 @@ export function Skills() {
       id="skills"
     >
       <SectionHeading
-        eyebrow="Clinical & technical capabilities"
+        eyebrow="Capabilities / 04"
         title="Skills"
-        description="Behavioral science, analytical thinking, and product development brought together in practice."
+        description="Capabilities demonstrated through clinical practice, product development, and research."
       />
       <figure className={styles.evidenceMap} aria-labelledby="skills-evidence-map-caption">
         <figcaption className={styles.mapCaption} id="skills-evidence-map-caption">
-          <span className={styles.mapCaptionTitle}>Connected disciplines</span>
+          <span className={styles.mapCaptionTitle}>Experience map</span>
           <span>{String(skillGroups.length).padStart(2, "0")} capability groups</span>
         </figcaption>
 
@@ -56,8 +56,8 @@ export function Skills() {
         </svg>
 
         <div className={styles.mapHub} aria-hidden="true">
-          <span>Practice</span>
-          <strong>People & data</strong>
+          <span>Applied through</span>
+          <strong>Roles &amp; projects</strong>
         </div>
 
         <div className={styles.skillsGrid}>
@@ -87,7 +87,6 @@ export function Skills() {
                   <dd>{demonstratedBy[group.id].projects.join(" · ")}</dd>
                 </div>
               </dl>
-
             </article>
           ))}
         </div>

@@ -7,7 +7,7 @@ export function About() {
   return (
     <section className="content-section section-shell" data-reveal="up" id="about">
       <SectionHeading
-        eyebrow="Clinical perspective"
+        eyebrow="About / 01"
         title={siteContent.about.heading}
         description={siteContent.about.paragraphs[0]}
       />

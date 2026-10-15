@@ -1,9 +1,10 @@
 "use client";
 
 import type { FormEvent } from "react";
+import { identity } from "@/app/content/resume";
 import styles from "./supporting/Contact.module.css";
 
-const CONTACT_EMAIL = "fatgezimbela1@gmail.com";
+const CONTACT_EMAIL = identity.email;
 
 function getTextField(formData: FormData, fieldName: string) {
   const value = formData.get(fieldName);
@@ -49,12 +50,8 @@ export function PortfolioContactForm() {
       onSubmit={openEmailDraft}
     >
       <div className={styles.formHeading}>
-        <p className={styles.formEyebrow}>Email draft</p>
         <h3>Start a conversation</h3>
-        <p>
-          Share the role, project, or collaboration you have in mind. Your email app will open a
-          draft for you to review and send.
-        </p>
+        <p>Tell me about the role, project, or collaboration you have in mind.</p>
       </div>
 
       <div className={styles.formGrid}>
@@ -76,7 +73,6 @@ export function PortfolioContactForm() {
             <option disabled value="">
               Select a topic
             </option>
-            <option>BCBA role or clinical opportunity</option>
             <option>Product or software work</option>
             <option>Behavioral-health technology</option>
             <option>Data or research collaboration</option>
@@ -92,18 +88,8 @@ export function PortfolioContactForm() {
       </div>
 
       <div className={styles.formFooter}>
-        <p id="contact-privacy-note">
-          This site does not send or store your message. Please don’t include PHI, client
-          information, passwords, or other sensitive details.
-        </p>
-        <button aria-describedby="contact-privacy-note" type="submit">
-          Open email draft
-        </button>
+        <button type="submit">Contact me</button>
       </div>
-
-      <p className={styles.emailFallback}>
-        Prefer email? <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-      </p>
     </form>
   );
 }

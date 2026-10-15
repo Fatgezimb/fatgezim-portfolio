@@ -82,7 +82,7 @@ export function NeuralIdentityField({ className }: NeuralIdentityFieldProps) {
       />
 
       <div className={styles.controls}>
-        <p className={styles.controlLabel}>Signal focus / connected disciplines</p>
+        <p className={styles.controlLabel}>Explore connected disciplines</p>
         <p className={styles.visuallyHidden} id="neural-domain-description">
           Choose a discipline to highlight its connection within the multidisciplinary field.
         </p>

@@ -16,8 +16,6 @@ concurrency:
 
 jobs:
   deploy:
-    env:
-      PAGES_BASE_PATH: /fatgezim-portfolio
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -30,8 +28,17 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --fund=false
       - run: npm run lint && npm run typecheck && npm test
+      - run: node --test tests/export-pages.test.mjs
+      - run: npm run build
+        env:
+          PAGES_BASE_PATH: /fatgezim-portfolio
+      - run: npm run start -- --port 4173 > /tmp/portfolio-server.log 2>&1 &
+        env:
+          PAGES_BASE_PATH: /fatgezim-portfolio
+      - run: npx --yes wait-on http://127.0.0.1:4173/fatgezim-portfolio/
       - run: node scripts/export-pages.mjs
         env:
+          PAGES_BASE_PATH: /fatgezim-portfolio
           PAGES_OUTPUT: pages-dist
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

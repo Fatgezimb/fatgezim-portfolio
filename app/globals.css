@@ -475,25 +475,6 @@ ol {
   text-wrap: balance;
 }
 
-.hero__licenses {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0;
-  margin: 0 0 1.5rem;
-  list-style: none;
-}
-
-.hero__licenses li {
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  padding: 0.28rem 0.75rem;
-  background: var(--panel-soft);
-  color: var(--text-soft);
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
 .hero__summary {
   max-width: 42rem;
   margin-bottom: 2rem;
@@ -577,26 +558,13 @@ ol {
   font-weight: 660;
 }
 
-.resume-status {
-  margin-top: 1.1rem;
-  margin-bottom: 0;
-  color: var(--text-muted);
-  font-size: 0.84rem;
-}
-
-.resume-status span {
-  margin-right: 0.35rem;
-  color: var(--warm);
-}
-
 .hero__profile,
 .project-card,
 .domain-card,
 .skill-card,
 .research-card,
 .relationship-card,
-.credential-panel,
-.contact-boundary {
+.credential-panel {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background:
@@ -1645,32 +1613,15 @@ ol {
   overflow-wrap: anywhere;
 }
 
-.contact-boundary {
-  padding: 1.35rem;
-}
-
-.contact-boundary > p:not(.status-label) {
-  color: var(--text-soft);
-}
-
 .site-footer {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 1.5rem;
   align-items: center;
   padding-block: 1.5rem 2rem;
   border-top: 1px solid var(--line);
   color: var(--text-muted);
   font-size: 0.76rem;
-}
-
-.site-footer__signal {
-  margin-bottom: 0.35rem !important;
-  color: var(--accent) !important;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.66rem !important;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 .site-footer p {
@@ -1776,6 +1727,10 @@ ol {
   text-align: right;
 }
 
+.resume-document address a {
+  overflow-wrap: anywhere;
+}
+
 .resume-summary {
   max-width: 49rem;
   margin: 1.4rem 0 0;
@@ -1862,6 +1817,22 @@ ol {
   font-weight: 650;
 }
 
+.resume-project-grid .resume-project-status {
+  margin-top: 0.55rem;
+  color: #2d6868;
+  font-weight: 650;
+}
+
+.resume-project-links, .resume-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.resume-project-links a {
+  text-underline-offset: 0.2em;
+}
+
 .resume-skill-grid article {
   break-inside: avoid;
 }
@@ -1870,26 +1841,6 @@ ol {
   margin-bottom: 0;
   color: #40575c;
   font-size: 0.78rem;
-}
-
-.resume-boundary {
-  padding-left: 0.65rem;
-  border-left: 2px solid #966d27;
-  color: #5b5140 !important;
-  font-style: italic;
-}
-
-.resume-document__footer {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #a5b4b7;
-  color: #53666a;
-  font-size: 0.75rem;
-}
-
-.resume-document__footer p {
-  margin: 0.3rem 0 0;
-  color: #53666a;
 }
 
 @media (max-width: 1050px) {
@@ -2200,6 +2151,7 @@ ol {
   }
 
   body::before,
+  body::after,
   .hero__field,
   .resume-toolbar,
   .print-button {
@@ -2226,7 +2178,7 @@ ol {
   }
 
   .resume-document h1 {
-    font-size: 31pt;
+    font-size: 26pt;
   }
 
   .resume-document__header {
@@ -2239,12 +2191,39 @@ ol {
   }
 
   .resume-columns {
-    display: block;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+    gap: 14pt;
+    break-before: auto;
+  }
+
+  .resume-projects-section {
     break-before: page;
   }
 
+  .resume-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8pt 14pt;
+  }
+
+  .resume-skill-grid > article:nth-child(n + 3) {
+    display: none;
+  }
+
+  .resume-document__header {
+    padding-bottom: 8pt;
+  }
+
+  .resume-summary {
+    margin-top: 8pt;
+  }
+
+  .resume-document section:has(> #resume-research-heading) {
+    break-inside: avoid;
+  }
+
   .resume-document h2 {
-    margin-top: 14pt;
+    margin-top: 10pt;
     font-size: 10.5pt;
   }
 
@@ -2262,12 +2241,12 @@ ol {
   .resume-entry li,
   .resume-plain-list,
   .resume-skill-grid p {
-    font-size: 7.6pt;
+    font-size: 9pt;
     line-height: 1.35;
   }
 
   .resume-project-grid p {
-    font-size: 7.35pt;
+    font-size: 8.5pt;
     line-height: 1.3;
   }
 
@@ -2278,8 +2257,7 @@ ol {
   .resume-entry,
   .resume-project-grid article,
   .resume-skill-grid article,
-  .resume-document__header,
-  .resume-document__footer {
+  .resume-document__header {
     break-inside: avoid;
   }
 
@@ -2287,7 +2265,4 @@ ol {
     text-decoration: none;
   }
 
-  .resume-document__footer {
-    display: none;
-  }
 }

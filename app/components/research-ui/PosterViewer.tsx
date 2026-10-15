@@ -55,11 +55,10 @@ export function PosterViewer({ pdfHref, previewHref, title }: PosterViewerProps)
       >
         <header className={styles.dialogHeader}>
           <div>
-            <p>Original research artifact</p>
+            <p>Research poster</p>
             <h2 id="poster-viewer-title">{title}</h2>
             <p id="poster-viewer-description">
-              Scroll the preview to inspect the poster. A readable HTML summary follows
-              the viewer on this page.
+              Scroll to explore the poster. A concise overview is available below.
             </p>
           </div>
           <button

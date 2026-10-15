@@ -1,27 +1,26 @@
-import { publicPath } from "@/app/lib/public-path";
+import { sitePath } from "@/app/content/paths";
+import { publication } from "@/app/content/publication";
 import type { Metadata } from "next";
-import { researchEvidence } from "@/app/content/evidence";
 import {
   gmuNeuronalReconstruction,
   proposedResearchDirections,
   researchAssets,
-  rossMedicalEducationResearch,
 } from "@/app/content/research";
-import { EvidenceStatus, ResearchPageShell } from "@/app/components/research-ui";
+import { ResearchPageShell } from "@/app/components/research-ui";
 import { SafeLink } from "@/app/components/SafeLink";
 import styles from "./ResearchPage.module.css";
 
 export const metadata: Metadata = {
   title: "Research & Scientific Work",
   description:
-    "Evidence-backed research by Fatgezim Zim Bela spanning computational neuroscience and owner-confirmed medical-education research proposals.",
-  alternates: { canonical: "https://fatgezimb.github.io/fatgezim-portfolio/research" },
+    "Fatgezim Zim Bela's computational-neuroscience research in image processing, neuron tracing, and digital reconstruction.",
+  alternates: { canonical: `${publication.url}research` },
   openGraph: {
     title: "Research & Scientific Work | Fatgezim “Zim” Bela",
     description:
-      "Computational-neuroscience research artifacts, documented methods, and carefully labeled medical-education research experience.",
-    url: "https://fatgezimb.github.io/fatgezim-portfolio/research",
-    images: ["https://fatgezimb.github.io/fatgezim-portfolio/og.png"],
+      "A George Mason University research project in image processing, neuron tracing, and digital reconstruction.",
+    url: `${publication.url}research`,
+    images: [`${publication.url}og.png`],
   },
 };
 
@@ -30,18 +29,18 @@ export default function ResearchPage() {
     <ResearchPageShell className={styles.page}>
       <section className={`section-shell ${styles.hero}`}>
         <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
-          <a href={publicPath("/")}>Portfolio</a>
+          <a href={sitePath("/")} >Portfolio</a>
           <span aria-hidden="true">/</span>
           <span aria-current="page">Research</span>
         </nav>
 
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
-            <EvidenceStatus>Artifact-led research record</EvidenceStatus>
+            <p className={styles.sectionEyebrow}>Research experience</p>
             <h1>Research &amp; scientific work</h1>
             <p className={styles.lede}>
-              A source-backed view of Zim&apos;s collaborative computational-neuroscience
-              work and owner-confirmed medical-education research experience.
+              Explore Zim&apos;s collaborative computational-neuroscience work in image
+              processing, neuron tracing, and digital reconstruction.
             </p>
             <div className={styles.heroActions}>
               <a className={styles.primaryLink} href="#featured-research">
@@ -57,20 +56,20 @@ export default function ResearchPage() {
             </div>
           </div>
 
-          <aside className={styles.heroPanel} aria-label="Research scope">
-            <p>Research scope</p>
+          <aside className={styles.heroPanel} aria-label="Project details">
+            <p>Project details</p>
             <dl>
               <div>
-                <dt>Verified artifact</dt>
-                <dd>George Mason neuronal-reconstruction poster</dd>
+                <dt>Research project</dt>
+                <dd>George Mason neuronal reconstruction</dd>
               </div>
               <div>
-                <dt>Methods represented</dt>
+                <dt>Methods</dt>
                 <dd>Image processing, stitching, tracing, and morphology</dd>
               </div>
               <div>
-                <dt>Additional experience</dt>
-                <dd>Medical-education research proposals</dd>
+                <dt>Result</dt>
+                <dd>Color-coded vectorized-tree reconstruction</dd>
               </div>
             </dl>
           </aside>
@@ -80,13 +79,12 @@ export default function ResearchPage() {
       <section className={`section-shell ${styles.section}`} id="featured-research">
         <header className={styles.sectionHeader}>
           <div>
-            <p className={styles.sectionEyebrow}>Featured artifact</p>
+            <p className={styles.sectionEyebrow}>Featured research</p>
             <h2>From microscopy images to a digital neuron</h2>
           </div>
           <p className={styles.sectionIntro}>
-            The original poster verifies the project title, collaborative authorship,
-            institutional center, documented workflow, and Class 4 neuronal
-            reconstruction shown here.
+            This collaborative George Mason University project transformed overlapping
+            microscopy images into a traced Class 4 neuronal reconstruction.
           </p>
         </header>
 
@@ -103,9 +101,8 @@ export default function ResearchPage() {
             />
           </figure>
           <div className={styles.artifactCopy}>
-            <EvidenceStatus>{gmuNeuronalReconstruction.verificationStatus}</EvidenceStatus>
             <div>
-              <p className={styles.cardEyebrow}>Collaborative research poster</p>
+              <p className={styles.cardEyebrow}>Research poster</p>
               <h3>{gmuNeuronalReconstruction.title}</h3>
               <p className={styles.authors}>
                 <strong>Co-authors:</strong>{" "}
@@ -118,11 +115,8 @@ export default function ResearchPage() {
               </p>
             </div>
             <p>{gmuNeuronalReconstruction.summary}</p>
-            <p className={styles.boundaryNote}>
-              {gmuNeuronalReconstruction.archivalNote}
-            </p>
             <ul
-              aria-label="Documented research methods"
+              aria-label="Research methods"
               className={styles.methodList}
             >
               {gmuNeuronalReconstruction.methods.map((method) => (
@@ -135,7 +129,7 @@ export default function ResearchPage() {
                 href={`/research/${gmuNeuronalReconstruction.slug}`}
                 newTab
               >
-                Explore the project
+                Project details
               </SafeLink>
               <a
                 className={styles.secondaryLink}
@@ -149,39 +143,26 @@ export default function ResearchPage() {
         </article>
       </section>
 
-      <section className={`section-shell ${styles.section}`} id="research-record">
+      <section className={`section-shell ${styles.section}`} id="research-experience">
         <header className={styles.sectionHeader}>
           <div>
-            <p className={styles.sectionEyebrow}>Research record</p>
-            <h2>Verified work and clearly labeled context</h2>
+            <p className={styles.sectionEyebrow}>Research experience</p>
+            <h2>Collaborative computational neuroscience</h2>
           </div>
           <p className={styles.sectionIntro}>
-            Artifact-backed work and owner-confirmed experience are presented with
-            separate status labels so the source of each public statement stays clear.
+            Zim contributed to the image-processing and reconstruction workflow and is
+            credited as a co-author on the research poster.
           </p>
         </header>
 
         <div className={styles.cardGrid}>
           <article className={styles.researchCard}>
-            <EvidenceStatus>{gmuNeuronalReconstruction.verificationStatus}</EvidenceStatus>
             <p className={styles.cardEyebrow}>George Mason University</p>
             <h3>{gmuNeuronalReconstruction.publicTitle}</h3>
             <p>{gmuNeuronalReconstruction.documentedOutput}</p>
             <p className={styles.boundaryNote}>
               Zim is credited as a co-author and contributor alongside Sumit Nanda and
               Giorgio A. Ascoli.
-            </p>
-          </article>
-
-          <article className={styles.researchCard}>
-            <EvidenceStatus pending>{rossMedicalEducationResearch.status}</EvidenceStatus>
-            <p className={styles.cardEyebrow}>
-              {rossMedicalEducationResearch.institution}
-            </p>
-            <h3>{rossMedicalEducationResearch.title}</h3>
-            <p>{rossMedicalEducationResearch.summary}</p>
-            <p className={styles.boundaryNote}>
-              {rossMedicalEducationResearch.evidenceBoundary}
             </p>
           </article>
         </div>
@@ -210,49 +191,11 @@ export default function ResearchPage() {
         </ul>
       </section>
 
-      <section className={`section-shell ${styles.section}`} id="evidence">
-        <header className={styles.sectionHeader}>
-          <div>
-            <p className={styles.sectionEyebrow}>Evidence</p>
-            <h2>How each research statement is supported</h2>
-          </div>
-          <p className={styles.sectionIntro}>
-            Public wording follows the strongest available source and identifies when
-            supporting documentation is still pending.
-          </p>
-        </header>
-
-        <div className={styles.sourceList}>
-          {researchEvidence.map((record) => (
-            <article className={styles.sourceCard} key={record.id}>
-              <EvidenceStatus pending={!record.sourceHref}>{record.status}</EvidenceStatus>
-              <p className={styles.cardEyebrow}>{record.sourceType}</p>
-              <h3>{record.title}</h3>
-              <p>{record.publicNote}</p>
-              <ul>
-                {record.supports.map((claim) => (
-                  <li key={claim}>{claim}</li>
-                ))}
-              </ul>
-              {record.sourceHref ? (
-                <SafeLink
-                  className={styles.textLink}
-                  href={record.sourceHref}
-                  newTab
-                >
-                  View original source
-                </SafeLink>
-              ) : null}
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className={`section-shell ${styles.closingSection}`}>
-        <h2>Explore the complete neuronal-reconstruction workflow</h2>
+        <h2>View the complete neuronal-reconstruction workflow</h2>
         <p>
-          The project page pairs the original artifact with a readable summary, a
-          stage-by-stage workflow, and clearly labeled proposed directions.
+          See the poster overview, seven-stage workflow, methods, result, and proposed
+          directions in one place.
         </p>
         <div className={styles.inlineActions}>
           <SafeLink
@@ -260,10 +203,10 @@ export default function ResearchPage() {
             href={`/research/${gmuNeuronalReconstruction.slug}`}
             newTab
           >
-            Open project page
+            Project details
           </SafeLink>
-          <SafeLink className={styles.secondaryLink} href="/#contact" newTab>
-            Contact Zim
+          <SafeLink className={styles.secondaryLink} href={sitePath("/#contact")}  newTab>
+            Get in touch
           </SafeLink>
         </div>
       </section>

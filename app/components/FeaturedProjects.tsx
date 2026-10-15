@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  featuredProjects,
-  projectSelectionNotes,
-} from "@/app/content/projects";
+import { featuredProjects } from "@/app/content/projects";
 import { siteContent } from "@/app/content/site";
 import { useEffect, useState } from "react";
 import { SafeLink } from "./SafeLink";
@@ -22,7 +19,7 @@ type ProjectCardProps = {
 };
 
 function ProjectCard({ active, project, index, onActivate }: ProjectCardProps) {
-  const projectName = project.verifiedPublicName ?? "Project under review";
+  const projectName = project.verifiedPublicName ?? "Project";
   const projectAnchor = `project-${project.id}`;
 
   return (
@@ -50,10 +47,12 @@ function ProjectCard({ active, project, index, onActivate }: ProjectCardProps) {
           <div className="project-card__copy">
             <p className="project-summary">{project.summary}</p>
             <dl className="project-facts">
-              <div>
-                <dt>Role</dt>
-                <dd>{project.role ?? "Role omitted pending verification"}</dd>
-              </div>
+              {project.role ? (
+                <div>
+                  <dt>Role</dt>
+                  <dd>{project.role}</dd>
+                </div>
+              ) : null}
               <div>
                 <dt>Audience</dt>
                 <dd>{project.audience.join(" · ")}</dd>
@@ -71,18 +70,16 @@ function ProjectCard({ active, project, index, onActivate }: ProjectCardProps) {
 
             {project.evidenceLinks.length ? (
               <div className="project-links" aria-label={`${projectName} links`}>
-                {project.evidenceLinks.map((href, linkIndex) => (
+                {project.evidenceLinks.map((href) => (
                   <SafeLink href={href} key={href} newTab>
-                    {linkIndex === 0
-                      ? "Open project evidence"
-                      : `Evidence link ${linkIndex + 1}`}
+                    {href.includes("github.com")
+                      ? "View source code"
+                      : "Visit project"}
                     <span aria-hidden="true"> ↗</span>
                   </SafeLink>
                 ))}
               </div>
-            ) : (
-              <p className="evidence-status">Private or local project · no public link</p>
-            )}
+            ) : null}
           </div>
 
           <div className="project-demo-shell">
@@ -91,14 +88,16 @@ function ProjectCard({ active, project, index, onActivate }: ProjectCardProps) {
         </div>
 
         <details className="project-details" open={index === 0}>
-          <summary>Evidence-backed scope and boundaries</summary>
+          <summary>Project details</summary>
           <div className="project-details__grid">
+            {project.problem ? (
+              <div>
+                <h4>Problem</h4>
+                <p>{project.problem}</p>
+              </div>
+            ) : null}
             <div>
-              <h4>Problem</h4>
-              <p>{project.problem ?? "Problem statement omitted pending verification."}</p>
-            </div>
-            <div>
-              <h4>Verified outputs</h4>
+              <h4>What I built</h4>
               <ul>
                 {project.verifiedOutputs.map((output) => (
                   <li key={output}>{output}</li>
@@ -106,12 +105,8 @@ function ProjectCard({ active, project, index, onActivate }: ProjectCardProps) {
               </ul>
             </div>
             <div>
-              <h4>Privacy and claim boundaries</h4>
-              <ul>
-                {[...project.privacyNotes, ...project.uncertaintyFlags].map((note) => (
-                  <li key={note}>{note}</li>
-                ))}
-              </ul>
+              <h4>About this preview</h4>
+              <p>{project.publicScope}</p>
             </div>
           </div>
         </details>
@@ -176,12 +171,10 @@ export function FeaturedProjects() {
       id="projects"
     >
       <SectionHeading
-        eyebrow="Selected ventures"
-        title={siteContent.featuredWork.heading}
+        eyebrow="Projects / 02"
+        title="Featured projects"
         description={siteContent.featuredWork.introduction}
       />
-      <p className="selection-note">{projectSelectionNotes.selectionRationale}</p>
-
       <div className="project-lab">
         <div className="project-lab__core" aria-hidden="true">
           <div className="project-lab__core-stage">
@@ -190,7 +183,7 @@ export function FeaturedProjects() {
         </div>
 
         <nav className="project-lab__index" aria-label="Featured project index">
-          <p>Active project signal</p>
+          <p>Browse projects</p>
           <ol>
             {featuredProjects.map((project, index) => {
               const isActive = activeProjectId === project.id;

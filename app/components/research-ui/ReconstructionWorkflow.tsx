@@ -13,11 +13,11 @@ export function ReconstructionWorkflow({
   return (
     <section aria-labelledby={headingId} className={styles.workflowSection}>
       <header className={styles.sectionHeader}>
-        <p className={styles.sectionEyebrow}>Documented process</p>
-        <h2 id={headingId}>Explore the reconstruction workflow</h2>
+        <p className={styles.sectionEyebrow}>Reconstruction workflow</p>
+        <h2 id={headingId}>From microscopy images to a digital neuron</h2>
         <p>
-          The stages below restate the collaborative process documented in the original
-          poster. Every stage remains visible without motion or JavaScript.
+          The poster follows seven stages of image processing, stitching, tracing, and
+          reconstruction.
         </p>
       </header>
 

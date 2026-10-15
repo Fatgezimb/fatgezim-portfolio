@@ -11,7 +11,7 @@ export function SiteHeader() {
           </span>
           <span>
             <strong>{siteContent.hero.shortName}</strong>
-            <small>M.Ed. · BCBA</small>
+            <small>Portfolio</small>
           </span>
         </a>
 

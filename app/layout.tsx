@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { publication } from "./content/publication";
+import { siteMeta } from "./content/site";
 
-const siteUrl = new URL("https://fatgezimb.github.io/fatgezim-portfolio");
-const siteTitle = "Fatgezim “Zim” Bela | BCBA & Technology Leader";
-const siteDescription =
-  "Board Certified Behavior Analyst licensed in NC, VA, and NY. Hybrid clinical care, FCT, RBT supervision, and technology leadership at Create 13 Group, NeuroPath, and Bela Data Lab.";
+const siteUrl = new URL(publication.url);
+const siteTitle = siteMeta.title;
+const siteDescription = siteMeta.description;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,24 +46,24 @@ export const metadata: Metadata = {
   creator: "Fatgezim “Zim” Bela",
   publisher: "Fatgezim “Zim” Bela",
   category: "Portfolio",
-  alternates: { canonical: "https://fatgezimb.github.io/fatgezim-portfolio/" },
+  alternates: { canonical: publication.url },
   icons: {
-    icon: "https://fatgezimb.github.io/fatgezim-portfolio/favicon.svg",
-    shortcut: "https://fatgezimb.github.io/fatgezim-portfolio/favicon.svg",
+    icon: `${publication.url}favicon.svg`,
+    shortcut: `${publication.url}favicon.svg`,
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://fatgezimb.github.io/fatgezim-portfolio/",
+    url: publication.url,
     siteName: "Fatgezim “Zim” Bela — Portfolio",
     title: siteTitle,
     description: siteDescription,
     images: [
       {
-        url: "https://fatgezimb.github.io/fatgezim-portfolio/og.png",
+        url: `${publication.url}og.png`,
         width: 1200,
         height: 630,
-        alt: "Fatgezim Zim Bela portfolio — behavioral health, medicine, data, and product",
+        alt: "Fatgezim Zim Bela — software, data, automation, and scientific systems",
       },
     ],
   },
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["https://fatgezimb.github.io/fatgezim-portfolio/og.png"],
+    images: [`${publication.url}og.png`],
   },
   robots: {
     index: true,

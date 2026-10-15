@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
+import { publication } from "./content/publication";
 
-const origin = "https://fatgezimb.github.io/fatgezim-portfolio";
+const origin = publication.url.replace(/\/$/, "");
 
 export default function robots(): MetadataRoute.Robots {
   return {
