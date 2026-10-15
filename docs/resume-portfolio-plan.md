@@ -21,7 +21,7 @@ Phase 1 approval is recorded in `phase-state.json`; Phase 2 is complete. The own
 - [x] Verify responsive layouts, keyboard controls, reduced motion, no-JS behavior and runtime errors.
 - [x] Run lint, typecheck, tests and production build.
 - [x] Prepare release with matching source, reports and factual questions.
-- [ ] Publish through the verified existing workflow when all applicable publication gates are satisfied, then verify live behavior.
+- [x] Publish through the verified existing workflow when all applicable publication gates are satisfied, then verify live behavior.
 
 ## Source of truth
 
@@ -43,4 +43,4 @@ No exact Create 13 start month is available. Use only the owner-accepted year. U
 
 ## Integrated verification
 
-Root lint/typecheck, 13 rendered-route tests and 7 focused export/adapter tests pass. Both target-specific builds pass; the Pages artifact validates all local resources. The remote main history is merged, retaining its optional lockfile repair and equivalent font, history and resource checks. Owner review resolved public downloads and the B.S. year correction to 2017. Static and live release evidence will be added after final browser and workflow checks.
+Root lint/typecheck, 13 rendered-route tests and 7 focused export/adapter tests pass. Both target-specific builds pass; the Pages artifact validates all local resources. The remote main history is merged, retaining its optional lockfile repair and equivalent font, history and resource checks. Owner review resolved public downloads and the B.S. year correction to 2017. The static artifact and final public deployment both passed browser checks. PR 2 is merged; workflow 38772934504 succeeded for d5523d23c8c429b48eaeea34b581be6822acb617. Live routes, 141 rendered link targets, 22 HTTP destinations and both approved artifact hashes are verified.

@@ -1,6 +1,6 @@
 # Resume and portfolio quality audit
 
-October 15, 2026. Release verification is in progress; local results below are completed checks.
+October 15, 2026. Completed public release. Local, exported-artifact and post-deployment results are recorded below.
 
 ## Reconciliation
 
@@ -28,7 +28,7 @@ Bundled Playwright API with installed Google Chrome. The matching Playwright hea
 
 All four routes returned 200 with one h1, zero runtime/console errors and no horizontal overflow at 375, 768, 1440 and 1920 CSS pixels. All routes remain readable without JavaScript at 320 pixels. Keyboard verification covers skip-to-main, visible focus, mobile menu, navigation search, Escape/focus restoration and native navigation. All seven demos support touch playback, pause, next-frame controls and Architecture Lens; reduced motion initializes them paused. Theme state persists and restores correctly. Both spatial scenes pause off screen.
 
-Versioned screenshots are under `reports/screenshots/2026-10-15-*`. The representative layouts were visually inspected, including the mobile hero with downloads and the resume action toolbar.
+Final public-site screenshots are under `reports/screenshots/2026-10-15-*` at 375, 768, 1440 and 1920 pixels, captured full-page at DPR 1 with reduced motion so all sections are visible. They include the corrected 2017 date and approved downloads. Representative layouts were visually inspected, including the mobile hero and resume action toolbar.
 
 ### Print and documents
 
@@ -48,7 +48,7 @@ The former Pages destination returns 404. The authoritative repository metadata 
 
 See `reports/link-audit.csv` and `reports/link-audit.md` for per-target source, before/after destination, response, redirects, anchor behavior, accessibility and verification limits.
 
-The actual static Pages artifact passed direct route loads and reloads at 375/1440 pixels, hydrated path/resource inspection, font loads, native hash/back-forward, all navigation anchors, command-page actions, theme persistence, seven demos, deferred video, poster modal, crawler files, 404 and exact 2017-corrected download hashes. Public release, workflow result and live checks follow below; no live release is claimed by this in-progress report.
+The actual static Pages artifact passed direct route loads and reloads at 375/1440 pixels, hydrated path/resource inspection, font loads, native hash/back-forward, all navigation anchors, command-page actions, theme persistence, seven demos, deferred video, poster modal, crawler files, 404 and exact 2017-corrected download hashes. Public release and live checks passed as recorded below.
 
 ## Limits and optional follow-up
 
@@ -61,3 +61,20 @@ A separate read-only integrated review found no remaining actionable blockers in
 ### Contrast sample
 
 Ten current hero, navigation, text-link and button samples were measured against their actual screenshot backdrops in light and dark themes. The minimum sampled ratio was 4.97:1; remaining samples ranged from 7.23:1 to 17.58:1. This is a scoped sample, not a whole-page contrast certification.
+
+## Public release and final verification
+
+PR [2](https://github.com/Fatgezimb/fatgezim-portfolio/pull/2) merged into main. [GitHub Pages workflow 38772934504](https://github.com/Fatgezimb/fatgezim-portfolio/actions/runs/38772934504) completed successfully for source `d5523d23c8c429b48eaeea34b581be6822acb617`, including clean npm ci, lint, typecheck, all 20 automated tests, both target builds, resource validation and publication.
+
+Verified live:
+
+- [Portfolio](https://fatgezimb.github.io/fatgezim-portfolio/)
+- [Web resume](https://fatgezimb.github.io/fatgezim-portfolio/resume/)
+- [Research](https://fatgezimb.github.io/fatgezim-portfolio/research/)
+- [Neuronal reconstruction](https://fatgezimb.github.io/fatgezim-portfolio/research/george-mason-neuronal-reconstruction/)
+- [PDF](https://fatgezimb.github.io/fatgezim-portfolio/resume/Fatgezim_Zim_Bela_Technology_Resume.pdf)
+- [DOCX](https://fatgezimb.github.io/fatgezim-portfolio/resume/Fatgezim_Zim_Bela_Technology_Resume.docx)
+
+Post-deployment HTTP audit: 141 rendered targets, 22 unique requests, no failures. Actual live browser checks cover all four routes with refresh at 375/1440 pixels, technology positioning, 2017 degree date, both downloads, project-base core/dynamic assets/fonts, mobile navigation, demo playback and both RBT actions. No browser errors or overflow were observed. Download response content types are correct, and native browser downloads plus independent HTTP downloads match the final approved PDF/DOCX hashes. Machine-readable release and hash evidence is in `reports/release-verification.json`.
+
+The separate restricted Sites audience was preserved. Optional factual additions in `QUESTIONS_FOR_OWNER.md` do not block the verified public content. GitHub reported infrastructure deprecation notices for bundled action runtimes and a future runner-image migration; the release succeeded. Review those notices during routine workflow maintenance.

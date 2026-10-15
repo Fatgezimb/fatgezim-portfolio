@@ -1,0 +1,47 @@
+{
+  "release": {
+    "conclusion": "success",
+    "headSha": "d5523d23c8c429b48eaeea34b581be6822acb617",
+    "status": "completed",
+    "url": "https://github.com/Fatgezimb/fatgezim-portfolio/actions/runs/38772934504"
+  },
+  "liveArtifacts": {
+    "checkedAt": "2026-10-15T16:56:42.302Z",
+    "artifacts": [
+      {
+        "url": "https://fatgezimb.github.io/fatgezim-portfolio/resume/Fatgezim_Zim_Bela_Technology_Resume.pdf",
+        "status": 200,
+        "contentType": "application/pdf",
+        "bytes": 70561,
+        "sha256": "ed2f8695aa9856c1a91b06de5187f249210310ac18baeb924d1476d5295d7510",
+        "expected": "ed2f8695aa9856c1a91b06de5187f249210310ac18baeb924d1476d5295d7510",
+        "match": true
+      },
+      {
+        "url": "https://fatgezimb.github.io/fatgezim-portfolio/resume/Fatgezim_Zim_Bela_Technology_Resume.docx",
+        "status": 200,
+        "contentType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "bytes": 39769,
+        "sha256": "8f7b7a95310628536684f5826be1f85028fd50b40a5d3596e0d426a048934317",
+        "expected": "8f7b7a95310628536684f5826be1f85028fd50b40a5d3596e0d426a048934317",
+        "match": true
+      }
+    ]
+  },
+  "liveTargetCount": 141,
+  "uniqueHttpTargets": 22,
+  "liveHttpFailures": [],
+  "browser": {
+    "result": "pass",
+    "routes": 4,
+    "widths": [
+      375,
+      1440
+    ],
+    "routeRefreshCombinations": 8,
+    "runtimeErrors": 0,
+    "horizontalOverflow": false,
+    "downloadHashesMatch": true,
+    "rbtCardAndPreviewVerified": true
+  }
+}

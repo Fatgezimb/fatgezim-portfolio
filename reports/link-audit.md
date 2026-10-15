@@ -34,4 +34,4 @@ Run `scripts/audit-links.py` against the root production preview or the Pages-mo
 
 The independent NeuroStack application browser check exposed a root-relative dynamic-chunk failure. The portfolio and resume use its verified public source instead; the README now points to the same reproducibility record. No working live application is claimed for that destination.
 
-Live verification is pending the release workflow. The report will record the deployed source and final artifact checks after publication.
+GitHub Pages workflow 38772934504 completed successfully for source `d5523d23c8c429b48eaeea34b581be6822acb617`. The public deployment was independently re-audited: all 141 rendered targets and 22 unique HTTP requests pass, including direct documents and crawler files. Live PDF and DOCX responses have correct content types and exactly match the approved SHA-256 hashes. Final live browser results are recorded in the QA report.
