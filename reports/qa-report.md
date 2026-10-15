@@ -57,3 +57,7 @@ LinkedIn redirects an unauthenticated browser to its authwall; profile content c
 ## Independent code review
 
 A separate read-only integrated review found no remaining actionable blockers in runtime paths, metadata, accessible controls or export safety. Generated output remains inside a dedicated project directory, and asset validation completes before replacement.
+
+### Contrast sample
+
+Ten current hero, navigation, text-link and button samples were measured against their actual screenshot backdrops in light and dark themes. The minimum sampled ratio was 4.97:1; remaining samples ranged from 7.23:1 to 17.58:1. This is a scoped sample, not a whole-page contrast certification.

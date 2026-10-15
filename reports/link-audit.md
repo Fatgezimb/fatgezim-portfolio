@@ -4,7 +4,7 @@ October 15, 2026. Baseline evidence was captured before implementation; post-fix
 
 ## Coverage
 
-The CSV inventories 141 rendered targets across the home, resume, research index and neuronal-reconstruction page, plus the removed source CTA. It includes navigation, section anchors, project cards and previews, social links, native email form action, media, document downloads, canonical/Open Graph/icon references, robots and sitemap. Twenty-two unique HTTP targets were checked automatically with redirect/final-destination inspection. Every same-document anchor was matched to an actual rendered ID. The exporter independently validates local HTML, inline and emitted CSS resources, srcset, deferred media, fonts, JavaScript bootstrap and file existence.
+The CSV inventories 141 rendered targets across the home, resume, research index and neuronal-reconstruction page, plus the removed source CTA and the corrected README reference. It includes navigation, section anchors, project cards and previews, social links, native email form action, media, document downloads, canonical/Open Graph/icon references, robots and sitemap. Twenty-two unique HTTP targets were checked automatically with redirect/final-destination inspection. Every same-document anchor was matched to an actual rendered ID. The exporter independently validates local HTML, inline and emitted CSS resources, srcset, deferred media, fonts, JavaScript bootstrap and file existence.
 
 All checked targets resolve successfully. LinkedIn’s unauthenticated browser redirects to its authwall; its profile content remains unverified. The native email handoff is configured but no message was sent.
 
