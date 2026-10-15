@@ -56,12 +56,12 @@ export type SiteContent = {
 };
 
 export const navigationItems = [
+  { href: "/#projects", id: "projects", label: "Work" },
+  { href: "/#research", id: "research", label: "Research" },
   { href: "/#about", id: "about", label: "About" },
-  { href: "/#projects", id: "projects", label: "Featured work" },
   { href: "/#experience", id: "experience", label: "Experience" },
   { href: "/#skills", id: "skills", label: "Skills" },
-  { href: "/#research", id: "research", label: "Research" },
-  { href: "/#founder", id: "founder", label: "Founder" },
+  { href: "/#founder", id: "founder", label: "Ventures" },
   { href: "/#education", id: "education", label: "Education" },
   { href: "/#contact", id: "contact", label: "Contact" },
 ] as const satisfies readonly NavigationItem[];
@@ -71,11 +71,11 @@ export const siteMeta = {
   description:
     "Hands-on technology leadership, software engineering, workflow automation, and scientific data systems by Fatgezim “Zim” Bela.",
   sectionOrder: [
-    "about",
     "projects",
+    "research",
+    "about",
     "experience",
     "skills",
-    "research",
     "founder",
     "education",
     "contact",

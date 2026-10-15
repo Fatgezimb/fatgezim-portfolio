@@ -221,7 +221,7 @@ export const featuredProjects = [
       "keyboard-driven study controls",
       "visual source, license, intended-use, and review records",
     ],
-    evidenceLinks: ["https://github.com/Fatgezimb/StepSpark"],
+    evidenceLinks: ["https://fatgezimb.github.io/StepSpark/", "https://github.com/Fatgezimb/StepSpark"],
     publicScope:
       "Prototype content requires medical review before production use and is not affiliated with the NBME.",
     privacyNotes: [
@@ -236,7 +236,6 @@ export const featuredProjects = [
       "End on the card's source, license, provenance, and review status.",
     ],
     uncertaintyFlags: [
-      "No public deployment URL has been verified.",
       "Question generation, production content review, authentication, and analytics are not current product capabilities.",
     ],
   },

@@ -2,7 +2,6 @@
 
 import { sitePath } from "@/app/content/paths";
 
-
 import { navigationItems } from "@/app/content/site";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -17,30 +16,55 @@ type CommandAction = {
   newTab?: boolean;
 };
 
+function restoreNavigationFocus(
+  ...candidates: (HTMLElement | null | undefined)[]
+) {
+  for (const target of candidates) {
+    if (
+      !target?.isConnected ||
+      !target.getClientRects().length ||
+      target === document.body
+    )
+      continue;
+    target.focus();
+    if (document.activeElement === target) return;
+  }
+}
+
 function NavigationLinks({
   activeId,
   newTab,
   onNavigate,
+  compact = false,
 }: {
   activeId: string;
   newTab: boolean;
   onNavigate?: () => void;
+  compact?: boolean;
 }) {
   return (
     <ul className={styles.navList}>
-      {navigationItems.map((item) => (
-        <li key={item.href}>
-          <SafeLink
-            aria-current={!newTab && activeId === item.id ? "location" : undefined}
-            className={styles.navLink}
-            href={sitePath(item.href)}
-            newTab={newTab}
-            onClick={onNavigate}
-          >
-            {item.label}
-          </SafeLink>
-        </li>
-      ))}
+      {navigationItems
+        .filter(
+          (item) =>
+            !compact ||
+            ["projects", "about", "research", "contact"].includes(item.id),
+        )
+        .map((item) => (
+          <li key={item.href}>
+            <SafeLink
+              aria-current={
+                !newTab && activeId === item.id ? "location" : undefined
+              }
+              className={styles.navLink}
+              href={sitePath(item.href)}
+              newTab={newTab}
+              onClick={onNavigate}
+            >
+              {item.label}
+            </SafeLink>
+          </li>
+        ))}
     </ul>
   );
 }
@@ -53,6 +77,7 @@ export function CommandCenterNavigation() {
   const [query, setQuery] = useState("");
   const dialogRef = useRef<HTMLDialogElement>(null);
   const commandButtonRef = useRef<HTMLButtonElement>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
   const mobileMenuRef = useRef<HTMLDetailsElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
@@ -62,9 +87,18 @@ export function CommandCenterNavigation() {
     const updatePageState = () => {
       frame = 0;
       const page = document.documentElement;
-      const availableScroll = Math.max(1, page.scrollHeight - window.innerHeight);
-      const progress = Math.min(1, Math.max(0, window.scrollY / availableScroll));
-      progressRef.current?.style.setProperty("--page-progress", `${progress * 100}%`);
+      const availableScroll = Math.max(
+        1,
+        page.scrollHeight - window.innerHeight,
+      );
+      const progress = Math.min(
+        1,
+        Math.max(0, window.scrollY / availableScroll),
+      );
+      progressRef.current?.style.setProperty(
+        "--page-progress",
+        `${progress * 100}%`,
+      );
 
       const activationLine = window.innerHeight * 0.38;
       let current = "top";
@@ -116,8 +150,18 @@ export function CommandCenterNavigation() {
         if (dialogRef.current?.open) {
           setDialogOpen(false);
           setQuery("");
-          window.requestAnimationFrame(() => commandButtonRef.current?.focus());
+          window.requestAnimationFrame(() => {
+            restoreNavigationFocus(
+              returnFocusRef.current,
+              commandButtonRef.current,
+              mobileMenuRef.current?.querySelector("summary"),
+            );
+          });
         } else {
+          returnFocusRef.current =
+            document.activeElement instanceof HTMLElement
+              ? document.activeElement
+              : null;
           setDialogOpen(true);
         }
       }
@@ -157,14 +201,24 @@ export function CommandCenterNavigation() {
   const closeDialog = () => {
     setDialogOpen(false);
     setQuery("");
-    window.requestAnimationFrame(() => commandButtonRef.current?.focus());
+    window.requestAnimationFrame(() => {
+      restoreNavigationFocus(
+        returnFocusRef.current,
+        commandButtonRef.current,
+        mobileMenuRef.current?.querySelector("summary"),
+      );
+    });
   };
 
   return (
     <>
       <div className={styles.controls}>
         <nav className={styles.desktopNav} aria-label="Primary navigation">
-          <NavigationLinks activeId={activeId} newTab={navigationLeavesPage} />
+          <NavigationLinks
+            activeId={activeId}
+            newTab={navigationLeavesPage}
+            compact
+          />
         </nav>
 
         <ThemeToggle />
@@ -174,11 +228,14 @@ export function CommandCenterNavigation() {
           aria-expanded={dialogOpen}
           aria-haspopup="dialog"
           className={styles.commandButton}
-          onClick={() => setDialogOpen(true)}
+          onClick={(event) => {
+            returnFocusRef.current = event.currentTarget;
+            setDialogOpen(true);
+          }}
           ref={commandButtonRef}
           type="button"
         >
-          <span>Navigate</span>
+          <span>Search</span>
           <kbd>⌘ K</kbd>
         </button>
 
@@ -196,7 +253,11 @@ export function CommandCenterNavigation() {
         </details>
       </div>
 
-      <div className={styles.progressTrack} aria-hidden="true" ref={progressRef}>
+      <div
+        className={styles.progressTrack}
+        aria-hidden="true"
+        ref={progressRef}
+      >
         <div className={styles.progressValue} />
       </div>
 

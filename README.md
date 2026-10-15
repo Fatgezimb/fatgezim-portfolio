@@ -4,13 +4,13 @@ Live GitHub Pages site: [fatgezimb.github.io/fatgezim-portfolio](https://fatgezi
 
 Featured scientific project: [NeuroStack Explorer source and reproducibility record](https://github.com/Fatgezimb/neurostack-explorer)
 
-A technical portfolio and résumé focused on hands-on Founder and CTO leadership, software engineering, data, automation, and scientific systems. The experience uses a light-first “neural command center” visual system, accessible miniature product demos, and progressively enhanced Three.js scenes.
+A technical portfolio and résumé focused on hands-on Founder and CTO leadership, software engineering, data, automation, and scientific systems. The experience uses a silver-and-cobalt editorial design, an original interactive signal sculpture, and seven navigable product samples inside a shared project workspace.
 
 ## Stack
 
 - Next.js 16, React 19, and TypeScript
 - Vinext and Vite for the Cloudflare-compatible build
-- Direct Three.js with a shared, lazy-loaded scene runtime
+- Original Canvas 2D fibre sculpture with static SVG fallback
 - CSS Modules plus global semantic design tokens
 - OpenAI Sites hosting through `.openai/hosting.json`
 
@@ -42,7 +42,7 @@ npm test
 npm run build
 ```
 
-`npm test` performs a production build before running the rendered-HTML checks. The build may report a size notice for the isolated Three.js chunk; the engine is dynamically imported only when an eligible scene approaches the viewport.
+`npm test` performs a production build before running the rendered-HTML checks. Also run `node --test tests/export-pages.test.mjs` before publishing. The current homepage does not load the retained legacy Three.js components.
 
 ## Editing content
 
@@ -51,6 +51,9 @@ Verified copy and public facts live under `app/content/`:
 - `site.ts` — navigation, hero, about, contact, and site metadata
 - `resume.ts` — identity, experience, education, credentials, and skills
 - `projects.ts` — verified project records, roles, evidence, and boundaries
+- `project-showcase.ts` — project order, presentation copy and audited public destinations
+- `technical-preview.ts` — exact scientific sample and source-backed learning examples
+- `operational-preview.ts` — fictional operations data and source-backed lesson examples
 - `research.ts` — research experience and evidence limits
 - `evidence.ts` — public research-source ledger and verification status
 
@@ -58,14 +61,11 @@ Preserve the evidence rules in `AGENTS.md`: do not add unsupported metrics, clie
 
 ## Editing project demos
 
-The six sanitized product previews live in `app/components/project-demos/`.
+Seven previews live in `app/components/project-experiences/`. `TechnicalExperiences.tsx` implements NeuroStack, RBT and StepSpark; `OperationalExperiences.tsx` implements Data Lab, Caregiver, Rethink and Insight. Each CSS module preserves its product’s visual identity.
 
-- `storyboards.ts` defines typed demo steps, themes, architecture nodes, evidence links, disclaimers, and synthetic-data labels.
-- `stateMachine.ts` owns deterministic playback and navigation behavior.
-- `MiniProductSurface.tsx` renders the truthful miniature interfaces.
-- `ArchitectureLens.tsx` renders input → processing → output → boundary diagrams.
+`FeaturedProjects.tsx` owns keyboard-operable project tabs, stable project deep links, the shared window, and optional live frames. `app/content/project-showcase.ts` defines the full-site and live-preview URLs. Only offer a live frame after an ordinary browser verifies framing and navigation; always keep a new-tab escape. Source links identify themselves as source.
 
-Every demo must remain understandable with autoplay paused and must keep its evidence, authorship, synthetic-data notice, and product limitations visible.
+Keep the displayed scope, data provenance, co-builder attribution and meaningful controls intact. New scientific values must derive from verified artifacts. Operational sample values must remain explicitly fictional. See `docs/portfolio/redesign-project-evidence.md`.
 
 ## Research, media, and contact
 
@@ -75,16 +75,13 @@ Optimized public derivatives live in `public/media/`. The headshot preserves the
 
 The contact form does not submit to a server. It uses an encoded `mailto:` handoff so the visitor can finish and send the message in their email application. The destination address is not displayed as visitor-facing contact copy.
 
-## Themes, motion, and 3D
+## Themes and motion
 
-The default theme is light. The header toggle persists an optional dark theme in local storage. Semantic tokens for both appearances are defined in `app/globals.css`; component surfaces should consume those tokens instead of adding theme-specific color literals.
+The default theme is light; the header persists an optional dark theme. Shared tokens live in `app/globals.css`. Product windows retain their own readable product palettes.
 
-Motion and WebGL are progressive enhancements:
+`showcase/SignalSculpture.tsx` draws original conceptual fibre geometry with Canvas 2D. Three selectable forms interpolate smoothly. Pause freezes rotation; reduced motion renders a static form while explicit mode changes remain available. Drawing stops offscreen and in hidden tabs, and the backing resolution is capped. A static SVG remains available without JavaScript or Canvas. The drawing is decorative; essential content is ordinary HTML. Normal scrolling is never intercepted.
 
-- `prefers-reduced-motion`, Save-Data, unsupported WebGL, and context loss receive static SVG/CSS fallbacks.
-- The canvas is decorative and hidden from assistive technology.
-- Normal page scrolling is never intercepted.
-- Scene controllers pause off-screen and dispose render resources on teardown.
+The main page composition is in `PortfolioPage.tsx`, with supporting sections in `showcase/PortfolioSections.tsx`. Research detail routes and the print résumé retain their existing evidence-led layouts.
 
 ## Accessibility
 
@@ -129,9 +126,11 @@ Audit rendered targets with `python scripts/audit-links.py --base http://localho
 app/
   components/
     navigation/       active navigation, theme toggle, command palette
-    project-demos/    typed miniature product interfaces
+    project-experiences/ navigable technical and operational samples
+    showcase/         editorial sections, product workspace, signal sculpture
+    project-demos/    retained earlier preview components
     research-ui/      evidence labels, workflow, page shell, poster viewer
-    spatial/          Three.js runtime and static fallbacks
+    spatial/          retained earlier Three.js runtime and fallbacks
     supporting/       section-specific visual systems
   content/            verified public portfolio data
   research/           research hub and verified project route

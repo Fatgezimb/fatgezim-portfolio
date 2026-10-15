@@ -13,7 +13,7 @@ function applyTheme(theme: Theme) {
   document.documentElement.style.colorScheme = theme;
 
   const themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-  themeColor?.setAttribute("content", theme === "light" ? "#f4f8f6" : "#03070d");
+  themeColor?.setAttribute("content", theme === "light" ? "#edf1f5" : "#101725");
   window.dispatchEvent(new Event(THEME_EVENT));
 }
 
