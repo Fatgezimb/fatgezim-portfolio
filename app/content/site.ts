@@ -7,7 +7,7 @@ export type NavigationItem = {
 export type PublicLink = {
   href: string;
   label: string;
-  kind: "email" | "github" | "linkedin";
+  kind: "github" | "linkedin";
   external: boolean;
 };
 
@@ -49,7 +49,6 @@ export type SiteContent = {
   };
   footer: {
     copyright: string;
-    privacyNote: string;
   };
   contentBoundaries: readonly string[];
 };
@@ -68,7 +67,7 @@ export const navigationItems = [
 export const siteMeta = {
   title: "Fatgezim “Zim” Bela | BCBA, Medical Student, Data Scientist, and Founder",
   description:
-    "The verified portfolio of Fatgezim “Zim” Bela, connecting behavioral health, medical education, data science, software, and founder-built technology.",
+    "Portfolio of Fatgezim “Zim” Bela, connecting behavioral health, medicine, data science, software, and product development.",
   sectionOrder: [
     "about",
     "projects",
@@ -91,7 +90,7 @@ export const siteContent = {
     shortHeadline: "Behavioral Health Clinician, Medical Student, and Technology Founder",
     roleLine: "BCBA · Medical Student · Data Scientist · Founder",
     summary:
-      "I connect behavioral-health practice, medical education, data science, and software development to build practical, privacy-aware tools for professionals, learners, and families.",
+      "I connect behavioral-health practice, medical education, data science, and software development to build practical tools for professionals, learners, and families.",
     roles: [
       "Board Certified Behavior Analyst",
       "Medical Student",
@@ -105,8 +104,8 @@ export const siteContent = {
   about: {
     heading: "About",
     paragraphs: [
-      "My work sits at the intersection of applied behavior analysis, medical education, data, and software. I approach products as both a clinician and a builder: define the real workflow, make its limits visible, and keep the result understandable to the people who use it.",
-      "I founded NeuroPath LLC and co-build Bela Data Lab products with Meili Bela. Across public learning tools, browser-local analytics, and internal automation prototypes, the common focus is practical behavioral-health technology with clear educational and privacy boundaries.",
+      "My work sits at the intersection of applied behavior analysis, medical education, data, and software. I approach products as both a clinician and a builder: understand the workflow, design for the people using it, and make complex systems easier to navigate.",
+      "I founded NeuroPath LLC and co-build Bela Data Lab products with Meili Bela. Together, that work spans learning tools, browser-local analytics, and workflow automation for behavioral health.",
     ],
     domains: [
       "Behavioral science and ABA",
@@ -119,26 +118,26 @@ export const siteContent = {
   featuredWork: {
     heading: "Featured work",
     introduction:
-      "Selected products and prototypes show how behavioral-health knowledge can become learning systems, operational tools, local-first analytics, and carefully bounded automation.",
+      "Selected products and prototypes show how behavioral-health knowledge can become learning tools, operational software, local-first analytics, and workflow automation.",
   },
   founderContext: {
-    heading: "Founder and company context",
+    heading: "Building NeuroPath",
     introduction:
-      "NeuroPath is the public-facing label for NeuroPath LLC. The company and its products bring behavioral science, healthcare, data, education, and human-centered software into one product ecosystem.",
+      "I founded NeuroPath LLC to bring behavioral science, healthcare, data, education, and software into practical products.",
     relationships: [
       {
         name: "NeuroPath",
-        relationship: "Public-facing company label for NeuroPath LLC",
+        relationship: "Behavioral-health technology company",
         role: "Founder, NeuroPath LLC",
       },
       {
         name: "Bela Data Lab",
-        relationship: "Product brand operated within the NeuroPath ecosystem",
+        relationship: "Data and learning products co-built with Meili Bela",
         role: "Co-founder and Co-builder with Meili Bela",
       },
       {
         name: "Bela Data Lab Caregiver Academy",
-        relationship: "Current public caregiver-learning product",
+        relationship: "Caregiver education platform",
         role: "Co-founder, Product Builder, and BCBA Contributor",
       },
     ],
@@ -146,23 +145,17 @@ export const siteContent = {
   contact: {
     heading: "Contact",
     introduction:
-      "I’m open to conversations about behavioral-health technology, clinical-product collaboration, medical learning, data systems, and software work.",
+      "I’m open to conversations about behavioral-health technology, clinical product development, medical education, data systems, and software engineering.",
     links: [
       {
-        href: "mailto:fatgezimbela1@gmail.com",
-        label: "fatgezimbela1@gmail.com",
-        kind: "email",
-        external: false,
-      },
-      {
         href: "https://www.linkedin.com/in/fatgezimzimbela/",
-        label: "LinkedIn",
+        label: "linkedin.com/in/fatgezimzimbela",
         kind: "linkedin",
         external: true,
       },
       {
         href: "https://github.com/Fatgezimb",
-        label: "GitHub",
+        label: "github.com/Fatgezimb",
         kind: "github",
         external: true,
       },
@@ -170,8 +163,6 @@ export const siteContent = {
   },
   footer: {
     copyright: "© 2026 Fatgezim “Zim” Bela",
-    privacyNote:
-      "Portfolio examples use public, synthetic, or sanitized material and do not contain client information or PHI.",
   },
   contentBoundaries: [
     "Do not publish a phone number, street address, license number, provider identifier, or certificate identifier.",

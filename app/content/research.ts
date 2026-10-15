@@ -36,7 +36,7 @@ export const gmuNeuronalReconstruction = {
   institution: "George Mason University",
   institutionalUnit: "Centers for Neural Informatics, Structures & Plasticity",
   status: "Verified research poster",
-  verificationStatus: "Verified artifact",
+  verificationStatus: "Research poster",
   authors: ["Fatgezim Bela", "Sumit Nanda", "Giorgio A. Ascoli"],
   role: "Co-author and contributor",
   summary:
@@ -54,8 +54,6 @@ export const gmuNeuronalReconstruction = {
     "The poster pairs fluorescently labeled Class 4 neuronal imagery with a completed color-coded vectorized-tree reconstruction.",
   evidenceBoundary:
     "Verified from the supplied original poster and presented as collaborative research-poster work.",
-  archivalNote:
-    "The email address printed on the original poster is archival. Use fatgezimbela1@gmail.com for current contact.",
 } as const;
 
 export const reconstructionWorkflow: readonly ReconstructionStage[] = [
@@ -156,4 +154,4 @@ export const researchItems: ResearchItem[] = [
 ];
 
 export const researchNote =
-  "An original George Mason research poster verifies collaborative work in microscopy-image processing, neuron tracing, and digital neuronal reconstruction.";
+  "Zim co-authored a George Mason University research poster on microscopy-image processing, neuron tracing, and digital neuronal reconstruction.";

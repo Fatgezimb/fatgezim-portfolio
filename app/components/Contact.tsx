@@ -1,4 +1,3 @@
-import { publicationPolicy } from "@/app/content/resume";
 import { siteContent } from "@/app/content/site";
 import { PortfolioContactForm } from "./PortfolioContactForm";
 import { SafeLink } from "./SafeLink";
@@ -53,12 +52,12 @@ export function Contact() {
               </SafeLink>
             ))}
           </address>
-          <aside className={styles.contactBoundary}>
-            <span className={styles.boundarySignal} aria-hidden="true" />
-            <p className={styles.statusLabel}>Privacy</p>
-            <p>{publicationPolicy.privacyStatement}</p>
+          <aside className={styles.resumeCard}>
+            <span className={styles.cardAccent} aria-hidden="true" />
+            <p className={styles.cardLabel}>Résumé</p>
+            <p>Experience, education, credentials, and selected work.</p>
             <SafeLink className={styles.resumeLink} href="/resume" newTab>
-              View print résumé
+              View résumé
               <span aria-hidden="true">↗</span>
             </SafeLink>
           </aside>

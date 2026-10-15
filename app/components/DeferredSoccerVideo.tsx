@@ -64,7 +64,7 @@ export function DeferredSoccerVideo() {
         {/* A real poster remains visible when client-side loading is unavailable. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          alt="Zim preparing to take the winning penalty in an archival Mason Intramurals post"
+          alt="Zim preparing to take the winning penalty in a Mason Intramurals post"
           decoding="async"
           height="720"
           loading="lazy"
@@ -73,7 +73,7 @@ export function DeferredSoccerVideo() {
         />
         <p>
           <SafeLink href={VIDEO_SRC} newTab>
-            Open the archival soccer clip
+            Play the soccer clip
           </SafeLink>
         </p>
       </noscript>

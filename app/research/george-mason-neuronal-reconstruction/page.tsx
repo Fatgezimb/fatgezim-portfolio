@@ -7,7 +7,6 @@ import {
   researchAssets,
 } from "@/app/content/research";
 import {
-  EvidenceStatus,
   PosterViewer,
   ReconstructionWorkflow,
   ResearchPageShell,
@@ -18,7 +17,7 @@ import styles from "../ResearchPage.module.css";
 export const metadata: Metadata = {
   title: "Computational Neuroscience and Neuronal Reconstruction",
   description:
-    "A verified George Mason research poster documenting collaborative image processing, neuron tracing, and digital Class 4 neuronal reconstruction.",
+    "A George Mason University research poster on image processing, neuron tracing, and digital Class 4 neuronal reconstruction.",
   alternates: {
     canonical: "/research/george-mason-neuronal-reconstruction",
   },
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
     title:
       "Computational Neuroscience and Neuronal Reconstruction | Fatgezim “Zim” Bela",
     description:
-      "Original poster, readable summary, and documented Fiji/ImageJ, Vaa3D, and NeuTube reconstruction workflow.",
+      "Research poster, project overview, and a seven-stage Fiji/ImageJ, Vaa3D, and NeuTube reconstruction workflow.",
     url: "/research/george-mason-neuronal-reconstruction",
     images: ["/og.png"],
   },
@@ -48,7 +47,7 @@ export default function GeorgeMasonNeuronalReconstructionPage() {
 
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
-            <EvidenceStatus>{gmuNeuronalReconstruction.verificationStatus}</EvidenceStatus>
+            <p className={styles.sectionEyebrow}>Research poster</p>
             <h1>{gmuNeuronalReconstruction.title}</h1>
             <p className={styles.lede}>{gmuNeuronalReconstruction.summary}</p>
             <PosterViewer
@@ -59,7 +58,7 @@ export default function GeorgeMasonNeuronalReconstructionPage() {
           </div>
 
           <aside className={styles.heroPanel} aria-label="Project facts">
-            <p>Project record</p>
+            <p>Project details</p>
             <dl>
               <div>
                 <dt>Role</dt>
@@ -97,8 +96,8 @@ export default function GeorgeMasonNeuronalReconstructionPage() {
 
           <div className={styles.summaryContent}>
             <header>
-              <p className={styles.sectionEyebrow}>Accessible poster summary</p>
-              <h2 id="poster-summary-heading">What the poster documents</h2>
+              <p className={styles.sectionEyebrow}>Poster overview</p>
+              <h2 id="poster-summary-heading">From images to a digital reconstruction</h2>
             </header>
             <p className={styles.supportingText}>
               The poster describes a collaborative workflow for turning overlapping,
@@ -124,12 +123,6 @@ export default function GeorgeMasonNeuronalReconstructionPage() {
                 <dd>NeuTube tracing and a color-coded vectorized tree</dd>
               </div>
             </dl>
-            <p className={styles.boundaryNote}>
-              {gmuNeuronalReconstruction.evidenceBoundary}
-            </p>
-            <p className={styles.boundaryNote}>
-              {gmuNeuronalReconstruction.archivalNote}
-            </p>
           </div>
         </section>
 
@@ -137,7 +130,7 @@ export default function GeorgeMasonNeuronalReconstructionPage() {
 
         <section aria-labelledby="documented-output-heading" className={styles.twoColumnGrid}>
           <article className={styles.outputCard}>
-            <p className={styles.sectionEyebrow}>Documented output</p>
+            <p className={styles.sectionEyebrow}>Result</p>
             <h2 id="documented-output-heading">Class 4 neuronal reconstruction</h2>
             <p>{gmuNeuronalReconstruction.documentedOutput}</p>
             <ul className={styles.plainList}>
@@ -185,17 +178,17 @@ export default function GeorgeMasonNeuronalReconstructionPage() {
       </div>
 
       <section className={`section-shell ${styles.closingSection}`}>
-        <h2>Continue through the research record</h2>
+        <h2>Explore more research</h2>
         <p>
-          Return to the research hub for the source ledger and carefully labeled
-          medical-education research context.
+          Return to the research overview for the featured poster, project summary,
+          and proposed directions.
         </p>
         <div className={styles.inlineActions}>
           <a className={styles.primaryLink} href="/research">
-            Back to research
+            Research overview
           </a>
           <SafeLink className={styles.secondaryLink} href="/#contact" newTab>
-            Contact Zim
+            Get in touch
           </SafeLink>
         </div>
       </section>

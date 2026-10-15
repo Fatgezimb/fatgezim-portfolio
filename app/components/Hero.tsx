@@ -1,4 +1,4 @@
-import { currentFocus, publicationPolicy } from "@/app/content/resume";
+import { currentFocus } from "@/app/content/resume";
 import { siteContent } from "@/app/content/site";
 import { SafeLink } from "./SafeLink";
 import { NeuralIdentityField } from "./spatial";
@@ -17,7 +17,6 @@ export function Hero() {
       <div className="hero__content section-shell">
         <div className="hero__copy">
           <p className="eyebrow">
-            <span aria-hidden="true">Signal identity / </span>
             {hero.eyebrow}
           </p>
           <h1 id="hero-title">{hero.displayName}</h1>
@@ -29,22 +28,19 @@ export function Hero() {
               {hero.primaryAction.label}
             </a>
             <SafeLink className="button button--secondary" href="/resume" newTab>
-              View print résumé
+              View résumé
             </SafeLink>
             <a className="text-link" href={hero.contactAction.href}>
               {hero.contactAction.label}
             </a>
           </div>
 
-          <p className="resume-status" role="status">
-            <span aria-hidden="true">●</span> {publicationPolicy.resumeDownloadLabel}
-          </p>
         </div>
 
         <aside className="hero__profile hero__instrumentation" aria-label="Current profile summary">
           <div className="panel-label">
-            <span>Identity telemetry</span>
-            <span>Verified focus</span>
+            <span>At a glance</span>
+            <span>Current work</span>
           </div>
           <figure className="hero__portrait">
             <div className="hero__portrait-frame">

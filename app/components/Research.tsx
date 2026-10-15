@@ -3,7 +3,6 @@ import {
   researchAssets,
   researchNote,
 } from "@/app/content/research";
-import { EvidenceStatus } from "./research-ui";
 import { SafeLink } from "./SafeLink";
 import { SectionHeading } from "./SectionHeading";
 import styles from "./supporting/Research.module.css";
@@ -33,13 +32,12 @@ export function Research() {
             src={researchAssets.posterPreview}
             width="1600"
           />
-          <figcaption>Original George Mason research poster</figcaption>
+          <figcaption>Research poster · George Mason University</figcaption>
         </figure>
 
         <div className={styles.researchContent}>
           <div className={styles.researchSummary}>
-            <EvidenceStatus>{gmuNeuronalReconstruction.verificationStatus}</EvidenceStatus>
-            <p className={styles.statusLabel}>{gmuNeuronalReconstruction.role}</p>
+            <p className={styles.statusLabel}>Featured research</p>
             <h3>{gmuNeuronalReconstruction.title}</h3>
             <p className={styles.institution}>
               {gmuNeuronalReconstruction.institutionalUnit}
@@ -54,27 +52,21 @@ export function Research() {
           </div>
 
           <div className={styles.methodPanel}>
-            <h4>Documented methods</h4>
+            <h4>Methods and software</h4>
             <ul className={styles.methodList}>
               {gmuNeuronalReconstruction.methods.map((method) => (
                 <li key={method}>{method}</li>
               ))}
             </ul>
-            <p className={styles.boundaryNote}>
-              {gmuNeuronalReconstruction.evidenceBoundary}
-            </p>
-            <p className={styles.boundaryNote}>
-              {gmuNeuronalReconstruction.archivalNote}
-            </p>
             <div className={styles.researchActions}>
               <SafeLink href="/research" newTab>
-                View research record
+                Research overview
               </SafeLink>
               <SafeLink
                 href={`/research/${gmuNeuronalReconstruction.slug}`}
                 newTab
               >
-                Explore the project
+                Project details
               </SafeLink>
             </div>
           </div>

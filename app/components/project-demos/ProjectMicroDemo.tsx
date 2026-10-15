@@ -72,7 +72,7 @@ function usePrefersReducedMotion() {
 }
 
 const pauseReasonCopy: Record<Exclude<ProjectDemoPauseReason, null>, string> = {
-  architecture: "the Architecture Lens opened",
+  architecture: "How it works was opened",
   "focus-left": "keyboard focus left the preview",
   hidden: "the page became hidden",
   manual: "a manual control was used",
@@ -91,7 +91,7 @@ function statusMessage(
   if (notice) return notice;
 
   if (state.view === "architecture") {
-    return `Architecture Lens open for ${storyboard.title}. The semantic system map contains ${storyboard.architecture.nodes.length} nodes.`;
+    return `How it works is open for ${storyboard.title}. The workflow has ${storyboard.architecture.nodes.length} steps.`;
   }
 
   const frame = storyboard.frames[state.frameIndex];
@@ -387,7 +387,11 @@ function ProjectMicroDemoPlayer({
         </div>
         <div className={styles.modeReadout} aria-label="Preview status">
           <span aria-hidden="true" />
-          {isPlaying ? "Signal running" : state.view === "architecture" ? "System map" : "Interactive preview"}
+          {isPlaying
+            ? "Demo playing"
+            : state.view === "architecture"
+              ? "How it works"
+              : "Interactive demo"}
         </div>
       </header>
 
@@ -416,7 +420,7 @@ function ProjectMicroDemoPlayer({
           tabIndex={state.view === "architecture" ? 0 : -1}
           type="button"
         >
-          <span>02</span> Architecture
+          <span>02</span> How it works
         </button>
       </div>
 
@@ -597,39 +601,32 @@ function ProjectMicroDemoPlayer({
       </div>
 
       <div className={styles.boundaries}>
-        <p className={styles.statusLabel}>
-          <span>Status</span>
-          {storyboard.statusLabel}
-        </p>
         <p className={styles.dataLabel}>
-          <span>Demo data</span>
+          <span>Preview data</span>
           {storyboard.dataLabel}
         </p>
         <p className={styles.privacy} id={privacyId}>
-          <span>Privacy</span>
+          <span>About this preview</span>
           {storyboard.privacyLabel}
         </p>
       </div>
 
       <footer className={styles.footer}>
         <p>{storyboard.authorshipLabel}</p>
-        <div className={styles.evidenceLinks} aria-label="Project evidence">
-          {storyboard.evidenceLinks.length > 0 ? (
-            storyboard.evidenceLinks.map((link) => (
+        {storyboard.evidenceLinks.length > 0 ? (
+          <div className={styles.evidenceLinks} aria-label="Project links">
+            {storyboard.evidenceLinks.map((link) => (
               <SafeLink href={link.href} key={link.href} newTab>
                 {link.label} <span aria-hidden="true">↗</span>
               </SafeLink>
-            ))
-          ) : (
-            <span>Private/local evidence · no public project link</span>
-          )}
-        </div>
+            ))}
+          </div>
+        ) : null}
       </footer>
 
       {prefersReducedMotion ? (
         <p className={styles.motionNote}>
-          Reduced motion is on. Hover and focus autoplay are disabled; use the
-          explicit controls to inspect the static frames.
+          Animations are paused. Use the controls to move through the demo.
         </p>
       ) : null}
       <p

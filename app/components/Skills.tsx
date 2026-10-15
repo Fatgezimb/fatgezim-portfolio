@@ -38,11 +38,11 @@ export function Skills() {
       <SectionHeading
         eyebrow="Capabilities / 04"
         title="Skills"
-        description="Evidence-based domains are labeled by how they are used—not by unsupported percentages or self-scored meters."
+        description="Capabilities demonstrated through clinical practice, product development, and research."
       />
       <figure className={styles.evidenceMap} aria-labelledby="skills-evidence-map-caption">
         <figcaption className={styles.mapCaption} id="skills-evidence-map-caption">
-          <span className={styles.mapCaptionTitle}>Evidence map</span>
+          <span className={styles.mapCaptionTitle}>Experience map</span>
           <span>{String(skillGroups.length).padStart(2, "0")} capability groups</span>
         </figcaption>
 
@@ -56,8 +56,8 @@ export function Skills() {
         </svg>
 
         <div className={styles.mapHub} aria-hidden="true">
-          <span>Source</span>
-          <strong>Evidence notes</strong>
+          <span>Applied through</span>
+          <strong>Roles &amp; projects</strong>
         </div>
 
         <div className={styles.skillsGrid}>
@@ -87,10 +87,6 @@ export function Skills() {
                   <dd>{demonstratedBy[group.id].projects.join(" · ")}</dd>
                 </div>
               </dl>
-              <footer className={styles.evidenceNote}>
-                <span aria-hidden="true">Evidence trace</span>
-                <p>{group.evidenceNote}</p>
-              </footer>
             </article>
           ))}
         </div>

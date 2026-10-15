@@ -5,7 +5,7 @@ import "./globals.css";
 const siteUrl = new URL("https://fatgezim-portfolio.fmbela2018.chatgpt.site");
 const siteTitle = "Fatgezim “Zim” Bela | Behavioral Health, Medicine, Data, and Product";
 const siteDescription =
-  "The verified portfolio of Fatgezim “Zim” Bela, connecting behavioral health, medical education, data science, software, and founder-built technology.";
+  "Portfolio of Fatgezim “Zim” Bela, connecting behavioral health, medicine, data science, software, and product development.";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

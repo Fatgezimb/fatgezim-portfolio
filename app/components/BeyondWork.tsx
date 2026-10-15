@@ -10,14 +10,14 @@ export function BeyondWork() {
     >
       <div className={styles.copy}>
         <p className={styles.eyebrow}>Beyond the work</p>
-        <h3 id="beyond-work-title">A pressure moment, preserved in six seconds</h3>
+        <h3 id="beyond-work-title">The winning penalty</h3>
         <p className={styles.lead}>
-          A May 1, 2016 Mason Intramurals post captured Zim converting the winning
-          penalty for Vicious and Delicious.
+          A Mason Intramurals post from May 1, 2016, captured me converting the
+          winning penalty for Vicious and Delicious.
         </p>
         <p>
-          It is a small archival moment, but it reflects something that carries into the
-          work: prepare carefully, stay composed, and finish the task in front of you.
+          That moment reflects how I approach difficult work: prepare carefully, stay
+          composed, and finish.
         </p>
 
         <dl className={styles.facts}>
@@ -26,12 +26,8 @@ export function BeyondWork() {
             <dd>Mason Intramurals</dd>
           </div>
           <div>
-            <dt>Captured</dt>
+            <dt>Date</dt>
             <dd>May 1, 2016</dd>
-          </div>
-          <div>
-            <dt>Audio</dt>
-            <dd>The supplied archival recording is silent</dd>
           </div>
         </dl>
 
@@ -42,7 +38,7 @@ export function BeyondWork() {
             field, Zim approaches a penalty kick and strikes toward goal. The clip then
             follows players moving across the field after the deciding kick. The post
             identifies Zim, Vicious and Delicious, and the winning penalty. No audible
-            speech, music, or field sound is present in the supplied recording.
+            speech, music, or field sound is present in the clip.
           </p>
         </details>
       </div>
@@ -52,7 +48,7 @@ export function BeyondWork() {
           <DeferredSoccerVideo />
         </div>
         <figcaption>
-          Archival screen recording of the original Mason Intramurals post.
+          Winning penalty captured by Mason Intramurals, May 2016.
         </figcaption>
       </figure>
     </article>

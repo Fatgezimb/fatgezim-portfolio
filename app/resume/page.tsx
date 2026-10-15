@@ -8,20 +8,19 @@ import {
   experience,
   identity,
   publicLinks,
-  publicationPolicy,
   skillGroups,
 } from "@/app/content/resume";
 import { researchItems } from "@/app/content/research";
 
 export const metadata: Metadata = {
-  title: "Print Résumé",
+  title: "Résumé",
   description:
-    "Print-friendly résumé with owner-confirmed education, credentials, experience, skills, and contact information.",
+    "Résumé of Fatgezim “Zim” Bela, including experience, education, credentials, skills, research, and selected product work.",
   alternates: { canonical: "/resume" },
   openGraph: {
-    title: "Print Résumé | Fatgezim “Zim” Bela",
+    title: "Résumé | Fatgezim “Zim” Bela",
     description:
-      "Print-friendly résumé with owner-confirmed education, credentials, experience, skills, and contact information.",
+      "Experience, education, credentials, skills, research, and selected product work by Fatgezim “Zim” Bela.",
     url: "/resume",
     images: ["/og.png"],
   },
@@ -42,7 +41,7 @@ export default function ResumePage() {
       <article className="resume-document">
         <header className="resume-document__header">
           <div>
-            <p className="eyebrow">Verified public résumé · Print view</p>
+            <p className="eyebrow">Résumé</p>
             <h1>{identity.name}</h1>
             <p className="resume-headline">{identity.headline}</p>
           </div>
@@ -51,9 +50,9 @@ export default function ResumePage() {
               <SafeLink
                 href={link.href}
                 key={link.href}
-                newTab={link.kind !== "email"}
+                newTab
               >
-                {link.kind === "email" ? "fatgezimbela1@gmail.com" : link.label}
+                {link.label}
               </SafeLink>
             ))}
           </address>
@@ -74,11 +73,13 @@ export default function ResumePage() {
                   {item.dates ? <p>{item.dates}</p> : null}
                 </header>
                 <p>{item.summary}</p>
-                <ul>
-                  {item.highlights.map((highlight) => (
-                    <li key={highlight}>{highlight}</li>
-                  ))}
-                </ul>
+                {item.highlights.length ? (
+                  <ul>
+                    {item.highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
+                ) : null}
               </article>
             ))}
           </div>
@@ -149,20 +150,10 @@ export default function ResumePage() {
                 </div>
               </header>
               <p>{item.summary}</p>
-              <p>Supported methods: {item.methods.join(", ")}.</p>
-              <p className="resume-boundary">{item.evidenceBoundary}</p>
+              <p>Methods: {item.methods.join(", ")}.</p>
             </article>
           ))}
         </section>
-
-        <footer className="resume-document__footer">
-          <strong>{publicationPolicy.resumeDownloadLabel}</strong>
-          <p>
-            This print view contains no street address, phone number, private credential
-            identifier, client information, or unsupported research result. A fixed PDF
-            will be activated only after manual owner review.
-          </p>
-        </footer>
       </article>
     </main>
   );

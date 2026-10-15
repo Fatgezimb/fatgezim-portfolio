@@ -1,7 +1,7 @@
 export type PublicLink = {
   label: string;
   href: string;
-  kind: "email" | "profile" | "site";
+  kind: "profile" | "site";
 };
 
 export type ExperienceItem = {
@@ -40,7 +40,7 @@ export const identity = {
   shortHeadline:
     "Behavioral Health Clinician, Medical Student, and Technology Founder",
   summary:
-    "I work at the intersection of applied behavior analysis, medical education, data science, and software product development. My focus is building practical, privacy-aware tools that make complex behavioral-health and learning workflows easier to understand and use.",
+    "I build practical tools at the intersection of applied behavior analysis, medical education, data science, and software product development.",
 } as const;
 
 export const currentFocus = [
@@ -64,28 +64,23 @@ export const profileDomains = [
   {
     title: "Data and software",
     description:
-      "Data analysis, workflow automation, and typed web products designed around real operational needs.",
+      "Data analysis, workflow automation, and web applications designed around real operational needs.",
   },
   {
-    title: "Founder practice",
+    title: "Founder and product leadership",
     description:
-      "Founder and co-builder work across NeuroPath and jointly built Bela Data Lab products.",
+      "Building NeuroPath and co-developing Bela Data Lab products with Meili Bela.",
   },
 ] as const;
 
 export const publicLinks: PublicLink[] = [
   {
-    label: "fatgezimbela1@gmail.com",
-    href: "mailto:fatgezimbela1@gmail.com",
-    kind: "email",
-  },
-  {
-    label: "LinkedIn",
+    label: "linkedin.com/in/fatgezimzimbela",
     href: "https://www.linkedin.com/in/fatgezimzimbela/",
     kind: "profile",
   },
   {
-    label: "GitHub",
+    label: "github.com/Fatgezimb",
     href: "https://github.com/Fatgezimb",
     kind: "profile",
   },
@@ -114,11 +109,11 @@ export const experience: ExperienceItem[] = [
     title: "Founder",
     organization: "NeuroPath LLC",
     summary:
-      "Builds behavioral-health learning products and operational tools, with clear boundaries between public products, internal prototypes, and archived work.",
+      "Builds behavioral-health learning products and operational tools through NeuroPath.",
     highlights: [
       "Founder and product strategy for NeuroPath",
-      "Co-founder and co-builder of jointly developed Bela Data Lab products",
-      "Privacy-aware product design for behavioral-health contexts",
+      "Co-founder and co-builder of Bela Data Lab products with Meili Bela",
+      "Responsible product design for behavioral-health contexts",
     ],
     statusLabel: "Current focus",
     evidence: ["Owner confirmation", "Current product repositories"],
@@ -128,13 +123,13 @@ export const experience: ExperienceItem[] = [
     id: "data-product-practice",
     title: "Data Scientist and Software Product Builder",
     summary:
-      "Applies data analysis, software engineering, and workflow design to learning, operations, and behavioral-health product problems.",
+      "Applies data analysis, software engineering, and workflow design to learning, operations, and behavioral-health products.",
     highlights: [
       "Python and SQL analysis workflows",
       "Typed web application development and testing",
-      "Local-first automation and synthetic-data demonstrations",
+      "Browser automation and local-first data workflows",
     ],
-    statusLabel: "Selected practice",
+    statusLabel: "Current work",
     evidence: ["Current project repositories", "Owner confirmation"],
     uncertaintyFlags: [
       "Unverified employer names and employment dates are intentionally omitted.",
@@ -146,12 +141,9 @@ export const experience: ExperienceItem[] = [
     organization: "The McVay Company, Inc.",
     dates: "October 2022 - January 2023",
     summary:
-      "Worked in a government-related data engineering role. Public copy excludes client, agency, clearance, and system details.",
-    highlights: [
-      "Data engineering in a government-related environment",
-      "Scope intentionally bounded to verified, non-sensitive facts",
-    ],
-    statusLabel: "Provisional public wording",
+      "Contributed to data-engineering workflows at The McVay Company, Inc.",
+    highlights: [],
+    statusLabel: "Previous role",
     evidence: ["Owner confirmation", "Historical résumé"],
     uncertaintyFlags: [
       "Owner marked the title and dates as provisional for the public portfolio.",
@@ -162,12 +154,12 @@ export const experience: ExperienceItem[] = [
     title: "ABA Technician",
     dates: "2017 - 2019",
     summary:
-      "Earlier applied behavior analysis experience supporting skill development and behavior-change programs.",
+      "Applied behavior analysis experience supporting skill development and behavior-change programs.",
     highlights: [
       "Direct implementation of behavior-analytic programming",
-      "Earlier ABA experience also included work with Connex Family Services",
+      "ABA experience with Connex Family Services",
     ],
-    statusLabel: "Provisional public wording",
+    statusLabel: "Previous role",
     evidence: ["Owner confirmation", "Historical résumés"],
     uncertaintyFlags: [
       "Official employer naming, organization relationships, and precise end date remain omitted pending verification.",
@@ -190,7 +182,7 @@ export const skillGroups: SkillGroup[] = [
       "Caregiver collaboration",
       "RBT supervision",
     ],
-    evidenceNote: "Supported by current clinical résumé and owner confirmation.",
+    evidenceNote: "Used in current clinical practice and earlier ABA work.",
   },
   {
     id: "data-engineering",
@@ -205,7 +197,7 @@ export const skillGroups: SkillGroup[] = [
       "Workflow automation",
       "Operational reporting",
     ],
-    evidenceNote: "Supported by current résumé and active project evidence.",
+    evidenceNote: "Applied across data projects and active products.",
   },
   {
     id: "software-product",
@@ -218,9 +210,9 @@ export const skillGroups: SkillGroup[] = [
       "Local-first data handling",
       "Browser automation",
       "Product workflow design",
-      "Privacy-aware prototyping",
+      "Responsible product prototyping",
     ],
-    evidenceNote: "Supported by current product repositories and public builds.",
+    evidenceNote: "Applied across current product repositories and public applications.",
   },
   {
     id: "research-methods",
@@ -236,7 +228,7 @@ export const skillGroups: SkillGroup[] = [
       "Three-dimensional neuron reconstruction",
     ],
     evidenceNote:
-      "Methods are limited to those supported by historical source material; no result or publication claim is made.",
+      "Experience from computational neuroscience and neuroimaging work at George Mason University.",
   },
   {
     id: "leadership",
@@ -247,9 +239,9 @@ export const skillGroups: SkillGroup[] = [
       "Cross-domain problem framing",
       "Clinical and technical collaboration",
       "Product scoping",
-      "Evidence and privacy boundaries",
+      "Responsible product development",
     ],
-    evidenceNote: "Supported by owner-confirmed roles and current product work.",
+    evidenceNote: "Applied through NeuroPath and Bela Data Lab product development.",
   },
 ];
 
@@ -259,7 +251,6 @@ export const education: EducationItem[] = [
     credential: "Doctor of Medicine Candidate",
     institution: "Ross University School of Medicine",
     date: "Expected 2028",
-    status: "Currently completing requirements leading into the clinical phase, including USMLE Step 1.",
   },
   {
     id: "gmu-med",
@@ -288,9 +279,3 @@ export const credentials = [
   "Licensed Behavior Analyst - North Carolina",
   "Licensed Behavior Analyst - New York",
 ] as const;
-
-export const publicationPolicy = {
-  resumeDownloadLabel: "Print-ready résumé available",
-  privacyStatement:
-    "Public materials omit street addresses, phone numbers, credential identifiers, client information, PHI, and private operational data.",
-} as const;

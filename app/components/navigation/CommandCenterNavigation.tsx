@@ -137,12 +137,12 @@ export function CommandCenterNavigation() {
         : [
             {
               href: "/research",
-              label: "Research archive",
+              label: "Research",
               hint: "Page",
               newTab: true,
             },
           ]),
-      { href: "/resume", label: "Print résumé", hint: "Document", newTab: true },
+      { href: "/resume", label: "Résumé", hint: "Document", newTab: true },
     ];
     const normalizedQuery = query.trim().toLowerCase();
     if (!normalizedQuery) return commandActions;
@@ -212,8 +212,8 @@ export function CommandCenterNavigation() {
       >
         <header className={styles.dialogHeader}>
           <div>
-            <p>Navigation system</p>
-            <strong id="command-center-title">Navigate portfolio</strong>
+            <p>Quick navigation</p>
+            <strong id="command-center-title">Go to</strong>
           </div>
           <button
             aria-label="Close navigation search"

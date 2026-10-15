@@ -5,7 +5,7 @@ const nodeKindLabels = {
   input: "Input",
   process: "Processing",
   output: "Output",
-  boundary: "Boundary",
+  boundary: "Limit",
 } as const;
 
 export function ArchitectureLens({
@@ -21,14 +21,14 @@ export function ArchitectureLens({
     <article className={styles.architectureLens}>
       <header className={styles.architectureHeader}>
         <div>
-          <p className={styles.miniEyebrow}>Architecture lens</p>
-          <h5>Verified workflow and system boundary</h5>
+          <p className={styles.miniEyebrow}>How it works</p>
+          <h5>Workflow and technology</h5>
         </div>
-        <span>Semantic system map</span>
+        <span>Input to output</span>
       </header>
       <p className={styles.architectureSummary}>{architecture.summary}</p>
 
-      <ol className={styles.architectureFlow} aria-label="Project data flow">
+      <ol className={styles.architectureFlow} aria-label="Project workflow">
         {architecture.nodes.map((node, index) => {
           const nextNode = architecture.nodes[index + 1];
           const edge = nextNode
@@ -68,7 +68,7 @@ export function ArchitectureLens({
       </ol>
 
       <section className={styles.edgeLedger} aria-labelledby="edge-ledger-title">
-        <h6 id="edge-ledger-title">Data-flow relationships</h6>
+        <h6 id="edge-ledger-title">Workflow connections</h6>
         <ul>
           {architecture.edges.map((edge) => (
             <li key={`${edge.from}-${edge.to}`}>

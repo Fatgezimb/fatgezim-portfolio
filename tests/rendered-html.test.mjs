@@ -96,7 +96,7 @@ test("server-renders the semantic portfolio homepage", async () => {
   assert.match(html, /<nav\b[^>]*>/i);
   assert.match(html, /Switch to dark theme/i);
   assert.match(html, /Open navigation search/i);
-  assert.match(html, /Navigate portfolio/i);
+  assert.match(html, /Quick navigation/i);
   assert.match(
     html,
     /<meta\b(?=[^>]*\bname=["']theme-color["'])(?=[^>]*\bcontent=["']#f4f8f6["'])[^>]*>/i,
@@ -153,19 +153,21 @@ test("does not render the disposable starter preview", async () => {
   assert.doesNotMatch(html, /Your site is taking shape/i);
 });
 
-test("server-renders a sanitized print resume", async () => {
+test("server-renders the print resume", async () => {
   const response = await render("/resume");
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Print Résumé \| Fatgezim “Zim” Bela<\/title>/i);
+  assert.match(html, /<title>Résumé \| Fatgezim “Zim” Bela<\/title>/i);
   assert.match(html, /Doctor of Medicine Candidate/i);
   assert.match(html, /Expected 2028/i);
   assert.match(html, /M\.Ed\. in Special Education/i);
   assert.match(html, /B\.S\. in Neuroscience/i);
-  assert.match(html, /Print-ready résumé available/i);
-  assert.match(html, /fatgezimbela1@gmail\.com/i);
+  assert.match(html, /https:\/\/www\.linkedin\.com\/in\/fatgezimzimbela\//i);
+  assert.match(html, /https:\/\/github\.com\/Fatgezimb/i);
+  assert.doesNotMatch(html, /fatgezimbela1@gmail\.com/i);
+  assert.doesNotMatch(html, /Public materials omit|Print-ready résumé available/i);
 
   assert.doesNotMatch(html, /1331 Recordz|IronGlassByte|Boston University/i);
   assert.doesNotMatch(html, /Project Cleo|Spinal Fracture/i);
@@ -220,8 +222,10 @@ test("server-renders the research hub and George Mason detail route", async () =
     researchHtml,
     /<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*\/research["'])[^>]*>/i,
   );
-  assert.match(researchHtml, /Artifact-led research record/i);
-  assert.match(researchHtml, /Owner-confirmed; documentation pending/i);
+  assert.match(researchHtml, /Featured research/i);
+  assert.match(researchHtml, /Collaborative computational neuroscience/i);
+  assert.doesNotMatch(researchHtml, /Artifact-led research record/i);
+  assert.doesNotMatch(researchHtml, /Owner-confirmed; documentation pending/i);
   assert.match(researchHtml, new RegExp(`href=["']${researchDetailPath}["']`, "i"));
 
   const detailResponse = await render(researchDetailPath);
@@ -240,8 +244,8 @@ test("server-renders the research hub and George Mason detail route", async () =
     detailHtml,
     /<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*\/research\/george-mason-neuronal-reconstruction["'])[^>]*>/i,
   );
-  assert.match(detailHtml, /Accessible poster summary/i);
-  assert.match(detailHtml, /Explore the reconstruction workflow/i);
+  assert.match(detailHtml, /Poster overview/i);
+  assert.match(detailHtml, /Reconstruction workflow/i);
   assert.match(detailHtml, /Questions identified for later investigation/i);
 });
 
@@ -263,7 +267,8 @@ test("publishes only poster-supported neuronal-reconstruction claims", async () 
     html,
     /Centers for Neural Informatics, Structures &amp; Plasticity/i,
   );
-  assert.match(html, /email address printed on the original poster is archival/i);
+  assert.doesNotMatch(html, /email address printed on the original poster is archival/i);
+  assert.doesNotMatch(html, /fatgezimbela1@gmail\.com/i);
   assert.match(html, /Fiji\/ImageJ/i);
   assert.match(html, /Vaa3D/i);
   assert.match(html, /NeuTube/i);
@@ -292,7 +297,7 @@ test("publishes only poster-supported neuronal-reconstruction claims", async () 
   );
 });
 
-test("renders mailto-only contact behavior without a submission service", async () => {
+test("renders a clean contact form and social links", async () => {
   const response = await render();
   const html = await response.text();
 
@@ -300,14 +305,50 @@ test("renders mailto-only contact behavior without a submission service", async 
     html,
     /<form\b(?=[^>]*\baction=["']mailto:fatgezimbela1@gmail\.com["'])(?=[^>]*\bmethod=["']post["'])[^>]*>/i,
   );
-  assert.match(html, /Open email draft/i);
-  assert.match(html, /Prefer email\?/i);
+  assert.match(html, /Start a conversation/i);
+  assert.match(html, /Contact me/i);
   assert.match(html, /mailto:fatgezimbela1@gmail\.com/i);
+  assert.doesNotMatch(html, /Open email draft|Prefer email\?/i);
+  assert.doesNotMatch(
+    html,
+    /<a\b(?=[^>]*\bhref=["']mailto:fatgezimbela1@gmail\.com["'])[^>]*>/i,
+  );
+  assert.doesNotMatch(html, />\s*fatgezimbela1@gmail\.com\s*</i);
+
+  const linkedInPosition = html.search(
+    /<a\b[^>]*\bhref=["']https:\/\/www\.linkedin\.com\/in\/fatgezimzimbela\/["']/i,
+  );
+  const githubPosition = html.search(
+    /<a\b[^>]*\bhref=["']https:\/\/github\.com\/Fatgezimb["']/i,
+  );
+  assert.ok(linkedInPosition >= 0, "contact should show the full LinkedIn URL");
+  assert.ok(githubPosition >= 0, "contact should show the full GitHub URL");
+  assert.ok(
+    linkedInPosition < githubPosition,
+    "LinkedIn should appear before GitHub",
+  );
   assert.doesNotMatch(html, /api\.web3forms\.com|web3forms|access_key/i);
   assert.doesNotMatch(html, /newsletter|subscribe for updates/i);
   assert.doesNotMatch(
     html,
     /<form\b(?=[^>]*\baction=["']https?:\/\/)[^>]*>/i,
+  );
+});
+
+test("keeps internal review language out of visitor-facing pages", async () => {
+  const responses = await Promise.all([
+    render(),
+    render("/resume"),
+    render("/research"),
+    render(researchDetailPath),
+  ]);
+  const html = (await Promise.all(responses.map((response) => response.text()))).join(
+    "\n",
+  );
+
+  assert.doesNotMatch(
+    html,
+    /Verified public résumé|Print-ready résumé|Published without identifiers|System \/ End of transmission|Artifact-led research record|Evidence-backed scope and boundaries|Privacy and claim boundaries|Public materials omit|Owner-confirmed; documentation pending/i,
   );
 });
 
@@ -319,7 +360,7 @@ test("renders the supplied portrait and soccer media without autoplay or looping
     html,
     /<img\b(?=[^>]*\bsrc=["']\/media\/fatgezim-bela-headshot\.jpg["'])(?=[^>]*\balt=["'][^"']*Fatgezim[^"']*Zim[^"']*Bela[^"']*["'])[^>]*>/i,
   );
-  assert.match(html, /A May 1, 2016 Mason Intramurals post/i);
+  assert.match(html, /Mason Intramurals post from May 1, 2016/i);
   assert.match(
     html,
     /<source\b(?=[^>]*\bdata-src=["']\/media\/fatgezim-bela-soccer-winning-penalty\.mp4["'])(?=[^>]*\btype=["']video\/mp4["'])[^>]*>/i,
