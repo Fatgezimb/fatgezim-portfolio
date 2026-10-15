@@ -12,6 +12,7 @@ import {
   ResearchSection,
   SkillsSection,
 } from "./showcase/PortfolioSections";
+import { BuildApproach } from "./workspace/BuildApproach";
 export function PortfolioPage() {
   return (
     <>
@@ -23,9 +24,10 @@ export function PortfolioPage() {
       <SiteHeader />
       <main id="main-content" tabIndex={-1}>
         <Hero />
-        <FeaturedProjects />
-        <ResearchSection />
         <AboutSection />
+        <FeaturedProjects />
+        <BuildApproach />
+        <ResearchSection />
         <ExperienceSection />
         <SkillsSection />
         <FounderSection />

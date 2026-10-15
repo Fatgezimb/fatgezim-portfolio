@@ -82,3 +82,18 @@ The supplied resume brief is reconciled with the approved project and newer remo
 Design and evidence: `docs/portfolio/redesign-2026-10-15.md` and `docs/portfolio/redesign-project-evidence.md`.
 
 PR 3 and Pages workflow 38782560193 published commit 6379b7cabdd3596c559a5bbf0c718bf6a8dbfd2f. Public route, touch, deep-link, live-frame, no-JS and approved-download verification passed.
+
+## October 15 master package — interactive workspace
+
+- [x] Inspect the complete package, reconcile reference facts and research ten real creative experiences.
+- [x] Build five original 3D objects with meaningful domain stories, direct selection and a guided tour.
+- [x] Recompose the complete homepage and professional résumé overview.
+- [x] Preserve and verify all seven usable project samples and existing public embeds.
+- [x] Repair and verify RBT's clean and trailing-slash routes in its actual deployment.
+- [x] Complete NeuroStack's scientific/release checks and integrate its verified canonical app.
+- [x] Verify mobile, keyboard, no-JavaScript, reduced-motion, low-power and renderer recovery behavior.
+- [x] Generate and inspect initial refreshed two-page PDF/DOCX candidates without replacing approved files.
+- [ ] Finish final document regeneration and the saved exact-file publication review.
+- [ ] Publish and verify the complete new portfolio release.
+
+Detailed execution and evidence: `docs/IMPLEMENTATION_STATUS.md`, `docs/WORKSPACE_QA.md`, `docs/PROJECT_INVENTORY.md` and `docs/LINK_AUDIT.md`.

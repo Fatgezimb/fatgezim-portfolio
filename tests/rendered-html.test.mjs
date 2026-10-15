@@ -11,6 +11,7 @@ const researchDetailPath =
   "/research/george-mason-neuronal-reconstruction";
 
 const portfolioSections = [
+  "process",
   "about",
   "projects",
   "experience",
@@ -100,7 +101,7 @@ test("server-renders the semantic portfolio homepage", async () => {
   assert.match(html, /Quick navigation/i);
   assert.match(
     html,
-    /<meta\b(?=[^>]*\bname=["']theme-color["'])(?=[^>]*\bcontent=["']#edf1f5["'])[^>]*>/i,
+    /<meta\b(?=[^>]*\bname=["']theme-color["'])(?=[^>]*\bcontent=["']#f1eff6["'])[^>]*>/i,
   );
   assert.doesNotMatch(
     html,
@@ -110,9 +111,12 @@ test("server-renders the semantic portfolio homepage", async () => {
 
   const headings = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)];
   assert.equal(headings.length, 1, "homepage should have exactly one h1");
-  assert.match(headings[0][1], /Fatgezim/i);
-  assert.match(headings[0][1], /Zim/i);
-  assert.match(headings[0][1], /Bela/i);
+  assert.match(headings[0][1], /desk/i);
+  assert.match(html, /Fatgezim.*?Zim.*?Bela/i);
+  assert.match(html, /Explore five workspace topics/i);
+  for (const topic of ["Neuroscience", "Software", "Data", "Medicine", "Design"]) {
+    assert.match(html, new RegExp(`<h2>${topic}</h2>`), `${topic} story must be readable without JavaScript`);
+  }
 
   for (const id of portfolioSections) {
     assert.match(html, sectionPattern(id), `missing semantic #${id} section`);

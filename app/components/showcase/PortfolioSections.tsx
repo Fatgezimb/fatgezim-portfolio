@@ -38,7 +38,7 @@ function Heading({
 export function AboutSection() {
   return (
     <section className={styles.section} id="about">
-      <Heading label="About" title="A builder with a wider lens." />
+      <Heading label="Meet Zim" title="Curiosity tends to spill over." />
       <div className={styles.aboutGrid} data-reveal="up">
         <figure className={styles.portrait}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -125,8 +125,8 @@ export function ExperienceSection() {
     <section className={styles.section} id="experience">
       <Heading
         label="Experience"
-        title="Hands on. End to end."
-        description="Technology leadership, software, data, and the domain experience behind them."
+        title="The work behind the workspace."
+        description="Technology leadership and the experience that informs how I build."
       />
       <ol className={styles.careerList}>
         {experience.map((item) => (
@@ -176,7 +176,7 @@ const skillEvidence: Record<string, { href: string; label: string }> = {
 export function SkillsSection() {
   return (
     <section className={styles.section} id="skills">
-      <Heading label="Capabilities" title="A toolkit, applied." />
+      <Heading label="Capabilities" title="Tools I put to work." />
       <div className={styles.skillRows}>
         {skillGroups.map((group) => (
           <article className={styles.skillRow} key={group.id} data-reveal="up">
@@ -200,8 +200,8 @@ export function FounderSection() {
     <section className={styles.section} id="founder">
       <Heading
         label="Founder & builder"
-        title="The ventures behind the work."
-        description="Technology leadership, product development, and collaborative building."
+        title="Building with a longer view."
+        description="The organizations and collaborations where the work takes shape."
       />
       <div className={styles.ventureGrid}>
         {siteContent.founderContext.relationships.map((item) => (

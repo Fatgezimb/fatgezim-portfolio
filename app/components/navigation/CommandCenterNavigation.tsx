@@ -1,6 +1,7 @@
 "use client";
 
 import { sitePath } from "@/app/content/paths";
+import { publication } from "@/app/content/publication";
 
 import { navigationItems } from "@/app/content/site";
 import { usePathname } from "next/navigation";
@@ -48,7 +49,7 @@ function NavigationLinks({
         .filter(
           (item) =>
             !compact ||
-            ["projects", "about", "research", "contact"].includes(item.id),
+            ["workspace", "projects", "about", "contact"].includes(item.id),
         )
         .map((item) => (
           <li key={item.href}>
@@ -221,6 +222,21 @@ export function CommandCenterNavigation() {
           />
         </nav>
 
+        <SafeLink
+          className={styles.mobileWorkShortcut}
+          href="/#projects"
+          newTab={navigationLeavesPage}
+        >
+          Work
+        </SafeLink>
+        <a
+          className={styles.resumeShortcut}
+          href={sitePath(publication.pdf)}
+          download
+          aria-label="Download résumé PDF"
+        >
+          Résumé <span aria-hidden="true">↓</span>
+        </a>
         <ThemeToggle />
 
         <button

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Syne } from "next/font/google";
+import { Geist, Geist_Mono, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { publication } from "./content/publication";
 import { siteMeta } from "./content/site";
@@ -8,7 +8,7 @@ const siteUrl = new URL(publication.url);
 const siteTitle = siteMeta.title;
 const siteDescription = siteMeta.description;
 
-const display = Syne({ variable: "--font-display", subsets: ["latin"], weight: ["500", "600", "700"] });
+const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["latin"], weight: ["500", "600", "700"] });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +29,7 @@ const themeInitialization = `(() => {
     document.documentElement.style.colorScheme = theme;
     document.querySelector('meta[name="theme-color"]')?.setAttribute(
       "content",
-      theme === "dark" ? "#101725" : "#edf1f5",
+      theme === "dark" ? "#1c1826" : "#f1eff6",
     );
   } catch {
     document.documentElement.dataset.theme = "light";
@@ -96,7 +96,7 @@ export default function RootLayout({
   return (
     <html data-js="disabled" data-theme="light" lang="en" suppressHydrationWarning>
       <head>
-        <meta content="#edf1f5" name="theme-color" />
+        <meta content="#f1eff6" name="theme-color" />
         <script dangerouslySetInnerHTML={{ __html: themeInitialization }} />
       </head>
       <body

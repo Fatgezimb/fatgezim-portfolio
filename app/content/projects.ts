@@ -35,9 +35,12 @@ export const featuredProjects = [
       "checksummed model, notebook, and visualization artifacts",
       "accessible table and provenance alternatives for interactive figures",
     ],
-    evidenceLinks: ["https://github.com/Fatgezimb/neurostack-explorer"],
+    evidenceLinks: [
+      "https://fatgezimb.github.io/neurostack-explorer/",
+      "https://github.com/Fatgezimb/neurostack-explorer",
+    ],
     publicScope:
-      "The portfolio preview uses a compact, precomputed scientific artifact. The full explorer and reproducibility record live in the linked repository.",
+      "The portfolio sample uses a compact, precomputed scientific artifact. Open the live analysis workspace for linked controls and the public source for its reproducibility record.",
     privacyNotes: [
       "The browser receives compact public-derived or synthetic artifacts, not private participant records.",
       "The site does not expose arbitrary notebook execution or source NWB uploads.",
@@ -46,11 +49,11 @@ export const featuredProjects = [
       "Start with the verified NWB-derived dataset and provenance label.",
       "Compare a firing-rate trace with a population summary.",
       "Inspect a model or 3D embedding-style view with its data boundary.",
-      "End at the open-source repository and reproducibility record.",
+      "Continue into the live analysis workspace and its public reproducibility record.",
     ],
     uncertaintyFlags: [
       "One public session and one frozen modeling task; results are demonstrations, not population claims.",
-      "The linked repository is the source for the complete scientific explorer.",
+      "The live explorer displays precomputed artifacts; its public repository contains the reproducible analysis pipeline.",
     ],
   },
   {

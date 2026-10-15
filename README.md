@@ -4,13 +4,13 @@ Live GitHub Pages site: [fatgezimb.github.io/fatgezim-portfolio](https://fatgezi
 
 Featured scientific project: [NeuroStack Explorer source and reproducibility record](https://github.com/Fatgezimb/neurostack-explorer)
 
-A technical portfolio and résumé focused on hands-on Founder and CTO leadership, software engineering, data, automation, and scientific systems. The experience uses a silver-and-cobalt editorial design, an original interactive signal sculpture, and seven navigable product samples inside a shared project workspace.
+A technical portfolio and résumé focused on hands-on Founder and CTO leadership, software engineering, data, automation, and scientific systems. The experience opens with an original five-domain 3D maker’s workbench, a lilac/graphite editorial system, and seven navigable product samples inside a shared project explorer. The five objects connect neuroscience, software, data, medicine and design to verified work.
 
 ## Stack
 
 - Next.js 16, React 19, and TypeScript
 - Vinext and Vite for the Cloudflare-compatible build
-- Original Canvas 2D fibre sculpture with static SVG fallback
+- Progressively loaded Three.js workspace with original procedural geometry and static SVG fallback
 - CSS Modules plus global semantic design tokens
 - OpenAI Sites hosting through `.openai/hosting.json`
 
@@ -31,7 +31,8 @@ Open [http://localhost:3000](http://localhost:3000). Useful routes are:
 - `/#projects` — featured project lab
 - `/research` — research overview
 - `/research/george-mason-neuronal-reconstruction` — accessible poster project page
-- `/resume` — print-friendly résumé
+- `/#workspace` — five topics, optional tour and flat/3D explorer
+- `/resume` — professional overview with formal downloads and two-page print layout
 
 ## Verification
 
@@ -42,13 +43,14 @@ npm test
 npm run build
 ```
 
-`npm test` performs a production build before running the rendered-HTML checks. Also run `node --test tests/export-pages.test.mjs` before publishing. The current homepage does not load the retained legacy Three.js components.
+`npm test` performs a production build before running the rendered-HTML checks. Also run `node --test tests/export-pages.test.mjs` before publishing. The workspace renderer is a separate dynamic chunk. Check 2D, reduced-motion, save-data and WebGL context-loss recovery alongside ordinary topic navigation.
 
 ## Editing content
 
 Verified copy and public facts live under `app/content/`:
 
 - `site.ts` — navigation, hero, about, contact, and site metadata
+- `workspace.ts` — five domain stories, skills and evidence destinations
 - `resume.ts` — identity, experience, education, credentials, and skills
 - `projects.ts` — verified project records, roles, evidence, and boundaries
 - `project-showcase.ts` — project order, presentation copy and audited public destinations
@@ -79,9 +81,11 @@ The contact form does not submit to a server. It uses an encoded `mailto:` hando
 
 The default theme is light; the header persists an optional dark theme. Shared tokens live in `app/globals.css`. Product windows retain their own readable product palettes.
 
-`showcase/SignalSculpture.tsx` draws original conceptual fibre geometry with Canvas 2D. Three selectable forms interpolate smoothly. Pause freezes rotation; reduced motion renders a static form while explicit mode changes remain available. Drawing stops offscreen and in hidden tabs, and the backing resolution is capped. A static SVG remains available without JavaScript or Canvas. The drawing is decorative; essential content is ordinary HTML. Normal scrolling is never intercepted.
+`workspace/WorkspaceExplorer.tsx` owns the five accessible topic controls, optional tour, focus/scroll alignment and recovery states. `workspace/workspaceScene.ts` creates the original workbench geometry, materials, lighting, object raycasts and bounded camera framing. The concept is portfolio artwork, not a scientific reconstruction or a claim about personal modeling authorship. Asset provenance is in `docs/WORKSPACE_DESIGN.md`.
 
-The main page composition is in `PortfolioPage.tsx`, with supporting sections in `showcase/PortfolioSections.tsx`. Research detail routes and the print résumé retain their existing evidence-led layouts.
+The renderer caps resolution at 1.5 DPR and quiet motion at 30 updates/second, batches neuron geometry, pauses offscreen/in hidden tabs, and disposes geometry, textures and the GL context. Initial reduced-motion, Save-Data, 2G and constrained-device settings use the flat explorer; visitors may explicitly try 3D. A fresh canvas supports recovery after context loss. All five stories and links are present without JavaScript. Scrolling remains native.
+
+`PortfolioPage.tsx` sequences the workspace, personal introduction, project explorer, build approach, creative study, research and professional background. Supporting sections live in `showcase/PortfolioSections.tsx`; the web résumé uses its own responsive screen design and preserves a formal print layout.
 
 ## Accessibility
 
@@ -127,7 +131,8 @@ app/
   components/
     navigation/       active navigation, theme toggle, command palette
     project-experiences/ navigable technical and operational samples
-    showcase/         editorial sections, product workspace, signal sculpture
+    showcase/         editorial sections and product explorer
+    workspace/        original 3D scene, topic stories, tour, fallback and approach
     project-demos/    retained earlier preview components
     research-ui/      evidence labels, workflow, page shell, poster viewer
     spatial/          retained earlier Three.js runtime and fallbacks
@@ -140,4 +145,4 @@ public/               favicon, social card, and optimized public media
 tests/                rendered-HTML checks
 ```
 
-The redesign audit trail and acceptance evidence are documented in `docs/portfolio/`.
+The current master brief, design research, inventory, link audit and implementation status live in `docs/`. Historical release evidence remains in `docs/portfolio/`.
