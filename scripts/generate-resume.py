@@ -34,10 +34,9 @@ ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = Path(os.environ.get('CODEX_PRIMARY_DEPENDENCIES', str(Path.home() / '.cache/codex-runtimes/codex-primary-runtime/dependencies')))
 NODE = RUNTIME / 'node/bin/node'
 STEM = 'Fatgezim_Zim_Bela_Technology_Resume'
-TEAL = '006E71'
-INDIGO = '303E69'
-INK = '19222F'
-MUTED = '455466'
+IRIS = '5836BB'
+INK = '252137'
+MUTED = '625D70'
 
 
 def clean(value):
@@ -95,7 +94,7 @@ def add_hyperlink(paragraph, label, url):
     link.set(qn('r:id'), rel_id)
     run = OxmlElement('w:r')
     props = OxmlElement('w:rPr')
-    color = OxmlElement('w:color'); color.set(qn('w:val'), TEAL); props.append(color)
+    color = OxmlElement('w:color'); color.set(qn('w:val'), IRIS); props.append(color)
     size = OxmlElement('w:sz'); size.set(qn('w:val'), '20'); props.append(size)
     run.append(props)
     text = OxmlElement('w:t'); text.text = clean(label); run.append(text)
@@ -111,11 +110,11 @@ def generate_docx(blocks, destination):
     normal = doc.styles['Normal']
     normal.font.name = 'Arial'; normal.font.size = Pt(10)
     normal.font.color.rgb = RGBColor.from_string(INK)
-    normal.paragraph_format.line_spacing = 1.06
+    normal.paragraph_format.line_spacing = 1.08
     normal.paragraph_format.space_after = Pt(3)
     for name in ['Title', 'Subtitle', 'Heading 1', 'Heading 2']:
         doc.styles[name].font.name = 'Arial'
-    title = doc.styles['Title']; title.font.size = Pt(25); title.font.bold = True
+    title = doc.styles['Title']; title.font.size = Pt(26); title.font.bold = True
     title.font.color.rgb = RGBColor(0, 0, 0)
     title.paragraph_format.space_after = Pt(3)
     # python-docx's default template carries a blue Title border; clear it.
@@ -123,10 +122,10 @@ def generate_docx(blocks, destination):
         border.getparent().remove(border)
     sub = doc.styles['Subtitle']; sub.font.size = Pt(11); sub.font.bold = True
     sub.font.italic = False
-    sub.font.color.rgb = RGBColor.from_string(INDIGO); sub.paragraph_format.space_after = Pt(5)
+    sub.font.color.rgb = RGBColor(0, 0, 0); sub.paragraph_format.space_after = Pt(6)
     for name, size in [('Heading 1', 11), ('Heading 2', 10.5)]:
         style = doc.styles[name]; style.font.size = Pt(size); style.font.bold = True
-        style.font.color.rgb = RGBColor.from_string(TEAL if name == 'Heading 1' else INK)
+        style.font.color.rgb = RGBColor(0, 0, 0)
         style.paragraph_format.space_before = Pt(8 if name == 'Heading 1' else 4)
         style.paragraph_format.space_after = Pt(3)
         style.paragraph_format.keep_with_next = True
@@ -134,6 +133,12 @@ def generate_docx(blocks, destination):
     doc.core_properties.subject = 'Software engineering data systems and technology leadership'
     doc.core_properties.author = 'Fatgezim Bela'
     doc.core_properties.keywords = 'Software engineering, data science, technology leadership'
+    footer = section.footer.paragraphs[0]
+    footer.paragraph_format.space_before = Pt(0)
+    footer.paragraph_format.space_after = Pt(0)
+    footer_run = footer.add_run('Fatgezim Zim Bela  |  Technology Resume')
+    footer_run.font.name = 'Arial'; footer_run.font.size = Pt(9)
+    footer_run.font.color.rgb = RGBColor.from_string(MUTED)
 
     def paragraph(text='', style=None, after=None, bold_lead=None):
         p = doc.add_paragraph(style=style)
@@ -169,6 +174,7 @@ def generate_docx(blocks, destination):
             p.add_run().add_break(WD_BREAK.PAGE)
         elif kind == 'continuation':
             p = paragraph(value, after=2); p.runs[0].bold = True
+            p.runs[0].font.color.rgb = RGBColor(0, 0, 0)
         elif kind == 'project':
             p = paragraph(value['name'], 'Heading 2')
             if value['links']:
@@ -199,10 +205,10 @@ def generate_pdf(blocks, destination):
     pdfmetrics.registerFont(TTFont('ResumeSans-Bold', str(bold)))
     pdfmetrics.registerFontFamily('ResumeSans', normal='ResumeSans', bold='ResumeSans-Bold', italic='ResumeSans', boldItalic='ResumeSans-Bold')
     styles = {
-        'title': ParagraphStyle('title', fontName='Helvetica-Bold', fontSize=25, leading=28, spaceAfter=4, textColor=colors.HexColor('#'+INK)),
-        'subtitle': ParagraphStyle('subtitle', fontName='Helvetica-Bold', fontSize=11, leading=13, spaceAfter=6, textColor=colors.HexColor('#'+INDIGO)),
-        'body': ParagraphStyle('body', fontName='Helvetica', fontSize=10, leading=11.4, spaceAfter=3, textColor=colors.HexColor('#'+INK)),
-        'section': ParagraphStyle('section', fontName='Helvetica-Bold', fontSize=11, leading=13, spaceBefore=8, spaceAfter=4, textColor=colors.HexColor('#'+TEAL), keepWithNext=True),
+        'title': ParagraphStyle('title', fontName='Helvetica-Bold', fontSize=26, leading=30, spaceAfter=4, textColor=colors.HexColor('#'+INK)),
+        'subtitle': ParagraphStyle('subtitle', fontName='Helvetica-Bold', fontSize=11, leading=14, spaceAfter=6, textColor=colors.HexColor('#'+IRIS)),
+        'body': ParagraphStyle('body', fontName='Helvetica', fontSize=10, leading=11.6, spaceAfter=3, textColor=colors.HexColor('#'+INK)),
+        'section': ParagraphStyle('section', fontName='Helvetica-Bold', fontSize=11, leading=13, spaceBefore=9, spaceAfter=4, textColor=colors.HexColor('#'+IRIS), keepWithNext=True),
         'heading': ParagraphStyle('heading', fontName='Helvetica-Bold', fontSize=10.5, leading=12, spaceBefore=4, spaceAfter=3, textColor=colors.HexColor('#'+INK), keepWithNext=True),
         'meta': ParagraphStyle('meta', fontName='Helvetica', fontSize=10, leading=11.3, spaceAfter=2, textColor=colors.HexColor('#'+MUTED)),
         'bullet': ParagraphStyle('bullet', fontName='Helvetica', fontSize=10, leading=11.4, spaceAfter=1, leftIndent=8, firstLineIndent=-8),
@@ -211,7 +217,7 @@ def generate_pdf(blocks, destination):
         style.fontName = 'ResumeSans-Bold' if style.fontName.endswith('Bold') else 'ResumeSans'
     esc = lambda s: html.escape(clean(s))
     def para(s, style='body'): return Paragraph(s, styles[style])
-    def link(label, href): return f'<a color="#{TEAL}" href="{esc(href)}">{esc(label)}</a>'
+    def link(label, href): return f'<a color="#{IRIS}" href="{esc(href)}">{esc(label)}</a>'
     flow = []
     for kind, value in blocks:
         if kind in ['title', 'subtitle', 'section']: flow.append(para(esc(value), kind))
@@ -242,15 +248,18 @@ def generate_pdf(blocks, destination):
                           author='Fatgezim Bela', pageCompression=1)
     def page_number(canvas, document):
         canvas.saveState(); canvas.setFont('ResumeSans',9); canvas.setFillColor(colors.HexColor('#'+MUTED))
+        canvas.drawString(43.2,19,'Fatgezim Zim Bela  |  Technology Resume')
         canvas.drawRightString(568.8,19,f'{document.page}'); canvas.restoreState()
     doc.build(flow, onFirstPage=page_number, onLaterPages=page_number)
 
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--output-dir', type=Path, default=ROOT/'resume')
-    parser.add_argument('--work-dir', type=Path, default=ROOT/'work/reconciliation/docs')
+    parser.add_argument('--output-dir', type=Path, default=ROOT/'work/master/resume-review')
+    parser.add_argument('--work-dir', type=Path, default=ROOT/'work/master/resume-qa')
     args=parser.parse_args()
+    if args.output_dir.resolve() in {(ROOT/'resume').resolve(), (ROOT/'public/resume').resolve()}:
+        parser.error('Generate review artifacts separately; publication requires a reviewed file copy.')
     args.output_dir.mkdir(parents=True,exist_ok=True); args.work_dir.mkdir(parents=True,exist_ok=True)
     data_path=args.work_dir/'resume-data.json'
     subprocess.run([str(NODE), str(ROOT/'scripts/export-resume-data.mjs'), str(data_path)],check=True)

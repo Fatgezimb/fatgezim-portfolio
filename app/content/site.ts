@@ -56,9 +56,11 @@ export type SiteContent = {
 };
 
 export const navigationItems = [
-  { href: "/#projects", id: "projects", label: "Work" },
-  { href: "/#research", id: "research", label: "Research" },
+  { href: "/#workspace", id: "workspace", label: "Workspace" },
   { href: "/#about", id: "about", label: "About" },
+  { href: "/#projects", id: "projects", label: "Work" },
+  { href: "/#process", id: "process", label: "Approach" },
+  { href: "/#research", id: "research", label: "Research" },
   { href: "/#experience", id: "experience", label: "Experience" },
   { href: "/#skills", id: "skills", label: "Skills" },
   { href: "/#founder", id: "founder", label: "Ventures" },
@@ -71,9 +73,11 @@ export const siteMeta = {
   description:
     "Hands-on technology leadership, software engineering, workflow automation, and scientific data systems by Fatgezim “Zim” Bela.",
   sectionOrder: [
-    "projects",
-    "research",
+    "workspace",
     "about",
+    "projects",
+    "process",
+    "research",
     "experience",
     "skills",
     "founder",
@@ -103,8 +107,8 @@ export const siteContent = {
   about: {
     heading: "About",
     paragraphs: [
-      "I’m a founder and CTO who works directly on product architecture, interfaces, data workflows, and automation. I start with the people and decisions a system needs to support, then turn those requirements into software that can be inspected, tested, and improved.",
-      "I lead technology at Create 13 Group and NeuroPath LLC and co-build Bela Data Lab products with Meili Bela. My clinical background, medical education, and neuroscience research inform how I approach data, uncertainty, and complex workflows.",
+      "I like the moment when a complicated problem starts to make sense. Sometimes that means tracing a neuron. Sometimes it means untangling an export or getting a stubborn interface to behave.",
+      "Today I’m Founder and CTO at Create 13 Group and NeuroPath LLC, and I co-build Bela Data Lab products with Meili Bela. I work directly on architecture, interfaces, data and automation. Neuroscience research, behavioral science and my ongoing medical education give me different ways to ask the next question.",
     ],
     domains: [
       "Behavioral science and ABA",

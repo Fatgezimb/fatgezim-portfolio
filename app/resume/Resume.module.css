@@ -1,0 +1,83 @@
+/* Screen presentation is independent of the compact formal print document. */
+@media screen {
+  .page {
+    --resume-ink: #252137;
+    --resume-muted: #625d70;
+    --resume-iris: #5836bb;
+    --resume-line: #dcd8e7;
+    min-height: 100vh;
+    padding: clamp(20px, 4vw, 64px) clamp(16px, 4vw, 64px) 88px;
+    background: #e8e7f2;
+    color: var(--resume-ink);
+    color-scheme: light;
+  }
+
+  .page :global(.resume-toolbar),
+  .page :global(.resume-document) { width: min(100%, 1180px); }
+  .page :global(.resume-toolbar) { margin-bottom: 28px; align-items: flex-start; gap: 24px; }
+  .page :global(.resume-toolbar .text-link) { color: var(--resume-iris); }
+  .actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 12px 20px; }
+  .actions :global(.resume-downloads) { align-items: center; gap: 16px; }
+  .actions :global(.button) { min-height: 42px; padding: 10px 16px; font-size: 12px; border-radius: 6px; }
+  .actions :global(.button--primary) { color: #fff; background: #5836bb; border-color: #5836bb; }
+  .actions :global(.button--secondary) { color: #252137; background: #f8f8fc; border: 1px solid #cbc5dc; }
+  .page :global(.resume-document) { padding: clamp(24px, 5.5vw, 76px); background: #f8f8fc; box-shadow: 0 16px 64px #2521370b; border-radius: 12px; }
+  .page :global(.resume-document h1),
+  .page :global(.resume-document h2),
+  .page :global(.resume-document h3),
+  .page :global(.resume-document p),
+  .page :global(.resume-document li) { color: var(--resume-ink); }
+  .page :global(.resume-document a) { color: var(--resume-iris); text-underline-offset: .22em; }
+  .page :global(.resume-document__header) { display: block; padding: 0; border: 0; }
+  .page :global(.resume-document .eyebrow) { display: flex; gap: 12px; margin: 0 0 26px; color: var(--resume-muted); font: 500 11px/1.5 var(--font-geist-mono), monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .page :global(.resume-document h1) { max-width: 900px; margin: 0 0 20px; font: 600 clamp(38px, 5.6vw, 72px)/1.04 var(--font-display), sans-serif; letter-spacing: -.055em; }
+  .page :global(.resume-headline) { max-width: 760px; margin: 0; font-size: clamp(16px, 1.8vw, 20px); line-height: 1.5; font-weight: 500; color: var(--resume-iris) !important; }
+  .page :global(.resume-document address) { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 24px 0 0; text-align: left; font-size: 13px; }
+  .page :global(.resume-summary) { max-width: 840px; margin: 32px 0 0; font-size: 16px; line-height: 1.8; color: #514b61; }
+  .sectionNav { display: flex; flex-wrap: wrap; gap: 12px 26px; margin-top: 32px; padding: 22px 0; border-block: 1px solid var(--resume-line); font-size: 12px; font-weight: 600; }
+  .sectionNav a { text-decoration: none; }
+  .sectionNav a:hover { text-decoration: underline; }
+  .page :global(.resume-document h2) { scroll-margin-top: 28px; margin: 48px 0 24px; padding: 0; border: 0; color: var(--resume-iris); font: 600 26px/1.2 var(--font-display), sans-serif; letter-spacing: -.035em; text-transform: none; }
+  .page :global(.resume-document h3) { margin: 0 0 6px; font: 600 17px/1.4 var(--font-geist-sans), sans-serif; letter-spacing: -.02em; }
+  .page :global(.resume-skill-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 48px; }
+  .page :global(.resume-skill-grid h3) { font-size: 13px; }
+  .page :global(.resume-skill-grid p) { margin: 0; font-size: 13px; line-height: 1.8; color: var(--resume-muted); }
+  .page :global(.resume-stack) { gap: 0; }
+  .page :global(.resume-entry) { padding: 22px 0; border-top: 1px solid var(--resume-line); }
+  .page :global(.resume-entry > header) { gap: 24px; }
+  .page :global(.resume-entry header p) { font-size: 12px; line-height: 1.7; color: var(--resume-muted); }
+  .page :global(.resume-entry > header > p) { flex: 0 0 auto; padding-top: 3px; }
+  .page :global(.resume-entry > p) { max-width: 760px; margin: 10px 0 0; font-size: 14px; line-height: 1.8; color: #514b61; }
+  .printDetails { display: none; }
+  .page :global(.resume-project-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+  .page :global(.resume-project-grid article) { padding: 24px 0; border-top: 1px solid var(--resume-line); }
+  .page :global(.resume-project-grid p) { margin: 10px 0 0; font-size: 13px; line-height: 1.8; color: #514b61; }
+  .page :global(.resume-project-grid .resume-project-role) { margin: 0 0 12px; font-size: 11px; color: var(--resume-muted); font-weight: 500; }
+  .page :global(.resume-project-grid .resume-project-status) { margin-top: 12px; color: var(--resume-iris); font-size: 11px; font-weight: 600; }
+  .page :global(.resume-project-grid .resume-project-links) { margin-top: 10px; font-size: 12px; }
+  .page :global(.resume-project-grid) .stack { font-size: 12px; color: var(--resume-muted); }
+  .page :global(.resume-columns) { grid-template-columns: minmax(0, 1.4fr) minmax(0, .8fr); gap: 48px; }
+  .page :global(.resume-columns .resume-entry h3) { font-size: 14px; }
+  .page :global(.resume-plain-list) { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.8; }
+  .page :global(.resume-plain-list li + li) { margin-top: 12px; }
+  .page :global(a:focus-visible), .page :global(button:focus-visible) { outline: 3px solid #5836bb; outline-offset: 5px; }
+
+  @media (max-width: 760px) {
+    .page :global(.resume-toolbar) { flex-direction: column; gap: 20px; }
+    .actions { justify-content: flex-start; }
+    .page :global(.resume-skill-grid),
+    .page :global(.resume-project-grid),
+    .page :global(.resume-columns) { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .page :global(.resume-skill-grid) { gap: 22px; }
+    .page :global(.resume-entry > header) { flex-direction: column; gap: 4px; }
+    .page :global(.resume-entry > header > p) { padding-top: 0; }
+    .page :global(.resume-document h2) { margin-top: 36px; font-size: 24px; }
+    .page :global(.resume-summary) { font-size: 14px; }
+    .page :global(.resume-document address) { gap: 10px 18px; }
+  }
+}
+
+@media print {
+  .sectionNav { display: none; }
+  .actions { display: none; }
+}

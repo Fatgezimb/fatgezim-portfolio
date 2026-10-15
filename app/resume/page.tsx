@@ -4,8 +4,8 @@ import { PrintButton } from "@/app/components/PrintButton";
 import { SafeLink } from "@/app/components/SafeLink";
 import { ResumeDownloads } from "@/app/components/ResumeDownloads";
 import { resumeDocument } from "@/app/content/resume-document";
-import { publicLinks } from "@/app/content/resume";
 import { publication } from "@/app/content/publication";
+import styles from "./Resume.module.css";
 
 export const metadata: Metadata = {
   title: "Résumé",
@@ -22,24 +22,33 @@ export const metadata: Metadata = {
 export default function ResumePage() {
   const { identity, experience, projects, education, credentials, skills, research } = resumeDocument;
   return (
-    <main className="resume-page">
+    <main className={`resume-page ${styles.page}`}>
       <div className="resume-toolbar" aria-label="Résumé actions">
         <a className="text-link" href={sitePath("/")} >← Back to portfolio</a>
-        <ResumeDownloads />
-        <PrintButton />
+        <div className={styles.actions}><ResumeDownloads /><PrintButton /></div>
       </div>
       <article className="resume-document">
         <header className="resume-document__header">
           <div>
-            <p className="eyebrow">Technology résumé · 2026</p>
+            <p className="eyebrow">Professional profile <span aria-hidden="true">/</span> 2026</p>
             <h1>{identity.name}</h1>
             <p className="resume-headline">{identity.headline}</p>
           </div>
           <address>
-            {publicLinks.map((link) => <SafeLink href={link.href} key={link.href} newTab>{link.label}</SafeLink>)}
+            {resumeDocument.contact.filter((link) => !link.href.startsWith("mailto:")).map((link) => (
+              <SafeLink href={link.href} key={link.href} newTab>
+                {link.href.includes("linkedin.com") ? "LinkedIn" : link.href.includes("github.com") ? "GitHub" : "Portfolio"}
+              </SafeLink>
+            ))}
           </address>
         </header>
         <p className="resume-summary">{identity.summary}</p>
+        <nav className={styles.sectionNav} aria-label="Résumé sections">
+          <a href="#resume-experience-heading">Experience</a>
+          <a href="#resume-projects-heading">Engineering work</a>
+          <a href="#resume-education-heading">Education</a>
+          <a href="#resume-research-heading">Research</a>
+        </nav>
         <section aria-labelledby="resume-skills-heading">
           <h2 id="resume-skills-heading">Technical capabilities</h2>
           <div className="resume-skill-grid">
@@ -53,7 +62,7 @@ export default function ResumePage() {
               <article className="resume-entry" key={item.id}>
                 <header><div><h3>{item.title}</h3>{item.organization ? <p>{item.organization}</p> : null}</div>{item.dates ? <p>{item.dates}</p> : null}</header>
                 <p>{item.summary}</p>
-                {item.highlights.length ? <ul>{item.highlights.slice(0, 2).map((highlight) => <li key={highlight}>{highlight}</li>)}</ul> : null}
+                {item.highlights.length ? <ul className={styles.printDetails}>{item.highlights.slice(0, 2).map((highlight) => <li key={highlight}>{highlight}</li>)}</ul> : null}
               </article>
             ))}
           </div>
@@ -66,7 +75,7 @@ export default function ResumePage() {
                 <h3>{project.name}</h3>
                 <p className="resume-project-role">{project.role}</p>
                 <p>{project.summary}</p>
-                <p><strong>Stack:</strong> {project.stack}</p>
+                <p className={styles.stack}><strong>Stack:</strong> {project.stack}</p>
                 <p className="resume-project-status">{project.status}</p>
                 {project.links.length ? <p className="resume-project-links">{project.links.map((link) => <SafeLink key={link.href} href={link.href} newTab>{link.label}</SafeLink>)}</p> : null}
               </article>
