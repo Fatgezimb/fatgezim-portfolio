@@ -2,7 +2,7 @@
 
 Live GitHub Pages site: [fatgezimb.github.io/fatgezim-portfolio](https://fatgezimb.github.io/fatgezim-portfolio/)
 
-Featured scientific project: [NeuroStack Explorer](https://fatgezimb.github.io/neurostack-explorer/)
+Featured scientific project: [NeuroStack Explorer source and reproducibility record](https://github.com/Fatgezimb/neurostack-explorer)
 
 A technical portfolio and résumé focused on hands-on Founder and CTO leadership, software engineering, data, automation, and scientific systems. The experience uses a light-first “neural command center” visual system, accessible miniature product demos, and progressively enhanced Three.js scenes.
 

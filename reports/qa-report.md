@@ -48,8 +48,12 @@ The former Pages destination returns 404. The authoritative repository metadata 
 
 See `reports/link-audit.csv` and `reports/link-audit.md` for per-target source, before/after destination, response, redirects, anchor behavior, accessibility and verification limits.
 
-Pending: final exported-artifact browser checks, public release, GitHub Actions result and live artifact/hash checks. No live release is claimed by this in-progress report.
+The actual static Pages artifact passed direct route loads and reloads at 375/1440 pixels, hydrated path/resource inspection, font loads, native hash/back-forward, all navigation anchors, command-page actions, theme persistence, seven demos, deferred video, poster modal, crawler files, 404 and exact 2017-corrected download hashes. Public release, workflow result and live checks follow below; no live release is claimed by this in-progress report.
 
 ## Limits and optional follow-up
 
 LinkedIn redirects an unauthenticated browser to its authwall; profile content cannot be independently checked through that gate. It is recorded as access-restricted rather than dead. Keyboard/semantic/browser checks do not constitute a manual screen-reader user study or formal accessibility conformance certification. Optional evidence questions are in `QUESTIONS_FOR_OWNER.md`.
+
+## Independent code review
+
+A separate read-only integrated review found no remaining actionable blockers in runtime paths, metadata, accessible controls or export safety. Generated output remains inside a dedicated project directory, and asset validation completes before replacement.

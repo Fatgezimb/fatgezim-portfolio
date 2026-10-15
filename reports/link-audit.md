@@ -32,4 +32,6 @@ USMLE Sprint opens at sign-in. Its implemented workflows are described with acco
 
 Run `scripts/audit-links.py` against the root production preview or the Pages-mounted static preview. The CSV records original and intended destinations, HTTP status, redirect/final URL, route behavior, action taken and verification limits.
 
+The independent NeuroStack application browser check exposed a root-relative dynamic-chunk failure. The portfolio and resume use its verified public source instead; the README now points to the same reproducibility record. No working live application is claimed for that destination.
+
 Live verification is pending the release workflow. The report will record the deployed source and final artifact checks after publication.
