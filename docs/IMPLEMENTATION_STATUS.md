@@ -14,7 +14,7 @@ Owner request: October 15, 2026. Adopt the supplied master package, preserve ver
 - [x] Reshape homepage story, case studies, navigation and creative sections.
 - [x] Redesign résumé route and generate refreshed PDF/DOCX from shared facts.
 - [x] Render and visually review all final PDF/DOCX pages, facts, and ten matching links.
-- [ ] Obtain the requested exact-file publication review before replacing approved downloads.
+- [x] Obtain the requested exact-file publication review before replacing approved downloads.
 - [x] Test keyboard, mobile320, reduced motion, WebGL/context failure, performance, links and downloads on the exported artifact.
 - [ ] Critique real screenshots, finish details and publish authorized site/app changes.
 - [ ] Verify public release and record actual evidence.
@@ -45,4 +45,6 @@ Production static evidence: all four routes at 390/1440px load with correct font
 
 NeuroStack is released as `69a08f4` (Pages run `38792732141`) after successful web and scientific CI. Fresh live desktop/mobile checks verify hydration, public-derived data and state persistence. The exact portfolio iframe sandbox also passes unit/population/aggregation/smoothing/model changes at 390/1440px. Canonical full-site and live-lab actions are integrated. Final document candidates are being regenerated with the verified link.
 
-Final review candidates are ready: PDF SHA-256 `aff5bc3dd53b49f44e449d48f7670ff58f9764eb8aae975a7169a35525c382f1`; DOCX SHA-256 `b255dfe4faea50a1184d5f29bb9e8f15fde877a006babf5002d0207a05549a94`. Both are two pages with ten matching links. The exact-file owner review was requested in this chat; existing approved bytes remain published until an answer.
+Final review candidates are ready: PDF SHA-256 `aff5bc3dd53b49f44e449d48f7670ff58f9764eb8aae975a7169a35525c382f1`; DOCX SHA-256 `b255dfe4faea50a1184d5f29bb9e8f15fde877a006babf5002d0207a05549a94`. Both are two pages with ten matching links. The owner explicitly approved these exact refreshed files for public downloads. Both source/public copies now match the approved hashes; the publication follow-up is in progress.
+
+Workspace release `503c4ea` passed Pages workflow `38793780004`. Public verification passed all four routes, five actual canvas objects, tours and preference/fallback checks, seven sample workflows, eight live-frame flows, touch/navigation, 177 link/anchor/asset targets and current public download hashes. Owner-approved refreshed download files are now being published.

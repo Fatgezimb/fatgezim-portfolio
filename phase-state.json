@@ -29,10 +29,11 @@
     "Product studio redesign released via PR 3 and successful Pages workflow 38782560193. Public verification passed all four routes at mobile/desktop sizes, real touch interactions, deep links, all seven no-JS samples, six actual public iframe navigation checks and approved resume hashes. Final independent code review is clean. Detailed evidence: docs/portfolio/redesign-qa-report.md.",
     "Owner supplied a new complete master package on October15: five-domain interactive 3D workspace, full narrative/site/resume refresh, and actual NeuroStack/RBT repair and live verification. Current approved facts and release checkpoint are preserved. Track execution in docs/IMPLEMENTATION_STATUS.md.",
     "October15 master rebuild: original five-object Three.js workbench, tour, domain stories, original SVG fallback, responsive narrative and professional resume overview implemented. Independent production-static checks pass direct canvas selection, keyboard/story orientation, repeatedcontext recovery, constrained-device/reduced-motion fallback and stable resource cleanup. Lint, typecheck,21tests, root/Pagesbuilds and export pass; finalapprepair, documentreview andpublicreleaseverification remain.",
-    "Master rebuild final integration passes lint/typecheck, 21 tests, root/Pages builds/export, eight actual live-frame flows, 177 rendered link/anchor targets and all reviewed download hashes. NeuroStack repaired and live at69a08f4; RBT repaired and live. New PDF/DOCX candidates are visually verified, with exact-file owner review requested before replacement. Portfolio public deployment remains pending."
+    "Master rebuild final integration passes lint/typecheck, 21 tests, root/Pages builds/export, eight actual live-frame flows, 177 rendered link/anchor targets and all reviewed download hashes. NeuroStack repaired and live at69a08f4; RBT repaired and live. New PDF/DOCX candidates are visually verified, with exact-file owner review requested before replacement. Portfolio public deployment remains pending.",
+    "Workspace release503c4ea passed Pages38793780004 and public verification. Owner then approved the exact refreshed PDF/DOCX candidates; approved bytes copied to both resume directories and approval hashes updated. Document publication verification is in progress."
   ],
   "publicReleaseComplete": false,
-  "deployedCommit": "6379b7cabdd3596c559a5bbf0c718bf6a8dbfd2f",
+  "deployedCommit": "503c4ea38796c3ec2bc5c2ae7cedb682728c31e0",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
-  "resumeRefreshPublication": "awaiting-owner-review"
+  "resumeRefreshPublication": "approved-deployment-pending"
 }
