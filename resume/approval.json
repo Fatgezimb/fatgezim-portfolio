@@ -1,10 +1,10 @@
 {
   "approvedOn": "2026-10-15",
-  "approval": "Owner approved reviewed files for public downloads, then explicitly requested the 2017 B.S. correction on October15,2026.",
+  "approval": "Owner reviewed the final workspace-resume PDF and DOCX candidates and explicitly replied: Approve refreshed files for public downloads. These exact hashes identify the approved two-page files, including the verified NeuroStack live link and 2017 B.S. year.",
   "pages": 2,
-  "matchingHyperlinks": 8,
+  "matchingHyperlinks": 10,
   "sha256": {
-    "Fatgezim_Zim_Bela_Technology_Resume.pdf": "ed2f8695aa9856c1a91b06de5187f249210310ac18baeb924d1476d5295d7510",
-    "Fatgezim_Zim_Bela_Technology_Resume.docx": "8f7b7a95310628536684f5826be1f85028fd50b40a5d3596e0d426a048934317"
+    "Fatgezim_Zim_Bela_Technology_Resume.pdf": "aff5bc3dd53b49f44e449d48f7670ff58f9764eb8aae975a7169a35525c382f1",
+    "Fatgezim_Zim_Bela_Technology_Resume.docx": "b255dfe4faea50a1184d5f29bb9e8f15fde877a006babf5002d0207a05549a94"
   }
 }
