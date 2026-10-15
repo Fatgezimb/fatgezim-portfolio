@@ -12,15 +12,15 @@ Phase 1 approval is recorded in `phase-state.json`; Phase 2 is complete. The own
 
 - [x] Read all six ZIP files, current phase records, repository instructions, content and deployment configuration.
 - [x] Preserve starting changes and reconcile the approved phase history.
-- [ ] Verify candidate implementations and current public destinations.
-- [ ] Reposition shared content and metadata around hands-on technical leadership.
-- [ ] Correct RBT links and inaccessible source-code CTAs.
-- [ ] Generate matching two-page PDF and editable DOCX from structured data.
-- [ ] Validate document text, pages, fonts, reading order and hyperlinks.
-- [ ] Audit every navigation, project, contact, download and metadata target.
-- [ ] Verify responsive layouts, keyboard controls, reduced motion, no-JS behavior and runtime errors.
-- [ ] Run lint, typecheck, tests and production build.
-- [ ] Prepare release with matching source, reports and factual questions.
+- [x] Verify candidate implementations and current public destinations.
+- [x] Reposition shared content and metadata around hands-on technical leadership.
+- [x] Correct RBT links and inaccessible source-code CTAs.
+- [x] Generate matching two-page PDF and editable DOCX from structured data.
+- [x] Validate document text, pages, fonts, reading order and hyperlinks.
+- [x] Audit every navigation, project, contact, download and metadata target.
+- [x] Verify responsive layouts, keyboard controls, reduced motion, no-JS behavior and runtime errors.
+- [x] Run lint, typecheck, tests and production build.
+- [x] Prepare release with matching source, reports and factual questions.
 - [ ] Publish through the verified existing workflow when all applicable publication gates are satisfied, then verify live behavior.
 
 ## Source of truth
@@ -40,3 +40,7 @@ The Sites deployment is owner-private, while the existing GitHub Pages portfolio
 The owner approved the exact two-page PDF and editable DOCX for public downloads on October 15, 2026 after reviewing both files in this chat. The owner subsequently requested the 2017 B.S. correction. The reviewed content with this explicit correction is copied into `public/resume/`; the current download gate is enabled. Historical review PDFs remain separate from the current deliverables.
 
 No exact Create 13 start month is available. Use only the owner-accepted year. Use the owner-resolved 2017 B.S. date and the remaining verified degree dates. Do not add unverified commercial outcomes, production status, proficiency or research results.
+
+## Integrated verification
+
+Root lint/typecheck, 13 rendered-route tests and 7 focused export/adapter tests pass. Both target-specific builds pass; the Pages artifact validates all local resources. The remote main history is merged, retaining its optional lockfile repair and equivalent font, history and resource checks. Owner review resolved public downloads and the B.S. year correction to 2017. Static and live release evidence will be added after final browser and workflow checks.

@@ -8,14 +8,14 @@ The six-file supplied package was read alongside the existing approved portfolio
 
 The owner confirmed Founder and CTO for Create 13 Group and NeuroPath LLC, accepted 2018 for Create 13, approved the generated resume for public downloads, and then explicitly corrected the B.S. year to 2017. Joint Bela Data Lab credit remains intact. The clinical assessment implementation is described as private and locally tested; USMLE Sprint is distinguished from StepSpark and its account gate is recorded.
 
-The newer remote lockfile repair and Pages runtime fixes are carried forward. The public site uses GitHub Pages canonicals. The separate Sites audience is unchanged.
+The newer remote lockfile repair and Pages runtime fixes are carried forward through a history-preserving merge. The public site uses GitHub Pages canonicals. The separate Sites audience is unchanged.
 
 ## Automated source checks
 
 - ESLint: pass without warnings.
 - TypeScript no-emit check: pass.
 - Rendered route suite: 13 tests, pass. Includes semantic routes, navigation targets, research claims, media behavior, safe external links, technology resume content, and approved download hashes.
-- Static export and adapter suite: 6 tests, pass. Includes missing assets, srcset/deferred media/CSS URLs, path containment, exact hydration retention, font transformation, installed Vinext compatibility and native history behavior.
+- Static export and adapter suite: 7 tests, pass. Includes missing assets, srcset/deferred media/CSS URLs, path containment, exact hydration retention, font transformation, installed Vinext compatibility and native history behavior.
 - Root production build: pass.
 - Pages-base production build: pass. Separate target-specific browser/export verification follows below.
 - Existing RBT application build: TypeScript + Vite pass; no RBT source change required.
@@ -48,7 +48,7 @@ The former Pages destination returns 404. The authoritative repository metadata 
 
 See `reports/link-audit.csv` and `reports/link-audit.md` for per-target source, before/after destination, response, redirects, anchor behavior, accessibility and verification limits.
 
-Pending: final exported-artifact browser checks, merged source release, GitHub Actions result and live artifact/hash checks. No live release is claimed by this in-progress report.
+Pending: final exported-artifact browser checks, public release, GitHub Actions result and live artifact/hash checks. No live release is claimed by this in-progress report.
 
 ## Limits and optional follow-up
 
