@@ -1,6 +1,6 @@
 # Interactive workspace implementation status
 
-Completed and publicly verified October 15, 2026. [Portfolio](https://fatgezimb.github.io/fatgezim-portfolio/).
+The workspace release was completed and publicly verified October 15, 2026. [Portfolio](https://fatgezimb.github.io/fatgezim-portfolio/).
 
 The supplied master package is reconciled with the existing project and verified reference facts. The recorded Phase 1 approval and current complete-redesign request authorized implementation. This chat is assigned to the portfolio project.
 
@@ -34,4 +34,8 @@ The owner explicitly replied “Approve refreshed files for public downloads.”
 
 Lint, TypeScript, 14 rendered tests, 7 export tests, root/Pages builds, exported and public route checks all pass. Fifty responsive section samples and 41 automated accessibility scans pass, supplemented by keyboard, touch and fallback checks. Public verification covers all five canvas objects, tours, seven samples, eight live-frame flows, six renderer recovery cycles, no-JavaScript routes and 177 link/anchor/asset targets. The approved document deployment was then checked again for all four routes, metadata, resources, MIME types and exact download hashes.
 
-See `WORKSPACE_QA.md`, `LINK_AUDIT.md`, `PROJECT_INVENTORY.md`, `WORKSPACE_DESIGN.md`, `DESIGN_RESEARCH.md` and the root README. Detailed local evidence is retained under `work/master/`. No required work remains.
+See `WORKSPACE_QA.md`, `LINK_AUDIT.md`, `PROJECT_INVENTORY.md`, `WORKSPACE_DESIGN.md`, `DESIGN_RESEARCH.md` and the root README. Detailed local evidence is retained under `work/master/`. That release is complete. The subsequent connected-chapters revision is tracked below.
+
+## Connected visual chapters revision
+
+The owner requested stronger lower-page storytelling, imagery and interaction after the workspace release. The full revision is implemented and production-verified; publication is in progress. See `CHAPTERS_DESIGN.md`, `CHAPTERS_ASSETS.md` and `CHAPTERS_QA.md`. Original research figures, a working material study, a compact mobile project selector and revised professional/personal chapters are complete. Approved résumé bytes are unchanged.

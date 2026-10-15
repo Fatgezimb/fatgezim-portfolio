@@ -190,21 +190,43 @@ export function FeaturedProjects() {
   }
   return (
     <section className={styles.section} id="projects">
-      <header className={styles.heading}>
+      <header className={styles.heading} data-reveal="up">
         <div>
-          <p className={styles.eyebrow}>Selected work</p>
+          <p className={styles.eyebrow}>The ideas, made usable</p>
           <h2>
-            Don’t just read.
+            Built to be used.
             <br />
-            <em>Take a look inside.</em>
+            <em>Right here.</em>
           </h2>
         </div>
         <p>
-          Real workflows. Working interfaces.
+          Seven projects. One place to explore.
           <br />
-          Pick a project and explore it here.
+          Choose a project. Try its workflow. Open the full site.
         </p>
       </header>
+      <div className={styles.mobilePicker}>
+        <label htmlFor="mobile-project">
+          Choose a project <span>{projects.length} to explore</span>
+        </label>
+        <select
+          id="mobile-project"
+          value={selected}
+          onChange={(event) =>
+            select(
+              projects.findIndex(
+                (project) => project.id === event.target.value,
+              ),
+            )
+          }
+        >
+          {projects.map((project) => (
+            <option key={project.id} value={project.id}>
+              {presentations[project.id].short}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className={styles.studio}>
         <div
           className={styles.projectIndex}
@@ -227,7 +249,12 @@ export function FeaturedProjects() {
               onKeyDown={(event) => handleKey(event, index)}
               type="button"
             >
-              <span>{presentations[project.id].short}</span>
+              <i className={styles.indexSymbol} aria-hidden="true">
+                {["BD", "RBT", "CA", "S", "N", "R", "I"][index]}
+              </i>
+              <span className={styles.indexName}>
+                {presentations[project.id].short}
+              </span>
               <small>{presentations[project.id].category}</small>
               <span className={styles.indexArrow} aria-hidden="true">
                 ↗

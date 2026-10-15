@@ -104,7 +104,7 @@ export const workspaceDomains = [
       "I’m developing my Blender and 3D modeling skills alongside interface and product work. Working with shape, light and motion gives me another way to explore an idea—and another reason to keep making things.",
     skills: ["Interface design", "Blender exploration", "3D / motion studies"],
     links: [
-      { label: "See how I approach a build", href: "#process" },
+      { label: "Explore the form-and-light study", href: "#design" },
       { label: "Explore selected projects", href: "#projects" },
     ],
   },
