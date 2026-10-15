@@ -1,6 +1,6 @@
 # Link and behavior audit
 
-October 15, 2026. The new workspace is verified as an exported artifact under `/fatgezim-portfolio/`. Public verification of the new portfolio release is pending. Canonical destination: [Zim Bela's portfolio](https://fatgezimb.github.io/fatgezim-portfolio/).
+October 15, 2026. The new workspace is verified both as an exported artifact and on the public origin under `/fatgezim-portfolio/`. Canonical destination: [Zim Bela's portfolio](https://fatgezimb.github.io/fatgezim-portfolio/).
 
 ## Evidence standard
 
@@ -31,18 +31,18 @@ Older RBT Pages links render “Site not found”; active portfolio actions use 
 | Contact | Required-field validation and encoded email-draft handoff pass. The tested action prepares a draft for the visitor to send. |
 | Live frames | Eight actual navigation checks pass across Data Lab, Caregiver, RBT and NeuroStack at 390/1440px. Each frame is user-activated, has a full-site escape and is removed on return to sample. |
 | Rendered targets | 177 checked targets: 78 HTTP targets across 26 successful unique requests, 98 existing same-page targets and one email-draft destination; no failed destinations. |
-| Media/metadata | Export resource validation passes; route canonicals, fonts and assets render correctly. Original 1200×630 social artwork was visually inspected. Final public-origin verification remains below. |
-| Résumé | Existing two-page PDF/DOCX browser downloads match `resume/approval.json`. Refreshed candidates are separate and await final regeneration/manual publication review. Web résumé remains two-page print. |
+| Media/metadata | Export resource validation passes; route canonicals, fonts and assets render correctly. Original 1200×630 social artwork was visually inspected. Public-origin resources, hashes and metadata also pass. |
+| Résumé | The refreshed two-page PDF/DOCX were explicitly approved and published. Actual browser downloads match `resume/approval.json`; all ten internal document links match shared source records. Web résumé remains two-page print. |
 
 Local evidence: `work/master/final-link-audit.json`, `work/master/integrated/{production,workflows,visual,live-embedded,static-touch}.json`, `work/master/workspace-qa/REPORT.md` and `work/master/rbt-verification.md`. The [workspace QA report](WORKSPACE_QA.md) consolidates the current build. Earlier project evidence is recorded in [the product audit](portfolio/redesign-project-evidence.md).
 
 ## Public release verification
 
 - [x] Record NeuroStack's fixed canonical deployment and desktop/mobile workflows; test its optional portfolio frame before enabling it.
-- [ ] Record final portfolio commit and successful Pages workflow.
-- [ ] Repeat route reloads, five-domain exploration, project actions, touch/menu, keyboard and fallback checks on the public origin.
-- [ ] Exercise retained live frames and canonical new-tab actions from the real public portfolio.
-- [ ] Verify public fonts, image/media resources, canonical metadata, social image, favicon, robots and sitemap.
-- [ ] Download the published résumé formats in the browser and compare exact approved hashes and MIME types.
+- [x] Record final portfolio commit and successful Pages workflow.
+- [x] Repeat route reloads, five-domain exploration, project actions, touch/menu, keyboard and fallback checks on the public origin.
+- [x] Exercise retained live frames and canonical new-tab actions from the real public portfolio.
+- [x] Verify public fonts, image/media resources, canonical metadata, social image, favicon, robots and sitemap.
+- [x] Download the published résumé formats in the browser and compare exact approved hashes and MIME types.
 
-Public release results will be appended after deployment. The local artifact passes above do not stand in for those checks.
+Public workspace release `503c4ea` passed Pages `38793780004`; approved document release `cf0a652` passed Pages `38794622212`. Fresh public checks pass all four routes, five object interactions, seven demos, eight live-frame flows, touch/menu/keyboard/fallback paths, no-JavaScript reading and all 177 rendered targets. Final document publication checks confirm the exact newly approved hashes and PDF/DOCX MIME types at mobile and desktop sizes. See [release evidence](WORKSPACE_QA.md#public-release).

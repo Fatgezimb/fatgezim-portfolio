@@ -1,6 +1,6 @@
 # Project inventory
 
-Updated October 15, 2026 for the master-package rebuild. This inventory describes verified project evidence and publication readiness; it does not imply that the new portfolio build is already deployed. The existing seven project records remain the implementation baseline.
+Updated October 15, 2026 for the master-package rebuild. This inventory describes verified project evidence in the released portfolio (`cf0a652`, Pages `38794622212`). Seven project records form the featured gallery.
 
 Sources: [project records](../app/content/projects.ts), [project presentation destinations](../app/content/project-showcase.ts), [résumé project records](../app/content/resume-document.ts), [research record](../app/content/research.ts), [product evidence](portfolio/redesign-project-evidence.md), [previous release QA](portfolio/redesign-qa-report.md), and the current repair evidence referenced below. Public-source links appear only where public access has been verified.
 
@@ -54,7 +54,7 @@ NeuroPath LLC is founder/company context, rather than another independent app wo
 ## Final portfolio release gates
 
 - [x] Replace NeuroStack's pending state with final source/release evidence and actual desktop/mobile workflow results.
-- [ ] Verify each newly composed project/domain action from the final deployed portfolio, including same-fragment selection and keyboard/touch use.
-- [ ] Confirm live/source/prototype/account-gated labels and all canonical actions against this inventory.
-- [ ] Verify the final public research/media/download paths and approved document versions.
-- [ ] Complete the deployed checks listed in [LINK_AUDIT.md](LINK_AUDIT.md); prior-release passes do not certify the new master-package build.
+- [x] Verify each newly composed project/domain action from the final deployed portfolio, including same-fragment selection and keyboard/touch use.
+- [x] Confirm live/source/prototype/account-gated labels and all canonical actions against this inventory.
+- [x] Verify the final public research/media/download paths and approved document versions.
+- [x] Complete the deployed checks listed in [LINK_AUDIT.md](LINK_AUDIT.md); prior-release passes do not certify the new master-package build.

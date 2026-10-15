@@ -93,7 +93,9 @@ PR 3 and Pages workflow 38782560193 published commit 6379b7cabdd3596c559a5bbf0c7
 - [x] Complete NeuroStack's scientific/release checks and integrate its verified canonical app.
 - [x] Verify mobile, keyboard, no-JavaScript, reduced-motion, low-power and renderer recovery behavior.
 - [x] Generate and inspect initial refreshed two-page PDF/DOCX candidates without replacing approved files.
-- [ ] Finish final document regeneration and the saved exact-file publication review.
-- [ ] Publish and verify the complete new portfolio release.
+- [x] Finish final document regeneration and the saved exact-file publication review.
+- [x] Publish and verify the complete new portfolio release.
 
 Detailed execution and evidence: `docs/IMPLEMENTATION_STATUS.md`, `docs/WORKSPACE_QA.md`, `docs/PROJECT_INVENTORY.md` and `docs/LINK_AUDIT.md`.
+
+Workspace PR 4 / `503c4ea` / Pages `38793780004` and approved résumé PR 5 / `cf0a652` / Pages `38794622212` are released and publicly verified. All required work is complete; final evidence is in `docs/WORKSPACE_QA.md`.

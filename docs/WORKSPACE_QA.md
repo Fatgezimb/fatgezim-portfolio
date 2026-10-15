@@ -2,7 +2,7 @@
 
 October 15, 2026. Baseline: `731b147`. Implementation branch: `codex/interactive-workspace`.
 
-The new site has passed local source, build, exported-artifact and interaction checks. Public release verification is pending. The current approved résumé downloads remain unchanged while refreshed candidates complete manual review.
+The new site is released and publicly verified. Source, builds, exported artifacts and actual public interactions pass. The owner-approved refreshed PDF/DOCX are published, and browser downloads match their exact reviewed hashes.
 
 ## What changed
 
@@ -20,12 +20,12 @@ Seven functional product samples remain available in one project explorer. Live 
 | Automated accessibility | 28 project/theme/viewport scans, 10 workspace topic scans and 3 résumé scans report zero axe violations. These are automated samples, supplemented by keyboard and touch checks. |
 | Navigation | Skip link, mobile menu, search/Escape focus return, project Home/End/arrow keys, direct fragments, theme persistence and representative new-tab actions pass. |
 | Workspace | All five actual canvas objects select their stories. Topic/tour controls, same-topic selection, mobile heading visibility and Escape focus return pass. |
-| Renderer lifecycle | Six alternating flat-mode/context-loss recovery cycles leave one active renderer; previous contexts are released. Selection survives retry. Final recovery run reports no console errors or warnings. |
+| Renderer lifecycle | Six alternating flat-mode/context-loss recovery cycles leave one active renderer; previous contexts are released. Selection survives retry. Local production recovery run reports no console errors or warnings; public observations are recorded below. |
 | Motion and capability | Reduced motion, Save-Data, 2g/slow-2g and constrained CPU/memory start with the flat explorer and no scene import. Explicit 3D works where supported; reduced-motion 3D remains static. Unsupported WebGL and failed imports retain useful content. |
 | Product samples | All seven source-grounded workflows pass at mobile and desktop sizes; 18 combined workflow/contact assertions pass. |
 | Live frames | Data Lab, Caregiver Academy, RBT and NeuroStack accept real in-frame navigation at 390/1440px; returning to the sample removes each frame. These checks cover public demo/preview surfaces. |
 | No JavaScript | All four routes remain readable; homepage exposes five domain stories and all seven project samples. |
-| Résumé | Browser print remains two pages. Existing published PDF/DOCX download bytes match the recorded approval hashes. New candidates are generated separately and require exact-file review. |
+| Résumé | Browser print remains two pages. The refreshed PDF/DOCX were reviewed and explicitly approved. Actual published download bytes match the new approval hashes; both are two pages with ten matching links. |
 | Links | Static rendered-target audit checks 177 targets with no failed destinations: 78 HTTP targets across 26 unique requests, 98 existing same-page targets and one email-draft destination. Browser workflow checks above establish behavior beyond HTTP status. |
 | Independent review | A second agent reviewed all changes since the baseline and found no remaining actionable correctness, security or accessibility regressions. |
 
@@ -41,10 +41,10 @@ The reduced-motion static artifact in local, unthrottled Chrome recorded 136ms L
 
 - [x] Record NeuroStack's successful scientific gate, canonical deployment and actual public interactions.
 - [x] Add and verify its canonical portfolio action and optional live frame.
-- [ ] Regenerate and visually inspect final résumé candidates with the verified destination; obtain exact-file publication review before replacing approved downloads.
-- [ ] Run final checks for changed content and publish the portfolio.
-- [ ] Verify public routes, workspace, samples, frames, touch navigation, metadata, media and reviewed download hashes.
-- [ ] Record the release commit and successful Pages workflow below.
+- [x] Regenerate and visually inspect final résumé candidates with the verified destination; obtain exact-file publication review before replacing approved downloads.
+- [x] Run final checks for changed content and publish the portfolio.
+- [x] Verify public routes, workspace, samples, frames, touch navigation, metadata, media and reviewed download hashes.
+- [x] Record the release commit and successful Pages workflow below.
 
 ## Capability choices
 
@@ -58,4 +58,8 @@ RBT's relative entry assets produced blank pages at trailing-slash routes despit
 
 ## Public release
 
-Pending final integration and deployment.
+Workspace [PR 4](https://github.com/Fatgezimb/fatgezim-portfolio/pull/4), commit `503c4ea`, passed [Pages run 38793780004](https://github.com/Fatgezimb/fatgezim-portfolio/actions/runs/38793780004). Fresh public checks passed all four routes, actual object hits/tours, repeated mobile focus, reduced-motion/low-power behavior, six renderer recovery cycles, keyboard/no-JavaScript paths, seven sample workflows, eight live-frame flows and 177 rendered targets. No runtime or console errors were recorded. Chrome's native email-form scheme warning appeared during the context-loss test; the contact flow prepares a visitor-controlled email draft.
+
+Owner-approved document [PR 5](https://github.com/Fatgezimb/fatgezim-portfolio/pull/5), commit `cf0a652`, passed [Pages run 38794622212](https://github.com/Fatgezimb/fatgezim-portfolio/actions/runs/38794622212). Public route and resource checks were repeated; all PDF/DOCX download events at 390/1440px and persistent PDF actions at 320/390/1440px match `resume/approval.json`. MIME types are correct. Application code is identical between these two releases.
+
+Public evidence: `work/master/integrated/public-{production,embedded,workflows,touch,reading,captures}.json`, `work/master/workspace-qa/public-{mouse,preferences,cycles}.json`, `work/master/public-link-audit.json`, and final `approved-public-{production,boundaries}.json`. User-facing desktop/mobile captures and the release report are saved with the approved document deliverables.

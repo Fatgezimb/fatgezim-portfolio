@@ -1,7 +1,7 @@
 {
   "project": "Fatgezim Zim Bela Resume Portfolio",
   "phase": 3,
-  "phaseName": "Interactive workspace verification and release",
+  "phaseName": "Interactive workspace released and verified",
   "phase1Approved": true,
   "approvalPhraseRequired": "APPROVE PHASE 1",
   "lastUpdated": "2026-10-15",
@@ -30,10 +30,12 @@
     "Owner supplied a new complete master package on October15: five-domain interactive 3D workspace, full narrative/site/resume refresh, and actual NeuroStack/RBT repair and live verification. Current approved facts and release checkpoint are preserved. Track execution in docs/IMPLEMENTATION_STATUS.md.",
     "October15 master rebuild: original five-object Three.js workbench, tour, domain stories, original SVG fallback, responsive narrative and professional resume overview implemented. Independent production-static checks pass direct canvas selection, keyboard/story orientation, repeatedcontext recovery, constrained-device/reduced-motion fallback and stable resource cleanup. Lint, typecheck,21tests, root/Pagesbuilds and export pass; finalapprepair, documentreview andpublicreleaseverification remain.",
     "Master rebuild final integration passes lint/typecheck, 21 tests, root/Pages builds/export, eight actual live-frame flows, 177 rendered link/anchor targets and all reviewed download hashes. NeuroStack repaired and live at69a08f4; RBT repaired and live. New PDF/DOCX candidates are visually verified, with exact-file owner review requested before replacement. Portfolio public deployment remains pending.",
-    "Workspace release503c4ea passed Pages38793780004 and public verification. Owner then approved the exact refreshed PDF/DOCX candidates; approved bytes copied to both resume directories and approval hashes updated. Document publication verification is in progress."
+    "Workspace release503c4ea passed Pages38793780004 and public verification. Owner then approved the exact refreshed PDF/DOCX candidates; approved bytes copied to both resume directories and approval hashes updated. Document publication verification is in progress.",
+    "Final release cf0a652 passed Pages38794622212. Public four-route/mobile/desktop reloads and metadata/resources pass. PDF/DOCX downloads and persistent header action at320/390/1440 exactly match the newly approved hashes and MIME types. Earlier503c4ea public checks cover all five objects, tours, keyboard/no-JS, seven samples, eight live-frame flows, six context recoveries and177 link/anchor/asset targets. No required work remains."
   ],
-  "publicReleaseComplete": false,
-  "deployedCommit": "503c4ea38796c3ec2bc5c2ae7cedb682728c31e0",
+  "publicReleaseComplete": true,
+  "deployedCommit": "cf0a652b6e19a98de8c75eecd8f0c68fea0be99b",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
-  "resumeRefreshPublication": "approved-deployment-pending"
+  "resumeRefreshPublication": "published-and-verified",
+  "deploymentRun": "38794622212"
 }
