@@ -1,6 +1,6 @@
 # Product studio redesign — verification
 
-Date: October 15, 2026. The owner requested a full aesthetic revision, truthful interactive project previews and a section-by-section audit. The recorded Phase 1 approval and current request authorize this follow-up. The implementation is ready for release; live verification is recorded below after deployment.
+Date: October 15, 2026. The owner requested a full aesthetic revision, truthful interactive project previews and a section-by-section audit. The recorded Phase 1 approval and current request authorize this follow-up. The implementation is published; release verification is recorded below.
 
 ## Section audit and result
 
@@ -48,4 +48,10 @@ Used the project phase-gate and frontend-design skills, source/public applicatio
 
 ## Release
 
-Pending deployment and public verification.
+PR [3](https://github.com/Fatgezimb/fatgezim-portfolio/pull/3) merged to `6379b7cabdd3596c559a5bbf0c718bf6a8dbfd2f`. GitHub Pages [workflow 38782560193](https://github.com/Fatgezimb/fatgezim-portfolio/actions/runs/38782560193) completed successfully, including fresh CI lint, type-check, all 21 tests, builds and export.
+
+Public URL: https://fatgezimb.github.io/fatgezim-portfolio/
+
+Post-deployment Chrome verification confirms all four routes at mobile/desktop sizes, correct asset bases and fonts, working command navigation and theme persistence, exact approved PDF/DOCX hashes and two-page résumé print. An actual touch context successfully flips the RBT card, opens StepSpark in a new tab, follows a direct NeuroStack project link and closes the mobile menu after contact navigation. All seven samples remain visible without JavaScript. No runtime/console errors were recorded.
+
+All three live embeds also passed navigation and return-to-sample checks from the real public portfolio at 390 and 1440px, with no recorded runtime errors (six post-deployment checks).

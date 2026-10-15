@@ -77,6 +77,8 @@ The supplied resume brief is reconciled with the approved project and newer remo
 - [x] Preserve reviewed resume artifacts, verified roles/dates and research attribution.
 - [x] Verify keyboard flows, no-JS reading and responsive section layouts.
 - [x] Complete final contrast, narrow reflow, performance, static artifact and link checks.
-- [ ] Publish and verify the live release.
+- [x] Publish and verify the live release.
 
 Design and evidence: `docs/portfolio/redesign-2026-10-15.md` and `docs/portfolio/redesign-project-evidence.md`.
+
+PR 3 and Pages workflow 38782560193 published commit 6379b7cabdd3596c559a5bbf0c718bf6a8dbfd2f. Public route, touch, deep-link, live-frame, no-JS and approved-download verification passed.
