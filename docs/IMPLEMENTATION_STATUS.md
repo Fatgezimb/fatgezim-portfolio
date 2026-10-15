@@ -38,4 +38,6 @@ See `WORKSPACE_QA.md`, `LINK_AUDIT.md`, `PROJECT_INVENTORY.md`, `WORKSPACE_DESIG
 
 ## Connected visual chapters revision
 
-The owner requested stronger lower-page storytelling, imagery and interaction after the workspace release. The full revision is implemented and production-verified; publication is in progress. See `CHAPTERS_DESIGN.md`, `CHAPTERS_ASSETS.md` and `CHAPTERS_QA.md`. Original research figures, a working material study, a compact mobile project selector and revised professional/personal chapters are complete. Approved résumé bytes are unchanged.
+The owner requested stronger lower-page storytelling, imagery and interaction after the workspace release. The full revision is implemented, published and verified through PR 6, commit `ef2950c` and Pages run `38800380424`. See `CHAPTERS_DESIGN.md`, `CHAPTERS_ASSETS.md` and `CHAPTERS_QA.md`. Original research figures, a working material study, a compact mobile project selector and revised professional/personal chapters are complete. Approved résumé bytes are unchanged.
+
+All requested connected-chapter work is complete. Public interactions, native mobile keyboard selection, source-image integrity, links and approved downloads are verified.

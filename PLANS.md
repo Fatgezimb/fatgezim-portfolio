@@ -107,6 +107,8 @@ Workspace PR 4 / `503c4ea` / Pages `38793780004` and approved résumé PR 5 / `c
 - [x] Build a polished interactive form-and-light study.
 - [x] Integrate purposeful process, professional and personal storytelling.
 - [x] Critique actual desktop/mobile screenshots and refine each chapter.
-- [ ] Complete applicable accessibility, behavior, build and public-release checks.
+- [x] Complete applicable accessibility, behavior, build and public-release checks.
 
 The owner explicitly requested this further redesign after the previous release. Existing Phase 1 authorization and all verified content remain in force.
+
+Connected-chapters PR 6 / `ef2950c` / Pages `38800380424` is released and publicly verified. Detailed current evidence: `docs/CHAPTERS_QA.md`; figure/render provenance: `docs/CHAPTERS_ASSETS.md`.

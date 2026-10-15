@@ -1,7 +1,7 @@
 {
   "project": "Fatgezim Zim Bela Resume Portfolio",
   "phase": 3,
-  "phaseName": "Connected visual chapters verified; publication in progress",
+  "phaseName": "Connected visual chapters complete and publicly verified",
   "phase1Approved": true,
   "approvalPhraseRequired": "APPROVE PHASE 1",
   "lastUpdated": "2026-10-15",
@@ -33,11 +33,12 @@
     "Workspace release503c4ea passed Pages38793780004 and public verification. Owner then approved the exact refreshed PDF/DOCX candidates; approved bytes copied to both resume directories and approval hashes updated. Document publication verification is in progress.",
     "Final release cf0a652 passed Pages38794622212. Public four-route/mobile/desktop reloads and metadata/resources pass. PDF/DOCX downloads and persistent header action at320/390/1440 exactly match the newly approved hashes and MIME types. Earlier503c4ea public checks cover all five objects, tours, keyboard/no-JS, seven samples, eight live-frame flows, six context recoveries and177 link/anchor/asset targets. No required work remains.",
     "October 15 owner follow-up: lower-page visual quality and storytelling rejected; authorized connected visual chapters revision now active. Previous cf0a652 release remains the verified public checkpoint. Exact approved resume files stay unchanged. See docs/CHAPTERS_DESIGN.md.",
-    "Connected visual chapters: original research figures, seven-project workbench, editable data walkthrough, on-demand forty-ribbon material study and revised professional/personal chapters are complete. Final root/Pages builds, 21 tests, 55 layout samples, 28 axe scans, 18 workflows, eight live frames, five canvas hit tests, three studio recovery cycles and190 link targets pass. See docs/CHAPTERS_QA.md. Public release verification follows deployment."
+    "Connected visual chapters: original research figures, seven-project workbench, editable data walkthrough, on-demand forty-ribbon material study and revised professional/personal chapters are complete. Final root/Pages builds, 21 tests, 55 layout samples, 28 axe scans, 18 workflows, eight live frames, five canvas hit tests, three studio recovery cycles and 190 link targets pass. See docs/CHAPTERS_QA.md. Public release verification follows deployment.",
+    "Connected-chapters PR 6 merged as ef2950c and passed Pages run 38800380424, including lint, TypeScript, 21 tests, both builds and export. Public verification confirms all seven project selections at desktop/mobile, native mobile keyboard selection, research views, editable calculation, all studio controls, five skill views, RBT/NeuroStack frames and 190 rendered link targets. All new imagery/social assets and both approved downloads match source bytes. Public console window is clean. See docs/CHAPTERS_QA.md."
   ],
-  "publicReleaseComplete": false,
-  "deployedCommit": "cf0a652b6e19a98de8c75eecd8f0c68fea0be99b",
+  "publicReleaseComplete": true,
+  "deployedCommit": "ef2950cea335574667b251bb37d27abbb18d5d66",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
   "resumeRefreshPublication": "published-and-verified",
-  "deploymentRun": "38794622212"
+  "deploymentRun": "38800380424"
 }
