@@ -1,0 +1,87 @@
+.contactForm {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.formHeading {
+  margin-bottom: 26px;
+}
+.formHeading h3 {
+  font-size: 20px;
+  margin: 0 0 9px;
+  letter-spacing: -0.025em;
+}
+.formHeading p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.formGrid label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  color: var(--text-soft);
+  font-size: 11px;
+}
+.formGrid input,
+.formGrid textarea,
+.formGrid select {
+  display: block;
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  padding: 11px 12px;
+  background: var(--page);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  min-height: 46px;
+}
+.formGrid textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.messageField {
+  grid-column: 1 / -1;
+}
+.formFooter {
+  margin-top: 22px;
+}
+.formFooter button {
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 48px;
+  padding: 13px 20px;
+  background: var(--accent);
+  color: var(--on-accent);
+  border: 0;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.formFooter button:hover {
+  background: var(--accent-strong);
+}
+@media (max-width: 520px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .messageField {
+    grid-column: auto;
+  }
+}
+@media print {
+  .contactForm {
+    display: none;
+  }
+}

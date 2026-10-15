@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --page: #f4f8f7;
-  --page-raised: #edf4f2;
+  --page: #edf1f5;
+  --page-raised: #e5eaf1;
   --panel: #ffffff;
-  --panel-soft: #f3f7f6;
-  --panel-bright: #e4efec;
-  --line: #cad8d4;
-  --line-strong: #7a918c;
-  --text: #102522;
-  --text-soft: #334d49;
-  --text-muted: #5b716d;
-  --accent: #0b6f64;
-  --accent-strong: #075c54;
-  --accent-wash: #dcefeb;
+  --panel-soft: #e5eaf1;
+  --panel-bright: #dce3ee;
+  --line: #cdd5e0;
+  --line-strong: #8390a3;
+  --text: #17212e;
+  --text-soft: #39485e;
+  --text-muted: #596a80;
+  --accent: #2749db;
+  --accent-strong: #1934a5;
+  --accent-wash: #dfe7fd;
   --accent-glow: rgba(11, 111, 100, 0.1);
-  --cyan: #12607a;
+  --cyan: #305c9c;
   --cyan-wash: rgba(18, 96, 122, 0.1);
-  --violet: #6750a4;
+  --violet: #4354b5;
   --violet-wash: rgba(103, 80, 164, 0.1);
   --warm: #835b0d;
   --success: #21724c;
@@ -47,19 +47,19 @@
 }
 
 html[data-theme="dark"] {
-  --page: #03070d;
-  --page-raised: #07121c;
-  --panel: #0a1823;
-  --panel-soft: #0d2130;
-  --panel-bright: #123044;
-  --line: #203d4c;
-  --line-strong: #3a6879;
-  --text: #f4f8f8;
-  --text-soft: #bed0d5;
-  --text-muted: #8ca2ad;
-  --accent: #70ead5;
-  --accent-strong: #b3fff2;
-  --accent-wash: #0b3538;
+  --page: #101725;
+  --page-raised: #141e2e;
+  --panel: #192436;
+  --panel-soft: #1c2b40;
+  --panel-bright: #24354e;
+  --line: #34445c;
+  --line-strong: #6e829f;
+  --text: #f0f4fb;
+  --text-soft: #c6d2e3;
+  --text-muted: #a2b2c9;
+  --accent: #a4b6ff;
+  --accent-strong: #c8d2ff;
+  --accent-wash: #243462;
   --accent-glow: rgba(112, 234, 213, 0.09);
   --cyan: #62cffa;
   --cyan-wash: rgba(116, 199, 245, 0.11);
@@ -68,7 +68,7 @@ html[data-theme="dark"] {
   --warm: #ffc96b;
   --success: #78dca4;
   --focus: #fff0a6;
-  --on-accent: #061112;
+  --on-accent: #101e46;
   --surface-glass: rgba(5, 11, 17, 0.82);
   --surface-glass-strong: rgba(5, 11, 17, 0.96);
   --surface-subtle: rgba(255, 255, 255, 0.045);
@@ -113,11 +113,7 @@ body {
   min-width: 0;
   margin: 0;
   overflow-x: clip;
-  background:
-    radial-gradient(circle at 86% 6%, var(--violet-wash), transparent 31rem),
-    radial-gradient(circle at 8% 24%, var(--accent-glow), transparent 28rem),
-    radial-gradient(circle at 72% 66%, var(--cyan-wash), transparent 36rem),
-    var(--page);
+  background: var(--page);
   color: var(--text);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 1rem;
@@ -125,29 +121,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body::before {
-  position: fixed;
-  z-index: -1;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(115deg, transparent 0 48%, var(--grid-line) 49% 50%, transparent 51% 100%);
-  background-size: 56px 56px, 56px 56px, 28rem 28rem;
-  mask-image: linear-gradient(to bottom, black, transparent 82%);
-  content: "";
-  pointer-events: none;
-}
-
-body::after {
-  position: fixed;
-  z-index: 50;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
-  content: "";
-  opacity: 0.035;
-  pointer-events: none;
-}
 
 a {
   color: inherit;
@@ -2266,3 +2239,15 @@ ol {
   }
 
 }
+
+/* Shared shell for the product-studio portfolio and its document routes. */
+.site-header { background: var(--page); backdrop-filter: none; border-bottom: 1px solid var(--line); }
+.site-header__inner { width: min(1440px, calc(100% - 96px)); min-height: 76px; }
+.wordmark { gap: 11px; }
+.wordmark__mark { background: var(--text); color: var(--page); width: 32px; height: 32px; border-radius: 6px 6px 13px 6px; border: 0; box-shadow: none; font-family: var(--font-display), sans-serif; font-size: 12px; }
+.wordmark__mark::after { content: none; }
+.wordmark strong { font-size: 14px; font-weight: 550; letter-spacing: -.02em; }
+.wordmark small { display: none; }
+.site-footer { background: var(--page); }
+@media (max-width: 1050px) { .site-header__inner { width: calc(100% - 56px); } }
+@media (max-width: 700px) { .site-header__inner { width: calc(100% - 36px); min-height: 64px; } }

@@ -68,3 +68,15 @@ Do not implement Phase 2 work until the owner sends:
 ## October 15, 2026 completion
 
 The supplied resume brief is reconciled with the approved project and newer remote history. The owner approved public downloads and corrected the B.S. year to 2017. Reviewed two-page PDF/DOCX files, shared technical content, corrected project links, target-aware Pages runtime, resource/link audits, browser QA and public release are complete. PR 2 merged; workflow 38772934504 deployed d5523d23c8c429b48eaeea34b581be6822acb617. Public routes and download hashes were independently verified after deployment. See reports/qa-report.md and docs/resume-portfolio-plan.md.
+
+## October 15 follow-up — product studio redesign
+
+- [x] Audit the deployed portfolio section by section and verify actual product behavior.
+- [x] Replace the visual system with original silver/cobalt editorial design and interactive fibre sculpture.
+- [x] Build seven navigable, source-grounded previews in one project workspace.
+- [x] Preserve reviewed resume artifacts, verified roles/dates and research attribution.
+- [x] Verify keyboard flows, no-JS reading and responsive section layouts.
+- [x] Complete final contrast, narrow reflow, performance, static artifact and link checks.
+- [ ] Publish and verify the live release.
+
+Design and evidence: `docs/portfolio/redesign-2026-10-15.md` and `docs/portfolio/redesign-project-evidence.md`.

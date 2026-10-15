@@ -100,7 +100,7 @@ test("server-renders the semantic portfolio homepage", async () => {
   assert.match(html, /Quick navigation/i);
   assert.match(
     html,
-    /<meta\b(?=[^>]*\bname=["']theme-color["'])(?=[^>]*\bcontent=["']#f4f8f6["'])[^>]*>/i,
+    /<meta\b(?=[^>]*\bname=["']theme-color["'])(?=[^>]*\bcontent=["']#edf1f5["'])[^>]*>/i,
   );
   assert.doesNotMatch(
     html,
@@ -307,7 +307,8 @@ test("renders a clean contact form and social links", async () => {
     /<form\b(?=[^>]*\baction=["']mailto:fatgezimbela1@gmail\.com["'])(?=[^>]*\bmethod=["']post["'])[^>]*>/i,
   );
   assert.match(html, /Start a conversation/i);
-  assert.match(html, /Contact me/i);
+  assert.match(html, /Create email draft/i);
+  assert.match(html, /opens as a draft in your email app/i);
   assert.match(html, /mailto:fatgezimbela1@gmail\.com/i);
   assert.doesNotMatch(html, /Open email draft|Prefer email\?/i);
   assert.doesNotMatch(
@@ -361,7 +362,7 @@ test("renders the supplied portrait and soccer media without autoplay or looping
     html,
     /<img\b(?=[^>]*\bsrc=["']\/media\/fatgezim-bela-headshot\.jpg["'])(?=[^>]*\balt=["'][^"']*Fatgezim[^"']*Zim[^"']*Bela[^"']*["'])[^>]*>/i,
   );
-  assert.match(html, /Mason Intramurals post from May 1, 2016/i);
+  assert.match(html, /Mason Intramurals on May 1, 2016/i);
   assert.match(
     html,
     /<source\b(?=[^>]*\bdata-src=["']\/media\/fatgezim-bela-soccer-winning-penalty\.mp4["'])(?=[^>]*\btype=["']video\/mp4["'])[^>]*>/i,
@@ -466,4 +467,24 @@ test("public download buttons serve the exact owner-reviewed document bytes", as
       assert.equal(contents.subarray(0, name.endsWith(".pdf") ? 4 : 2).toString(), name.endsWith(".pdf") ? "%PDF" : "PK");
     }
   }
+});
+
+test("project workspace exposes complete samples without eagerly loading external sites", async () => {
+  const html = await (await render()).text();
+  const tabs = openingTags(html, "button").filter(tag => attributeValue(tag, "role") === "tab");
+  const panels = openingTags(html, "article").filter(tag => attributeValue(tag, "role") === "tabpanel");
+  assert.equal(tabs.length, 7, "each featured project must be selectable");
+  assert.equal(panels.length, 7, "each project must have server-rendered sample content");
+  assert.equal(tabs.filter(tag => attributeValue(tag, "aria-selected") === "true").length, 1);
+  for (const tab of tabs) {
+    const target = attributeValue(tab, "aria-controls");
+    assert.ok(panels.some(panel => attributeValue(panel, "id") === target), "project tab must identify its own panel");
+  }
+  assert.equal(openingTags(html, "iframe").length, 0, "external sites load only after an explicit action");
+  assert.ok(html.includes("synthetic appointments"));
+  assert.ok(html.includes("Local beta simulation"), "local automation must identify simulation");
+  assert.ok(html.includes("https://fatgezimb.github.io/StepSpark/"), "StepSpark must link to its verified deployment");
+  assert.ok(html.includes("https://rbt-pro.vercel.app/"));
+  assert.ok(html.includes("https://github.com/Fatgezimb/neurostack-explorer"));
+  assert.ok(!html.includes("12.4 Hz") && !html.includes("8.1 Hz"), "retired illustration values must not appear as measured neural data");
 });

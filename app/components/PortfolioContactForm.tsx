@@ -2,7 +2,7 @@
 
 import type { FormEvent } from "react";
 import { identity } from "@/app/content/resume";
-import styles from "./supporting/Contact.module.css";
+import styles from "./showcase/ContactForm.module.css";
 
 const CONTACT_EMAIL = identity.email;
 
@@ -51,7 +51,7 @@ export function PortfolioContactForm() {
     >
       <div className={styles.formHeading}>
         <h3>Start a conversation</h3>
-        <p>Tell me about the role, project, or collaboration you have in mind.</p>
+        <p>Your message opens as a draft in your email app.</p>
       </div>
 
       <div className={styles.formGrid}>
@@ -88,7 +88,9 @@ export function PortfolioContactForm() {
       </div>
 
       <div className={styles.formFooter}>
-        <button type="submit">Contact me</button>
+        <button type="submit">
+          Create email draft <span aria-hidden="true">↗</span>
+        </button>
       </div>
     </form>
   );
