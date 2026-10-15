@@ -286,8 +286,7 @@
   color: #173bbb;
 }
 :global(html[data-js="disabled"]) .project[hidden] {
-  /* Tailwind preflight marks the hidden attribute !important. */
-  display: block !important;
+  display: block;
   margin-top: 60px;
 }
 :global(html[data-js="disabled"]) .projectIndex {
