@@ -212,6 +212,9 @@ export function EditorialHome() {
                   </div>
                   <p className={styles.roleTitle}>{role.title}</p>
                   <p>{role.summary}</p>
+                  {role.id === "tmci-data-engineer" && role.highlights.map((highlight) => (
+                    <p key={highlight}>{highlight}</p>
+                  ))}
                 </li>
               ))}
             </ol>

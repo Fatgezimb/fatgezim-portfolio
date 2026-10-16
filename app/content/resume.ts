@@ -156,13 +156,14 @@ export const experience: ExperienceItem[] = [
     organization: "The McVay Company, Inc.",
     dates: "October 2022 - January 2023",
     summary:
-      "Contributed to data-engineering workflows at The McVay Company, Inc.",
-    highlights: [],
-    statusLabel: "Previous role",
-    evidence: ["Owner confirmation", "Historical résumé"],
-    uncertaintyFlags: [
-      "Owner marked the title and dates as provisional for the public portfolio.",
+      "Independently designed and implemented a custom adaptation of Dijkstra’s shortest-path algorithm for large-scale health-related data analysis on a Department of Defense project.",
+    highlights: [
+      "Created synthetic development and test datasets and established initial validation without access to restricted operational data.",
+      "Transferred the solution for team testing on operational data; colleagues reported processing millions of data points in seconds and narrowing results to approximately 12 records for manual review.",
     ],
+    statusLabel: "Previous role",
+    evidence: ["Owner-confirmed algorithm, development process and team-reported outcomes, October 16, 2026"],
+    uncertaintyFlags: [],
   },
   {
     id: "earlier-aba-practice",

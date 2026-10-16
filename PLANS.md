@@ -149,3 +149,7 @@ Grid Forecast Lab extends the credited Kaggle tutorial with chronological valida
 ## Public release — stale destination repair
 
 PR 7 / `fb55b1c` / Pages `38845799954` published the editorial portfolio and all five engineering/data showcase apps. Canonical internal URLs now stay on the active site. The public fourteen-entry work collection, all app returns, mobile anchors, fifty deployed resources and approved resume hashes pass. Native keyboard verification is complete. See `docs/LINK_REPAIR_QA.md`.
+
+## October 16 — approved engineering résumé
+
+Owner approved the updated engineering PDF/DOCX for public downloads and matching McVay experience. Exact approved bytes, stable download URLs and website content are prepared and verified locally. Release evidence: `docs/RESUME_RELEASE_2026_10_16.md`.

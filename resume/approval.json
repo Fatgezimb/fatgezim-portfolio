@@ -1,10 +1,10 @@
 {
-  "approvedOn": "2026-10-15",
-  "approval": "Owner reviewed the final workspace-resume PDF and DOCX candidates and explicitly replied: Approve refreshed files for public downloads. These exact hashes identify the approved two-page files, including the verified NeuroStack live link and 2017 B.S. year.",
+  "approvedOn": "2026-10-16",
+  "approval": "Owner explicitly approved the updated engineering resume PDF and DOCX for public downloads and requested replacement of the old files. Exact approved review bytes are published under the existing download filenames.",
   "pages": 2,
-  "matchingHyperlinks": 10,
+  "matchingHyperlinks": 7,
   "sha256": {
-    "Fatgezim_Zim_Bela_Technology_Resume.pdf": "aff5bc3dd53b49f44e449d48f7670ff58f9764eb8aae975a7169a35525c382f1",
-    "Fatgezim_Zim_Bela_Technology_Resume.docx": "b255dfe4faea50a1184d5f29bb9e8f15fde877a006babf5002d0207a05549a94"
+    "Fatgezim_Zim_Bela_Technology_Resume.docx": "cf301641c48c564f3d61711eb44661079e5b8a4fcbe7e696334478899cea0a31",
+    "Fatgezim_Zim_Bela_Technology_Resume.pdf": "c65bcf97f8caf11d8bad20a02b22f39daf8a1e98a7252a97491435761b2b83f7"
   }
 }
