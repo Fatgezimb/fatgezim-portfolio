@@ -10,6 +10,7 @@ import {
 import { SafeLink } from "../SafeLink";
 import { PortfolioContactForm } from "../PortfolioContactForm";
 import { EditorialNav } from "./EditorialNav";
+import { McVayCase } from "./McVayCase";
 import { WorkGallery } from "./WorkGallery";
 import styles from "./EditorialHome.module.css";
 
@@ -18,18 +19,18 @@ const roles = ["founder-practice", "create13-cto", "tmci-data-engineer"].map(
 );
 const capabilities = [
   {
-    title: "Software engineering",
-    detail: "From a workflow to a usable application.",
-    items: ["TypeScript", "React", "Python", "APIs", "Testing"],
+    title: "Python, data & algorithms",
+    detail: "Graph algorithms, analytical pipelines and validation.",
+    items: ["Python", "SQL", "Algorithms", "Automation", "Validation"],
     href: sitePath("/work/"),
     link: "Explore the applications",
   },
   {
-    title: "Data & scientific computing",
-    detail: "From source data to something you can inspect.",
-    items: ["SQL", "Data pipelines", "Visualization", "Statistical analysis"],
-    href: "#research",
-    link: "See the research",
+    title: "Applications & integration",
+    detail: "Interfaces connected to rules, data and external services.",
+    items: ["TypeScript", "React", "Next.js", "APIs", "Authorization"],
+    href: sitePath("/engineering/#clinical"),
+    link: "Inspect the architecture",
   },
   {
     title: "Product & technical leadership",
@@ -64,7 +65,9 @@ export function EditorialHome() {
             />
           </div>
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>Founder & CTO · Software & data</p>
+            <p className={styles.eyebrow}>
+              Software & Data Engineer · Founder & CTO
+            </p>
             <h1 id="intro-title">
               Zim Bela<span>.</span>
             </h1>
@@ -74,9 +77,9 @@ export function EditorialHome() {
               <br className={styles.desktopBreak} /> useful tools.
             </p>
             <p className={styles.heroSummary}>
-              I build software, data systems, and scientific tools—bringing a
-              background in neuroscience and healthcare to the way I solve
-              problems.
+              Programming since 2013. I build Python algorithms, data workflows
+              and applications, bringing a background in neuroscience and
+              clinical practice to technical problem-solving.
             </p>
             <div className={styles.heroActions}>
               <a className={styles.primaryButton} href={sitePath("/work/")}>
@@ -92,11 +95,12 @@ export function EditorialHome() {
             </div>
             <p className={styles.heroFoot}>
               <span />
-              Science. Software. Something useful.
+              Python · Systems integration · Technical leadership
             </p>
           </div>
         </section>
         <WorkGallery />
+        <McVayCase />
         <section
           className={styles.research}
           id="research"
@@ -105,7 +109,7 @@ export function EditorialHome() {
           <div className={styles.researchCopy}>
             <p className={styles.eyebrow}>Research · George Mason University</p>
             <h2 id="research-heading">
-              Before the software,
+              Alongside the software,
               <br />
               <em>the science.</em>
             </h2>
@@ -173,24 +177,26 @@ export function EditorialHome() {
           >
             <p className={styles.eyebrow}>A connected background</p>
             <h2 id="about-heading">
-              I didn’t start
+              Python first.
               <br />
-              in software.
+              Then the whole system.
             </h2>
             <p>
-              Neuroscience led me into research, education, and behavioral
-              health. Along the way, I became increasingly interested in the
-              tools people use to make sense of complex information—and what it
-              takes to build better ones.
+              I began programming in 2013 with Python, automation, data analysis
+              and web applications. Neuroscience research and clinical practice
+              gave me other ways to question assumptions and work with complex
+              data.
             </p>
             <p>
-              Today, I lead technical direction and build the software myself:
-              typed web applications, data workflows, learning platforms, and
-              scientific tools.
+              At Create 13 Group, I work from business requirements to
+              architecture, integrations and hands-on implementation. At
+              NeuroPath, clinical workflows inform the tools Meili and I build
+              for behavioral health.
             </p>
             <p className={styles.aboutNote}>
-              The common thread: understanding the problem well enough to make
-              the solution useful.
+              I use AI pair programming in current development, with
+              responsibility for the technical choices, testing and finished
+              behavior.
             </p>
             <SafeLink className={styles.textLink} href="/resume">
               Read my full résumé <span aria-hidden="true">→</span>
@@ -202,7 +208,7 @@ export function EditorialHome() {
             aria-labelledby="experience-heading"
           >
             <p className={styles.eyebrow}>Experience</p>
-            <h2 id="experience-heading">Leading. Building. Doing.</h2>
+            <h2 id="experience-heading">Engineering in practice.</h2>
             <ol className={styles.timeline}>
               {roles.map((role) => (
                 <li key={role.id}>
@@ -212,9 +218,18 @@ export function EditorialHome() {
                   </div>
                   <p className={styles.roleTitle}>{role.title}</p>
                   <p>{role.summary}</p>
-                  {role.id === "tmci-data-engineer" && role.highlights.map((highlight) => (
-                    <p key={highlight}>{highlight}</p>
-                  ))}
+                  {role.id === "tmci-data-engineer" && (
+                    <SafeLink
+                      className={styles.textLink}
+                      href="/engineering/#mcvay"
+                    >
+                      Read the case study →
+                    </SafeLink>
+                  )}
+                  {role.id === "create13-cto" &&
+                    role.highlights.map((highlight) => (
+                      <p key={highlight}>{highlight}</p>
+                    ))}
                 </li>
               ))}
             </ol>
@@ -227,7 +242,7 @@ export function EditorialHome() {
         >
           <div className={styles.sectionHeading}>
             <p className={styles.eyebrow}>What I work with</p>
-            <h2 id="skills-heading">Across the whole problem.</h2>
+            <h2 id="skills-heading">The tools behind the work.</h2>
           </div>
           <div className={styles.capabilities}>
             {capabilities.map((group) => (
@@ -259,6 +274,7 @@ export function EditorialHome() {
           <div>
             <h3>M.Ed. in Special Education</h3>
             <p>George Mason University · 2020</p>
+            <p>Graduate Certificate in Applied Behavior Analysis · 2020</p>
           </div>
           <div>
             <h3>Doctor of Medicine Candidate</h3>

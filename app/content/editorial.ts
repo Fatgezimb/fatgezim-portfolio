@@ -13,11 +13,11 @@ export type SelectedWork = {
   source?: string;
   preview: boolean;
   newTab?: boolean;
+  caseStudy?: string;
 };
 
-// Lead with the owner's established domain work; experiments belong in the full collection.
-// Evidence and ranking rationale: docs/EDITORIAL_BUILD.md.
-export const selectedWork: readonly SelectedWork[] = [
+// Product collection retained alongside the engineering-focused homepage selection.
+const productWork: readonly SelectedWork[] = [
   {
     id: "bela-behavior-data-lab",
     title: "Bela Behavior Data Lab",
@@ -91,20 +91,32 @@ export const workGroups: readonly {
     projects: [
       {
         id: "commissioning-readiness",
+        caseStudy: "/engineering/#relay",
         title: "Relay · Commissioning Readiness",
         field: "Workflow engineering · Mission-critical infrastructure",
         description:
           "Trace modular power packages from factory testing to operations handover. Resolve exceptions, release revisions, and see exactly which approvals need fresh evidence.",
         contribution:
-          "Independent portfolio prototype · Fictional project records",
+          "Independent prototype · AI pair programming · Fictional records",
         tags: ["React", "Dependency modeling", "State transitions", "Testing"],
         href: sitePath("/showcase/commissioning-readiness/"),
         action: "Try the workflow",
         source: sitePath("/showcase/commissioning-readiness/project.zip"),
         scope:
           "Inspired by M.C. Dean’s publicly documented delivery process · Independent and unaffiliated",
-        preview: false,
+        preview: true,
         newTab: true,
+      },
+      {
+        id: "clinical-assessment-portal",
+        title: "Clinical Assessment Portal",
+        field: "Full-stack engineering · Clinical workflows",
+        description: "Keep record ownership, edit permissions, version checks and clinician approval aligned across an assessment workflow.",
+        contribution: "Product architecture & development · AI-assisted implementation",
+        tags: ["TypeScript", "Express", "Firebase", "Authorization"],
+        scope: "Private implementation · Locally tested with synthetic records",
+        caseStudy: "/engineering/#clinical",
+        preview: true,
       },
     ],
   },
@@ -116,18 +128,19 @@ export const workGroups: readonly {
     projects: [
       {
         id: "grid-forecast",
+        caseStudy: "/engineering/#grid",
         title: "Grid Forecast Lab",
         field: "Forecasting · Time-series engineering",
         description:
           "Predict tomorrow’s hourly demand using information available today. Inspect chronological validation, seasonal baselines, prediction bounds, and 8,732 held-out hours.",
         contribution:
-          "New implementation extending a credited Kaggle learning exercise",
+          "AI pair programming · Extends a credited Rob Mulla Kaggle exercise",
         tags: ["Python", "Scikit-learn", "React", "Forecast evaluation"],
         href: sitePath("/showcase/grid-forecast/"),
         action: "Explore the forecasts",
         source: sitePath("/showcase/grid-forecast/project.zip"),
         scope: "Historical PJME demand · Source credit: PJM and Rob Mulla",
-        preview: false,
+        preview: true,
         newTab: true,
       },
       {
@@ -185,7 +198,7 @@ export const workGroups: readonly {
     description:
       "Tools for the people doing the work: operations teams, behavior analysts, learners, and caregivers.",
     projects: [
-      ...selectedWork.filter((project) => project.id !== "stepspark"),
+      ...productWork.filter((project) => project.id !== "stepspark"),
       founderWork,
     ],
   },
@@ -247,9 +260,10 @@ export const workGroups: readonly {
     description:
       "Ideas being explored through small, inspectable applications.",
     projects: [
-      selectedWork.find((project) => project.id === "stepspark")!,
+      productWork.find((project) => project.id === "stepspark")!,
       {
         id: "neurostack-explorer",
+        caseStudy: "/engineering/#neurostack",
         title: "NeuroStack Explorer",
         field: "Neuroscience data · Exploratory project",
         description:
@@ -265,3 +279,8 @@ export const workGroups: readonly {
     ],
   },
 ];
+
+// Owner-selected priority for engineering reviewers.
+export const selectedWork: readonly SelectedWork[] = [
+  "commissioning-readiness", "grid-forecast", "clinical-assessment-portal", "neurostack-explorer",
+].map((id) => workGroups.flatMap((group) => group.projects).find((project) => project.id === id)!);

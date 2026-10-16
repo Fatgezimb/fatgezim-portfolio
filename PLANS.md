@@ -153,3 +153,7 @@ PR 7 / `fb55b1c` / Pages `38845799954` published the editorial portfolio and all
 ## October 16 — approved engineering résumé
 
 Owner approved the updated engineering PDF/DOCX for public downloads and matching McVay experience. Exact approved bytes, stable download URLs and matching website content are published and publicly verified through Pages run 38899369864. Release evidence: `docs/RESUME_RELEASE_2026_10_16.md`.
+
+## October 16 — M.C. Dean engineering finalization
+
+Owner requested a comprehensive résumé and portfolio alignment. Engineering-focused homepage selection, McVay case study, four technical case studies with working previews, canonical résumé source and two-page PDF/DOCX candidates are complete. Existing editorial design, research and product collection are preserved. Verification and publication status: `docs/MCDEAN_FINALIZATION.md`.

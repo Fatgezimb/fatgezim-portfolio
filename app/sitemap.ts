@@ -5,6 +5,7 @@ const origin = publication.url.replace(/\/$/, "");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
+    { url: `${origin}/engineering/`, lastModified: new Date(publication.updated), changeFrequency: "monthly", priority: 0.9 },
     {
       url: origin,
       lastModified: new Date(publication.updated),

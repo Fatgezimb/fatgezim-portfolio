@@ -430,7 +430,7 @@ test("technology resume preserves confirmed facts and working public project des
     assert.match(html, /Founder and (?:Chief Technology Officer|CTO)/);
     assert.match(html, /Create 13 Group/);
     assert.match(html, /2018 - Present/);
-    assert.match(html, /href=["']https:\/\/rbt-pro\.vercel\.app\/["']/);
+
     assert.doesNotMatch(
       html,
       /href=["']https:\/\/fatgezimb\.github\.io\/rbt-practice-hub/,
@@ -442,11 +442,13 @@ test("technology resume preserves confirmed facts and working public project des
   }
   const html = await (await render("/resume")).text();
   assert.match(html, /Clinical Assessment Portal/);
-  assert.match(html, /locally tested with synthetic records/);
-  assert.match(html, /USMLE Sprint/);
-  assert.match(html, /Account-gated learning application/);
+  assert.match(html, /Synthetic-record testing/);
+  assert.match(html, /Relay Commissioning Readiness/);
+  assert.match(html, /Grid Forecast Lab/);
+  assert.match(html, /Dijkstra/);
+  assert.match(html, /AI pair programming/);
   assert.match(html, /B\.S\. in Neuroscience[\s\S]*?2017/);
-  assert.match(html, /Co-founder and Co-builder/);
+  assert.match(html, /Meili Bela/);
 });
 
 test("public download buttons serve the exact owner-reviewed document bytes", async () => {
@@ -476,10 +478,10 @@ test("public download buttons serve the exact owner-reviewed document bytes", as
 test("selected work remains ordered and usable before client code loads", async () => {
   const html = await (await render()).text();
   const titles = [
-    "bela-behavior-data-lab",
-    "rbt-practice-hub",
-    "caregiver-academy",
-    "stepspark",
+    "commissioning-readiness",
+    "grid-forecast",
+    "clinical-assessment-portal",
+    "neurostack-explorer",
   ];
   const positions = titles.map((id) =>
     html.indexOf(`id="project-title-${id}"`),
@@ -497,16 +499,16 @@ test("selected work remains ordered and usable before client code loads", async 
     /^Try .* preview$/.test(attributeValue(tag, "aria-label") ?? ""),
   );
   assert.equal(previewButtons.length, 4);
-  assert.ok(html.includes("Synthetic appointments"));
+  assert.ok(html.includes("Synthetic workflow miniature"));
   for (const url of [
-    "https://fatgezimb.github.io/StepSpark/",
-    "https://rbt-pro.vercel.app/",
+    "/engineering/#relay",
+    "/engineering/#grid",
     "/work/",
     "https://neuropath.blog/",
   ]) {
     assert.ok(html.includes(url), `Missing full project destination ${url}`);
   }
-  assert.ok(html.includes("Co-founder &amp; co-builder with Meili Bela"));
+  assert.ok(html.includes("Meili Bela"));
   assert.ok(!html.includes("12.4 Hz") && !html.includes("8.1 Hz"));
 });
 
@@ -530,7 +532,7 @@ test("work index exposes the full collection with truthful scope and evidence", 
     assert.match(html, sectionPattern(id));
     assert.match(html, new RegExp(`href="#${id}"`));
   }
-  assert.equal([...html.matchAll(/id="project-title-/g)].length, 14);
+  assert.equal([...html.matchAll(/id="project-title-/g)].length, 15);
   for (const id of [
     "rethink-automations",
     "neuropath-insight",
@@ -548,4 +550,25 @@ test("work index exposes the full collection with truthful scope and evidence", 
   assert.ok(html.includes("Sumit Nanda and Giorgio A. Ascoli"));
   assert.match(html, /href="\/research\/george-mason-neuronal-reconstruction"/);
   assert.equal(openingTags(html, "iframe").length, 0);
+});
+
+test("engineering review keeps professional outcomes attributed and project evidence inspectable", async () => {
+  const html = await (await render("/engineering")).text();
+  assert.equal(assertSingleH1(html, "engineering"), "The decisions behind the work.");
+  for (const id of ["mcvay", "relay", "grid", "clinical", "neurostack"]) {
+    assert.match(html, sectionPattern(id));
+    assert.ok(html.includes(`href="#${id}"`));
+  }
+  assert.match(html, /Outcomes reported by colleagues/);
+  assert.match(html, /not a reproduced benchmark/);
+  assert.match(html, /AI pair programming/);
+  assert.match(html, /1,853.84 MW/);
+  assert.match(html, /2,165.59 MW/);
+  assert.match(html, /89.18%/);
+  assert.match(html, /Private implementation/);
+  assert.match(html, /Original Rob Mulla tutorial/);
+  assert.equal(openingTags(html, "iframe").length, 0, "heavy demos load only after explicit activation");
+  for (const project of ["commissioning-readiness", "grid-forecast"]) {
+    assert.match(html, new RegExp(`href="/showcase/${project}/project.zip"`));
+  }
 });

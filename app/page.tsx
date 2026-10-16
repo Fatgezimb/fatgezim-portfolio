@@ -11,6 +11,7 @@ const personSchema = {
   alternateName: identity.shortName,
   url: publication.url,
   jobTitle: [
+    "Software and Data Engineer",
     "Founder and Chief Technology Officer",
     "Software and Data Systems Builder",
   ],
