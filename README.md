@@ -105,3 +105,7 @@ Two complete data projects are documented in `showcase/README.md`: Engine Progno
 ## Additional engineering showcases
 
 The full work collection now also includes Relay — Commissioning Readiness, Grid Forecast Lab and Video Signal Lab. Each has an independently rebuildable source archive. The two data projects include reproducible pipelines and executed notebooks; Relay includes a deterministic domain engine and invariant tests. Public evidence and design: `docs/SHOWCASE_EXPANSION_PLAN.md`. Current checks, results and remaining native keyboard check: `docs/SHOWCASE_EXPANSION_QA.md`.
+
+## Current public release
+
+The editorial portfolio and five engineering/data showcase apps are published and publicly verified. Internal Portfolio actions resolve through the current site base. Release and link evidence: `docs/LINK_REPAIR_QA.md` (PR 7 / Pages `38845799954`).

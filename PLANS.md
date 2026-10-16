@@ -145,3 +145,7 @@ The owner requested two complete projects using different Kaggle datasets and a 
 ## October 15 — forecasting, video audit and engineering workflow
 
 Grid Forecast Lab extends the credited Kaggle tutorial with chronological validation, baselines and held-out replay. Video Signal Lab audits the requested synthetic dataset with calibrated classification and explicit information timing. Relay implements a revision-aware commissioning evidence chain motivated by M.C. Dean public delivery descriptions, using fictional assets. All three are built, packaged and integrated into the fourteen-entry local work collection. Native keyboard recheck is pending after a browser confirmation stalled automation. See `docs/SHOWCASE_EXPANSION_QA.md`; public deployment remains unchanged.
+
+## Public release — stale destination repair
+
+PR 7 / `fb55b1c` / Pages `38845799954` published the editorial portfolio and all five engineering/data showcase apps. Canonical internal URLs now stay on the active site. The public fourteen-entry work collection, all app returns, mobile anchors, fifty deployed resources and approved resume hashes pass. Native keyboard verification is complete. See `docs/LINK_REPAIR_QA.md`.

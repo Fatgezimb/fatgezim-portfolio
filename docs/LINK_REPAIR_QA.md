@@ -19,3 +19,13 @@ All three project source packages and executed analyses were previously checksum
 ## Release recovery
 
 The previous published checkpoint is `31e8f0933cb013c5a64957a732b0bfdb90256069`. If the new root, work collection, assets or approved downloads fail after deployment, repair forward or revert the release through the Pages workflow. There are no database migrations or production data writes in this release.
+
+## Published verification
+
+PR [7](https://github.com/Fatgezimb/fatgezim-portfolio/pull/7) merged as `fb55b1c8405611df2ff71af35b04cac188ec8e18`. [Pages run 38845799954](https://github.com/Fatgezimb/fatgezim-portfolio/actions/runs/38845799954) passed and published the current site. The PR workflow independently reproduced all four Python pipelines/notebooks and passed Relay tests/build.
+
+Public verification confirms all five app-to-work return flows; the resume Portfolio action opens the current public homepage in a new tab. The work collection contains fourteen entries. At 390px, native keyboard/click navigation reaches research, experience and contact with no horizontal overflow.
+
+Fifty public resources pass HTTP/content and byte checks, including app snapshots, compiled assets, all five source packages, analyses, portrait/poster images and both exact approved resume downloads. The public link audit covers 151 rendered targets and 43 unique HTTP requests. Its only non-success destination is LinkedIn's existing anonymous-access restriction. Both M.C. Dean source pages open with the correct headings in a normal browser; scripted requests are protected with HTTP 403. All additional Kaggle/NASA source URLs return HTTP 200 with matching page titles.
+
+No public route, anchor, source download or app return path failed. Final evidence is under `work/link-repair/`; the public-site screenshot and portable report are saved in the chat outputs `Portfolio_Link_Repair/`.

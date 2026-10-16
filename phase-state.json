@@ -1,7 +1,7 @@
 {
   "project": "Fatgezim Zim Bela Resume Portfolio",
   "phase": 3,
-  "phaseName": "Editorial portfolio and engineering showcases \u2014 public link repair release",
+  "phaseName": "Editorial portfolio and five showcases \u2014 published and verified",
   "phase1Approved": true,
   "approvalPhraseRequired": "APPROVE PHASE 1",
   "lastUpdated": "2026-10-15",
@@ -39,15 +39,16 @@
     "Work collection refinement: nine entries at /work, homepage led by Data Lab, and NeuroStack categorized as an exploratory build with a plain-language guide. Owner is considering a new flagship; no new flagship implementation started. Production verification in progress.",
     "October 15 Kaggle showcases: completed Appointment Operations and Engine Prognostics with two source-locked Kaggle datasets, executed notebooks, 14 analysis tests, two clean standalone app builds, and portable packages. The eleven-entry work collection passes lint/typecheck, 22 route/export tests, both production builds and five-route static export. Browser checks cover all six app tabs at 320\u20131440 pixels, keyboard/reduced-motion interactions, source inspection, and zero reported axe violations. New app/analysis/ZIP links pass; the existing LinkedIn profile requires sign-in. Public deployment is unchanged. Evidence: docs/KAGGLE_SHOWCASE_QA.md.",
     "October 15 showcase expansion: Relay, Grid Forecast Lab and Video Signal Lab are integrated into a fourteen-entry local work collection. Twenty new domain/analysis tests, two executed notebooks, three portable builds, lint/typecheck, 22 route/export tests, Pages build/export, 36 responsive app samples and 20 axe scans pass. Verified source archives and served downloads are delivered. A stale native browser confirmation interrupted final native-keyboard automation; that recheck remains pending. Public deployment is unchanged. Evidence: docs/SHOWCASE_EXPANSION_QA.md.",
-    "Owner requested fixing portfolio links that reached an older site. Canonical internal URLs now resolve through the active site base; native keyboard rechecks passed for Relay, Grid Forecast and Video Signal after the stale temporary tab closed. Lint/typecheck, 22 route/export tests, both builds, static export and pack validation pass. Public release and link verification are in progress."
+    "Owner requested fixing portfolio links that reached an older site. Canonical internal URLs now resolve through the active site base; native keyboard rechecks passed for Relay, Grid Forecast and Video Signal after the stale temporary tab closed. Lint/typecheck, 22 route/export tests, both builds, static export and pack validation pass. Public release and link verification are in progress.",
+    "Public destination repair released through PR 7 and successful Pages run 38845799954. All five app-to-work return flows, the resume Portfolio new-tab action, fourteen work entries and mobile research/experience/contact anchors pass in the public browser. Fifty public resources match the build, including all five source ZIPs and both approved resume hashes. Public link audit covers 151 targets / 43 unique requests; only LinkedIn has an anonymous access gate. M.C. Dean source links open normally in the browser despite scripted-request protection. Native keyboard limitation resolved. See docs/LINK_REPAIR_QA.md."
   ],
-  "publicReleaseComplete": false,
-  "deployedCommit": "ef2950cea335574667b251bb37d27abbb18d5d66",
+  "publicReleaseComplete": true,
+  "deployedCommit": "fb55b1c8405611df2ff71af35b04cac188ec8e18",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
   "resumeRefreshPublication": "published-and-verified",
-  "deploymentRun": "38800380424",
+  "deploymentRun": "38845799954",
   "designModelReview": {
-    "status": "implemented-and-verified-locally",
+    "status": "published-and-verified",
     "date": "2026-10-15",
     "productionChanged": true,
     "artifact": "/Users/fatgezimbela/Documents/Codex/2026-10-15/this-x20/outputs/Founder_Portrait_Study/founder-portrait.png",
@@ -55,6 +56,6 @@
     "portraitReferenceImage": "/var/folders/zx/_2cz0vtd4798r84nc23h1z2m0000gn/T/codex-clipboard-35454eb4-23ac-4e74-8afd-48aa64f314e9.png",
     "styleReferenceImage": "/var/folders/zx/_2cz0vtd4798r84nc23h1z2m0000gn/T/codex-clipboard-3dce4e81-ba66-44bb-9e19-ef0d835406a0.png",
     "ownerDirection": "Build the selected founder site, horizontal selected work ordered by technical strength, research and NeuroPath Blog.",
-    "nextMilestone": "Owner review of the built static preview; deployment has not been performed for this revision."
+    "nextMilestone": "Current editorial portfolio and five engineering/data showcase apps are published and publicly verified."
   }
 }
