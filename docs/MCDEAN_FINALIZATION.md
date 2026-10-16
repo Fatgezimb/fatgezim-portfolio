@@ -34,14 +34,14 @@ NeuroStack: inspected public repository documentation and the existing preview's
 - Twelve responsive checks: homepage, engineering, work and résumé at 390, 768 and 1440 pixels; no document overflow, one H1 per route.
 - Four axe WCAG A/AA scans have zero violations. Keyboard activation, 3px focus indication and modal Escape focus restoration verified. Reduced motion sets scrolling to auto. With JavaScript disabled, all four project cards, McVay account and case-study links remain readable.
 - Browser exercise: clinical request/grant/sign/edit, Relay corrective retest, Grid bounds and evaluation, NeuroStack unit/chart changes, and case-study open/close. Console error log is empty.
-- Link audit: 187 rendered targets / 43 unique requests. All portfolio targets pass. LinkedIn returns its existing anonymous HTTP 999 gate.
+- Link audit: 192 rendered targets / 43 unique requests. All portfolio targets pass. LinkedIn returns its existing anonymous HTTP 999 gate.
 - Final résumé: two pages at 11pt body size, both pages visually inspected; eight matching DOCX/PDF hyperlinks; document accessibility audit has zero findings.
 
 Evidence files are in `work/mcdean-finalization/`. Final PDF/DOCX candidates and review images are in the chat's `outputs/MCDean_Engineering_Final/` directory.
 
 ## Publication
 
-The revised résumé files require exact-file owner approval under the saved publication rule. A review request is pending; the currently approved public downloads remain unchanged. Website release and public verification follow the final local checks.
+The revised résumé files require exact-file owner approval under the saved publication rule. A review request is pending; the currently approved public downloads remain unchanged. Website PR [8](https://github.com/Fatgezimb/fatgezim-portfolio/pull/8) merged, with follow-up preview-link and print-completeness fixes. Commit `b1c1225a9da9c761a81b449607b2d8f283aacb93` passed Pages run [38929241573](https://github.com/Fatgezimb/fatgezim-portfolio/actions/runs/38929241573). Six public routes and ten byte-matching downloads/assets pass. Browser verification confirms the four-project order, new-tab full-app destination, Relay retest advancing to three current approvals, Grid keyboard bounds toggle and clinical stale-signature behavior, with an empty console error log. Browser résumé print remains two pages and includes all skills and named research collaborators.
 
 Additional 320px review caught a pre-existing clipped hero name and awkward five-link wrapping. The narrow name scale and navigation grid were corrected before release.
 

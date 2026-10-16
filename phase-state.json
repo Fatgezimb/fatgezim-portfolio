@@ -1,7 +1,7 @@
 {
   "project": "Fatgezim Zim Bela Resume Portfolio",
   "phase": 3,
-  "phaseName": "Editorial portfolio and five showcases \u2014 published and verified",
+  "phaseName": "Engineering-focused portfolio published; revised document review pending",
   "phase1Approved": true,
   "approvalPhraseRequired": "APPROVE PHASE 1",
   "lastUpdated": "2026-10-16",
@@ -43,13 +43,14 @@
     "Public destination repair released through PR 7 and successful Pages run 38845799954. All five app-to-work return flows, the resume Portfolio new-tab action, fourteen work entries and mobile research/experience/contact anchors pass in the public browser. Fifty public resources match the build, including all five source ZIPs and both approved resume hashes. Public link audit covers 151 targets / 43 unique requests; only LinkedIn has an anonymous access gate. M.C. Dean source links open normally in the browser despite scripted-request protection. Native keyboard limitation resolved. See docs/LINK_REPAIR_QA.md.",
     "October 16: owner approved exact updated engineering resume PDF/DOCX for public downloads. Replaced both artifact copies under stable filenames, updated approval hashes and McVay website content to match. Lint/typecheck, 22 route/export tests, root/Pages builds, five-route static export and pack validation pass. Public release verification follows.",
     "October 16 approved engineering resume release passed Pages 38899369864. Public homepage/resume McVay content and both exact approved download hashes/MIME types are verified, including browser reload. See docs/RESUME_RELEASE_2026_10_16.md.",
-    "October 16 comprehensive engineering alignment: homepage leads with Relay/Grid/Clinical/NeuroStack; new engineering case studies and lazy working previews; canonical two-page resume source. Lint/typecheck, 23 route/export tests, builds, six-route export, responsive/a11y/keyboard/no-JS and project checks pass. New document exact-file review requested; existing approved downloads remain intact. See docs/MCDEAN_FINALIZATION.md."
+    "October 16 comprehensive engineering alignment: homepage leads with Relay/Grid/Clinical/NeuroStack; new engineering case studies and lazy working previews; canonical two-page resume source. Lint/typecheck, 23 route/export tests, builds, six-route export, responsive/a11y/keyboard/no-JS and project checks pass. New document exact-file review requested; existing approved downloads remain intact. See docs/MCDEAN_FINALIZATION.md.",
+    "M.C. Dean alignment published through PR 8 and Pages 38929241573 at b1c1225. Six public routes and ten download/asset hashes pass; live Relay/Grid/Clinical behavior and new-tab previews verified. Public downloads retain the October 16 approved files while new two-page review candidates await exact-file owner approval."
   ],
   "publicReleaseComplete": true,
-  "deployedCommit": "40d3aa1520260a94b98c9bae027cd3440ad6e6f3",
+  "deployedCommit": "b1c1225a9da9c761a81b449607b2d8f283aacb93",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
-  "resumeRefreshPublication": "published-and-verified",
-  "deploymentRun": "38899369864",
+  "resumeRefreshPublication": "new-candidates-await-exact-file-approval",
+  "deploymentRun": "38929241573",
   "designModelReview": {
     "status": "published-and-verified",
     "date": "2026-10-15",
