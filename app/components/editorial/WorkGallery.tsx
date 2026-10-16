@@ -293,7 +293,7 @@ export function WorkGallery({ catalog = false }: { catalog?: boolean }) {
             <footer className={styles.dialogFooter}>
               <p>{active.scope ?? active.contribution}</p>
               {active.href && (
-                <SafeLink href={active.href} newTab={isExternal(active.href)}>
+                <SafeLink href={active.href} newTab={active.newTab ?? isExternal(active.href)}>
                   {active.action ?? "Open full app"}{" "}
                   <span aria-hidden="true">↗</span>
                 </SafeLink>
