@@ -1,7 +1,6 @@
 import content from "./engineering-resume.json";
 import { identity, publicLinks, education } from "./resume";
 import { publication } from "./publication";
-import { researchItems } from "./research";
 
 // Canonical wording is shared with scripts/build-engineering-resume.py.
 export const resumeDocument = {
@@ -44,10 +43,10 @@ export const resumeDocument = {
   credentials: content.credentials
     .split(". ")
     .map((sentence) => (sentence.endsWith(".") ? sentence : `${sentence}.`)),
-  research: researchItems.map((item) => ({
-    title: item.title,
-    institution: item.institution,
-    summary: item.summary,
-    methods: item.methods,
-  })),
+  research: [{
+    title: content.research.title,
+    institution: content.research.institution,
+    summary: content.research.text,
+    methods: content.research.methods.split(", "),
+  }],
 } as const;

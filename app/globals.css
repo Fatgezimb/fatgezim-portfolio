@@ -2179,10 +2179,6 @@ ol {
     gap: 8pt 14pt;
   }
 
-  .resume-skill-grid > article:nth-child(n + 3) {
-    display: none;
-  }
-
   .resume-document__header {
     padding-bottom: 8pt;
   }
