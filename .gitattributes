@@ -1,0 +1,3 @@
+# Static Data app compiler output preserves authored JSX formatting inside scripts.
+public/showcase/**/index.html linguist-generated=true -whitespace
+showcase/**/analysis.html linguist-generated=true

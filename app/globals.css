@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --page: #f1eff6;
-  --page-raised: #e8e4f0;
+  --page: #fbf8f3;
+  --page-raised: #eee8e0;
   --panel: #ffffff;
   --panel-soft: #e8e4f0;
   --panel-bright: #e3deec;
-  --line: #d6cfdf;
+  --line: #ded7cf;
   --line-strong: #9588a5;
-  --text: #252137;
-  --text-soft: #51475f;
-  --text-muted: #6b5c77;
-  --accent: #6245a5;
-  --accent-strong: #4b3188;
+  --text: #171b22;
+  --text-soft: #59575c;
+  --text-muted: #696368;
+  --accent: #6b0f27;
+  --accent-strong: #4a0b1b;
   --accent-wash: #e6ddf5;
   --accent-glow: rgba(11, 111, 100, 0.1);
   --cyan: #305c9c;

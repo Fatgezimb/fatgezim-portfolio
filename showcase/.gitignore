@@ -1,0 +1,8 @@
+**/data/
+**/__pycache__/
+**/.pytest_cache/
+**/.venv/
+**/models/
+**/.ipynb_checkpoints/
+**/node_modules/
+**/dist/

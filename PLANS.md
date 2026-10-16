@@ -112,3 +112,36 @@ Workspace PR 4 / `503c4ea` / Pages `38793780004` and approved résumé PR 5 / `c
 The owner explicitly requested this further redesign after the previous release. Existing Phase 1 authorization and all verified content remain in force.
 
 Connected-chapters PR 6 / `ef2950c` / Pages `38800380424` is released and publicly verified. Detailed current evidence: `docs/CHAPTERS_QA.md`; figure/render provenance: `docs/CHAPTERS_ASSETS.md`.
+
+## October 15 owner revision — hiring evidence model
+
+- [x] Audit every live section and reconcile target roles with the master brief.
+- [x] Create a separate visual model with source-grounded engineering interactions.
+- [x] Model career, skills, education and contact for technical hiring relevance.
+- [x] Correct the workspace stethoscope against a real construction reference.
+- [x] Inspect rendered desktop/mobile compositions and verify local model behavior.
+- [ ] Owner reviews the concrete model before any production rebuild.
+
+The owner subsequently requested a model before building. This supersedes the earlier execution plan for this revision. The review artifact is saved under the chat's `outputs/Portfolio_Design_Model/` directory. Production components, public deployment and previously approved résumé downloads remain unchanged. No production build or release is part of this model review. See `docs/HIRING_DESIGN.md` and the model's README and verification files.
+
+## October 15 owner selection — editorial founder résumé
+
+The owner selected the supplied ivory and burgundy editorial design and requested portraits using their own face references, with founder energy. The current design artifact is `outputs/Editorial_Founder_Concept/founder-resume-concept.png` in the chat output directory, with separate hero and About portrait assets and generation prompts. This is the current visual direction.
+
+Verified résumé facts, collaborator credit and public-product screen references inform the model. The next milestone is review of the personalized model and implementation of this selected composition.
+
+## Active implementation — October 15 evening
+
+The owner authorized building the selected editorial founder site and NeuroStack integration. The horizontal gallery, original credited research, NeuroPath Blog, and selected portrait are implemented. Details and evidence: `docs/EDITORIAL_BUILD.md`; final checks: `docs/EDITORIAL_QA.md`.
+
+## Work collection refinement
+
+The owner requested more work behind the main work action and questioned NeuroStack as the lead. A dedicated `/work/` route now groups nine verified entries, and the homepage leads with the existing domain products. NeuroStack is an exploratory project with a plain-language guide. The owner is considering a new flagship; an operations data workbench is proposed for discussion, not implemented.
+
+## October 15 — complete Kaggle showcases
+
+The owner requested two complete projects using different Kaggle datasets and a review of earlier research work. Engine Prognostics and Appointment Operations are implemented with reproducible pipelines, executed notebooks, tested models/aggregations, interactive apps and portable source packages. The expanded `/work/` collection contains eleven entries. The cervical-spine work is documented as a proposed CT research viewer based on the owner's description; the public notebook was unavailable. Current verification: `docs/KAGGLE_SHOWCASE_QA.md`.
+
+## October 15 — forecasting, video audit and engineering workflow
+
+Grid Forecast Lab extends the credited Kaggle tutorial with chronological validation, baselines and held-out replay. Video Signal Lab audits the requested synthetic dataset with calibrated classification and explicit information timing. Relay implements a revision-aware commissioning evidence chain motivated by M.C. Dean public delivery descriptions, using fictional assets. All three are built, packaged and integrated into the fourteen-entry local work collection. Native keyboard recheck is pending after a browser confirmation stalled automation. See `docs/SHOWCASE_EXPANSION_QA.md`; public deployment remains unchanged.

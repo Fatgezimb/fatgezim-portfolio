@@ -58,3 +58,7 @@ Compact score order:
 | 13 | Computational neuroscience research | 1/5/3/2/4/1/5/5/4/1 | 88 | Hold | High relevance but no supporting artifact found. |
 | 14 | Spinal Fracture Detection | 1/5/3/1/4/1/4/5/3/0 | 79 | No | Resume-only claim without repository/data/model evidence. |
 | 15 | Project Cleo | 1/2/3/1/3/1/3/3/4/0 | 60 | No | Resume-only claim without repository or contribution evidence. |
+
+## October 15 current selection
+
+The owner questioned NeuroStack's lead position and requested more work behind “View my work.” The homepage currently leads with Bela Behavior Data Lab, followed by RBT Practice Hub, Caregiver Academy and StepSpark. This is a provisional editorial order; the owner has not selected a flagship. The `/work/` collection additionally includes NeuroPath Blog, Rethink Automations, NeuroPath Insight, the original George Mason research and NeuroStack as an exploratory project. Current evidence and scope: `docs/EDITORIAL_BUILD.md`.

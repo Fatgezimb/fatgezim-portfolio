@@ -1,0 +1,9 @@
+{
+  "url": "https://www.kaggle.com/datasets/vedauv/what-makes-a-yt-video-go-viral-12000-vids",
+  "download": "https://www.kaggle.com/api/v1/datasets/download/vedauv/what-makes-a-yt-video-go-viral-12000-vids?datasetVersionNumber=1",
+  "version": 1,
+  "sha256": "8f7c464ec382ab9d3ae50ede517548bd1940530dfe26f74ea64e2f2cbdf60b1d",
+  "license": "CC0: Public Domain (Kaggle listing)",
+  "classification": "Synthetic educational benchmark",
+  "credit": "Vedauv Rajkumar Leelavathi / vedauv; dataset datasheet identifies generated observations."
+}

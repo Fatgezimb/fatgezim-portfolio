@@ -10,7 +10,7 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 from urllib.parse import urljoin, urlsplit
 
-ROUTES = ['/', '/resume', '/research', '/research/george-mason-neuronal-reconstruction']
+ROUTES = ['/', '/work', '/resume', '/research', '/research/george-mason-neuronal-reconstruction']
 PUBLIC = 'https://fatgezimb.github.io/fatgezim-portfolio/'
 
 class Targets(HTMLParser):
@@ -80,7 +80,8 @@ def main():
             if base_prefix and path.startswith(base_prefix): path=path[len(base_prefix):]
             path=path.rstrip('/') or '/'
             found=path in documents and p.fragment in documents[path].ids
-            result={'status':200 if found else 'missing anchor','final_url':urljoin(PUBLIC,u.lstrip('/')),'redirects':'no','content_type':'same-page target','title':''};behavior='Target exists' if found else 'Missing target'
+            anchor_url=args.base.rstrip('/')+('/' if path=='/' else path+'/')+'#'+p.fragment
+            result={'status':200 if found else 'missing anchor','final_url':anchor_url,'redirects':'no','content_type':'same-page target','title':''};behavior='Target exists' if found else 'Missing target'
         else:
             local=u
             if u.startswith(PUBLIC): local=args.base+'/'+u[len(PUBLIC):]
@@ -88,7 +89,7 @@ def main():
             behavior='HTTP checked; browser sampling recorded in QA report'
             if 'linkedin.com' in u: behavior='Browser redirects to LinkedIn authwall; profile content unverified'
             if result['status']==200 and '/login' in result['final_url']: behavior='Account gate'
-            result['final_url']=result['final_url'].replace(args.base+'/',PUBLIC)
+            result['checked_url']=resolved
         item.update(result,route_behavior=behavior)
         public_target=u
         if base_prefix and public_target.startswith(base_prefix+'/'): public_target=public_target[len(base_prefix):]

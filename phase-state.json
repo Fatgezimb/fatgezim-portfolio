@@ -1,7 +1,7 @@
 {
   "project": "Fatgezim Zim Bela Resume Portfolio",
   "phase": 3,
-  "phaseName": "Connected visual chapters complete and publicly verified",
+  "phaseName": "Editorial portfolio and engineering showcases \u2014 public link repair release",
   "phase1Approved": true,
   "approvalPhraseRequired": "APPROVE PHASE 1",
   "lastUpdated": "2026-10-15",
@@ -34,11 +34,27 @@
     "Final release cf0a652 passed Pages38794622212. Public four-route/mobile/desktop reloads and metadata/resources pass. PDF/DOCX downloads and persistent header action at320/390/1440 exactly match the newly approved hashes and MIME types. Earlier503c4ea public checks cover all five objects, tours, keyboard/no-JS, seven samples, eight live-frame flows, six context recoveries and177 link/anchor/asset targets. No required work remains.",
     "October 15 owner follow-up: lower-page visual quality and storytelling rejected; authorized connected visual chapters revision now active. Previous cf0a652 release remains the verified public checkpoint. Exact approved resume files stay unchanged. See docs/CHAPTERS_DESIGN.md.",
     "Connected visual chapters: original research figures, seven-project workbench, editable data walkthrough, on-demand forty-ribbon material study and revised professional/personal chapters are complete. Final root/Pages builds, 21 tests, 55 layout samples, 28 axe scans, 18 workflows, eight live frames, five canvas hit tests, three studio recovery cycles and 190 link targets pass. See docs/CHAPTERS_QA.md. Public release verification follows deployment.",
-    "Connected-chapters PR 6 merged as ef2950c and passed Pages run 38800380424, including lint, TypeScript, 21 tests, both builds and export. Public verification confirms all seven project selections at desktop/mobile, native mobile keyboard selection, research views, editable calculation, all studio controls, five skill views, RBT/NeuroStack frames and 190 rendered link targets. All new imagery/social assets and both approved downloads match source bytes. Public console window is clean. See docs/CHAPTERS_QA.md."
+    "Connected-chapters PR 6 merged as ef2950c and passed Pages run 38800380424, including lint, TypeScript, 21 tests, both builds and export. Public verification confirms all seven project selections at desktop/mobile, native mobile keyboard selection, research views, editable calculation, all studio controls, five skill views, RBT/NeuroStack frames and 190 rendered link targets. All new imagery/social assets and both approved downloads match source bytes. Public console window is clean. See docs/CHAPTERS_QA.md.",
+    "October 15 editorial revision: owner-selected portrait and typography, ordered horizontal gallery, five functional previews, original credited research and NeuroPath Blog are built. Lint, TypeScript, 21 route/export tests, both production builds, four-route static export and pack validation pass. Browser verification covers six widths, keyboard/focus, reduced motion, no-JavaScript content, seven axe scans and actual preview workflows. Link audit: 103 targets, 27 unique requests, zero failures. Approved downloads match reviewed SHA-256 hashes. Local release evidence: docs/EDITORIAL_QA.md. Public deployment remains at the previous checkpoint.",
+    "Work collection refinement: nine entries at /work, homepage led by Data Lab, and NeuroStack categorized as an exploratory build with a plain-language guide. Owner is considering a new flagship; no new flagship implementation started. Production verification in progress.",
+    "October 15 Kaggle showcases: completed Appointment Operations and Engine Prognostics with two source-locked Kaggle datasets, executed notebooks, 14 analysis tests, two clean standalone app builds, and portable packages. The eleven-entry work collection passes lint/typecheck, 22 route/export tests, both production builds and five-route static export. Browser checks cover all six app tabs at 320\u20131440 pixels, keyboard/reduced-motion interactions, source inspection, and zero reported axe violations. New app/analysis/ZIP links pass; the existing LinkedIn profile requires sign-in. Public deployment is unchanged. Evidence: docs/KAGGLE_SHOWCASE_QA.md.",
+    "October 15 showcase expansion: Relay, Grid Forecast Lab and Video Signal Lab are integrated into a fourteen-entry local work collection. Twenty new domain/analysis tests, two executed notebooks, three portable builds, lint/typecheck, 22 route/export tests, Pages build/export, 36 responsive app samples and 20 axe scans pass. Verified source archives and served downloads are delivered. A stale native browser confirmation interrupted final native-keyboard automation; that recheck remains pending. Public deployment is unchanged. Evidence: docs/SHOWCASE_EXPANSION_QA.md.",
+    "Owner requested fixing portfolio links that reached an older site. Canonical internal URLs now resolve through the active site base; native keyboard rechecks passed for Relay, Grid Forecast and Video Signal after the stale temporary tab closed. Lint/typecheck, 22 route/export tests, both builds, static export and pack validation pass. Public release and link verification are in progress."
   ],
-  "publicReleaseComplete": true,
+  "publicReleaseComplete": false,
   "deployedCommit": "ef2950cea335574667b251bb37d27abbb18d5d66",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
   "resumeRefreshPublication": "published-and-verified",
-  "deploymentRun": "38800380424"
+  "deploymentRun": "38800380424",
+  "designModelReview": {
+    "status": "implemented-and-verified-locally",
+    "date": "2026-10-15",
+    "productionChanged": true,
+    "artifact": "/Users/fatgezimbela/Documents/Codex/2026-10-15/this-x20/outputs/Founder_Portrait_Study/founder-portrait.png",
+    "scope": "Portrait study using the owner-selected monochrome headshot for likeness and the supplied editorial founder reference for styling.",
+    "portraitReferenceImage": "/var/folders/zx/_2cz0vtd4798r84nc23h1z2m0000gn/T/codex-clipboard-35454eb4-23ac-4e74-8afd-48aa64f314e9.png",
+    "styleReferenceImage": "/var/folders/zx/_2cz0vtd4798r84nc23h1z2m0000gn/T/codex-clipboard-3dce4e81-ba66-44bb-9e19-ef0d835406a0.png",
+    "ownerDirection": "Build the selected founder site, horizontal selected work ordered by technical strength, research and NeuroPath Blog.",
+    "nextMilestone": "Owner review of the built static preview; deployment has not been performed for this revision."
+  }
 }

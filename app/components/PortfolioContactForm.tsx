@@ -35,7 +35,9 @@ function createEmailDraft(form: HTMLFormElement) {
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-export function PortfolioContactForm() {
+export function PortfolioContactForm({
+  showHeading = true,
+}: { showHeading?: boolean } = {}) {
   function openEmailDraft(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     window.location.assign(createEmailDraft(event.currentTarget));
@@ -50,7 +52,7 @@ export function PortfolioContactForm() {
       onSubmit={openEmailDraft}
     >
       <div className={styles.formHeading}>
-        <h3>Start a conversation</h3>
+        {showHeading && <h3>Start a conversation</h3>}
         <p>Your message opens as a draft in your email app.</p>
       </div>
 

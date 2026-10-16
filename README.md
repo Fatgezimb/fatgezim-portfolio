@@ -1,22 +1,15 @@
 # Fatgezim “Zim” Bela — Portfolio
 
-Live GitHub Pages site: [fatgezimb.github.io/fatgezim-portfolio](https://fatgezimb.github.io/fatgezim-portfolio/)
+An editorial résumé portfolio for software engineering, data, scientific computing and technical leadership. The current implementation uses the owner-selected portrait, ivory/burgundy typography, a horizontal project gallery, interactive product previews and original research evidence.
 
-Featured scientific project: [NeuroStack Explorer source and reproducibility record](https://github.com/Fatgezimb/neurostack-explorer)
+Public destination: [fatgezimb.github.io/fatgezim-portfolio](https://fatgezimb.github.io/fatgezim-portfolio/). The October 15 editorial revision is built and verified locally. Current release status: `phase-state.json` and `docs/EDITORIAL_QA.md`.
 
-A technical portfolio and résumé focused on hands-on Founder and CTO leadership, software engineering, data, automation, and scientific systems. The experience opens with an original five-domain 3D maker’s workbench, a lilac/graphite editorial system, and seven navigable product samples inside a shared project explorer. The five objects connect neuroscience, software, data, medicine and design to verified work.
+## Stack and development
 
-## Stack
-
-- Next.js 16, React 19, and TypeScript
-- Vinext and Vite for the Cloudflare-compatible build
-- Progressively loaded Three.js workspace with original procedural geometry and static SVG fallback
-- CSS Modules plus global semantic design tokens
-- OpenAI Sites hosting through `.openai/hosting.json`
-
-The portfolio is a static public experience. Product demonstrations use sanitized local samples; account and clinical data are handled only in their separate applications.
-
-## Local development
+- Next.js 16, React 19, TypeScript, Vinext and Vite
+- CSS Modules, semantic HTML, native dialogs and horizontal scrolling
+- Self-hosted Bodoni Moda and Geist fonts
+- Static GitHub Pages export with base-path-aware assets and hydration
 
 Requires Node.js 22.13 or newer.
 
@@ -25,73 +18,48 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Useful routes are:
+Open [localhost:3000](http://localhost:3000). Routes and sections:
 
 - `/` — portfolio
-- `/#projects` — featured project lab
+- `/#projects` — horizontal shortlist
+- `/work/` — nine-project collection with products, automation, research and experiments
+- `/#research` — original George Mason research
+- `/#experience` — roles and technical responsibilities
+- `/#contact` — professional links, downloads and contact form
 - `/research` — research overview
 - `/research/george-mason-neuronal-reconstruction` — accessible poster project page
-- `/#workspace` — five topics, optional tour and flat/3D explorer
-- `/resume` — professional overview with formal downloads and two-page print layout
+- `/resume` — professional overview and print layout
 
-## Verification
+## Content and implementation
 
-```bash
-npm run lint
-npm run typecheck
-npm test
-npm run build
-```
+`app/components/PortfolioPage.tsx` renders `editorial/EditorialHome.tsx`. The editorial directory owns the page, shared navigation, work gallery, project posters, modal previews and linked NeuroStack charts. `app/content/editorial.ts` defines the selected work, order, roles and public destinations.
 
-`npm test` performs a production build before running the rendered-HTML checks. Also run `node --test tests/export-pages.test.mjs` before publishing. The workspace renderer is a separate dynamic chunk. Check 2D, reduced-motion, save-data and WebGL context-loss recovery alongside ordinary topic navigation.
+Other verified sources:
 
-## Editing content
+- `resume.ts` and `resume-document.ts` — identity, roles, education, skills and document selection
+- `projects.ts` — project evidence and responsibilities
+- `technical-preview.ts` — public-derived scientific data and learning examples
+- `operational-preview.ts` — synthetic operations data and lesson examples
+- `research.ts` and `evidence.ts` — research facts and public source ledger
+- `site.ts` — shared metadata and contact destinations
 
-Verified copy and public facts live under `app/content/`:
+Preserve the evidence rules in `AGENTS.md`: do not add unsupported metrics, client details, PHI, private URLs, credential identifiers or unverified research claims. Keep product scope and shared authorship explicit. Selection rationale: `docs/EDITORIAL_BUILD.md` and `project-briefs/PROJECT_SELECTION_MATRIX.md`.
 
-- `site.ts` — navigation, hero, about, contact, and site metadata
-- `workspace.ts` — five domain stories, skills and evidence destinations
-- `resume.ts` — identity, experience, education, credentials, and skills
-- `projects.ts` — verified project records, roles, evidence, and boundaries
-- `project-showcase.ts` — project order, presentation copy and audited public destinations
-- `technical-preview.ts` — exact scientific sample and source-backed learning examples
-- `operational-preview.ts` — fictional operations data and source-backed lesson examples
-- `research.ts` — research experience and evidence limits
-- `evidence.ts` — public research-source ledger and verification status
+## Project previews
 
-Preserve the evidence rules in `AGENTS.md`: do not add unsupported metrics, client details, PHI, private URLs, credential identifiers, or unverified research claims.
+Seven app entries in the full collection open usable, dynamically loaded previews. Every card retains a full-product link that opens in a new tab. NeuroPath Blog is linked as a site and appears in the founder section.
 
-## Editing project demos
+The NeuroStack preview uses the first 20 seconds of the existing public-derived neural artifact. Unit selection, raster/rate view, start/end interval, reset, summary and accessible numeric tables update together. Its full application and source remain accessible. Provenance and CC BY 4.0 attribution accompany the sample.
 
-Seven previews live in `app/components/project-experiences/`. `TechnicalExperiences.tsx` implements NeuroStack, RBT and StepSpark; `OperationalExperiences.tsx` implements Data Lab, Caregiver, Rethink and Insight. Each CSS module preserves its product’s visual identity.
+Data Lab, RBT, Caregiver and StepSpark reuse verified components in `app/components/project-experiences/`. Keep operational examples explicitly synthetic and scientific values derived from documented artifacts.
 
-`FeaturedProjects.tsx` owns keyboard-operable desktop tabs, a labeled native mobile selector, stable project deep links, the shared window, and optional live frames. `app/content/project-showcase.ts` defines the full-site and live-preview URLs. Only offer a live frame after an ordinary browser verifies framing and navigation; always keep a new-tab escape. Source links identify themselves as source.
+## Accessibility, media and contact
 
-Keep the displayed scope, data provenance, co-builder attribution and meaningful controls intact. New scientific values must derive from verified artifacts. Operational sample values must remain explicitly fictional. See `docs/portfolio/redesign-project-evidence.md`.
+The gallery supports native touch scrolling, previous/next controls and arrow keys. Modal dialogs support keyboard navigation, Escape, focus restoration and background scroll locking. Reduced-motion users receive immediate gallery movement. Essential copy, project destinations, research and downloads render without JavaScript.
 
-## Research, media, and contact
+The selected portrait is `public/media/editorial/founder-portrait.webp` (96 KB). Research images are original poster figures with full co-author attribution. Media has intrinsic dimensions and meaningful alternatives. The homepage social image is an actual rendered page capture.
 
-The research hub and George Mason project page pair the original poster with a readable HTML summary, documented workflow, and an accessible native-dialog viewer.
-
-Optimized public derivatives live in `public/media/`. The headshot preserves the supplied face and natural appearance. The soccer clip is a six-second H.264 MP4 with the source file's mathematically silent audio track removed; its poster and video bytes are assigned only when the feature approaches the viewport. The surrounding text remains usable without JavaScript.
-
-The contact form does not submit to a server. It uses an encoded `mailto:` handoff so the visitor can finish and send the message in their email application. The destination address is not displayed as visitor-facing contact copy.
-
-## Themes and motion
-
-The default theme is light; the header persists an optional dark theme. Shared tokens live in `app/globals.css`. Product windows retain their own readable product palettes.
-
-`workspace/WorkspaceExplorer.tsx` owns the five accessible topic controls, optional tour, focus/scroll alignment and recovery states. `workspace/workspaceScene.ts` creates the original workbench geometry, materials, lighting, object raycasts and bounded camera framing. The concept is portfolio artwork, not a scientific reconstruction or a claim about personal modeling authorship. Asset provenance is in `docs/WORKSPACE_DESIGN.md`.
-
-The renderer caps resolution at 1.5 DPR and quiet motion at 30 updates/second, batches neuron geometry, pauses offscreen/in hidden tabs, and disposes geometry, textures and the GL context. Initial reduced-motion, Save-Data, 2G and constrained-device settings use the flat explorer; visitors may explicitly try 3D. A fresh canvas supports recovery after context loss. All five stories and links are present without JavaScript. Scrolling remains native.
-
-`PortfolioPage.tsx` sequences the workspace, personal introduction, research lightbox, project explorer, editable data walkthrough, form study, professional background and contact. Supporting sections live in `showcase/PortfolioSections.tsx`; interactive chapters live in `chapters/`. The web résumé preserves its responsive screen design and formal print layout.
-
-`chapters/FormStudy.tsx` loads the separate scene near the viewport and keeps native controls, poster fallbacks and explicit activation available. `formScene.ts` renders only after a change; `ribbonGeometry.ts` is shared with the opening desk. The research lightbox uses two original embedded poster figures and a labeled lossless crop. Asset provenance and current revision checks are in `docs/CHAPTERS_ASSETS.md` and `docs/CHAPTERS_QA.md`.
-
-## Accessibility
-
-The site includes a focusable skip link, semantic landmarks and headings, visible focus styles, keyboard-operable demos, focus-managed command and poster dialogs, touch controls, reduced-motion states, stable deep links, and readable no-WebGL fallbacks. Essential content remains ordinary server-rendered HTML.
+The contact form uses an encoded `mailto:` handoff so visitors review and send messages in their email application. The destination address is not displayed as contact copy.
 
 ## Resume artifacts
 
@@ -122,30 +90,18 @@ PAGES_BASE_PATH=/fatgezim-portfolio npm run start -- --port 4173
 PAGES_BASE_PATH=/fatgezim-portfolio node scripts/export-pages.mjs
 ```
 
-The exporter includes all four route documents, hydration payloads, robots, sitemap, a truthful 404 page and `.nojekyll`. Preview the generated files under the actual `/fatgezim-portfolio` mount and verify interactions before release. The small Vinext font and static-history adapters are version-specific and covered by focused tests; review them when upgrading Vinext.
+The exporter includes all five route documents, hydration payloads, robots, sitemap, a truthful 404 page and `.nojekyll`. Preview the generated files under the actual `/fatgezim-portfolio` mount and verify interactions before release. The small Vinext font and static-history adapters are version-specific and covered by focused tests; review them when upgrading Vinext.
 
 Audit rendered targets with `python scripts/audit-links.py --base http://localhost:4173`. Current before/after link evidence, document validation and browser results are in `reports/`.
 
-## Project structure
+## Current verification
 
-```text
-app/
-  components/
-    navigation/       active navigation, theme toggle, command palette
-    project-experiences/ navigable technical and operational samples
-    showcase/         editorial sections and product explorer
-    chapters/         research lightbox, applied skills and form/material study
-    workspace/        original 3D scene, topic stories, tour, fallback and approach
-    project-demos/    retained earlier preview components
-    research-ui/      evidence labels, workflow, page shell, poster viewer
-    spatial/          retained earlier Three.js runtime and fallbacks
-    supporting/       section-specific visual systems
-  content/            verified public portfolio data
-  research/           research hub and verified project route
-  resume/             print-friendly résumé route
-docs/portfolio/       evidence audits and phase reports
-public/               favicon, social card, and optimized public media
-tests/                rendered-HTML checks
-```
+The current results are in `docs/EDITORIAL_QA.md`, with implementation decisions in `docs/EDITORIAL_BUILD.md`. Machine evidence is in `work/editorial/`. Historical audits and release reports remain under `docs/` and `docs/portfolio/`.
 
-The current master brief, design research, inventory, link audit and implementation status live in `docs/`. Historical release evidence remains in `docs/portfolio/`.
+## Kaggle showcase projects
+
+Two complete data projects are documented in `showcase/README.md`: Engine Prognostics and Appointment Operations. The `/work/` collection opens their interactive apps and downloadable source packages. Verification and measured results are in `docs/KAGGLE_SHOWCASE_QA.md`; source reviews and a practical explanation guide are included under `showcase/`.
+
+## Additional engineering showcases
+
+The full work collection now also includes Relay — Commissioning Readiness, Grid Forecast Lab and Video Signal Lab. Each has an independently rebuildable source archive. The two data projects include reproducible pipelines and executed notebooks; Relay includes a deterministic domain engine and invariant tests. Public evidence and design: `docs/SHOWCASE_EXPANSION_PLAN.md`. Current checks, results and remaining native keyboard check: `docs/SHOWCASE_EXPANSION_QA.md`.

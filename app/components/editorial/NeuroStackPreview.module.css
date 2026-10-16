@@ -1,0 +1,270 @@
+.app {
+  background: #f8fbfa;
+  color: #193d38;
+  font-family: var(--font-geist-sans), sans-serif;
+  border: 1px solid #d3e1de;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 14px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  background: #fff;
+  border-bottom: 1px solid #d3e1de;
+}
+.header strong {
+  display: block;
+  font-size: 17px;
+}
+.header div > span {
+  display: block;
+  color: #58716b;
+  font-size: 12px;
+  margin-top: 2px;
+}
+.mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #82b8b1;
+  color: #176b60;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 750;
+}
+.sourceTag {
+  margin-left: auto;
+  font-size: 11px;
+  background: #e9f3ef;
+  padding: 6px 10px;
+  border-radius: 20px;
+  color: #245e51;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+}
+.controls {
+  padding: 24px 20px;
+  background: #edf4f1;
+  border-right: 1px solid #d3e1de;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.label {
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.controls label {
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.controls select {
+  padding: 10px 8px;
+  border: 1px solid #b8d0ca;
+  border-radius: 4px;
+  background: white;
+  margin-bottom: 16px;
+  min-width: 0;
+  width: 100%;
+  font: inherit;
+  color: #193d38;
+  min-height: 44px;
+}
+.interval {
+  margin: 10px 0;
+}
+.interval p {
+  font-size: 12px;
+  font-weight: 650;
+  margin-bottom: 14px;
+}
+.interval input {
+  accent-color: #147a73;
+  width: 100%;
+  margin: 5px 0 17px;
+  min-height: 30px;
+}
+.reset {
+  font: inherit;
+  font-size: 12px;
+  border: 1px solid #9abbb2;
+  background: transparent;
+  color: #214f46;
+  border-radius: 4px;
+  min-height: 40px;
+  cursor: pointer;
+}
+.content {
+  padding: 24px;
+  min-width: 0;
+}
+.chartHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.chartHeading h3 {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 19px;
+  margin: 0;
+  font-weight: 700;
+}
+.chartHeading span {
+  font-size: 12px;
+}
+.hint {
+  color: #58716b;
+  font-size: 12px;
+  margin: 8px 0 15px;
+}
+.content svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.summary {
+  display: flex;
+  gap: 18px;
+  font-size: 12px;
+  border-block: 1px solid #d3e1de;
+  padding: 12px 0;
+  margin: 10px 0 16px;
+}
+.table {
+  font-size: 12px;
+}
+.table summary {
+  min-height: 36px;
+  cursor: pointer;
+  font-weight: 650;
+}
+.table > div {
+  overflow-x: auto;
+}
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table caption {
+  text-align: left;
+  color: #58716b;
+  padding: 10px 0;
+}
+.table th,
+.table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #d3e1de;
+}
+.provenance {
+  font-size: 11px;
+  color: #58716b;
+  margin: 18px 0 0;
+  line-height: 1.7;
+}
+.provenance a {
+  text-decoration: underline;
+  color: #1c6558;
+}
+@media (max-width: 600px) {
+  .header {
+    padding: 16px;
+  }
+  .sourceTag {
+    display: none;
+  }
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-right: 0;
+    border-bottom: 1px solid #d3e1de;
+    padding: 16px;
+    gap: 8px 14px;
+  }
+  .label {
+    grid-column: 1/-1;
+    margin: 0;
+  }
+  .controls label {
+    grid-row: 2;
+  }
+  .controls select {
+    grid-row: 3;
+    margin: 0;
+  }
+  .interval {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 14px;
+    margin: 8px 0 0;
+  }
+  .interval p {
+    grid-column: 1/-1;
+    margin: 0;
+  }
+  .interval label {
+    grid-row: 2;
+  }
+  .interval input {
+    grid-row: 3;
+    margin: 0;
+  }
+  .reset {
+    grid-column: 1/-1;
+  }
+  .content {
+    padding: 16px;
+  }
+  .summary {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .content svg text {
+    font-size: 24px;
+  }
+  .content svg circle {
+    r: 5px;
+  }
+}
+
+.explainer {
+  padding: 22px 24px;
+  background: #f4f8f1;
+  border-bottom: 1px solid #d3e1de;
+}
+.explainer h3 {
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+.explainer p {
+  max-width: 800px;
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0 0 8px;
+  color: #37574e;
+}
+.explainer p:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 760px) {
+  .explainer {
+    padding: 18px;
+  }
+}

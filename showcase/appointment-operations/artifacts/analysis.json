@@ -1,0 +1,1564 @@
+{
+  "summary": {
+    "source_rows": 110527,
+    "accepted_rows": 110521,
+    "quarantined_rows": 6,
+    "negative_age_rows": 1,
+    "negative_lead_rows": 5,
+    "age_above_110_rows": 5,
+    "missing_values": 0,
+    "duplicate_appointment_ids": 0,
+    "unique_patients": 62299,
+    "start": "2016-04-29",
+    "end": "2016-06-08",
+    "sha256": "4b4f258837029bd4e61ed4c9bab2ce8a3b8a299d1a4f5bdabcc98967d5e29a43",
+    "missed": 22314,
+    "attendance_rate": 0.7981017182254956,
+    "no_show_rate": 0.2018982817745044,
+    "mean_lead_days": 10.184345056595578
+  },
+  "rows": [
+    {
+      "appointment_date": "2016-04-29",
+      "weekday": "Friday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 631,
+      "missed": 172,
+      "total_lead_days": 1140
+    },
+    {
+      "appointment_date": "2016-04-29",
+      "weekday": "Friday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 179,
+      "missed": 41,
+      "total_lead_days": 615
+    },
+    {
+      "appointment_date": "2016-04-29",
+      "weekday": "Friday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 94,
+      "missed": 35,
+      "total_lead_days": 3904
+    },
+    {
+      "appointment_date": "2016-04-29",
+      "weekday": "Friday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 364,
+      "missed": 91,
+      "total_lead_days": 15884
+    },
+    {
+      "appointment_date": "2016-04-29",
+      "weekday": "Friday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 182,
+      "missed": 59,
+      "total_lead_days": 3258
+    },
+    {
+      "appointment_date": "2016-04-29",
+      "weekday": "Friday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 732,
+      "missed": 203,
+      "total_lead_days": 13272
+    },
+    {
+      "appointment_date": "2016-04-29",
+      "weekday": "Friday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1053,
+      "missed": 32,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-02",
+      "weekday": "Monday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 272,
+      "missed": 73,
+      "total_lead_days": 1265
+    },
+    {
+      "appointment_date": "2016-05-02",
+      "weekday": "Monday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 1243,
+      "missed": 289,
+      "total_lead_days": 5800
+    },
+    {
+      "appointment_date": "2016-05-02",
+      "weekday": "Monday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 76,
+      "missed": 42,
+      "total_lead_days": 3282
+    },
+    {
+      "appointment_date": "2016-05-02",
+      "weekday": "Monday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 347,
+      "missed": 111,
+      "total_lead_days": 16223
+    },
+    {
+      "appointment_date": "2016-05-02",
+      "weekday": "Monday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 156,
+      "missed": 65,
+      "total_lead_days": 2934
+    },
+    {
+      "appointment_date": "2016-05-02",
+      "weekday": "Monday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 694,
+      "missed": 229,
+      "total_lead_days": 12514
+    },
+    {
+      "appointment_date": "2016-05-02",
+      "weekday": "Monday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1588,
+      "missed": 52,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-03",
+      "weekday": "Tuesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 461,
+      "missed": 97,
+      "total_lead_days": 1134
+    },
+    {
+      "appointment_date": "2016-05-03",
+      "weekday": "Tuesday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 907,
+      "missed": 221,
+      "total_lead_days": 4508
+    },
+    {
+      "appointment_date": "2016-05-03",
+      "weekday": "Tuesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 46,
+      "missed": 24,
+      "total_lead_days": 2178
+    },
+    {
+      "appointment_date": "2016-05-03",
+      "weekday": "Tuesday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 269,
+      "missed": 86,
+      "total_lead_days": 12594
+    },
+    {
+      "appointment_date": "2016-05-03",
+      "weekday": "Tuesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 185,
+      "missed": 62,
+      "total_lead_days": 3059
+    },
+    {
+      "appointment_date": "2016-05-03",
+      "weekday": "Tuesday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 821,
+      "missed": 256,
+      "total_lead_days": 14638
+    },
+    {
+      "appointment_date": "2016-05-03",
+      "weekday": "Tuesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1566,
+      "missed": 84,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-04",
+      "weekday": "Wednesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 936,
+      "missed": 272,
+      "total_lead_days": 1886
+    },
+    {
+      "appointment_date": "2016-05-04",
+      "weekday": "Wednesday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 523,
+      "missed": 133,
+      "total_lead_days": 3194
+    },
+    {
+      "appointment_date": "2016-05-04",
+      "weekday": "Wednesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 39,
+      "missed": 13,
+      "total_lead_days": 1857
+    },
+    {
+      "appointment_date": "2016-05-04",
+      "weekday": "Wednesday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 234,
+      "missed": 87,
+      "total_lead_days": 12096
+    },
+    {
+      "appointment_date": "2016-05-04",
+      "weekday": "Wednesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 194,
+      "missed": 63,
+      "total_lead_days": 3071
+    },
+    {
+      "appointment_date": "2016-05-04",
+      "weekday": "Wednesday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 885,
+      "missed": 317,
+      "total_lead_days": 14936
+    },
+    {
+      "appointment_date": "2016-05-04",
+      "weekday": "Wednesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1356,
+      "missed": 87,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-05",
+      "weekday": "Thursday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 880,
+      "missed": 176,
+      "total_lead_days": 1859
+    },
+    {
+      "appointment_date": "2016-05-05",
+      "weekday": "Thursday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 372,
+      "missed": 94,
+      "total_lead_days": 2151
+    },
+    {
+      "appointment_date": "2016-05-05",
+      "weekday": "Thursday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 38,
+      "missed": 13,
+      "total_lead_days": 1752
+    },
+    {
+      "appointment_date": "2016-05-05",
+      "weekday": "Thursday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 237,
+      "missed": 80,
+      "total_lead_days": 11865
+    },
+    {
+      "appointment_date": "2016-05-05",
+      "weekday": "Thursday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 240,
+      "missed": 81,
+      "total_lead_days": 4034
+    },
+    {
+      "appointment_date": "2016-05-05",
+      "weekday": "Thursday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 972,
+      "missed": 298,
+      "total_lead_days": 16549
+    },
+    {
+      "appointment_date": "2016-05-05",
+      "weekday": "Thursday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1533,
+      "missed": 64,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-06",
+      "weekday": "Friday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 871,
+      "missed": 214,
+      "total_lead_days": 1803
+    },
+    {
+      "appointment_date": "2016-05-06",
+      "weekday": "Friday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 258,
+      "missed": 58,
+      "total_lead_days": 1451
+    },
+    {
+      "appointment_date": "2016-05-06",
+      "weekday": "Friday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 51,
+      "missed": 18,
+      "total_lead_days": 2383
+    },
+    {
+      "appointment_date": "2016-05-06",
+      "weekday": "Friday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 283,
+      "missed": 78,
+      "total_lead_days": 13970
+    },
+    {
+      "appointment_date": "2016-05-06",
+      "weekday": "Friday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 227,
+      "missed": 84,
+      "total_lead_days": 3593
+    },
+    {
+      "appointment_date": "2016-05-06",
+      "weekday": "Friday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 823,
+      "missed": 241,
+      "total_lead_days": 13131
+    },
+    {
+      "appointment_date": "2016-05-06",
+      "weekday": "Friday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1366,
+      "missed": 102,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-09",
+      "weekday": "Monday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 1412,
+      "missed": 378,
+      "total_lead_days": 6528
+    },
+    {
+      "appointment_date": "2016-05-09",
+      "weekday": "Monday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 397,
+      "missed": 144,
+      "total_lead_days": 18809
+    },
+    {
+      "appointment_date": "2016-05-09",
+      "weekday": "Monday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 1040,
+      "missed": 405,
+      "total_lead_days": 17753
+    },
+    {
+      "appointment_date": "2016-05-09",
+      "weekday": "Monday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1670,
+      "missed": 91,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-10",
+      "weekday": "Tuesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 409,
+      "missed": 117,
+      "total_lead_days": 1006
+    },
+    {
+      "appointment_date": "2016-05-10",
+      "weekday": "Tuesday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 872,
+      "missed": 270,
+      "total_lead_days": 4433
+    },
+    {
+      "appointment_date": "2016-05-10",
+      "weekday": "Tuesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 44,
+      "missed": 29,
+      "total_lead_days": 1950
+    },
+    {
+      "appointment_date": "2016-05-10",
+      "weekday": "Tuesday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 251,
+      "missed": 87,
+      "total_lead_days": 11210
+    },
+    {
+      "appointment_date": "2016-05-10",
+      "weekday": "Tuesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 226,
+      "missed": 84,
+      "total_lead_days": 4033
+    },
+    {
+      "appointment_date": "2016-05-10",
+      "weekday": "Tuesday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 929,
+      "missed": 310,
+      "total_lead_days": 15793
+    },
+    {
+      "appointment_date": "2016-05-10",
+      "weekday": "Tuesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1577,
+      "missed": 95,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-11",
+      "weekday": "Wednesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 934,
+      "missed": 214,
+      "total_lead_days": 1981
+    },
+    {
+      "appointment_date": "2016-05-11",
+      "weekday": "Wednesday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 476,
+      "missed": 120,
+      "total_lead_days": 2924
+    },
+    {
+      "appointment_date": "2016-05-11",
+      "weekday": "Wednesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 44,
+      "missed": 12,
+      "total_lead_days": 2019
+    },
+    {
+      "appointment_date": "2016-05-11",
+      "weekday": "Wednesday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 272,
+      "missed": 70,
+      "total_lead_days": 13997
+    },
+    {
+      "appointment_date": "2016-05-11",
+      "weekday": "Wednesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 207,
+      "missed": 81,
+      "total_lead_days": 3927
+    },
+    {
+      "appointment_date": "2016-05-11",
+      "weekday": "Wednesday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 1019,
+      "missed": 283,
+      "total_lead_days": 17834
+    },
+    {
+      "appointment_date": "2016-05-11",
+      "weekday": "Wednesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1522,
+      "missed": 105,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-12",
+      "weekday": "Thursday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 995,
+      "missed": 219,
+      "total_lead_days": 2167
+    },
+    {
+      "appointment_date": "2016-05-12",
+      "weekday": "Thursday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 321,
+      "missed": 72,
+      "total_lead_days": 2022
+    },
+    {
+      "appointment_date": "2016-05-12",
+      "weekday": "Thursday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 47,
+      "missed": 20,
+      "total_lead_days": 2086
+    },
+    {
+      "appointment_date": "2016-05-12",
+      "weekday": "Thursday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 301,
+      "missed": 88,
+      "total_lead_days": 14020
+    },
+    {
+      "appointment_date": "2016-05-12",
+      "weekday": "Thursday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 235,
+      "missed": 83,
+      "total_lead_days": 4112
+    },
+    {
+      "appointment_date": "2016-05-12",
+      "weekday": "Thursday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 967,
+      "missed": 292,
+      "total_lead_days": 16370
+    },
+    {
+      "appointment_date": "2016-05-12",
+      "weekday": "Thursday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1528,
+      "missed": 63,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-13",
+      "weekday": "Friday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 1120,
+      "missed": 286,
+      "total_lead_days": 3531
+    },
+    {
+      "appointment_date": "2016-05-13",
+      "weekday": "Friday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 357,
+      "missed": 146,
+      "total_lead_days": 17472
+    },
+    {
+      "appointment_date": "2016-05-13",
+      "weekday": "Friday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 1131,
+      "missed": 389,
+      "total_lead_days": 18095
+    },
+    {
+      "appointment_date": "2016-05-13",
+      "weekday": "Friday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1379,
+      "missed": 84,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-14",
+      "weekday": "Saturday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 16,
+      "missed": 6,
+      "total_lead_days": 38
+    },
+    {
+      "appointment_date": "2016-05-14",
+      "weekday": "Saturday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 6,
+      "missed": 0,
+      "total_lead_days": 27
+    },
+    {
+      "appointment_date": "2016-05-14",
+      "weekday": "Saturday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 2,
+      "missed": 0,
+      "total_lead_days": 24
+    },
+    {
+      "appointment_date": "2016-05-14",
+      "weekday": "Saturday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 7,
+      "missed": 3,
+      "total_lead_days": 76
+    },
+    {
+      "appointment_date": "2016-05-14",
+      "weekday": "Saturday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 8,
+      "missed": 0,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-16",
+      "weekday": "Monday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 1403,
+      "missed": 390,
+      "total_lead_days": 6701
+    },
+    {
+      "appointment_date": "2016-05-16",
+      "weekday": "Monday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 467,
+      "missed": 194,
+      "total_lead_days": 21303
+    },
+    {
+      "appointment_date": "2016-05-16",
+      "weekday": "Monday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 1127,
+      "missed": 410,
+      "total_lead_days": 19704
+    },
+    {
+      "appointment_date": "2016-05-16",
+      "weekday": "Monday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1616,
+      "missed": 55,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-17",
+      "weekday": "Tuesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 1404,
+      "missed": 327,
+      "total_lead_days": 6039
+    },
+    {
+      "appointment_date": "2016-05-17",
+      "weekday": "Tuesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 369,
+      "missed": 132,
+      "total_lead_days": 15925
+    },
+    {
+      "appointment_date": "2016-05-17",
+      "weekday": "Tuesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 1087,
+      "missed": 406,
+      "total_lead_days": 19050
+    },
+    {
+      "appointment_date": "2016-05-17",
+      "weekday": "Tuesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1511,
+      "missed": 69,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-18",
+      "weekday": "Wednesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 1357,
+      "missed": 312,
+      "total_lead_days": 4820
+    },
+    {
+      "appointment_date": "2016-05-18",
+      "weekday": "Wednesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 305,
+      "missed": 95,
+      "total_lead_days": 15675
+    },
+    {
+      "appointment_date": "2016-05-18",
+      "weekday": "Wednesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 1254,
+      "missed": 421,
+      "total_lead_days": 22993
+    },
+    {
+      "appointment_date": "2016-05-18",
+      "weekday": "Wednesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1457,
+      "missed": 62,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-19",
+      "weekday": "Thursday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 1305,
+      "missed": 308,
+      "total_lead_days": 4101
+    },
+    {
+      "appointment_date": "2016-05-19",
+      "weekday": "Thursday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 397,
+      "missed": 137,
+      "total_lead_days": 19058
+    },
+    {
+      "appointment_date": "2016-05-19",
+      "weekday": "Thursday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 1174,
+      "missed": 375,
+      "total_lead_days": 19916
+    },
+    {
+      "appointment_date": "2016-05-19",
+      "weekday": "Thursday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1394,
+      "missed": 72,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-20",
+      "weekday": "Friday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 1062,
+      "missed": 274,
+      "total_lead_days": 3126
+    },
+    {
+      "appointment_date": "2016-05-20",
+      "weekday": "Friday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 414,
+      "missed": 148,
+      "total_lead_days": 19366
+    },
+    {
+      "appointment_date": "2016-05-20",
+      "weekday": "Friday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 1058,
+      "missed": 411,
+      "total_lead_days": 17334
+    },
+    {
+      "appointment_date": "2016-05-20",
+      "weekday": "Friday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1294,
+      "missed": 66,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-24",
+      "weekday": "Tuesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 157,
+      "missed": 42,
+      "total_lead_days": 828
+    },
+    {
+      "appointment_date": "2016-05-24",
+      "weekday": "Tuesday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 961,
+      "missed": 227,
+      "total_lead_days": 5000
+    },
+    {
+      "appointment_date": "2016-05-24",
+      "weekday": "Tuesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 74,
+      "missed": 33,
+      "total_lead_days": 3244
+    },
+    {
+      "appointment_date": "2016-05-24",
+      "weekday": "Tuesday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 265,
+      "missed": 74,
+      "total_lead_days": 11689
+    },
+    {
+      "appointment_date": "2016-05-24",
+      "weekday": "Tuesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 184,
+      "missed": 87,
+      "total_lead_days": 3374
+    },
+    {
+      "appointment_date": "2016-05-24",
+      "weekday": "Tuesday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 804,
+      "missed": 296,
+      "total_lead_days": 14933
+    },
+    {
+      "appointment_date": "2016-05-24",
+      "weekday": "Tuesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1564,
+      "missed": 52,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-25",
+      "weekday": "Wednesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 338,
+      "missed": 77,
+      "total_lead_days": 1035
+    },
+    {
+      "appointment_date": "2016-05-25",
+      "weekday": "Wednesday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 778,
+      "missed": 172,
+      "total_lead_days": 4467
+    },
+    {
+      "appointment_date": "2016-05-25",
+      "weekday": "Wednesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 58,
+      "missed": 24,
+      "total_lead_days": 2617
+    },
+    {
+      "appointment_date": "2016-05-25",
+      "weekday": "Wednesday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 285,
+      "missed": 82,
+      "total_lead_days": 13376
+    },
+    {
+      "appointment_date": "2016-05-25",
+      "weekday": "Wednesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 187,
+      "missed": 76,
+      "total_lead_days": 3697
+    },
+    {
+      "appointment_date": "2016-05-25",
+      "weekday": "Wednesday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 840,
+      "missed": 255,
+      "total_lead_days": 15995
+    },
+    {
+      "appointment_date": "2016-05-25",
+      "weekday": "Wednesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1423,
+      "missed": 73,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-30",
+      "weekday": "Monday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 95,
+      "missed": 30,
+      "total_lead_days": 531
+    },
+    {
+      "appointment_date": "2016-05-30",
+      "weekday": "Monday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 662,
+      "missed": 170,
+      "total_lead_days": 3792
+    },
+    {
+      "appointment_date": "2016-05-30",
+      "weekday": "Monday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 129,
+      "missed": 49,
+      "total_lead_days": 5157
+    },
+    {
+      "appointment_date": "2016-05-30",
+      "weekday": "Monday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 665,
+      "missed": 216,
+      "total_lead_days": 30650
+    },
+    {
+      "appointment_date": "2016-05-30",
+      "weekday": "Monday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 234,
+      "missed": 90,
+      "total_lead_days": 4006
+    },
+    {
+      "appointment_date": "2016-05-30",
+      "weekday": "Monday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 1089,
+      "missed": 290,
+      "total_lead_days": 18701
+    },
+    {
+      "appointment_date": "2016-05-30",
+      "weekday": "Monday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1640,
+      "missed": 43,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-05-31",
+      "weekday": "Tuesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 340,
+      "missed": 89,
+      "total_lead_days": 855
+    },
+    {
+      "appointment_date": "2016-05-31",
+      "weekday": "Tuesday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 706,
+      "missed": 150,
+      "total_lead_days": 4501
+    },
+    {
+      "appointment_date": "2016-05-31",
+      "weekday": "Tuesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 117,
+      "missed": 33,
+      "total_lead_days": 5010
+    },
+    {
+      "appointment_date": "2016-05-31",
+      "weekday": "Tuesday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 494,
+      "missed": 124,
+      "total_lead_days": 22747
+    },
+    {
+      "appointment_date": "2016-05-31",
+      "weekday": "Tuesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 210,
+      "missed": 53,
+      "total_lead_days": 3928
+    },
+    {
+      "appointment_date": "2016-05-31",
+      "weekday": "Tuesday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 999,
+      "missed": 250,
+      "total_lead_days": 18744
+    },
+    {
+      "appointment_date": "2016-05-31",
+      "weekday": "Tuesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1413,
+      "missed": 68,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-06-01",
+      "weekday": "Wednesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 907,
+      "missed": 210,
+      "total_lead_days": 1732
+    },
+    {
+      "appointment_date": "2016-06-01",
+      "weekday": "Wednesday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 239,
+      "missed": 53,
+      "total_lead_days": 1673
+    },
+    {
+      "appointment_date": "2016-06-01",
+      "weekday": "Wednesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 83,
+      "missed": 36,
+      "total_lead_days": 3639
+    },
+    {
+      "appointment_date": "2016-06-01",
+      "weekday": "Wednesday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 331,
+      "missed": 88,
+      "total_lead_days": 16657
+    },
+    {
+      "appointment_date": "2016-06-01",
+      "weekday": "Wednesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 238,
+      "missed": 69,
+      "total_lead_days": 3970
+    },
+    {
+      "appointment_date": "2016-06-01",
+      "weekday": "Wednesday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 1139,
+      "missed": 286,
+      "total_lead_days": 19770
+    },
+    {
+      "appointment_date": "2016-06-01",
+      "weekday": "Wednesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1527,
+      "missed": 70,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-06-02",
+      "weekday": "Thursday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 853,
+      "missed": 186,
+      "total_lead_days": 1564
+    },
+    {
+      "appointment_date": "2016-06-02",
+      "weekday": "Thursday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 180,
+      "missed": 45,
+      "total_lead_days": 540
+    },
+    {
+      "appointment_date": "2016-06-02",
+      "weekday": "Thursday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 59,
+      "missed": 25,
+      "total_lead_days": 2484
+    },
+    {
+      "appointment_date": "2016-06-02",
+      "weekday": "Thursday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 356,
+      "missed": 120,
+      "total_lead_days": 16471
+    },
+    {
+      "appointment_date": "2016-06-02",
+      "weekday": "Thursday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 255,
+      "missed": 89,
+      "total_lead_days": 4038
+    },
+    {
+      "appointment_date": "2016-06-02",
+      "weekday": "Thursday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 1141,
+      "missed": 287,
+      "total_lead_days": 18750
+    },
+    {
+      "appointment_date": "2016-06-02",
+      "weekday": "Thursday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1466,
+      "missed": 50,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-06-03",
+      "weekday": "Friday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 816,
+      "missed": 198,
+      "total_lead_days": 1458
+    },
+    {
+      "appointment_date": "2016-06-03",
+      "weekday": "Friday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 253,
+      "missed": 50,
+      "total_lead_days": 927
+    },
+    {
+      "appointment_date": "2016-06-03",
+      "weekday": "Friday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 73,
+      "missed": 20,
+      "total_lead_days": 3719
+    },
+    {
+      "appointment_date": "2016-06-03",
+      "weekday": "Friday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 375,
+      "missed": 120,
+      "total_lead_days": 18717
+    },
+    {
+      "appointment_date": "2016-06-03",
+      "weekday": "Friday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 219,
+      "missed": 75,
+      "total_lead_days": 3925
+    },
+    {
+      "appointment_date": "2016-06-03",
+      "weekday": "Friday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 943,
+      "missed": 263,
+      "total_lead_days": 16519
+    },
+    {
+      "appointment_date": "2016-06-03",
+      "weekday": "Friday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1411,
+      "missed": 79,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-06-06",
+      "weekday": "Monday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 369,
+      "missed": 87,
+      "total_lead_days": 1540
+    },
+    {
+      "appointment_date": "2016-06-06",
+      "weekday": "Monday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 1181,
+      "missed": 251,
+      "total_lead_days": 5624
+    },
+    {
+      "appointment_date": "2016-06-06",
+      "weekday": "Monday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 72,
+      "missed": 31,
+      "total_lead_days": 3112
+    },
+    {
+      "appointment_date": "2016-06-06",
+      "weekday": "Monday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 431,
+      "missed": 149,
+      "total_lead_days": 19951
+    },
+    {
+      "appointment_date": "2016-06-06",
+      "weekday": "Monday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 188,
+      "missed": 66,
+      "total_lead_days": 3665
+    },
+    {
+      "appointment_date": "2016-06-06",
+      "weekday": "Monday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 832,
+      "missed": 246,
+      "total_lead_days": 16657
+    },
+    {
+      "appointment_date": "2016-06-06",
+      "weekday": "Monday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1618,
+      "missed": 43,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-06-07",
+      "weekday": "Tuesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 428,
+      "missed": 93,
+      "total_lead_days": 1140
+    },
+    {
+      "appointment_date": "2016-06-07",
+      "weekday": "Tuesday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 894,
+      "missed": 211,
+      "total_lead_days": 4357
+    },
+    {
+      "appointment_date": "2016-06-07",
+      "weekday": "Tuesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 67,
+      "missed": 26,
+      "total_lead_days": 2926
+    },
+    {
+      "appointment_date": "2016-06-07",
+      "weekday": "Tuesday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 309,
+      "missed": 91,
+      "total_lead_days": 13832
+    },
+    {
+      "appointment_date": "2016-06-07",
+      "weekday": "Tuesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 246,
+      "missed": 83,
+      "total_lead_days": 4691
+    },
+    {
+      "appointment_date": "2016-06-07",
+      "weekday": "Tuesday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 927,
+      "missed": 249,
+      "total_lead_days": 17581
+    },
+    {
+      "appointment_date": "2016-06-07",
+      "weekday": "Tuesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1545,
+      "missed": 63,
+      "total_lead_days": 0
+    },
+    {
+      "appointment_date": "2016-06-08",
+      "weekday": "Wednesday",
+      "lead_band": "1–7 days",
+      "sms_received": 0,
+      "appointments": 866,
+      "missed": 181,
+      "total_lead_days": 1917
+    },
+    {
+      "appointment_date": "2016-06-08",
+      "weekday": "Wednesday",
+      "lead_band": "1–7 days",
+      "sms_received": 1,
+      "appointments": 537,
+      "missed": 117,
+      "total_lead_days": 3252
+    },
+    {
+      "appointment_date": "2016-06-08",
+      "weekday": "Wednesday",
+      "lead_band": "31+ days",
+      "sms_received": 0,
+      "appointments": 51,
+      "missed": 10,
+      "total_lead_days": 2338
+    },
+    {
+      "appointment_date": "2016-06-08",
+      "weekday": "Wednesday",
+      "lead_band": "31+ days",
+      "sms_received": 1,
+      "appointments": 341,
+      "missed": 94,
+      "total_lead_days": 16285
+    },
+    {
+      "appointment_date": "2016-06-08",
+      "weekday": "Wednesday",
+      "lead_band": "8–30 days",
+      "sms_received": 0,
+      "appointments": 186,
+      "missed": 54,
+      "total_lead_days": 3659
+    },
+    {
+      "appointment_date": "2016-06-08",
+      "weekday": "Wednesday",
+      "lead_band": "8–30 days",
+      "sms_received": 1,
+      "appointments": 961,
+      "missed": 250,
+      "total_lead_days": 18496
+    },
+    {
+      "appointment_date": "2016-06-08",
+      "weekday": "Wednesday",
+      "lead_band": "Same day",
+      "sms_received": 0,
+      "appointments": 1537,
+      "missed": 68,
+      "total_lead_days": 0
+    }
+  ],
+  "lead": [
+    {
+      "lead_band": "Same day",
+      "appointments": 38562,
+      "missed": 1792,
+      "lead_days": 0,
+      "rate": 0.046470618743841084
+    },
+    {
+      "lead_band": "1–7 days",
+      "appointments": 32185,
+      "missed": 7772,
+      "lead_days": 122983,
+      "rate": 0.24147894982134535
+    },
+    {
+      "lead_band": "8–30 days",
+      "appointments": 29396,
+      "missed": 9325,
+      "lead_days": 517102,
+      "rate": 0.3172200299360457
+    },
+    {
+      "lead_band": "31+ days",
+      "appointments": 10378,
+      "missed": 3425,
+      "lead_days": 485499,
+      "rate": 0.33002505299672386
+    }
+  ],
+  "methods": [
+    "Each row is one appointment; repeat patients remain repeat appointments.",
+    "UTC calendar dates are compared because the appointment field has no meaningful visit time.",
+    "Quarantine negative age and booking-after-appointment dates; preserve other source records.",
+    "No-show is Yes = missed, No = attended. Rates are missed / appointments, recomputed from additive counts.",
+    "SMS groups are observational and differ in booking lead time. Their difference is not an estimate of message effectiveness.",
+    "The planning control applies an assumed relative reduction in missed appointments; it is not a measured intervention result."
+  ],
+  "source": {
+    "url": "https://www.kaggle.com/datasets/joniarroba/noshowappointments",
+    "download": "https://www.kaggle.com/api/v1/datasets/download/joniarroba/noshowappointments",
+    "version": 5,
+    "license": "CC BY-NC-SA 4.0",
+    "credit": "Joni Hoppen and Aquarela Analytics",
+    "file": "KaggleV2-May-2016.csv",
+    "sha256": "4b4f258837029bd4e61ed4c9bab2ce8a3b8a299d1a4f5bdabcc98967d5e29a43",
+    "classification": "Historical observations, Brazil, 2016"
+  }
+}

@@ -1,22 +1,5 @@
-import { siteContent } from "@/app/content/site";
-import { CommandCenterNavigation } from "./navigation";
+import { EditorialNav } from "./editorial/EditorialNav";
 
 export function SiteHeader() {
-  return (
-    <header className="site-header">
-      <div className="site-header__inner">
-        <a className="wordmark" href="#top" aria-label="Zim Bela, back to top">
-          <span className="wordmark__mark" aria-hidden="true">
-            ZB
-          </span>
-          <span>
-            <strong>{siteContent.hero.shortName}</strong>
-            <small>Portfolio</small>
-          </span>
-        </a>
-
-        <CommandCenterNavigation />
-      </div>
-    </header>
-  );
+  return <EditorialNav />;
 }
