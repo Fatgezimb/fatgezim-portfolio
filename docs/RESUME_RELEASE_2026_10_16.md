@@ -6,4 +6,4 @@ McVay now describes the custom Dijkstra shortest-path adaptation, synthetic deve
 
 Verification: visually inspected both approved document pages; lint, TypeScript, 15 rendered-route tests, 7 export tests, root/Pages builds, five-route static export/resource validation and pack validation pass. Existing public filenames and buttons are preserved. Local browser inspection uses the static export; Vinext's preview server does not serve base-prefixed CSS directly.
 
-Public deployment and byte verification are pending.
+Published commit `40d3aa1520260a94b98c9bae027cd3440ad6e6f3` passed Pages run [38899369864](https://github.com/Fatgezimb/fatgezim-portfolio/actions/runs/38899369864). Public homepage and résumé route return HTTP 200 with matching McVay content. Both downloads return HTTP 200 with correct MIME types and exact approved SHA-256 hashes. A browser reload confirms the published entry; mobile reflow has no horizontal overflow. Evidence: `work/engineering-resume-2026-10-16/public-verification.json`.
