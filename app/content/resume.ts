@@ -37,11 +37,11 @@ export const identity = {
   shortName: "Zim Bela",
   email: "fatgezimbela1@gmail.com",
   headline:
-    "Founder and CTO · Software Engineering · Data and Scientific Systems",
+    "Software & Data Engineer | Systems Integration | Technical Leadership",
   shortHeadline:
-    "Founder, CTO, and Hands-on Software Builder",
+    "Software and Data Engineer; Founder and CTO",
   summary:
-    "I lead technology and build software from workflow discovery through implementation and testing. My work spans typed web applications, Python and SQL data workflows, browser automation, and reproducible neuroscience software. A background in behavioral science and medical education helps me translate complex domain requirements into practical products.",
+    "Programming since 2013, starting with Python automation, data analysis and web applications. I develop algorithms, data workflows and full-stack software, with hands-on architecture and technical leadership through Create 13 Group and NeuroPath. My background in neuroscience and clinical practice informs how I frame problems and validate solutions.",
 } as const;
 
 export const currentFocus = [
@@ -93,10 +93,10 @@ export const experience: ExperienceItem[] = [
     title: "Founder and Chief Technology Officer",
     organization: "Create 13 Group",
     dates: "2018 - Present",
-    summary: "Lead technology direction and hands-on software development, translating business requirements into product architecture and implementation priorities.",
+    summary: "Co-founded Create 13 Group in 2018; lead technical requirements, architecture, technology selection and hands-on software development.",
     highlights: [
-      "Own technical scoping, integration decisions, interface development, and release planning.",
-      "Work directly in the codebase while coordinating product requirements and iterative delivery.",
+      "Developed a consumer-brand commerce platform in 2026 with responsive storefronts, product selection, persistent cart workflows and server-priced Stripe checkout.",
+      "Implemented order handling and retry-safe fulfillment logic with TypeScript, React, Next.js and Supabase; local tests use a Stripe stand-in, with real test-mode payment acceptance pending.",
     ],
     statusLabel: "Current leadership",
     evidence: ["Owner confirmation, October 15, 2026", "Supplied technical resume"],
@@ -210,6 +210,7 @@ export const skillGroups: SkillGroup[] = ([
     skills: [
       "Python",
       "SQL",
+      "Graph algorithms and validation",
       "Statistical analysis",
       "Regression, classification, and clustering",
       "Data visualization",
@@ -267,7 +268,7 @@ export const skillGroups: SkillGroup[] = ([
     evidenceNote: "Applied through NeuroPath and Bela Data Lab product development.",
   },
 ] satisfies SkillGroup[]).sort((a, b) => {
-  const order = ["software-product", "data-engineering", "leadership", "research-methods", "behavioral-science"];
+  const order = ["data-engineering", "software-product", "leadership", "research-methods", "behavioral-science"];
   return order.indexOf(a.id) - order.indexOf(b.id);
 });
 

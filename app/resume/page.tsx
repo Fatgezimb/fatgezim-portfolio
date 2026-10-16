@@ -9,10 +9,10 @@ import styles from "./Resume.module.css";
 
 export const metadata: Metadata = {
   title: "Résumé",
-  description: "Technology resume of Fatgezim “Zim” Bela: founder and CTO, software engineering, data systems, workflow automation, and scientific software.",
+  description: "Engineering résumé of Fatgezim “Zim” Bela: Python, algorithms, systems integration, technical leadership and validated engineering projects.",
   alternates: { canonical: `${publication.url}resume` },
   openGraph: {
-    title: "Technology Résumé | Fatgezim “Zim” Bela",
+    title: "Engineering Résumé | Fatgezim “Zim” Bela",
     description: "Technical leadership, software and data systems, selected engineering work, education, and research.",
     url: `${publication.url}resume`,
     images: [`${publication.url}og.png`],
@@ -75,8 +75,8 @@ export default function ResumePage() {
                 <h3>{project.name}</h3>
                 <p className="resume-project-role">{project.role}</p>
                 <p>{project.summary}</p>
-                <p className={styles.stack}><strong>Stack:</strong> {project.stack}</p>
-                <p className="resume-project-status">{project.status}</p>
+                {project.stack && <p className={styles.stack}><strong>Stack:</strong> {project.stack}</p>}
+                {project.status && <p className="resume-project-status">{project.status}</p>}
                 {project.links.length ? <p className="resume-project-links">{project.links.map((link) => <SafeLink key={link.href} href={link.href} newTab>{link.label}</SafeLink>)}</p> : null}
               </article>
             ))}

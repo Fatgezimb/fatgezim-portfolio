@@ -1,0 +1,116 @@
+{
+  "name": "Fatgezim “Zim” Bela",
+  "headline": "Software & Data Engineer | Systems Integration | Technical Leadership",
+  "summary": "Software and data engineer programming since 2013, starting with Python automation and analysis. Independently adapted a graph algorithm for a large-scale analytical problem under restricted-data access constraints. Lead architecture, systems integration and hands-on development through Create 13 Group and NeuroPath.",
+  "skills": [
+    [
+      "Data and algorithms",
+      "Python, SQL, graph algorithms, modeling, validation, automation"
+    ],
+    [
+      "Application engineering",
+      "JavaScript, TypeScript, React, Next.js, APIs, access control"
+    ],
+    [
+      "Systems and delivery",
+      "Architecture, integration, Git, testing, AI pair programming"
+    ]
+  ],
+  "experience": [
+    {
+      "title": "Data Engineer",
+      "organization": "The McVay Company, Inc.",
+      "dates": "October 2022 - January 2023",
+      "bullets": [
+        "Independently designed and implemented a custom adaptation of Dijkstra’s shortest-path algorithm for large-scale health-related data analysis on a Department of Defense project.",
+        "Created synthetic development and test datasets and established initial validation without access to restricted operational data.",
+        "Transferred the solution for team testing on operational data; colleagues reported processing millions of data points in seconds, supporting streaming analysis and narrowing results to approximately 12 records for manual review."
+      ]
+    },
+    {
+      "title": "Founder and Chief Technology Officer",
+      "organization": "Create 13 Group",
+      "dates": "2018 - Present",
+      "bullets": [
+        "Co-founded a technology and business development company; lead requirements analysis, software architecture, technology selection and hands-on implementation.",
+        "Developed a consumer-brand commerce platform in 2026 with responsive storefronts, persistent cart workflows and server-priced Stripe checkout using TypeScript, React and Next.js.",
+        "Implemented order handling and retry-safe fulfillment logic with Supabase integration; local tests use a Stripe stand-in, with real test-mode payment acceptance pending."
+      ]
+    },
+    {
+      "title": "Founder and Chief Technology Officer",
+      "organization": "NeuroPath LLC",
+      "dates": "2026 - Present",
+      "bullets": [
+        "Co-build Bela Behavior Data Lab with Meili Bela, turning appointment exports into browser-local dashboards, follow-up views and reports.",
+        "Translate clinical and learning requirements into structured records, review workflows and operational software for a behavioral-health practice."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Relay Commissioning Readiness",
+      "meta": "Independent prototype | AI pair programming | React, JavaScript | Fictional records",
+      "link": "https://fatgezimb.github.io/fatgezim-portfolio/engineering/#relay",
+      "bullets": [
+        "Modeled acceptance as a dependency chain, tying evidence to the current asset revision and prerequisite event IDs.",
+        "Derived readiness from the complete chain; revision changes and replacement test records invalidate dependent approvals.",
+        "Covered blocked acceptance, revision propagation and persistence recovery with 10 domain tests; added JSON turnover exports."
+      ]
+    },
+    {
+      "name": "Grid Forecast Lab",
+      "meta": "Independent benchmark | AI pair programming | Python, scikit-learn, React",
+      "link": "https://fatgezimb.github.io/fatgezim-portfolio/engineering/#grid",
+      "bullets": [
+        "Built a day-ahead forecast pipeline with expanding chronological validation, separate interval calibration and held-out 2017 evaluation.",
+        "Measured 1,854 MW mean absolute error over 8,732 test hours, 14.4% below the prior-day baseline.",
+        "Extended a credited Rob Mulla Kaggle exercise with a reproducible pipeline, executed notebook, tests and interactive forecast replay."
+      ]
+    },
+    {
+      "name": "Clinical Assessment Portal",
+      "meta": "Private implementation | AI-assisted development | Synthetic-record testing",
+      "link": "https://fatgezimb.github.io/fatgezim-portfolio/engineering/#clinical",
+      "bullets": [
+        "Implemented practice-scoped authorization, record ownership and edit permissions using React, TypeScript, Express, Firebase Auth and Firestore.",
+        "Added version checks, clinician review and signatures, server-generated PDF/DOCX reports, Zod validation and Vitest tests."
+      ]
+    }
+  ],
+  "research": {
+    "title": "Computational Neuroscience Research",
+    "institution": "George Mason University",
+    "text": "Co-author with Sumit Nanda and Giorgio A. Ascoli on Tracing Neurons from the Fruit Fly Larva. Contributed to a collaborative workflow documenting image-channel processing, stitching, neuronal tracing and vectorized-tree reconstruction.",
+    "methods": "Fiji/ImageJ, Vaa3D and NeuTube",
+    "link": "https://fatgezimb.github.io/fatgezim-portfolio/research/george-mason-neuronal-reconstruction/"
+  },
+  "education": [
+    {
+      "id": "ross-md",
+      "credential": "Doctor of Medicine Candidate",
+      "institution": "Ross University School of Medicine",
+      "date": "Expected 2028"
+    },
+    {
+      "id": "gmu-med",
+      "credential": "M.Ed. in Special Education",
+      "institution": "George Mason University",
+      "date": "2020"
+    },
+    {
+      "id": "gmu-aba-certificate",
+      "credential": "Graduate Certificate in Applied Behavior Analysis",
+      "institution": "George Mason University",
+      "date": "2020"
+    },
+    {
+      "id": "gmu-neuroscience",
+      "credential": "B.S. in Neuroscience",
+      "institution": "George Mason University",
+      "date": "2017"
+    }
+  ],
+  "credentials": "Board Certified Behavior Analyst (BCBA), clinical practice since 2025. Licensed Behavior Analyst in Virginia, North Carolina and New York.",
+  "email": "fatgezimbela1@gmail.com"
+}

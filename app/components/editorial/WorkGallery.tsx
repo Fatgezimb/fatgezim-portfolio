@@ -140,6 +140,11 @@ export function WorkGallery({ catalog = false }: { catalog?: boolean }) {
                     Explore sample <span aria-hidden="true">→</span>
                   </button>
                 )}
+                {project.caseStudy && (
+                  <SafeLink href={project.caseStudy}>
+                    Engineering notes →
+                  </SafeLink>
+                )}
                 {project.source && (
                   <SafeLink href={project.source} newTab>
                     Source ↗
@@ -203,7 +208,7 @@ export function WorkGallery({ catalog = false }: { catalog?: boolean }) {
           <header className={styles.heading}>
             <div>
               <p className={styles.kicker}>Selected work</p>
-              <h2 id="selected-work-heading">A few things I’ve built.</h2>
+              <h2 id="selected-work-heading">Built to be inspected.</h2>
             </div>
             <div className={styles.galleryControls}>
               <SafeLink href="/work/" className={styles.allWorkLink}>
@@ -245,7 +250,7 @@ export function WorkGallery({ catalog = false }: { catalog?: boolean }) {
             {selectedWork.map(renderCard)}
           </ol>
           <div className={styles.railFoot}>
-            <span>Software · Data · Learning · Product</span>
+            <span>Rules, implementation, evidence.</span>
             <span aria-live="polite" aria-atomic="true">
               {String(position + 1).padStart(2, "0")} /{" "}
               {String(selectedWork.length).padStart(2, "0")}

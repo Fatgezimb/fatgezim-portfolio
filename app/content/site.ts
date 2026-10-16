@@ -70,9 +70,9 @@ export const navigationItems = [
 ] as const satisfies readonly NavigationItem[];
 
 export const siteMeta = {
-  title: "Fatgezim “Zim” Bela | Founder, CTO, Software and Data Systems",
+  title: "Fatgezim “Zim” Bela | Software & Data Engineer",
   description:
-    "Hands-on technology leadership, software engineering, workflow automation, and scientific data systems by Fatgezim “Zim” Bela.",
+    "Python, algorithms, systems integration and hands-on technical leadership. Explore engineering projects, research and the work of Fatgezim “Zim” Bela.",
   sectionOrder: [
     "workspace",
     "about",

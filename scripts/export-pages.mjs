@@ -2,7 +2,7 @@ import { cp, mkdir, readFile, readdir, realpath, rm, stat, writeFile } from "nod
 import { dirname, join, posix, relative, resolve, sep } from "node:path";
 import { pathToFileURL } from "node:url";
 
-export const pagesRoutes = ["/", "/work", "/research", "/research/george-mason-neuronal-reconstruction", "/resume"];
+export const pagesRoutes = ["/", "/work", "/engineering", "/research", "/research/george-mason-neuronal-reconstruction", "/resume"];
 
 export function normalizeBasePath(value = "") {
   const basePath = value.replace(/\/+$/, "");

@@ -1,0 +1,142 @@
+.case {
+  max-width: 1536px;
+  margin: auto;
+  padding: 80px 56px;
+  border-bottom: 1px solid #ded7cf;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(32px, 6vw, 100px);
+  background: #eee9df;
+  color: #171b22;
+  scroll-margin-top: 24px;
+}
+.eyebrow {
+  font:
+    500 10px/1.5 var(--font-geist-sans),
+    sans-serif;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #6b0f27;
+}
+.intro h2 {
+  font:
+    400 clamp(38px, 4vw, 64px)/1.08 var(--font-editorial),
+    Georgia,
+    serif;
+  letter-spacing: -0.035em;
+  margin: 24px 0;
+  max-width: 11ch;
+}
+.intro p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.intro .role {
+  font-size: 12px;
+  color: #59575c;
+}
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+}
+.steps li {
+  display: flex;
+  gap: 18px;
+  padding-bottom: 22px;
+  position: relative;
+}
+.steps li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 29px;
+  bottom: 0;
+  width: 1px;
+  background: #b7a99d;
+}
+.steps li > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 29px;
+  height: 29px;
+  border: 1px solid #9d7c79;
+  border-radius: 50%;
+  color: #6b0f27;
+  font-size: 12px;
+}
+.steps h3 {
+  font:
+    400 24px/1.2 var(--font-editorial),
+    Georgia,
+    serif;
+  margin: 0 0 8px;
+}
+.steps p {
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0;
+  color: #514b4d;
+}
+.results {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  border-top: 1px solid #b7a99d;
+  padding-top: 24px;
+  margin: 14px 0;
+}
+.results > div {
+  display: flex;
+  flex-direction: column;
+}
+.results dd {
+  margin: 0 0 8px;
+  font:
+    400 clamp(30px, 3vw, 46px)/1.1 var(--font-editorial),
+    Georgia,
+    serif;
+  letter-spacing: -0.025em;
+  color: #6b0f27;
+}
+.results dt {
+  order: 2;
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: 26ch;
+}
+.evidence .attribution {
+  font-size: 11px;
+  line-height: 1.65;
+  color: #595158;
+  margin: 22px 0;
+}
+.link,
+.detail summary {
+  color: #6b0f27;
+  font-size: 13px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.detail p {
+  font-size: 13px;
+  line-height: 1.65;
+}
+@media (max-width: 760px) {
+  .case {
+    padding: 44px 22px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .intro h2 {
+    max-width: 16ch;
+  }
+  .results {
+    gap: 16px;
+  }
+  .results dd {
+    font-size: 33px;
+  }
+}

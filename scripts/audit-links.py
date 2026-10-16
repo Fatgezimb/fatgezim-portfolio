@@ -10,7 +10,7 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 from urllib.parse import urljoin, urlsplit
 
-ROUTES = ['/', '/work', '/resume', '/research', '/research/george-mason-neuronal-reconstruction']
+ROUTES = ['/', '/engineering', '/work', '/resume', '/research', '/research/george-mason-neuronal-reconstruction']
 PUBLIC = 'https://fatgezimb.github.io/fatgezim-portfolio/'
 
 class Targets(HTMLParser):

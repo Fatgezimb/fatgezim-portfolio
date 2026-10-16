@@ -32,9 +32,9 @@ export default function WorkPage() {
           <div>
             <span>Products. Systems. Research.</span>
             <p>
-              Software shaped by behavioral health, education, and data. Explore
-              the products, try a workflow, or follow the evidence behind a
-              project.
+              Start with engineering systems and reproducible data projects.
+              Explore the applications, read the engineering notes, or continue
+              into behavioral-health products and original research.
             </p>
           </div>
         </header>

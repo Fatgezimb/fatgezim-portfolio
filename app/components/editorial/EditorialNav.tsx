@@ -5,9 +5,11 @@ import styles from "./EditorialHome.module.css";
 export function EditorialNav({
   home = false,
   work = false,
+  engineering = false,
 }: {
   home?: boolean;
   work?: boolean;
+  engineering?: boolean;
 }) {
   const anchor = (id: string) => (home ? `#${id}` : sitePath(`/#${id}`));
   return (
@@ -23,6 +25,12 @@ export function EditorialNav({
       <nav aria-label="Main navigation">
         <a href={sitePath("/work/")} aria-current={work ? "page" : undefined}>
           Work
+        </a>
+        <a
+          href={sitePath("/engineering/")}
+          aria-current={engineering ? "page" : undefined}
+        >
+          Engineering
         </a>
         <a href={anchor("research")}>Research</a>
         <a href={anchor("experience")}>Experience</a>

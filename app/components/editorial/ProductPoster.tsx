@@ -10,6 +10,42 @@ import {
 import styles from "./WorkGallery.module.css";
 
 export function ProductPoster({ id }: { id: string }) {
+  if (id === "clinical-assessment-portal")
+    return (
+      <div
+        className={`${styles.posterUI} ${styles.dataPoster}`}
+        aria-hidden="true"
+      >
+        <div className={styles.productBar}>
+          <b className={styles.productMark}>C</b>
+          <strong>
+            Assessment Portal<small>Synthetic workflow miniature</small>
+          </strong>
+          <span>Review</span>
+        </div>
+        <div className={styles.productBody}>
+          <small>RECORD DEMO-001 · VERSION 2</small>
+          <b>Permission is part of the workflow.</b>
+          <div className={styles.miniRows}>
+            <div>
+              <span>Record ownership</span>
+              <span>Owner managed</span>
+            </div>
+            <div>
+              <span>Edit access</span>
+              <span>Explicit grant</span>
+            </div>
+            <div>
+              <span>Clinical changes</span>
+              <span>Fresh review required</span>
+            </div>
+          </div>
+          <p className={styles.posterNote}>
+            Read → request access → review → sign
+          </p>
+        </div>
+      </div>
+    );
   if (
     [
       "appointment-operations",
