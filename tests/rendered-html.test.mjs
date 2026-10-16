@@ -7,11 +7,9 @@ const posterPdfPath =
   "/media/fatgezim-bela-computational-neuroscience-poster.pdf";
 const posterPreviewPath =
   "/media/fatgezim-bela-computational-neuroscience-poster-preview.jpg";
-const researchDetailPath =
-  "/research/george-mason-neuronal-reconstruction";
+const researchDetailPath = "/research/george-mason-neuronal-reconstruction";
 
 const portfolioSections = [
-  "process",
   "about",
   "projects",
   "experience",
@@ -44,10 +42,7 @@ async function render(pathname = "/") {
 }
 
 function sectionPattern(id) {
-  return new RegExp(
-    `<section\\b(?=[^>]*\\bid=["']${id}["'])[^>]*>`,
-    "i",
-  );
+  return new RegExp(`<section\\b(?=[^>]*\\bid=["']${id}["'])[^>]*>`, "i");
 }
 
 function idPattern(id) {
@@ -56,16 +51,14 @@ function idPattern(id) {
 }
 
 function openingTags(html, tagName) {
-  return [
-    ...html.matchAll(new RegExp(`<${tagName}\\b[^>]*>`, "gi")),
-  ].map((match) => match[0]);
+  return [...html.matchAll(new RegExp(`<${tagName}\\b[^>]*>`, "gi"))].map(
+    (match) => match[0],
+  );
 }
 
 function attributeValue(tag, attributeName) {
   const escapedName = attributeName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  return tag.match(
-    new RegExp(`\\b${escapedName}=["']([^"']*)["']`, "i"),
-  )?.[1];
+  return tag.match(new RegExp(`\\b${escapedName}=["']([^"']*)["']`, "i"))?.[1];
 }
 
 function assertSingleH1(html, label) {
@@ -96,12 +89,9 @@ test("server-renders the semantic portfolio homepage", async () => {
   );
   assert.match(html, /<main\b[^>]*>/i);
   assert.match(html, /<nav\b[^>]*>/i);
-  assert.match(html, /Switch to dark theme/i);
-  assert.match(html, /Open navigation search/i);
-  assert.match(html, /Quick navigation/i);
   assert.match(
     html,
-    /<meta\b(?=[^>]*\bname=["']theme-color["'])(?=[^>]*\bcontent=["']#f1eff6["'])[^>]*>/i,
+    /<meta\b(?=[^>]*\bname=["']theme-color["'])(?=[^>]*\bcontent=["']#fbf8f3["'])[^>]*>/i,
   );
   assert.doesNotMatch(
     html,
@@ -111,36 +101,35 @@ test("server-renders the semantic portfolio homepage", async () => {
 
   const headings = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)];
   assert.equal(headings.length, 1, "homepage should have exactly one h1");
-  assert.match(headings[0][1], /desk/i);
+  assert.match(headings[0][1], /Zim Bela/i);
   assert.match(html, /Fatgezim.*?Zim.*?Bela/i);
-  assert.match(html, /Explore five workspace topics/i);
-  for (const topic of ["Neuroscience", "Software", "Data", "Medicine", "Design"]) {
-    assert.match(html, new RegExp(`<h2>${topic}</h2>`), `${topic} story must be readable without JavaScript`);
-  }
 
   for (const id of portfolioSections) {
     assert.match(html, sectionPattern(id), `missing semantic #${id} section`);
   }
 });
 
-test("homepage navigation links resolve to portfolio sections", async () => {
+test("homepage navigation resolves to work and portfolio sections", async () => {
   const response = await render();
   const html = await response.text();
   const navigation = [...html.matchAll(/<nav\b[^>]*>([\s\S]*?)<\/nav>/gi)]
     .map((match) => match[1])
     .join("\n");
   const targets = [
-    ...navigation.matchAll(
-      /<a\b[^>]*\bhref=["']\/?#([^"']+)["'][^>]*>/gi,
-    ),
+    ...navigation.matchAll(/<a\b[^>]*\bhref=["']\/?#([^"']+)["'][^>]*>/gi),
   ].map((match) => match[1]);
 
   assert.ok(targets.length > 0, "navigation should include same-page links");
   for (const target of targets) {
-    assert.match(html, idPattern(target), `navigation target #${target} is missing`);
+    assert.match(
+      html,
+      idPattern(target),
+      `navigation target #${target} is missing`,
+    );
   }
 
-  for (const target of ["projects", "experience", "contact"]) {
+  assert.match(navigation, /href="\/work\/"/);
+  for (const target of ["research", "experience", "contact"]) {
     assert.ok(
       targets.includes(target),
       `navigation should include a link to #${target}`,
@@ -164,6 +153,14 @@ test("server-renders the print resume", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
+  const portfolioLink = openingTags(html, "a").find((tag) =>
+    attributeValue(tag, "href") === "/" && attributeValue(tag, "target") === "_blank",
+  );
+  assert.ok(portfolioLink, "Portfolio contact action should stay on the current site");
+  assert.ok(
+    !openingTags(html, "a").some((tag) => attributeValue(tag, "href")?.startsWith("https://fatgezimb.github.io/fatgezim-portfolio")),
+    "Internal portfolio links must not escape a preview to another release",
+  );
   assert.match(html, /<title>Résumé \| Fatgezim “Zim” Bela<\/title>/i);
   assert.match(html, /Doctor of Medicine Candidate/i);
   assert.match(html, /Expected 2028/i);
@@ -172,7 +169,10 @@ test("server-renders the print resume", async () => {
   assert.match(html, /https:\/\/www\.linkedin\.com\/in\/fatgezimzimbela\//i);
   assert.match(html, /https:\/\/github\.com\/Fatgezimb/i);
   assert.doesNotMatch(html, /fatgezimbela1@gmail\.com/i);
-  assert.doesNotMatch(html, /Public materials omit|Print-ready résumé available/i);
+  assert.doesNotMatch(
+    html,
+    /Public materials omit|Print-ready résumé available/i,
+  );
 
   assert.doesNotMatch(html, /1331 Recordz|IronGlassByte|Boston University/i);
   assert.doesNotMatch(html, /Project Cleo|Spinal Fracture/i);
@@ -204,7 +204,10 @@ test("renders canonical sharing and crawler metadata", async () => {
   const sitemapResponse = await render("/sitemap.xml");
   assert.equal(sitemapResponse.status, 200);
   const sitemap = await sitemapResponse.text();
-  assert.match(sitemap, /<loc>.*fatgezimb\.github\.io\/fatgezim-portfolio<\/loc>/i);
+  assert.match(
+    sitemap,
+    /<loc>.*fatgezimb\.github\.io\/fatgezim-portfolio<\/loc>/i,
+  );
   assert.match(sitemap, /<loc>.*\/resume<\/loc>/i);
   assert.match(sitemap, /<loc>.*\/research<\/loc>/i);
   assert.match(
@@ -222,7 +225,10 @@ test("server-renders the research hub and George Mason detail route", async () =
   );
 
   const researchHtml = await researchResponse.text();
-  assert.match(assertSingleH1(researchHtml, "research hub"), /Research &amp; scientific work/i);
+  assert.match(
+    assertSingleH1(researchHtml, "research hub"),
+    /Research &amp; scientific work/i,
+  );
   assert.match(
     researchHtml,
     /<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*\/research["'])[^>]*>/i,
@@ -231,7 +237,10 @@ test("server-renders the research hub and George Mason detail route", async () =
   assert.match(researchHtml, /Collaborative computational neuroscience/i);
   assert.doesNotMatch(researchHtml, /Artifact-led research record/i);
   assert.doesNotMatch(researchHtml, /Owner-confirmed; documentation pending/i);
-  assert.match(researchHtml, new RegExp(`href=["']${researchDetailPath}["']`, "i"));
+  assert.match(
+    researchHtml,
+    new RegExp(`href=["']${researchDetailPath}["']`, "i"),
+  );
 
   const detailResponse = await render(researchDetailPath);
   assert.equal(detailResponse.status, 200);
@@ -259,9 +268,9 @@ test("publishes only poster-supported neuronal-reconstruction claims", async () 
     render("/research"),
     render(researchDetailPath),
   ]);
-  const html = (await Promise.all(responses.map((response) => response.text()))).join(
-    "\n",
-  );
+  const html = (
+    await Promise.all(responses.map((response) => response.text()))
+  ).join("\n");
 
   assert.match(
     html,
@@ -272,7 +281,10 @@ test("publishes only poster-supported neuronal-reconstruction claims", async () 
     html,
     /Centers for Neural Informatics, Structures &amp; Plasticity/i,
   );
-  assert.doesNotMatch(html, /email address printed on the original poster is archival/i);
+  assert.doesNotMatch(
+    html,
+    /email address printed on the original poster is archival/i,
+  );
   assert.doesNotMatch(html, /fatgezimbela1@gmail\.com/i);
   assert.match(html, /Fiji\/ImageJ/i);
   assert.match(html, /Vaa3D/i);
@@ -283,11 +295,11 @@ test("publishes only poster-supported neuronal-reconstruction claims", async () 
   assert.match(html, /proposals rather than completed experiments/i);
 
   assert.match(html, new RegExp(posterPdfPath.replaceAll("/", "\\/"), "i"));
+  assert.match(html, new RegExp(posterPreviewPath.replaceAll("/", "\\/"), "i"));
   assert.match(
     html,
-    new RegExp(posterPreviewPath.replaceAll("/", "\\/"), "i"),
+    /<dialog\b[^>]*\bid=["']research-poster-dialog["'][^>]*>/i,
   );
-  assert.match(html, /<dialog\b[^>]*\bid=["']research-poster-dialog["'][^>]*>/i);
   assert.match(
     html,
     new RegExp(
@@ -335,10 +347,7 @@ test("renders a clean contact form and social links", async () => {
   );
   assert.doesNotMatch(html, /api\.web3forms\.com|web3forms|access_key/i);
   assert.doesNotMatch(html, /newsletter|subscribe for updates/i);
-  assert.doesNotMatch(
-    html,
-    /<form\b(?=[^>]*\baction=["']https?:\/\/)[^>]*>/i,
-  );
+  assert.doesNotMatch(html, /<form\b(?=[^>]*\baction=["']https?:\/\/)[^>]*>/i);
 });
 
 test("keeps internal review language out of visitor-facing pages", async () => {
@@ -348,9 +357,9 @@ test("keeps internal review language out of visitor-facing pages", async () => {
     render("/research"),
     render(researchDetailPath),
   ]);
-  const html = (await Promise.all(responses.map((response) => response.text()))).join(
-    "\n",
-  );
+  const html = (
+    await Promise.all(responses.map((response) => response.text()))
+  ).join("\n");
 
   assert.doesNotMatch(
     html,
@@ -358,46 +367,19 @@ test("keeps internal review language out of visitor-facing pages", async () => {
   );
 });
 
-test("renders the supplied portrait and soccer media without autoplay or looping", async () => {
-  const response = await render();
-  const html = await response.text();
-
-  assert.match(
-    html,
-    /<img\b(?=[^>]*\bsrc=["']\/media\/fatgezim-bela-headshot\.jpg["'])(?=[^>]*\balt=["'][^"']*Fatgezim[^"']*Zim[^"']*Bela[^"']*["'])[^>]*>/i,
-  );
-  assert.match(html, /Mason Intramurals on May 1, 2016/i);
-  assert.match(
-    html,
-    /<source\b(?=[^>]*\bdata-src=["']\/media\/fatgezim-bela-soccer-winning-penalty\.mp4["'])(?=[^>]*\btype=["']video\/mp4["'])[^>]*>/i,
-  );
-
-  const videoTags = openingTags(html, "video");
-  assert.equal(videoTags.length, 1, "homepage should render one archival video");
-  assert.match(videoTags[0], /\bcontrols(?:=["'][^"']*["'])?/i);
-  assert.match(
-    videoTags[0],
-    /\bdata-poster=["']\/media\/fatgezim-bela-soccer-winning-penalty-poster\.jpg["']/i,
-  );
-  assert.match(
-    html,
-    /<noscript>[\s\S]*?<img\b(?=[^>]*\bsrc=["']\/media\/fatgezim-bela-soccer-winning-penalty-poster\.jpg["'])[^>]*>[\s\S]*?<\/noscript>/i,
-  );
-  assert.match(html, /<html\b[^>]*\bdata-js=["']disabled["']/i);
-  assert.match(videoTags[0], /\bpreload=["']none["']/i);
-  assert.doesNotMatch(videoTags[0], /\bautoplay(?:\s|=|>)/i);
-  assert.doesNotMatch(videoTags[0], /\bloop(?:\s|=|>)/i);
-
+test("renders the selected portrait and original research assets", async () => {
+  const html = await (await render()).text();
+  assert.match(html, /src=["']\/media\/editorial\/founder-portrait\.webp["']/);
+  assert.match(html, /alt=["']Portrait of Fatgezim/);
+  assert.match(html, /fetchPriority=["']high["']/i);
+  assert.match(html, /research-fluorescence-original\.jpg/);
+  assert.match(html, /research-reconstruction-original\.jpg/);
+  assert.match(html, /Fatgezim Bela, Sumit Nanda, Giorgio A\. Ascoli/);
+  assert.equal(openingTags(html, "video").length, 0);
   await Promise.all([
-    assertPublicAsset("/media/fatgezim-bela-headshot.jpg", 1_000),
-    assertPublicAsset(
-      "/media/fatgezim-bela-soccer-winning-penalty-poster.jpg",
-      1_000,
-    ),
-    assertPublicAsset(
-      "/media/fatgezim-bela-soccer-winning-penalty.mp4",
-      10_000,
-    ),
+    assertPublicAsset("/media/editorial/founder-portrait.webp", 10_000),
+    assertPublicAsset("/media/research-fluorescence-original.jpg", 10_000),
+    assertPublicAsset("/media/research-reconstruction-original.jpg", 10_000),
     assertPublicAsset(posterPreviewPath, 10_000),
     assertPublicAsset(posterPdfPath, 10_000),
   ]);
@@ -420,7 +402,10 @@ test("marks every new-tab link as safe and discloses its behavior", async () => 
         /<a\b(?=[^>]*\btarget=["']_blank["'])[^>]*>[\s\S]*?<\/a>/gi,
       ),
     ].map((match) => match[0]);
-    assert.ok(links.length > 0, `document ${documentIndex + 1} should have new-tab links`);
+    assert.ok(
+      links.length > 0,
+      `document ${documentIndex + 1} should have new-tab links`,
+    );
 
     for (const link of links) {
       const openingTag = openingTags(link, "a")[0];
@@ -438,7 +423,6 @@ test("marks every new-tab link as safe and discloses its behavior", async () => 
   }
 });
 
-
 test("technology resume preserves confirmed facts and working public project destinations", async () => {
   const responses = await Promise.all([render(), render("/resume")]);
   for (const response of responses) {
@@ -447,8 +431,14 @@ test("technology resume preserves confirmed facts and working public project des
     assert.match(html, /Create 13 Group/);
     assert.match(html, /2018 - Present/);
     assert.match(html, /href=["']https:\/\/rbt-pro\.vercel\.app\/["']/);
-    assert.doesNotMatch(html, /href=["']https:\/\/fatgezimb\.github\.io\/rbt-practice-hub/);
-    assert.doesNotMatch(html, /href=["']https:\/\/github\.com\/Fatgezimb\/rbt-practice-hub/);
+    assert.doesNotMatch(
+      html,
+      /href=["']https:\/\/fatgezimb\.github\.io\/rbt-practice-hub/,
+    );
+    assert.doesNotMatch(
+      html,
+      /href=["']https:\/\/github\.com\/Fatgezimb\/rbt-practice-hub/,
+    );
   }
   const html = await (await render("/resume")).text();
   assert.match(html, /Clinical Assessment Portal/);
@@ -460,35 +450,102 @@ test("technology resume preserves confirmed facts and working public project des
 });
 
 test("public download buttons serve the exact owner-reviewed document bytes", async () => {
-  const approval = JSON.parse(await readFile(new URL("../resume/approval.json", import.meta.url), "utf8"));
+  const approval = JSON.parse(
+    await readFile(new URL("../resume/approval.json", import.meta.url), "utf8"),
+  );
   for (const route of ["/", "/resume"]) {
     const html = await (await render(route)).text();
     for (const [name, digest] of Object.entries(approval.sha256)) {
-      assert.match(html, new RegExp(`href=["']/resume/${name.replaceAll(".", "\\.")}["']`));
-      const contents = await readFile(new URL(`../public/resume/${name}`, import.meta.url));
+      assert.match(
+        html,
+        new RegExp(`href=["']/resume/${name.replaceAll(".", "\\.")}["']`),
+      );
+      const contents = await readFile(
+        new URL(`../public/resume/${name}`, import.meta.url),
+      );
       assert.equal(createHash("sha256").update(contents).digest("hex"), digest);
       assert.ok(contents.length > 10_000);
-      assert.equal(contents.subarray(0, name.endsWith(".pdf") ? 4 : 2).toString(), name.endsWith(".pdf") ? "%PDF" : "PK");
+      assert.equal(
+        contents.subarray(0, name.endsWith(".pdf") ? 4 : 2).toString(),
+        name.endsWith(".pdf") ? "%PDF" : "PK",
+      );
     }
   }
 });
 
-test("project workspace exposes complete samples without eagerly loading external sites", async () => {
+test("selected work remains ordered and usable before client code loads", async () => {
   const html = await (await render()).text();
-  const tabs = openingTags(html, "button").filter(tag => attributeValue(tag, "role") === "tab");
-  const panels = openingTags(html, "article").filter(tag => attributeValue(tag, "role") === "tabpanel");
-  assert.equal(tabs.length, 7, "each featured project must be selectable");
-  assert.equal(panels.length, 7, "each project must have server-rendered sample content");
-  assert.equal(tabs.filter(tag => attributeValue(tag, "aria-selected") === "true").length, 1);
-  for (const tab of tabs) {
-    const target = attributeValue(tab, "aria-controls");
-    assert.ok(panels.some(panel => attributeValue(panel, "id") === target), "project tab must identify its own panel");
+  const titles = [
+    "bela-behavior-data-lab",
+    "rbt-practice-hub",
+    "caregiver-academy",
+    "stepspark",
+  ];
+  const positions = titles.map((id) =>
+    html.indexOf(`id="project-title-${id}"`),
+  );
+  assert.ok(positions.every((position) => position >= 0));
+  assert.deepEqual(
+    [...positions].sort((a, b) => a - b),
+    positions,
+  );
+  assert.match(html, /<ol[^>]*id="project-gallery"/);
+  assert.match(html, /aria-label="Next projects"/);
+  assert.match(html, /aria-label="Previous projects"/);
+  assert.equal(openingTags(html, "iframe").length, 0);
+  const previewButtons = openingTags(html, "button").filter((tag) =>
+    /^Try .* preview$/.test(attributeValue(tag, "aria-label") ?? ""),
+  );
+  assert.equal(previewButtons.length, 4);
+  assert.ok(html.includes("Synthetic appointments"));
+  for (const url of [
+    "https://fatgezimb.github.io/StepSpark/",
+    "https://rbt-pro.vercel.app/",
+    "/work/",
+    "https://neuropath.blog/",
+  ]) {
+    assert.ok(html.includes(url), `Missing full project destination ${url}`);
   }
-  assert.equal(openingTags(html, "iframe").length, 0, "external sites load only after an explicit action");
-  assert.ok(html.includes("synthetic appointments"));
-  assert.ok(html.includes("Local beta simulation"), "local automation must identify simulation");
-  assert.ok(html.includes("https://fatgezimb.github.io/StepSpark/"), "StepSpark must link to its verified deployment");
-  assert.ok(html.includes("https://rbt-pro.vercel.app/"));
-  assert.ok(html.includes("https://github.com/Fatgezimb/neurostack-explorer"));
-  assert.ok(!html.includes("12.4 Hz") && !html.includes("8.1 Hz"), "retired illustration values must not appear as measured neural data");
+  assert.ok(html.includes("Co-founder &amp; co-builder with Meili Bela"));
+  assert.ok(!html.includes("12.4 Hz") && !html.includes("8.1 Hz"));
+});
+
+test("work index exposes the full collection with truthful scope and evidence", async () => {
+  const response = await render("/work");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.equal(assertSingleH1(html, "work index"), "Ideas put to work.");
+  assert.match(
+    html,
+    /rel="canonical"[^>]*href="https:\/\/fatgezimb.github.io\/fatgezim-portfolio\/work\/"/,
+  );
+  for (const id of [
+    "engineering-prototypes",
+    "data-projects",
+    "products",
+    "automation",
+    "research-work",
+    "experiments",
+  ]) {
+    assert.match(html, sectionPattern(id));
+    assert.match(html, new RegExp(`href="#${id}"`));
+  }
+  assert.equal([...html.matchAll(/id="project-title-/g)].length, 14);
+  for (const id of [
+    "rethink-automations",
+    "neuropath-insight",
+    "neurostack-explorer",
+    "neuronal-reconstruction",
+  ]) {
+    assert.ok(html.includes(`id="project-title-${id}"`));
+  }
+  assert.ok(html.includes("Recent exploratory build"));
+  assert.ok(html.includes("model results computed in advance"));
+  assert.ok(
+    html.includes("simulated rates") &&
+      html.includes("fictional workflow items"),
+  );
+  assert.ok(html.includes("Sumit Nanda and Giorgio A. Ascoli"));
+  assert.match(html, /href="\/research\/george-mason-neuronal-reconstruction"/);
+  assert.equal(openingTags(html, "iframe").length, 0);
 });

@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Bricolage_Grotesque } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Bricolage_Grotesque,
+  Bodoni_Moda,
+} from "next/font/google";
 import "./globals.css";
 import { publication } from "./content/publication";
 import { siteMeta } from "./content/site";
@@ -8,7 +13,18 @@ const siteUrl = new URL(publication.url);
 const siteTitle = siteMeta.title;
 const siteDescription = siteMeta.description;
 
-const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["latin"], weight: ["500", "600", "700"] });
+const editorial = Bodoni_Moda({
+  variable: "--font-editorial",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+});
+
+const display = Bricolage_Grotesque({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,21 +36,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const themeInitialization = `(() => {
-  document.documentElement.dataset.js = "enabled";
-  try {
-    const stored = window.localStorage.getItem("zim-portfolio-theme");
-    const theme = stored === "dark" ? "dark" : "light";
-    document.documentElement.dataset.theme = theme;
-    document.documentElement.style.colorScheme = theme;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute(
-      "content",
-      theme === "dark" ? "#1c1826" : "#f1eff6",
-    );
-  } catch {
-    document.documentElement.dataset.theme = "light";
-  }
-})();`;
+const themeInitialization = `document.documentElement.dataset.js = "enabled";`;
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -94,13 +96,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html data-js="disabled" data-theme="light" lang="en" suppressHydrationWarning>
+    <html
+      data-js="disabled"
+      data-theme="light"
+      lang="en"
+      suppressHydrationWarning
+    >
       <head>
-        <meta content="#f1eff6" name="theme-color" />
+        <meta content="#fbf8f3" name="theme-color" />
         <script dangerouslySetInnerHTML={{ __html: themeInitialization }} />
       </head>
       <body
-        className={`${display.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${editorial.variable} ${display.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

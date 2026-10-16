@@ -1,0 +1,9 @@
+{
+  "url": "https://www.kaggle.com/datasets/robikscube/hourly-energy-consumption",
+  "download": "https://www.kaggle.com/api/v1/datasets/download/robikscube/hourly-energy-consumption?datasetVersionNumber=3",
+  "version": 3,
+  "sha256": "76636b1d976287a0fb1f0076a1be7767e053944c7080f3b8ad145d494c81bdea",
+  "license": "CC0: Public Domain (Kaggle listing)",
+  "classification": "Historical hourly demand observations",
+  "credit": "PJM Interconnection; Kaggle distribution by Rob Mulla / robikscube."
+}
