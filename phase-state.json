@@ -47,13 +47,14 @@
     "M.C. Dean alignment published through PR 8 and Pages 38929241573 at b1c1225. Six public routes and ten download/asset hashes pass; live Relay/Grid/Clinical behavior and new-tab previews verified. Public downloads retain the October 16 approved files while new two-page review candidates await exact-file owner approval.",
     "October 18 responsive audit: 96 main-route, 30 standalone-app and 16 preview samples. Fixed tablet hero contrast, phone preview padding, sticky close controls, touch target/input sizing and Relay embedded navigation overflow. All applicable build/tests/export checks pass. Publication verification follows. See docs/RESPONSIVE_QA_2026_10_18.md.",
     "Responsive release456415a passed Pages39167502492 and public verification: six routes, ten download/asset hashes, narrow Relay iframe, sticky dismissal and opaque iPad reading surface. Existing approved resume files are unchanged.",
-    "October 18: Shared sticky editorial header published and verified after Pages 39168361168. Phone/tablet/desktop anchor clearance, work/engineering persistence, no overflow and 23 tests pass. See docs/STICKY_HEADER_QA.md."
+    "October 18: Shared sticky editorial header published and verified after Pages 39168361168. Phone/tablet/desktop anchor clearance, work/engineering persistence, no overflow and 23 tests pass. See docs/STICKY_HEADER_QA.md.",
+    "Compact mobile header published and verified: 97px portrait, 53px landscape, all five links fit at 320px, 44px-tall navigation targets. Pages39173507313."
   ],
   "publicReleaseComplete": true,
-  "deployedCommit": "36f7339f695d27508ec3d6167a6a4aa29b1c312a",
+  "deployedCommit": "64ae54d7a5cde34400aa6bd4e656a6b8dc4e5693",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
   "resumeRefreshPublication": "new-candidates-await-exact-file-approval",
-  "deploymentRun": "39168361168",
+  "deploymentRun": "39173507313",
   "designModelReview": {
     "status": "published-and-verified",
     "date": "2026-10-15",
