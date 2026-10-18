@@ -25,7 +25,7 @@ export default function ResumePage() {
   return (
     <div id="top">
       <a className="skip-link" href="#main-content">Skip to main content</a>
-      <EditorialNav />
+      <EditorialNav resume />
     <main id="main-content" tabIndex={-1} className={`resume-page ${styles.page}`}>
       <div className="resume-toolbar" aria-label="Résumé actions">
         <a className="text-link" href={sitePath("/")} >← Back to portfolio</a>

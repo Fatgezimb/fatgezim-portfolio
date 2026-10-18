@@ -1054,3 +1054,18 @@
   .header .mobileMenu nav a:last-child { border-bottom: 0; }
 }
 @media print { .mobileMenu { display: none; } }
+
+.header nav a[aria-current] {
+  color: #6b0f27; font-weight: 650;
+  text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 2px;
+}
+.wordmark[aria-current] strong { color: #6b0f27; }
+.currentResume { color: #fffdfa; background: #6b0f27; }
+.menuOpen { display: none; }
+.mobileMenu[open] .menuClosed { display: none; }
+.mobileMenu[open] .menuOpen { display: inline; }
+@media (max-width: 760px), (max-height: 500px) and (max-width: 900px) {
+  .header .mobileMenu nav a[aria-current] { background: #f0e5e4; border-radius: 3px; }
+  .mobileMenu summary { min-width: 84px; }
+  .mobileMenu summary > span[aria-hidden] { font-size: 20px; line-height: 1; }
+}

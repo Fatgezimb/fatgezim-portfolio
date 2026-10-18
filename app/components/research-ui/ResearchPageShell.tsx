@@ -13,7 +13,7 @@ export function ResearchPageShell({ children, className }: ResearchPageShellProp
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
-      <EditorialNav />
+      <EditorialNav research />
       <main className={className} id="main-content" tabIndex={-1}>
         {children}
       </main>
