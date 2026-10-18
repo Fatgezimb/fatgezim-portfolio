@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { sitePath } from "@/app/content/paths";
 import { publication } from "@/app/content/publication";
 import styles from "./EditorialHome.module.css";
@@ -70,8 +70,30 @@ export function EditorialNav({
     };
   }, [home]);
   const anchor = (id: string) => (home ? `#${id}` : sitePath(`/#${id}`));
+  const scrollToSection = (event: MouseEvent<HTMLElement>) => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = (event.target as HTMLElement).closest<HTMLAnchorElement>("a[href]");
+    if (!link || link.hasAttribute("download") || link.target === "_blank") return;
+    const destination = new URL(link.href, window.location.href);
+    if (!destination.hash || destination.origin !== window.location.origin || destination.pathname !== window.location.pathname || destination.search !== window.location.search) return;
+    let target: HTMLElement | null;
+    try { target = document.getElementById(decodeURIComponent(destination.hash.slice(1))); }
+    catch { return; }
+    if (!target) return;
+    event.preventDefault();
+    if (menu.current) menu.current.open = false;
+    const offset = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+    if (window.location.hash !== destination.hash) {
+      window.history.pushState(window.history.state, "", destination.href);
+    }
+    window.scrollTo({
+      top: Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset - margin),
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    });
+  };
   return (
-    <header className={styles.header}>
+    <header className={styles.header} onClick={scrollToSection}>
       <a
         className={styles.wordmark}
         href={anchor("top")}
