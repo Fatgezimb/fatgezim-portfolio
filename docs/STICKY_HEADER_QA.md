@@ -13,3 +13,11 @@ Public verification: refreshed deployed assets report position:sticky and viewpo
 Owner requested a smaller mobile header. Portrait height reduced to 97 CSS pixels; landscape 540–900px wide and up to 500px tall uses a single 53px row. All five navigation links retain 44px height. At 320px viewport width, navigation clientWidth and scrollWidth both measure 273px, so every link fits without swiping. Browser checks passed at 320×568, 390×844, 568×320 and 844×390 with no document overflow and sticky top=0; Contact navigation works. Lint, typecheck, 16 rendered-route tests, 7 export tests, Pages build and six-route static export passed. Release 64ae54d / Pages 39173507313.
 
 Live 320px check confirmed 97px header at top=0 and navigation clientWidth=scrollWidth=273px. Screenshot saved to chat outputs/Sticky_Header/compact-mobile.png.
+
+## Single-row menu follow-up
+
+Owner requested a single row with a menu button and persistent résumé access. The header now measures 53px on phone portrait/landscape. A native details/summary disclosure exposes the five links beneath the bar, with 48px-tall link targets. Menu and résumé controls are at least 44px tall. Selection closes the menu; Escape closes it and returns focus to its summary. Native disclosure and links remain usable without JavaScript. Desktop retains the existing inline links.
+
+Verified 320×568, 390×844, 568×320, 844×390, 820×1180 and 1440×900 with no document overflow. Tested menu opening, same-page Experience navigation, Work and Engineering route changes, Escape focus restoration and the résumé destination. No console errors. Lint, typecheck, 16 route tests, 7 export tests, Pages build, six-route static export and whitespace checks pass. Release 992abfc / Pages 39173784631.
+
+Public verification confirms 53px header, 44px résumé button, all five menu links, automatic dismissal and sticky top=0. Screenshots: chat outputs/Sticky_Header/single-row-mobile.png and mobile-menu-open.png.

@@ -48,13 +48,14 @@
     "October 18 responsive audit: 96 main-route, 30 standalone-app and 16 preview samples. Fixed tablet hero contrast, phone preview padding, sticky close controls, touch target/input sizing and Relay embedded navigation overflow. All applicable build/tests/export checks pass. Publication verification follows. See docs/RESPONSIVE_QA_2026_10_18.md.",
     "Responsive release456415a passed Pages39167502492 and public verification: six routes, ten download/asset hashes, narrow Relay iframe, sticky dismissal and opaque iPad reading surface. Existing approved resume files are unchanged.",
     "October 18: Shared sticky editorial header published and verified after Pages 39168361168. Phone/tablet/desktop anchor clearance, work/engineering persistence, no overflow and 23 tests pass. See docs/STICKY_HEADER_QA.md.",
-    "Compact mobile header published and verified: 97px portrait, 53px landscape, all five links fit at 320px, 44px-tall navigation targets. Pages39173507313."
+    "Compact mobile header published and verified: 97px portrait, 53px landscape, all five links fit at 320px, 44px-tall navigation targets. Pages39173507313.",
+    "Single-row mobile disclosure menu published and verified: 53px header, persistent 44px r\u00e9sum\u00e9 control, five 48px links, selection dismissal and Escape focus restoration. Pages39173784631."
   ],
   "publicReleaseComplete": true,
-  "deployedCommit": "64ae54d7a5cde34400aa6bd4e656a6b8dc4e5693",
+  "deployedCommit": "992abfc87ef0f93d2cf47c424b5b5211940e0c58",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
   "resumeRefreshPublication": "new-candidates-await-exact-file-approval",
-  "deploymentRun": "39173507313",
+  "deploymentRun": "39173784631",
   "designModelReview": {
     "status": "published-and-verified",
     "date": "2026-10-15",
