@@ -45,3 +45,11 @@ Homepage active navigation now follows a reading line below the measured sticky 
 Desktop scroll verified transitions Home→Work→Research→Experience→Contact with unchanged empty hash, and reverse scrolling restored Research. Phone reverse scrolling restored Experience→Research→Work→Home; menu state and selection dismissal remain functional. Reduced-motion Experience selection and subsequent scroll to Work passed while retaining #experience in the URL. No console errors. Lint/typecheck, 16 route tests, 7 export tests, Pages build, six-route export and whitespace checks pass. Release760ae7b / Pages39178198307.
 
 Live verification reproduced all four automatic section transitions with unchanged empty hash. Screenshot: chat outputs/Sticky_Header/scroll-highlight.png.
+
+## Bidirectional smooth section clicks
+
+Header same-document anchor clicks now explicitly start native smooth scrolling, preserving sticky-header scroll padding and target scroll margins. This avoids reliance on router/native hash handling and supports clicking an already-current hash after manually scrolling away. Modified clicks, downloads and different-page links retain ordinary behavior. Reduced-motion preference uses an immediate landing. Mobile disclosure closes before the destination is measured. URL history retains the current router state and adds entries only for changed hashes.
+
+Desktop measured Contact progression 282→770→1601→2566→3138→3532→4164px, then upward Research progression3149→2713→2535→2438→2396→2374px. Phone Contact and Research also show multiple intermediate positions in the correct direction. Repeated Research target click closes the menu and retains #research. Reduced-motion Experience lands at68px below a53px header. No console errors. Lint/typecheck,16 rendered tests,7 export tests,Pages build,six-route export and whitespace checks pass. Release9f5c005 / Pages39178546567.
+
+Live verification recorded downward positions179→475→1102→2566→3106→3532→4110px and upward2920→2654→2521→2440→2410→2380→2374px. Screenshot: chat outputs/Sticky_Header/smooth-scroll.png.
