@@ -21,3 +21,11 @@ Owner requested a single row with a menu button and persistent résumé access. 
 Verified 320×568, 390×844, 568×320, 844×390, 820×1180 and 1440×900 with no document overflow. Tested menu opening, same-page Experience navigation, Work and Engineering route changes, Escape focus restoration and the résumé destination. No console errors. Lint, typecheck, 16 route tests, 7 export tests, Pages build, six-route static export and whitespace checks pass. Release 992abfc / Pages 39173784631.
 
 Public verification confirms 53px header, 44px résumé button, all five menu links, automatic dismissal and sticky top=0. Screenshots: chat outputs/Sticky_Header/single-row-mobile.png and mobile-menu-open.png.
+
+## Outside dismissal and shared header
+
+Outside pointer presses (including touch) now dismiss the open disclosure without preventing the tapped page action. The document listener is removed when the header unmounts. Research index/detail and résumé now share EditorialNav with home, work and engineering. The header is hidden for résumé printing by the shared print styles.
+
+Browser verification: outside dismissal, persistent résumé control and 53px header passed on all six routes at 390px. Sticky top=0 and no overflow passed on every route at 320px, 820px and 1440px (18 layout checks). No console errors. Lint, typecheck, 16 rendered-route tests, 7 export tests, Pages build, six-route export and whitespace validation passed. Release 7fbd2a3 / Pages39175130165.
+
+All six published routes independently passed outside-tap dismissal and 53px height checks. Live research-page screenshot saved in chat outputs/Sticky_Header/shared-research-header.png.
