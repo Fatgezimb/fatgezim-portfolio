@@ -2261,5 +2261,9 @@ html[data-js="disabled"] #workspace button{display:none}
 
 /* Leave section destinations visible beneath the persistent editorial navigation. */
 @media (max-width: 760px) {
-  html { scroll-padding-top: 9rem; }
+  html { scroll-padding-top: 7rem; }
+}
+
+@media (max-height: 500px) and (min-width: 540px) and (max-width: 900px) {
+  html { scroll-padding-top: 4.25rem; }
 }
