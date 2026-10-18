@@ -51,13 +51,14 @@
     "Compact mobile header published and verified: 97px portrait, 53px landscape, all five links fit at 320px, 44px-tall navigation targets. Pages39173507313.",
     "Single-row mobile disclosure menu published and verified: 53px header, persistent 44px r\u00e9sum\u00e9 control, five 48px links, selection dismissal and Escape focus restoration. Pages39173784631.",
     "Outside-tap mobile menu dismissal and shared header on all six portfolio routes published and publicly verified. All routes measure53px on mobile; 18 phone/tablet/desktop sticky checks pass. Pages39175130165.",
-    "Menu open/close icon and current page/location styling published and verified. Live Work menu shows Close\u00d7 and aria-current page burgundy state; closing restores Menu\u2630. Pages39177365279."
+    "Menu open/close icon and current page/location styling published and verified. Live Work menu shows Close\u00d7 and aria-current page burgundy state; closing restores Menu\u2630. Pages39177365279.",
+    "Homepage scroll-following active navigation published and verified live: Work\u2192Research\u2192Experience\u2192Contact with unchanged URL; reverse/mobile/reduced-motion checks pass. Pages39178198307."
   ],
   "publicReleaseComplete": true,
-  "deployedCommit": "68dabe2dcbae58dfff0c336d07c86dc3cc00c46c",
+  "deployedCommit": "760ae7be497dba5ed3e79bf1667f20f58918ec8f",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
   "resumeRefreshPublication": "new-candidates-await-exact-file-approval",
-  "deploymentRun": "39177365279",
+  "deploymentRun": "39178198307",
   "designModelReview": {
     "status": "published-and-verified",
     "date": "2026-10-15",

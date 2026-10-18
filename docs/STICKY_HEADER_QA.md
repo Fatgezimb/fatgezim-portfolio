@@ -37,3 +37,11 @@ Native open state now swaps Menu/☰ to Close/× without changing button width. 
 Verified all six routes plus the Experience hash at 320px: Close icon, 53px height, Escape reset and no overflow. Contact selection updates the location highlight, closes the menu and restores the Menu icon. Desktop/tablet Research aria-current, underline and color plus résumé filled state verified at 820px. No console errors. Lint, typecheck, 16 rendered tests, 7 export tests, Pages build, six-route export and whitespace checks pass. Release 68dabe2 / Pages39177365279.
 
 Public verification passed Work current-page styling, Close× open state and Menu☰ restored state. Screenshot: chat outputs/Sticky_Header/active-menu.png.
+
+## Scroll-following homepage location
+
+Homepage active navigation now follows a reading line below the measured sticky header. Work, Research, Experience and Contact update on forward/reverse scrolling and viewport resize; the home mark becomes current above the work section. Contact activates at the document bottom even when its section is short. Passive scrolling schedules at most one animation-frame update; listeners and pending work are cleaned up on unmount. Scrolling does not alter the URL or history. Other routes retain their page highlight.
+
+Desktop scroll verified transitions Home→Work→Research→Experience→Contact with unchanged empty hash, and reverse scrolling restored Research. Phone reverse scrolling restored Experience→Research→Work→Home; menu state and selection dismissal remain functional. Reduced-motion Experience selection and subsequent scroll to Work passed while retaining #experience in the URL. No console errors. Lint/typecheck, 16 route tests, 7 export tests, Pages build, six-route export and whitespace checks pass. Release760ae7b / Pages39178198307.
+
+Live verification reproduced all four automatic section transitions with unchanged empty hash. Screenshot: chat outputs/Sticky_Header/scroll-highlight.png.
