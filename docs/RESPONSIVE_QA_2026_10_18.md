@@ -22,4 +22,4 @@ Employer-facing portfolio, engineering case studies, work collection, web résum
 - Lint, no-emit TypeScript, 16 rendered-route tests, seven export tests, root/Pages builds, six-route static export/resource validation and pack validation pass. Relay's ten domain tests pass and its app builds.
 - Résumé files and their approval record are unchanged.
 
-Evidence: `work/responsive-2026-10-18/` contains baseline/final layout matrices, app and preview matrices, and build/test logs. Public release verification follows deployment.
+Evidence: `work/responsive-2026-10-18/` contains baseline/final layout matrices, app and preview matrices, and build/test logs. Published commit `456415a78480028c2e7462c3c3ac95c714d05186` passed Pages [39167502492](https://github.com/Fatgezimb/fatgezim-portfolio/actions/runs/39167502492). Six public routes and ten download/asset hashes pass. Live 320px Relay preview has matching 258px document/client widths; its close control remains in view after scrolling. Live 820px hero confirms an opaque reading surface. Approved résumé hashes remain unchanged.
