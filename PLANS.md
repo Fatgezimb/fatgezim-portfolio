@@ -159,3 +159,7 @@ Owner approved the updated engineering PDF/DOCX for public downloads and matchin
 Owner requested a comprehensive résumé and portfolio alignment. Engineering-focused homepage selection, McVay case study, four technical case studies with working previews, canonical résumé source and two-page PDF/DOCX candidates are complete. Existing editorial design, research and product collection are preserved. Verification and publication status: `docs/MCDEAN_FINALIZATION.md`.
 
 Engineering-focused website is published and publicly verified at b1c1225 / Pages 38929241573. Revised two-page documents are ready for exact-file review; current approved downloads remain live.
+
+## October 18 — responsive employer review
+
+Phone, tablet and desktop verification covers portrait and landscape layouts, navigation, contact and project previews. Responsive repairs and exact verification evidence are documented in `docs/RESPONSIVE_QA_2026_10_18.md`.

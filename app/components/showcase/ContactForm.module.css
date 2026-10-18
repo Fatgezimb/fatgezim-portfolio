@@ -85,3 +85,9 @@
     display: none;
   }
 }
+
+@media (max-width: 760px) {
+  .formGrid input,
+  .formGrid textarea,
+  .formGrid select { font-size: 16px; }
+}

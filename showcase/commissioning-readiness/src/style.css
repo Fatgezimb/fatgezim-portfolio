@@ -1240,3 +1240,7 @@ main {
 }
 .reset-confirm h2 { font-size: 16px; margin-bottom: 8px; }
 .reset-confirm p { font-size: 12px; max-width: 640px; }
+
+/* Embedded phone previews can be narrower than a standalone phone viewport. */
+.view-nav { max-width: 100%; overflow-x: auto; }
+.view-nav button { flex-shrink: 0; }

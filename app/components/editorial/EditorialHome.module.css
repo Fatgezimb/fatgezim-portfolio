@@ -1011,3 +1011,14 @@
     overflow: visible;
   }
 }
+
+/* Tablet portrait keeps all copy on an opaque reading surface. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .heroCopy { width: 54%; padding-right: 24px; background: var(--page); }
+  .portrait { left: 54%; }
+  .heroCopy h1 { font-size: clamp(80px, 10.8vw, 94px); }
+  .heroFoot { font-size: 8px; letter-spacing: 1.2px; }
+}
+@media (max-width: 760px) {
+  .headerResume { min-height: 44px; }
+}

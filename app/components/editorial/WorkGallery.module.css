@@ -1100,3 +1100,17 @@
   object-position: top;
   display: block;
 }
+
+/* Keep dismissal reachable while a long preview scrolls. */
+.dialog { max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); overflow: auto; }
+.dialogContent { min-width: 0; }
+.dialogHeader { position: sticky; top: 0; z-index: 5; background: #fbf8f3; padding-block: 12px; border-bottom: 1px solid #ded7cf; }
+.dialogHeader h2 { min-width: 0; overflow-wrap: anywhere; }
+.dialogFooter { flex-wrap: wrap; }
+.galleryControls button { min-width: 44px; min-height: 44px; }
+@media (max-width: 760px) {
+  .dialog { width: calc(100% - 12px); max-height: calc(100vh - 12px); max-height: calc(100dvh - 12px); }
+  .dialogContent { padding: 8px; }
+  .dialogHeader { gap: 12px; }
+  .dialogFooter { padding: 8px; }
+}

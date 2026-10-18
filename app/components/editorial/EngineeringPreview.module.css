@@ -108,3 +108,17 @@
   font-size: 12px;
   color: #47605e;
 }
+
+@media (max-width: 760px) {
+  .embedded { padding: 0; }
+  .embedded > p { padding-inline: 4px; }
+  .embedded iframe { height: 70vh; height: 70dvh; min-height: 260px; }
+  .clinical { padding: 16px; }
+  .record { padding: 16px; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .embedded iframe { height: 65vh; height: 65dvh; min-height: 220px; }
+}
+@media (max-width: 760px) {
+  .controls select { font-size: 16px; max-width: 100%; }
+}

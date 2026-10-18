@@ -268,3 +268,6 @@
     padding: 18px;
   }
 }
+@media (max-width: 760px) {
+  .controls select { font-size: 16px; }
+}

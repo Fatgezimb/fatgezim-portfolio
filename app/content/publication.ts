@@ -3,7 +3,7 @@ export const publication = {
   origin: "https://fatgezimb.github.io",
   basePath: "/fatgezim-portfolio",
   url: "https://fatgezimb.github.io/fatgezim-portfolio/",
-  updated: "2026-10-16",
+  updated: "2026-10-18",
   resumeDownloadsApproved: true,
   pdf: "/resume/Fatgezim_Zim_Bela_Technology_Resume.pdf",
   docx: "/resume/Fatgezim_Zim_Bela_Technology_Resume.docx",
