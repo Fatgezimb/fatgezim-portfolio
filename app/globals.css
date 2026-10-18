@@ -102,7 +102,7 @@ html {
   background: var(--page);
   color-scheme: light;
   scroll-behavior: smooth;
-  scroll-padding-top: 5.25rem;
+  scroll-padding-top: 7rem;
 }
 
 html[data-theme="dark"] {
@@ -2258,3 +2258,8 @@ ol {
 
 @media(max-width:700px){.wordmark>span:last-child{display:none}}
 html[data-js="disabled"] #workspace button{display:none}
+
+/* Leave section destinations visible beneath the persistent editorial navigation. */
+@media (max-width: 760px) {
+  html { scroll-padding-top: 9rem; }
+}
