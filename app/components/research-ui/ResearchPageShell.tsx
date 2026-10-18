@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { SiteFooter } from "../SiteFooter";
-import { SiteHeader } from "../SiteHeader";
+import { EditorialNav } from "../editorial/EditorialNav";
 
 type ResearchPageShellProps = {
   children: ReactNode;
@@ -13,7 +13,7 @@ export function ResearchPageShell({ children, className }: ResearchPageShellProp
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
-      <SiteHeader />
+      <EditorialNav />
       <main className={className} id="main-content" tabIndex={-1}>
         {children}
       </main>

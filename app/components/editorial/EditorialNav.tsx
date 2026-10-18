@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { sitePath } from "@/app/content/paths";
 import { publication } from "@/app/content/publication";
 import styles from "./EditorialHome.module.css";
@@ -15,6 +15,16 @@ export function EditorialNav({
   engineering?: boolean;
 }) {
   const menu = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    const closeOutside = (event: PointerEvent) => {
+      const current = menu.current;
+      if (current?.open && event.target instanceof Node && !current.contains(event.target)) {
+        current.open = false;
+      }
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    return () => document.removeEventListener("pointerdown", closeOutside);
+  }, []);
   const anchor = (id: string) => (home ? `#${id}` : sitePath(`/#${id}`));
   return (
     <header className={styles.header}>

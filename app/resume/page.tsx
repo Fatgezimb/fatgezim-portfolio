@@ -1,3 +1,4 @@
+import { EditorialNav } from "@/app/components/editorial/EditorialNav";
 import { sitePath } from "@/app/content/paths";
 import type { Metadata } from "next";
 import { PrintButton } from "@/app/components/PrintButton";
@@ -22,7 +23,10 @@ export const metadata: Metadata = {
 export default function ResumePage() {
   const { identity, experience, projects, education, credentials, skills, research } = resumeDocument;
   return (
-    <main className={`resume-page ${styles.page}`}>
+    <div id="top">
+      <a className="skip-link" href="#main-content">Skip to main content</a>
+      <EditorialNav />
+    <main id="main-content" tabIndex={-1} className={`resume-page ${styles.page}`}>
       <div className="resume-toolbar" aria-label="Résumé actions">
         <a className="text-link" href={sitePath("/")} >← Back to portfolio</a>
         <div className={styles.actions}><ResumeDownloads /><PrintButton /></div>
@@ -100,5 +104,6 @@ export default function ResumePage() {
         </section>
       </article>
     </main>
+    </div>
   );
 }
