@@ -29,3 +29,11 @@ Outside pointer presses (including touch) now dismiss the open disclosure withou
 Browser verification: outside dismissal, persistent résumé control and 53px header passed on all six routes at 390px. Sticky top=0 and no overflow passed on every route at 320px, 820px and 1440px (18 layout checks). No console errors. Lint, typecheck, 16 rendered-route tests, 7 export tests, Pages build, six-route export and whitespace validation passed. Release 7fbd2a3 / Pages39175130165.
 
 All six published routes independently passed outside-tap dismissal and 53px height checks. Live research-page screenshot saved in chat outputs/Sticky_Header/shared-research-header.png.
+
+## Menu state and current location
+
+Native open state now swaps Menu/☰ to Close/× without changing button width. Page links use aria-current and a burgundy underline; the mobile current link also gains a tinted background. Research index/detail share Research as their current page; home identifies the wordmark or selected hash section. The résumé download control uses a filled treatment on the résumé page. Research links outside the homepage now lead to the research route.
+
+Verified all six routes plus the Experience hash at 320px: Close icon, 53px height, Escape reset and no overflow. Contact selection updates the location highlight, closes the menu and restores the Menu icon. Desktop/tablet Research aria-current, underline and color plus résumé filled state verified at 820px. No console errors. Lint, typecheck, 16 rendered tests, 7 export tests, Pages build, six-route export and whitespace checks pass. Release 68dabe2 / Pages39177365279.
+
+Public verification passed Work current-page styling, Close× open state and Menu☰ restored state. Screenshot: chat outputs/Sticky_Header/active-menu.png.

@@ -50,13 +50,14 @@
     "October 18: Shared sticky editorial header published and verified after Pages 39168361168. Phone/tablet/desktop anchor clearance, work/engineering persistence, no overflow and 23 tests pass. See docs/STICKY_HEADER_QA.md.",
     "Compact mobile header published and verified: 97px portrait, 53px landscape, all five links fit at 320px, 44px-tall navigation targets. Pages39173507313.",
     "Single-row mobile disclosure menu published and verified: 53px header, persistent 44px r\u00e9sum\u00e9 control, five 48px links, selection dismissal and Escape focus restoration. Pages39173784631.",
-    "Outside-tap mobile menu dismissal and shared header on all six portfolio routes published and publicly verified. All routes measure53px on mobile; 18 phone/tablet/desktop sticky checks pass. Pages39175130165."
+    "Outside-tap mobile menu dismissal and shared header on all six portfolio routes published and publicly verified. All routes measure53px on mobile; 18 phone/tablet/desktop sticky checks pass. Pages39175130165.",
+    "Menu open/close icon and current page/location styling published and verified. Live Work menu shows Close\u00d7 and aria-current page burgundy state; closing restores Menu\u2630. Pages39177365279."
   ],
   "publicReleaseComplete": true,
-  "deployedCommit": "7fbd2a3c10c5e75ed617b376a72d6f3894c2a7e7",
+  "deployedCommit": "68dabe2dcbae58dfff0c336d07c86dc3cc00c46c",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
   "resumeRefreshPublication": "new-candidates-await-exact-file-approval",
-  "deploymentRun": "39175130165",
+  "deploymentRun": "39177365279",
   "designModelReview": {
     "status": "published-and-verified",
     "date": "2026-10-15",
