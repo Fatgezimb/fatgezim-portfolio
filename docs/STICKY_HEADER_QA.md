@@ -61,3 +61,11 @@ Header Work and Research now consistently target the homepage projects/research 
 40 actual cross-route browser clicks passed: four section links from each of five secondary pages, on desktop1440px and phone390px. Projects/research/experience land at112px desktop or68px phone, below the sticky bar; Contact is visible at the page bottom. All mobile menus close and no console errors occur. Updated the existing rendered-navigation assertion for #projects. Lint/typecheck,16 route tests,7 export tests,Pages build,six-route export and whitespace checks pass. Release96b8612 / Pages39178997650.
 
 Public settled arrivals confirmed Research67.97px from work, Experience68.09px from résumé, Projects67.77px from research, and Contact309.48px from engineering. Header53px. Screenshot: chat outputs/Sticky_Header/section-arrival-fixed.png.
+
+## Persistent work categories
+
+The six work-category links now form a sticky row below the shared header. A ResizeObserver measures the header and category row so offsets adapt to portrait/landscape and font changes. Links remain44px tall and horizontally scroll on narrow screens. Group anchor margins account for the additional navigation height. Print uses ordinary flowing navigation.
+
+Browser checks at1440,820,390,320 and844px confirmed category top matches header bottom, no document overflow and horizontal scrolling on constrained widths. All six mobile category links land with headings below the combined bars. No console errors. Lint/typecheck,16 rendered tests,7 export tests,Pages build,six-route export and whitespace checks pass. Releaseb3d86c0 / Pages39179389858.
+
+Public category row top matches header bottom at90.45px desktop and53px mobile; no mobile document overflow. Screenshot: chat outputs/Sticky_Header/work-categories.png.

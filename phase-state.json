@@ -54,13 +54,14 @@
     "Menu open/close icon and current page/location styling published and verified. Live Work menu shows Close\u00d7 and aria-current page burgundy state; closing restores Menu\u2630. Pages39177365279.",
     "Homepage scroll-following active navigation published and verified live: Work\u2192Research\u2192Experience\u2192Contact with unchanged URL; reverse/mobile/reduced-motion checks pass. Pages39178198307.",
     "Explicit smooth same-document navigation published and verified in both directions on phone/desktop, including repeated hashes and reduced-motion landing. Public intermediate scroll positions confirm animation. Pages39178546567.",
-    "Cross-page header section arrivals repaired and publicly verified: Work/Research/Experience land68px below mobile viewport top; Contact visible at page bottom.40 local cross-route checks pass. Pages39178997650."
+    "Cross-page header section arrivals repaired and publicly verified: Work/Research/Experience land68px below mobile viewport top; Contact visible at page bottom.40 local cross-route checks pass. Pages39178997650.",
+    "Work categories remain sticky beneath measured site header; all six links and five viewport checks pass. Live desktop top90.45px/mobile53px match header bottom with no overflow. Pages39179389858."
   ],
   "publicReleaseComplete": true,
-  "deployedCommit": "96b8612fa3cd6977e97bafd5ee1fc8d9af8ff96b",
+  "deployedCommit": "b3d86c095c10e1a0a02312034039c3491569cb7a",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
   "resumeRefreshPublication": "new-candidates-await-exact-file-approval",
-  "deploymentRun": "39178997650",
+  "deploymentRun": "39179389858",
   "designModelReview": {
     "status": "published-and-verified",
     "date": "2026-10-15",
