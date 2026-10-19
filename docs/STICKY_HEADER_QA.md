@@ -53,3 +53,11 @@ Header same-document anchor clicks now explicitly start native smooth scrolling,
 Desktop measured Contact progression 282→770→1601→2566→3138→3532→4164px, then upward Research progression3149→2713→2535→2438→2396→2374px. Phone Contact and Research also show multiple intermediate positions in the correct direction. Repeated Research target click closes the menu and retains #research. Reduced-motion Experience lands at68px below a53px header. No console errors. Lint/typecheck,16 rendered tests,7 export tests,Pages build,six-route export and whitespace checks pass. Release9f5c005 / Pages39178546567.
 
 Live verification recorded downward positions179→475→1102→2566→3106→3532→4110px and upward2920→2654→2521→2440→2410→2380→2374px. Screenshot: chat outputs/Sticky_Header/smooth-scroll.png.
+
+## Cross-route section arrival repair
+
+Header Work and Research now consistently target the homepage projects/research anchors, alongside Experience and Contact. The homepage mounts bounded initial-hash alignment to preserve the requested section through hydration and font/layout settlement. Alignment honors CSS scroll padding and target margin and stops on the first pointer, touch, wheel or key interaction; it does not override later smooth section clicks. Engineering remains the dedicated engineering page; the full work collection is accessible through the homepage work actions.
+
+40 actual cross-route browser clicks passed: four section links from each of five secondary pages, on desktop1440px and phone390px. Projects/research/experience land at112px desktop or68px phone, below the sticky bar; Contact is visible at the page bottom. All mobile menus close and no console errors occur. Updated the existing rendered-navigation assertion for #projects. Lint/typecheck,16 route tests,7 export tests,Pages build,six-route export and whitespace checks pass. Release96b8612 / Pages39178997650.
+
+Public settled arrivals confirmed Research67.97px from work, Experience68.09px from résumé, Projects67.77px from research, and Contact309.48px from engineering. Header53px. Screenshot: chat outputs/Sticky_Header/section-arrival-fixed.png.
