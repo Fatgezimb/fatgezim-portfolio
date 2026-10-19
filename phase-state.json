@@ -55,13 +55,14 @@
     "Homepage scroll-following active navigation published and verified live: Work\u2192Research\u2192Experience\u2192Contact with unchanged URL; reverse/mobile/reduced-motion checks pass. Pages39178198307.",
     "Explicit smooth same-document navigation published and verified in both directions on phone/desktop, including repeated hashes and reduced-motion landing. Public intermediate scroll positions confirm animation. Pages39178546567.",
     "Cross-page header section arrivals repaired and publicly verified: Work/Research/Experience land68px below mobile viewport top; Contact visible at page bottom.40 local cross-route checks pass. Pages39178997650.",
-    "Work categories remain sticky beneath measured site header; all six links and five viewport checks pass. Live desktop top90.45px/mobile53px match header bottom with no overflow. Pages39179389858."
+    "Work categories remain sticky beneath measured site header; all six links and five viewport checks pass. Live desktop top90.45px/mobile53px match header bottom with no overflow. Pages39179389858.",
+    "Direct contact delivery via FormSubmit published. Native live submission confirmed Activate Form email sent to recipient. Owner activation and inbox delivery verification remain pending; AJAX error preserves entered text until activation. Pages39179691305."
   ],
   "publicReleaseComplete": true,
-  "deployedCommit": "b3d86c095c10e1a0a02312034039c3491569cb7a",
+  "deployedCommit": "dd3a5cbc97b1f88107b4481f688984b26600952c",
   "deploymentUrl": "https://fatgezimb.github.io/fatgezim-portfolio/",
   "resumeRefreshPublication": "new-candidates-await-exact-file-approval",
-  "deploymentRun": "39179389858",
+  "deploymentRun": "39179691305",
   "designModelReview": {
     "status": "published-and-verified",
     "date": "2026-10-15",
@@ -72,5 +73,6 @@
     "styleReferenceImage": "/var/folders/zx/_2cz0vtd4798r84nc23h1z2m0000gn/T/codex-clipboard-3dce4e81-ba66-44bb-9e19-ef0d835406a0.png",
     "ownerDirection": "Build the selected founder site, horizontal selected work ordered by technical strength, research and NeuroPath Blog.",
     "nextMilestone": "Current editorial portfolio and five engineering/data showcase apps are published and publicly verified."
-  }
+  },
+  "contactDelivery": "awaiting-recipient-activation"
 }
