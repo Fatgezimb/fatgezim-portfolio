@@ -56,7 +56,8 @@
     "Explicit smooth same-document navigation published and verified in both directions on phone/desktop, including repeated hashes and reduced-motion landing. Public intermediate scroll positions confirm animation. Pages39178546567.",
     "Cross-page header section arrivals repaired and publicly verified: Work/Research/Experience land68px below mobile viewport top; Contact visible at page bottom.40 local cross-route checks pass. Pages39178997650.",
     "Work categories remain sticky beneath measured site header; all six links and five viewport checks pass. Live desktop top90.45px/mobile53px match header bottom with no overflow. Pages39179389858.",
-    "Direct contact delivery via FormSubmit published. Native live submission confirmed Activate Form email sent to recipient. Owner activation and inbox delivery verification remain pending; AJAX error preserves entered text until activation. Pages39179691305."
+    "Direct contact delivery via FormSubmit published. Native live submission confirmed Activate Form email sent to recipient. Owner activation and inbox delivery verification remain pending; AJAX error preserves entered text until activation. Pages39179691305.",
+    "Owner confirmed FormSubmit activation. Live post-activation AJAX test accepted; inline success shown and form reset. Recipient inbox receipt not independently confirmed."
   ],
   "publicReleaseComplete": true,
   "deployedCommit": "dd3a5cbc97b1f88107b4481f688984b26600952c",
@@ -74,5 +75,5 @@
     "ownerDirection": "Build the selected founder site, horizontal selected work ordered by technical strength, research and NeuroPath Blog.",
     "nextMilestone": "Current editorial portfolio and five engineering/data showcase apps are published and publicly verified."
   },
-  "contactDelivery": "awaiting-recipient-activation"
+  "contactDelivery": "activated-service-accepted-live-test"
 }
