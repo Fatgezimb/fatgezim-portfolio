@@ -24,10 +24,6 @@ export function InitialHashAlignment() {
     const main = document.querySelector("main");
     if (!target || !main) return;
 
-    const root = document.documentElement;
-    const previousScrollBehavior = root.style.scrollBehavior;
-    root.style.scrollBehavior = "auto";
-
     let cancelled = false;
     let frame = 0;
     let alignmentInterval = 0;
@@ -37,12 +33,12 @@ export function InitialHashAlignment() {
       window.cancelAnimationFrame(frame);
       frame = window.requestAnimationFrame(() => {
         if (cancelled) return;
-        const headerHeight =
-          document.querySelector<HTMLElement>(".site-header")?.offsetHeight ?? 0;
+        const padding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+        const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
         const targetTop = target.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
           behavior: "instant" as ScrollBehavior,
-          top: Math.max(0, targetTop - headerHeight - 10),
+          top: Math.max(0, targetTop - padding - margin),
         });
       });
     };
@@ -52,7 +48,7 @@ export function InitialHashAlignment() {
       window.cancelAnimationFrame(frame);
       window.clearInterval(alignmentInterval);
       observer?.disconnect();
-      root.style.scrollBehavior = previousScrollBehavior;
+
     };
 
     const observer =

@@ -104,7 +104,7 @@ export function EditorialNav({
         <span>Fatgezim Bela</span>
       </a>
       <nav className={styles.desktopNav} aria-label="Main navigation">
-        <a href={sitePath("/work/")} aria-current={work ? "page" : home && section === "projects" ? "location" : undefined}>
+        <a href={anchor("projects")} aria-current={work ? "page" : home && section === "projects" ? "location" : undefined}>
           Work
         </a>
         <a
@@ -113,7 +113,7 @@ export function EditorialNav({
         >
           Engineering
         </a>
-        <a href={home ? anchor("research") : sitePath("/research/")} aria-current={research ? "page" : home && section === "research" ? "location" : undefined}>Research</a>
+        <a href={anchor("research")} aria-current={research ? "page" : home && section === "research" ? "location" : undefined}>Research</a>
         <a href={anchor("experience")} aria-current={home && section === "experience" ? "location" : undefined}>Experience</a>
         <a href={anchor("contact")} aria-current={home && section === "contact" ? "location" : undefined}>Contact</a>
       </nav>
@@ -143,7 +143,7 @@ export function EditorialNav({
             menu.current.open = false;
           }
         }}>
-        <a href={sitePath("/work/")} aria-current={work ? "page" : home && section === "projects" ? "location" : undefined}>
+        <a href={anchor("projects")} aria-current={work ? "page" : home && section === "projects" ? "location" : undefined}>
           Work
         </a>
         <a
@@ -152,7 +152,7 @@ export function EditorialNav({
         >
           Engineering
         </a>
-        <a href={home ? anchor("research") : sitePath("/research/")} aria-current={research ? "page" : home && section === "research" ? "location" : undefined}>Research</a>
+        <a href={anchor("research")} aria-current={research ? "page" : home && section === "research" ? "location" : undefined}>Research</a>
         <a href={anchor("experience")} aria-current={home && section === "experience" ? "location" : undefined}>Experience</a>
         <a href={anchor("contact")} aria-current={home && section === "contact" ? "location" : undefined}>Contact</a>
       </nav>

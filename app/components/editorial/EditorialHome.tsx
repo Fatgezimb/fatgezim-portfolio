@@ -1,3 +1,4 @@
+import { InitialHashAlignment } from "../motion/InitialHashAlignment";
 /* Static Pages assets are pre-optimized and served without an image runtime. */
 /* eslint-disable @next/next/no-img-element */
 import { sitePath } from "@/app/content/paths";
@@ -53,6 +54,7 @@ export function EditorialHome() {
         Skip to main content
       </a>
       <EditorialNav home />
+      <InitialHashAlignment />
       <main id="main-content" tabIndex={-1}>
         <section className={styles.hero} aria-labelledby="intro-title">
           <div className={styles.portrait}>

@@ -128,8 +128,8 @@ test("homepage navigation resolves to work and portfolio sections", async () => 
     );
   }
 
-  assert.match(navigation, /href="\/work\/"/);
-  for (const target of ["research", "experience", "contact"]) {
+  assert.match(navigation, /href="#projects"/);
+  for (const target of ["projects", "research", "experience", "contact"]) {
     assert.ok(
       targets.includes(target),
       `navigation should include a link to #${target}`,
