@@ -13,6 +13,8 @@ const ProjectPreview = lazy(() => import("./ProjectPreview"));
 const isExternal = (href?: string) => !!href?.startsWith("https://");
 
 export function WorkGallery({ catalog = false }: { catalog?: boolean }) {
+  const categoryNav = useRef<HTMLElement>(null);
+  const catalogSection = useRef<HTMLElement>(null);
   const rail = useRef<HTMLOListElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement | null>(null);
@@ -20,6 +22,22 @@ export function WorkGallery({ catalog = false }: { catalog?: boolean }) {
   const [position, setPosition] = useState(0);
   const [atEnd, setAtEnd] = useState(false);
 
+  useEffect(() => {
+    if (!catalog) return;
+    const header = document.querySelector<HTMLElement>('nav[aria-label="Main navigation"]')?.parentElement;
+    const nav = categoryNav.current;
+    const section = catalogSection.current;
+    if (!header || !nav || !section) return;
+    const measure = () => {
+      section.style.setProperty("--work-header-height", `${header.getBoundingClientRect().height}px`);
+      section.style.setProperty("--work-nav-height", `${nav.getBoundingClientRect().height}px`);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(header);
+    observer.observe(nav);
+    return () => observer.disconnect();
+  }, [catalog]);
   useEffect(() => {
     if (!active) return;
     const el = dialog.current;
@@ -161,13 +179,14 @@ export function WorkGallery({ catalog = false }: { catalog?: boolean }) {
   return (
     <section
       className={`${styles.section} ${catalog ? styles.catalog : ""}`}
+      ref={catalogSection}
       id={catalog ? "all-projects" : "projects"}
       aria-label={catalog ? "All work" : undefined}
       aria-labelledby={catalog ? undefined : "selected-work-heading"}
     >
       {catalog ? (
         <>
-          <nav className={styles.indexNav} aria-label="Work categories">
+          <nav ref={categoryNav} className={styles.indexNav} aria-label="Work categories">
             {workGroups.map((group) => (
               <a key={group.id} href={`#${group.id}`}>
                 {group.title}{" "}

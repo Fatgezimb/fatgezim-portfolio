@@ -1114,3 +1114,23 @@
   .dialogHeader { gap: 12px; }
   .dialogFooter { padding: 8px; }
 }
+
+/* The collection index stays directly beneath the persistent site header. */
+.catalog { --work-header-height: 90px; --work-nav-height: 65px; }
+.indexNav {
+  position: sticky; top: var(--work-header-height); z-index: 20;
+  flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain;
+  gap: 24px; padding: 8px 0; background: #fbf8f3;
+  scrollbar-width: thin; box-shadow: 0 4px 8px rgb(23 27 34 / 4%);
+}
+.indexNav a { flex-shrink: 0; min-height: 44px; white-space: nowrap; }
+.workGroup { scroll-margin-top: calc(var(--work-nav-height) + 12px); }
+@media (min-width: 761px) and (max-width: 1100px) {
+  .catalog { --work-header-height: 78px; }
+}
+@media (max-width: 760px), (max-height: 500px) and (max-width: 900px) {
+  .catalog { --work-header-height: 53px; }
+  .indexNav { gap: 20px; }
+  .indexNav a { font-size: 12px; }
+}
+@media print { .indexNav { position: static; flex-wrap: wrap; overflow: visible; } }
