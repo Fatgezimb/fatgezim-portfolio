@@ -59,7 +59,7 @@ The gallery supports native touch scrolling, previous/next controls and arrow ke
 
 The selected portrait is `public/media/editorial/founder-portrait.webp` (96 KB). Research images are original poster figures with full co-author attribution. Media has intrinsic dimensions and meaningful alternatives. The homepage social image is an actual rendered page capture.
 
-The contact form uses an encoded `mailto:` handoff so visitors review and send messages in their email application. The destination address is not displayed as contact copy.
+The contact form posts to FormSubmit for delivery to the configured contact email, with an inline sending/result state, reply-to address and honeypot. The recipient must activate the form using FormSubmit’s inbox confirmation before delivery is enabled.
 
 ## Resume artifacts
 

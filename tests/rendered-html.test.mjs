@@ -320,12 +320,12 @@ test("renders a clean contact form and social links", async () => {
 
   assert.match(
     html,
-    /<form\b(?=[^>]*\baction=["']mailto:fatgezimbela1@gmail\.com["'])(?=[^>]*\bmethod=["']post["'])[^>]*>/i,
+    /<form\b(?=[^>]*\baction=["']https:\/\/formsubmit\.co\/fatgezimbela1@gmail\.com["'])(?=[^>]*\bmethod=["']post["'])[^>]*>/i,
   );
   assert.match(html, /Start a conversation/i);
-  assert.match(html, /Create email draft/i);
-  assert.match(html, /opens as a draft in your email app/i);
-  assert.match(html, /mailto:fatgezimbela1@gmail\.com/i);
+  assert.match(html, /Send message/i);
+  assert.match(html, /Send me a message directly/i);
+  assert.match(html, /https:\/\/formsubmit\.co\/fatgezimbela1@gmail\.com/i);
   assert.doesNotMatch(html, /Open email draft|Prefer email\?/i);
   assert.doesNotMatch(
     html,
@@ -347,7 +347,7 @@ test("renders a clean contact form and social links", async () => {
   );
   assert.doesNotMatch(html, /api\.web3forms\.com|web3forms|access_key/i);
   assert.doesNotMatch(html, /newsletter|subscribe for updates/i);
-  assert.doesNotMatch(html, /<form\b(?=[^>]*\baction=["']https?:\/\/)[^>]*>/i);
+  assert.match(html, /name="_honey"/);
 });
 
 test("keeps internal review language out of visitor-facing pages", async () => {
